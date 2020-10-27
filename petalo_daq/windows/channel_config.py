@@ -4,6 +4,7 @@ from petalo_daq.gui.utils        import read_parameters
 from petalo_daq.gui.widget_data  import channel_data
 from petalo_daq.gui.types        import channel_config_tuple
 from petalo_daq.io.config_params import channel_config_fields
+from petalo_daq.io.utils         import insert_bitarray_slice
 
 
 def connect_buttons(window):
@@ -55,16 +56,16 @@ def Config_update_ch(window):
     """
 
     def on_click():
-        channel_bitarray = bitarray()
+        channel_bitarray = bitarray(125)
 
         # ASIC channel parameters to be update
         channel_config = read_parameters(window, channel_data, channel_config_tuple)
         for field, positions in channel_config_fields.items():
             print(field)
-            channel_bitarray[positions] = getattr(channel_config, field)
+            value = getattr(channel_config, field)
+            insert_bitarray_slice(channel_bitarray, positions, value)
 
         #fill unused bits
-        channel_bitarray[16:18] = bitarray('00')
         channel_bitarray[110:111] = bitarray('1') # "n/u
 
         # all channels

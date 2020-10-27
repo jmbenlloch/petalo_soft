@@ -1,104 +1,129 @@
-def nrange(start, end):
-    r = [x for x in range(start, end) ]
-    r.reverse()
-    return r
+def reverse_range_inclusive(start, end):
+    """
+    Returns an inverse range (step -1) including BOTH extremes.
+    This breaks the python convention but makes it easier to copy the datasheet.
+
+    Parameters:
+    start (int): Start number
+    end (int): End number
+
+    Returns:
+    range function from start to end decreasing by 1 from start to end.
+    """
+    return range(start, end-1, -1)
+
+
+def range_inclusive(start, end):
+    """
+    Returns a range (step 1) including BOTH extremes.
+    This breaks the python convention but makes it easier to copy the datasheet.
+
+    Parameters:
+    start (int): Start number
+    end (int): End number
+
+    Returns:
+    range function from start to end increasing by 1 from start to end.
+    """
+    return range(start, end+1)
+
 
 # Dictionary with all the fields for some configuration word and the
 # corresponding bit ranges
 
 global_config_fields = {
-    # TODO: Check ordering
-    "tx_nlinks"         : slice(0, 2),
-    "tx_ddr"            : slice(2, 3),
-    "tx_mode"           : slice(3, 5),
-    "debug_mode"        : slice(5, 6),
-    "veto_mode"         : slice(6, 12),
-    "tdc_clk_div"       : slice(12, 13),
-    "r_clk_en"          : slice(13, 16),# bits 16..17 are ignored
-    "stop_ramp_en"      : slice(18, 20),
-    "counter_en"        : slice(20, 21),
-    "counter_period"    : slice(21, 24),
-    "tac_refresh_en"    : slice(24, 25),
-    "tac_refresh_period": slice(25, 29),
-    "data_clk_div"      : slice(29, 31),
-    #  "unused_1"          : slice(31, 32),
-    "fetp_enable"       : slice(32, 33),
-    "input_polarity"    : slice(33, 34),
-    "attenuator_ls"     : slice(34, 40),
-    "v_ref_diff_bias_ig": slice(40, 46),
-    "v_cal_ref_ig"      : slice(46, 51),
-    "fe_postamp_t"      : slice(51, 56),
-    "fe_postamp_e"      : slice(56, 61),
-    "v_cal_tp_top"      : slice(61, 66),
-    "v_cal_diff_bias_ig": slice(66, 71),
-    "v_att_diff_bias_ig": slice(71, 77),
-    "v_integ_ref_ig"    : slice(77, 83),
-    "imirror_bias_top"  : slice(83, 88),
-    "tdc_comp_bias"     : slice(88, 93),
-    "tdc_i_lsb"         : slice(93, 98),
-    "disc_lsb_t1"       : slice(98, 104),
-    "fe_ib2"            : slice(104, 109), # cgate selection is "msb" for ib2
-    "vdifffoldcas"      : slice(109, 115),
-    "disc_vcas"         : slice(115, 119),
-    "disc_lsb_e"        : slice(119, 125),
-    "tdc_i_ref"         : slice(125, 130),
-    "tdc_comp_vcas"     : slice(130, 134),
-    "fe_ib2_x2"          : slice(134, 135),
-    "main_global_dac"   : slice(135, 140),
-    "fe_ib1"            : slice(140, 146),
-    "disc_ib"           : slice(146, 152),
-    "disc_lsb_t2"       : slice(152, 158),
-    "tdc_tac_vcas_p"    : slice(158, 163),
-    "tdc_tac_vcas_n"    : slice(163, 167),
-    "adebug_out_mode"   : slice(167, 169),
-    "tdc_global_dac"    : slice(169, 175),
-    "adebug_buffer"     : slice(175, 176),
+    "tx_nlinks"         : reverse_range_inclusive(1, 0),
+    "tx_ddr"            : reverse_range_inclusive(2, 2),
+    "tx_mode"           : reverse_range_inclusive(4, 3),
+    "debug_mode"        : reverse_range_inclusive(5, 5),
+    "veto_mode"         : reverse_range_inclusive(11, 6),
+    "tdc_clk_div"       : reverse_range_inclusive(12, 12),
+    "r_clk_en"          : reverse_range_inclusive(15, 13),
+    # 17, 16 are unused
+    "stop_ramp_en"      : reverse_range_inclusive(19, 18),
+    "counter_en"        : reverse_range_inclusive(20, 20),
+    "counter_period"    : reverse_range_inclusive(23, 21),
+    "tac_refresh_en"    : reverse_range_inclusive(24, 24),
+    "tac_refresh_period": reverse_range_inclusive(28, 25),
+    "data_clk_div"      : reverse_range_inclusive(30, 29),
+    # 31 unused
+    "fetp_enable"       : reverse_range_inclusive(32, 32),
+    "input_polarity"    : reverse_range_inclusive(33, 33),
+    "attenuator_ls"     : range_inclusive(34, 39),
+    "v_ref_diff_bias_ig": range_inclusive(40, 45),
+    "v_cal_ref_ig"      : range_inclusive(46, 50),
+    "fe_postamp_t"      : range_inclusive(51, 55),
+    "fe_postamp_e"      : range_inclusive(56, 60),
+    "v_cal_tp_top"      : range_inclusive(61, 65),
+    "v_cal_diff_bias_ig": range_inclusive(66, 70),
+    "v_att_diff_bias_ig": range_inclusive(71, 76),
+    "v_integ_ref_ig"    : range_inclusive(77, 82),
+    "imirror_bias_top"  : range_inclusive(83, 87),
+    "tdc_comp_bias"     : range_inclusive(88, 92),
+    "tdc_i_lsb"         : range_inclusive(93, 97),
+    "disc_lsb_t1"       : range_inclusive(98, 103),
+    "fe_ib2"            : [176, 104, 105, 106, 107, 108],
+    "vdifffoldcas"      : range_inclusive(109, 114),
+    "disc_vcas"         : range_inclusive(115, 118),
+    "disc_lsb_e"        : range_inclusive(119, 124),
+    "tdc_i_ref"         : range_inclusive(125, 129),
+    "tdc_comp_vcas"     : range_inclusive(130, 133),
+    "fe_ib2_x2"         : range_inclusive(134, 134),
+    "main_global_dac"   : range_inclusive(135, 139),
+    "fe_ib1"            : range_inclusive(140, 145),
+    "disc_ib"           : range_inclusive(146, 151),
+    "disc_lsb_t2"       : range_inclusive(152, 157),
+    "tdc_tac_vcas_p"    : range_inclusive(158, 162),
+    "tdc_tac_vcas_n"    : range_inclusive(163, 166),
+    "adebug_out_mode"   : range_inclusive(167, 168),
+    "tdc_global_dac"    : range_inclusive(169, 174),
+    "adebug_buffer"     : range_inclusive(175, 175),
     # 2 bits unused
-    "disc_sf_bias"      : slice(178, 184)
+    "disc_sf_bias"      : range_inclusive(178, 183)
 }
 
 
 channel_config_fields = {
-    "trigger_mode_1"    : slice(0, 2),
-    "debug_mode"        : slice(2, 4),
-    "sync_chain_length" : slice(4, 6),
-    "dead_time"         : slice(6, 12),
-    "counter_mode"      : slice(12, 16),
-    "tac_max_age"       : slice(16, 21),
-    "tac_min_age"       : slice(21, 26),
-    "trigger_mode_2_t"  : slice(26, 28),
-    "trigger_mode_2_e"  : slice(28, 31),
-    "trigger_mode_2_q"  : slice(31, 33),
-    "trigger_mode_2_b"  : slice(33, 36),
-    "branch_en_eq"      : slice(36, 37),
-    "branch_en_t"       : slice(37, 38),
-    "qdc_mode"          : slice(38, 39),
-    "trigger_b_latched" : slice(39, 40),
-    "min_intg_time"     : slice(40, 47),
-    "max_intg_time"     : slice(47, 54),
-    "output_en"         : slice(54, 56),
-    "qtx2_en"           : slice(56, 57),
-    "baseline_t"        : slice(57, 63),
-    "vth_t1"            : slice(63, 69),
-    "vth_t2"            : slice(69, 75),
-    "vth_e"             : slice(75, 81),
-    "baseline_e"        : slice(81, 84),
-    "fe_delay"          : slice(84, 89), #TODO: review order
-    "postamp_gain_t"    : slice(89, 91),
-    "postamp_gain_e"    : slice(91, 93),
-    "postamp_sh_e"      : slice(93, 95),
-    "intg_en"           : slice(95, 96),
-    "intg_signal_en"    : slice(96, 97),
-    "att"               : slice(97, 100),
-    "tdc_current_t"     : slice(100, 104),
-    "tdc_current_e"     : slice(104, 108),
-    "fe_tp_en"          : slice(108, 110),
-    #"ch63_obuf_msb"     : slice(110, 111),
-    "integ_source_sw"   : slice(111,113),
-    "t1_hysteresis"     : slice(115, 118),
-    "t2_hysteresis"     : slice(118, 121),
-    "e_hysteresis"      : slice(121, 124),
-    "hysteresis_en_n"   : slice(124, 125)
+    "trigger_mode_1"    : reverse_range_inclusive(1, 0),
+    "debug_mode"        : reverse_range_inclusive(3, 2),
+    "sync_chain_length" : reverse_range_inclusive(5, 4),
+    "dead_time"         : reverse_range_inclusive(11, 6),
+    "counter_mode"      : reverse_range_inclusive(15, 12),
+    "tac_max_age"       : reverse_range_inclusive(20, 16),
+    "tac_min_age"       : reverse_range_inclusive(25, 21),
+    "trigger_mode_2_t"  : reverse_range_inclusive(27, 26),
+    "trigger_mode_2_e"  : reverse_range_inclusive(30, 28),
+    "trigger_mode_2_q"  : reverse_range_inclusive(32, 31),
+    "trigger_mode_2_b"  : reverse_range_inclusive(35, 33),
+    "branch_en_eq"      : reverse_range_inclusive(36, 36),
+    "branch_en_t"       : reverse_range_inclusive(37, 37),
+    "qdc_mode"          : reverse_range_inclusive(38, 38),
+    "trigger_b_latched" : reverse_range_inclusive(39, 39),
+    "min_intg_time"     : reverse_range_inclusive(46, 40),
+    "max_intg_time"     : reverse_range_inclusive(53, 47),
+    "output_en"         : reverse_range_inclusive(55, 54),
+    "qtx2_en"           : reverse_range_inclusive(56, 56),
+    "baseline_t"        : reverse_range_inclusive(62, 57),
+    "vth_t1"            : reverse_range_inclusive(68, 63),
+    "vth_t2"            : reverse_range_inclusive(74, 69),
+    "vth_e"             : reverse_range_inclusive(80, 75),
+    "baseline_e"        : reverse_range_inclusive(83, 81),
+    "fe_delay"          : [84, 88, 87, 85, 86],
+    "postamp_gain_t"    : range_inclusive(89, 90),
+    "postamp_gain_e"    : range_inclusive(91, 92),
+    "postamp_sh_e"      : reverse_range_inclusive(94, 93),
+    "intg_en"           : reverse_range_inclusive(95, 95),
+    "intg_signal_en"    : reverse_range_inclusive(96, 96),
+    "att"               : reverse_range_inclusive(99, 97),
+    "tdc_current_t"     : reverse_range_inclusive(103, 100),
+    "tdc_current_e"     : reverse_range_inclusive(107, 104),
+    "fe_tp_en"          : reverse_range_inclusive(109, 108),
+    #"ch63_obuf_msb"     : reverse_range_inclusive(110, 111),
+    "integ_source_sw"   : reverse_range_inclusive(112, 111),
+    "t1_hysteresis"     : reverse_range_inclusive(117, 115),
+    "t2_hysteresis"     : reverse_range_inclusive(120, 118),
+    "e_hysteresis"      : reverse_range_inclusive(123, 121),
+    "hysteresis_en_n"   : reverse_range_inclusive(124, 124)
 
 }
 

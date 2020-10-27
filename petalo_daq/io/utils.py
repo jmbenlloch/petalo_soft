@@ -1,5 +1,6 @@
 import json
-from PyQt5 import QtWidgets
+from PyQt5    import QtWidgets
+from bitarray import bitarray
 
 
 def find_gui_value_from_bitarray(expected_value, values_dict):
@@ -56,7 +57,7 @@ def load_bitarray_config(window, config, config_fields, config_data):
     """
     for field, bit_slice in config_fields.items():
         print(field, bit_slice)
-        value = config[bit_slice]
+        value = read_bitarray_slice(config, bit_slice)
         print(field, value)
 
         gui_field = f'comboBox_{field}'
@@ -76,3 +77,33 @@ def load_bitarray_config(window, config, config_fields, config_data):
         if isinstance(widget, QtWidgets.QCheckBox):
             widget.setChecked(index)
 
+
+def insert_bitarray_slice(config, indices, bits):
+    """
+    Inserts bits in bitarray config in the positions specified in indices
+    Expected behaviour:
+
+    config = bitarray('0000000')
+    insert_bitarray_slice(config, range(1, 4), bitarray('111'))
+
+    config -> bitarray('0111000')
+    """
+    for index, bit in zip(indices, bits):
+        config[index] = bit
+        print(index, bit)
+
+
+def read_bitarray_slice(bits, indices):
+    """
+    Reads bits fromt bitarray in the positions specified in indices
+    Expected behaviour:
+
+    config = bitarray('1110000')
+    read_bitarray_slice(config, [3,0,4,1])
+     -> bitarray('0101')
+    """
+    bits_slice = bitarray()
+    for index in indices:
+        bits_slice.append(bits[index])
+        print(index, bits[index])
+    return bits_slice

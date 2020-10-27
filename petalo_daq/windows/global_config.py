@@ -4,6 +4,7 @@ from petalo_daq.gui.utils        import read_parameters
 from petalo_daq.gui.widget_data  import global_data
 from petalo_daq.gui.types        import global_config_tuple
 from petalo_daq.io.config_params import global_config_fields
+from petalo_daq.io.utils         import insert_bitarray_slice
 
 
 def connect_buttons(window):
@@ -32,19 +33,20 @@ def Config_update_glob(window):
     """
 
     def on_click():
-        global_bitarray = bitarray()
+        global_bitarray = bitarray(184)
 
         # ASIC parameters to be update
         global_config = read_parameters(window, global_data, global_config_tuple)
 
         for field, positions in global_config_fields.items():
             print(field)
-            global_bitarray[positions] = getattr(global_config, field)
+            value = getattr(global_config, field)
+            insert_bitarray_slice(global_bitarray, positions, value)
 
         #fill unused bits
         global_bitarray[ 16: 18] = bitarray('00')
         global_bitarray[ 31: 32] = bitarray('0')
-        global_bitarray[176:178] = bitarray('00')
+        global_bitarray[177:178] = bitarray('0')
 
         window.data_store.insert('global_config', global_bitarray)
 

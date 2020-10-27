@@ -353,9 +353,9 @@ global_data = {
 
     'comboBox_fe_ib2' : {
         'default' : 0,
-        'values' : { #TODO discontinuous slice, default 1100000
-            0 : {'value': bitarray('11000'),
-                 'text' : '0b11000'},
+        'values' : {
+            0 : {'value': bitarray('110000'),
+                 'text' : '0b110000'},
         },
     },
 

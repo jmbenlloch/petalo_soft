@@ -94,10 +94,10 @@ def read_parameters(window, fields_data, params_tuple):
         print(field, fieldname)
 
         widget = getattr(window, field)
-        try: # This is valid for comboBox
+        if isinstance(widget, QtWidgets.QComboBox):
             print(widget.currentData())
             params[fieldname] = widget.currentData()
-        except AttributeError: # checkBox will throw an exception
+        if isinstance(widget, QtWidgets.QCheckBox):
             status = widget.isChecked()
             print(field, status)
             params[fieldname] = fields_data[field]['values'][status]['value']

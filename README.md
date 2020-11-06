@@ -8,6 +8,10 @@ Then it can be executed:
 
 `python PETALO_v7.py`
 
+# Example sending commands via network to a DAQ server
+
+![](docs/network.gif)
+
 # Structure of the repository
 
 `PETALO_v7.py` → Main file to run the program.

@@ -9,7 +9,7 @@ from petalo_daq.io.utils         import insert_bitarray_slice
 
 from petalo_daq.daq.client_commands import build_hw_register_write_command
 from petalo_daq.daq.commands        import register_tuple
-
+from petalo_daq.daq.commands        import sleep_cmd
 
 
 def connect_buttons(window):
@@ -65,7 +65,14 @@ def config_temperature(window):
         value = int(temperature_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
         print(value)
 
+        command = build_hw_register_write_command(daq_id, register.group, register.id, value)
+        print(command)
+        # Send command
+        window.tx_queue.put(command)
+        window.tx_queue.put(sleep_cmd(700)) # 5s delay
+
         window.update_log_info("Temperature config",
                                "Temperature configuration sent")
+
 
     return on_click

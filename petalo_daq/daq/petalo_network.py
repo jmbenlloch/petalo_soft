@@ -4,12 +4,14 @@ import socket as sk
 from bitarray import bitarray
 from threading import Thread, Event
 from collections import OrderedDict
+from time        import sleep
 import struct
 from queue import Queue, Empty
 
 from petalo_daq.daq.commands import code_to_command
 from petalo_daq.daq.commands import code_to_status
 from petalo_daq.daq.commands import commands     as cmd
+from petalo_daq.daq.commands import sleep_cmd
 from petalo_daq.daq.commands import status_codes as status
 from petalo_daq.daq.command_utils import parse_first_parameter_in_response
 
@@ -210,12 +212,16 @@ class SCK_TXRX(Thread):
             else:
                 try:
                     print(self.item)
-                    self.s.send(self.item)
-                    self.queue.task_done()
-                    # Get DAQ response
-                    data_rx = self.s.recv(self.buffer)
-                    data = self.M(bytearray(data_rx))
-                    self.out_queue.put(data)
+                    if isinstance(self.item, sleep_cmd):
+                        sleep(self.item.time / 1000.)
+                        self.queue.task_done()
+                    else:
+                        self.s.send(self.item)
+                        self.queue.task_done()
+                        # Get DAQ response
+                        data_rx = self.s.recv(self.buffer)
+                        data = self.M(bytearray(data_rx))
+                        self.out_queue.put(data)
                 except:
                     print ('\n<< Communication Error - Timeout \n>> ')
         print ("TXRX SOCKET IS DEAD")

@@ -26,6 +26,7 @@ from petalo_daq.io.configuration import load_configuration_file
 
 
 from petalo_daq.daq.petalo_network import SCK_TXRX
+from petalo_daq.daq.responses      import read_network_responses
 from queue     import Queue, Empty
 from threading import Thread, Event
 
@@ -51,9 +52,6 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         # Data store
         self.data_store = DataStore()
 
-        # Disable everything before authentication
-        window_main.validate_pass(self)
-
         # Load default config file
         default_config = os.environ['PETALO_DAQ_DIR'] + '/petalo_daq/config/default.json'
         load_configuration_file(self, default_config)
@@ -67,6 +65,8 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
 
         window_register.connect_buttons(self)
 
+        # Disable everything before authentication
+        window_main.validate_pass(self)
 
         # Socket
         cfg_data = {'port'           :9116,
@@ -110,17 +110,6 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         self.textBrowser.append(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
         self.textBrowser.append(message + '\n')
         self.Log.setText(status)
-
-
-def read_network_responses(window):
-    while not window.stopper.is_set():
-        message = window.rx_queue.get()
-        if message:
-            response_str = 'Response:\n'
-            for key, value in message.items():
-                response_str += f'\t{key}: {value}\n'
-            window.plainTextEdit_cmdResponse.insertPlainText(f'{response_str}\n')
-
 
 
 if __name__ == "__main__":

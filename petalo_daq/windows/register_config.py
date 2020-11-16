@@ -8,6 +8,7 @@ from petalo_daq.io.config_params import temperature_config_fields
 from petalo_daq.io.utils         import insert_bitarray_slice
 
 from petalo_daq.daq.client_commands import build_hw_register_write_command
+from petalo_daq.daq.client_commands import build_sw_register_read_command
 from petalo_daq.daq.commands        import register_tuple
 from petalo_daq.daq.commands        import sleep_cmd
 
@@ -21,6 +22,7 @@ def connect_buttons(window):
     window (PetaloRunConfigurationGUI): Main application
     """
     window.pushButton_Temp_hw_reg.clicked.connect(config_temperature(window))
+    window.checkBox_Temp_allch   .clicked.connect(set_channels      (window))
 
 
 def config_temperature(window):
@@ -56,7 +58,17 @@ def config_temperature(window):
             print(field, positions, value)
             insert_bitarray_slice(temperature_bitarray, positions, value)
 
-        window.data_store.insert('temperature_config', temperature_bitarray)
+        try:
+            temperatures_config = window.data_store.retrieve('temperatures_config')
+        except KeyError:
+            temperatures_config = {}
+
+        channel = window.comboBox_Temp_CH_Sel.currentIndex()
+        print("channel: ", channel)
+        temperatures_config[channel] = {}
+        temperatures_config[channel]['value'] = temperature_bitarray
+
+        window.data_store.insert('temperature_config', temperatures_config)
 
         #Build command
         daq_id = 0x0000
@@ -74,5 +86,28 @@ def config_temperature(window):
         window.update_log_info("Temperature config",
                                "Temperature configuration sent")
 
+        # Read temperature values
+        command = build_sw_register_read_command(daq_id, register_group=2, register_id=channel)
+        window.tx_queue.put(command)
+
+    return on_click
+
+
+def set_channels(window):
+    """
+    Function to set the same configuration for all channels
+
+    Parameters
+    window (PetaloRunConfigurationGUI): Main application
+
+    Returns
+    function: To be triggered on click
+    """
+
+    def on_click():
+        if (window.checkBox_Temp_allch.isChecked() == True):
+            window.comboBox_Temp_CH_Sel.setEnabled (False)
+        else:
+            window.comboBox_Temp_CH_Sel.setEnabled (True)
 
     return on_click

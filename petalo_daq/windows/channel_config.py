@@ -21,7 +21,7 @@ def connect_buttons(window):
 
 def set_channels(window):
     """
-    Function toset the same configuration for all channels
+    Function to set the same configuration for all channels
 
     Parameters
     window (PetaloRunConfigurationGUI): Main application

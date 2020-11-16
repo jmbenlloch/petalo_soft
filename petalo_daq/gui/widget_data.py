@@ -892,6 +892,13 @@ temperature_data = {
     'spinBox_Temp_Time' : {
         'default' : 41943000,
     },
+    #  'checkBox_Temp_allch' : {
+    #      'default' : False,
+    #      'values' : {
+    #          False : {'value' : False },
+    #          True  : {'value' : True },
+    #      },
+    #  },
     'comboBox_Temp_CH_Sel' : {
         'default' : 0,
         'values' : {
@@ -913,20 +920,6 @@ temperature_data = {
                  'text' : 'CH 7'},
             8 : {'value': bitarray('1000'),
                  'text' : 'CH 8'},
-            9 : {'value': bitarray('1001'),
-                 'text' : 'CH 9'},
-            10 : {'value': bitarray('1010'),
-                 'text' : 'CH 10'},
-            11 : {'value': bitarray('1011'),
-                 'text' : 'CH 11'},
-            12 : {'value': bitarray('1100'),
-                 'text' : 'CH 12'},
-            13 : {'value': bitarray('1101'),
-                 'text' : 'CH 13'},
-            14 : {'value': bitarray('1110'),
-                 'text' : 'CH 14'},
-            15 : {'value': bitarray('1111'),
-                 'text' : 'CH 15'},
         },
     },
 }

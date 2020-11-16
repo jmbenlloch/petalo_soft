@@ -67,21 +67,21 @@ sw_registers = {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x00000000,
+            'value' : 0x12345678,
            },
         1: {
             'permissions' : {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x00000000,
+            'value' : 0xC0123456,
            },
         2: {
             'permissions' : {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x00000000,
+            'value' : 0x30000000,
            },
         3: {
             'permissions' : {
@@ -123,56 +123,7 @@ sw_registers = {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x00000000,
-           },
-        9: {
-            'permissions' : {
-                'read'  : True,
-                'write' : False,
-            },
-            'value' : 0x00000000,
-           },
-        10: {
-            'permissions' : {
-                'read'  : True,
-                'write' : False,
-            },
-            'value' : 0x00000000,
-           },
-        11: {
-            'permissions' : {
-                'read'  : True,
-                'write' : False,
-            },
-            'value' : 0x00000000,
-           },
-        12: {
-            'permissions' : {
-                'read'  : True,
-                'write' : False,
-            },
-            'value' : 0x00000000,
-           },
-        13: {
-            'permissions' : {
-                'read'  : True,
-                'write' : False,
-            },
-            'value' : 0x00000000,
-           },
-        14: {
-            'permissions' : {
-                'read'  : True,
-                'write' : False,
-            },
-            'value' : 0x00000000,
-           },
-        15: {
-            'permissions' : {
-                'read'  : True,
-                'write' : False,
-            },
-            'value' : 0x00000000,
+            'value' : 0x00467528, # ~30 degrees celsius
            },
        },
 }

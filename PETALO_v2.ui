@@ -2293,235 +2293,12 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
       <attribute name="title">
        <string>SW Registers</string>
       </attribute>
-      <widget class="QLabel" name="label_272">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>60</y>
-         <width>91</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>17</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Group Add</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_273">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>260</y>
-         <width>71</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>17</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Reg Add</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QFrame" name="frame_142">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>100</y>
-         <width>71</width>
-         <height>161</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QCheckBox" name="checkBox_group_add_20">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>51</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>    0</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_group_add_21">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>40</y>
-          <width>51</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>    1</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_group_add_22">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>70</y>
-          <width>51</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>    2</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_group_add_23">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>100</y>
-          <width>51</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>    3</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_group_add_24">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>130</y>
-          <width>51</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>    4</string>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QFrame" name="frame_143">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>300</y>
-         <width>71</width>
-         <height>161</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QCheckBox" name="checkBox_reg_add__4">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>51</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>    0</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_reg_add_17">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>40</y>
-          <width>51</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>    1</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_reg_add_18">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>70</y>
-          <width>51</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>    2</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_reg_add_19">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>100</y>
-          <width>51</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>    3</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_reg_add_20">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>130</y>
-          <width>51</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>    4</string>
-        </property>
-       </widget>
-      </widget>
       <widget class="QLabel" name="label_274">
        <property name="geometry">
         <rect>
-         <x>510</x>
+         <x>460</x>
          <y>30</y>
-         <width>241</width>
+         <width>291</width>
          <height>41</height>
         </rect>
        </property>
@@ -2540,10 +2317,10 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
       <widget class="QFrame" name="frame_4">
        <property name="geometry">
         <rect>
-         <x>660</x>
+         <x>600</x>
          <y>110</y>
-         <width>201</width>
-         <height>361</height>
+         <width>261</width>
+         <height>421</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -2552,134 +2329,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLCDNumber" name="lcdNumber_Temp_raw">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>107</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </widget>
-       <widget class="QLCDNumber" name="lcdNumber_Temp_raw_1">
-        <property name="geometry">
-         <rect>
-          <x>119</x>
-          <y>70</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </widget>
-       <widget class="QLCDNumber" name="lcdNumber_Temp_raw_2">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>143</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </widget>
-       <widget class="QLCDNumber" name="lcdNumber_Temp_raw_3">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>179</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </widget>
-       <widget class="QLCDNumber" name="lcdNumber_Temp_raw_4">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>216</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </widget>
-       <widget class="QLCDNumber" name="lcdNumber_Temp_raw_5">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>252</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </widget>
-       <widget class="QLCDNumber" name="lcdNumber_Temp_raw_6">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>288</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </widget>
-       <widget class="QLCDNumber" name="lcdNumber_Temp_raw_7">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>324</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_74">
         <property name="geometry">
          <rect>
@@ -2696,27 +2345,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
         </property>
         <property name="text">
          <string>TEMPERATURE DATA</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_75">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>40</y>
-          <width>81</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>18</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>(RAW)</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -2854,15 +2482,15 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        <widget class="QWidget" name="layoutWidget_5">
         <property name="geometry">
          <rect>
-          <x>40</x>
+          <x>60</x>
           <y>70</y>
-          <width>71</width>
+          <width>91</width>
           <height>281</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_16">
          <item>
-          <widget class="QLCDNumber" name="lcdNumber_Temp">
+          <widget class="QLCDNumber" name="lcdNumber_Temp_0">
            <property name="font">
             <font>
              <weight>75</weight>
@@ -2943,25 +2571,40 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          </item>
         </layout>
        </widget>
-      </widget>
-      <widget class="QPushButton" name="pushButton_Temp_hw_reg_5">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>160</y>
-         <width>151</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>BOARD ID</string>
-       </property>
+       <widget class="QLabel" name="label_86">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>350</y>
+          <width>49</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Int.</string>
+        </property>
+       </widget>
+       <widget class="QLCDNumber" name="lcdNumber_Temp_8">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>350</y>
+          <width>91</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </widget>
       </widget>
      </widget>
      <widget class="QWidget" name="HWregisters">
@@ -3007,9 +2650,9 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        <widget class="QFrame" name="frame_14">
         <property name="geometry">
          <rect>
-          <x>60</x>
+          <x>20</x>
           <y>30</y>
-          <width>191</width>
+          <width>201</width>
           <height>381</height>
          </rect>
         </property>
@@ -3199,7 +2842,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <rect>
            <x>10</x>
            <y>260</y>
-           <width>131</width>
+           <width>181</width>
            <height>51</height>
           </rect>
          </property>
@@ -3232,45 +2875,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
-         <widget class="QFrame" name="frame_12">
-          <property name="geometry">
-           <rect>
-            <x>170</x>
-            <y>40</y>
-            <width>181</width>
-            <height>41</height>
-           </rect>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <widget class="QLabel" name="label_100">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>71</width>
-             <height>41</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>15</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>CH SEL</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </widget>
          <widget class="QComboBox" name="comboBox_Temp_CH_Sel">
           <property name="geometry">
            <rect>
@@ -3279,6 +2883,19 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
             <width>91</width>
             <height>31</height>
            </rect>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="checkBox_Temp_allch">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>20</y>
+            <width>71</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>All ch.</string>
           </property>
          </widget>
         </widget>

@@ -605,4 +605,14 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
+    'checkBox_Temp_allch' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    #  'comboBox_Temp_CH_Sel' : {
+    #      'admin'   : True,
+    #      'shifter' : True,
+    #      'none'    : False,
+    #  },
 }

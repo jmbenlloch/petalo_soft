@@ -101,6 +101,8 @@ def read_parameters(window, fields_data, params_tuple):
             status = widget.isChecked()
             print(field, status)
             params[fieldname] = fields_data[field]['values'][status]['value']
+        if isinstance(widget, QtWidgets.QSpinBox):
+            params[fieldname] = widget.value()
     print(params)
 
     #global_config = types.global_config_tuple(**params)

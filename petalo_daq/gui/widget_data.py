@@ -830,3 +830,103 @@ channel_data = {
         },
     },
 }
+
+
+temperature_data = {
+    'checkBox_Temp_RST' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_Temp_Start' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_Temp_RD_Control_EN2' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_Temp_RD_Control_FA' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_Temp_RD_Control_SPD' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_Temp_RD_Control_IM' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_Temp_RD_Control_FB' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_Temp_RD_Control_SGL' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'spinBox_Temp_Time' : {
+        'default' : 41943000,
+    },
+    'comboBox_Temp_CH_Sel' : {
+        'default' : 0,
+        'values' : {
+            0 : {'value': bitarray('0000'),
+                 'text' : 'CH 0'},
+            1 : {'value': bitarray('0001'),
+                 'text' : 'CH 1'},
+            2 : {'value': bitarray('0010'),
+                 'text' : 'CH 2'},
+            3 : {'value': bitarray('0011'),
+                 'text' : 'CH 3'},
+            4 : {'value': bitarray('0100'),
+                 'text' : 'CH 4'},
+            5 : {'value': bitarray('0101'),
+                 'text' : 'CH 5'},
+            6 : {'value': bitarray('0110'),
+                 'text' : 'CH 6'},
+            7 : {'value': bitarray('0111'),
+                 'text' : 'CH 7'},
+            8 : {'value': bitarray('1000'),
+                 'text' : 'CH 8'},
+            9 : {'value': bitarray('1001'),
+                 'text' : 'CH 9'},
+            10 : {'value': bitarray('1010'),
+                 'text' : 'CH 10'},
+            11 : {'value': bitarray('1011'),
+                 'text' : 'CH 11'},
+            12 : {'value': bitarray('1100'),
+                 'text' : 'CH 12'},
+            13 : {'value': bitarray('1101'),
+                 'text' : 'CH 13'},
+            14 : {'value': bitarray('1110'),
+                 'text' : 'CH 14'},
+            15 : {'value': bitarray('1111'),
+                 'text' : 'CH 15'},
+        },
+    },
+}

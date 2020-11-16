@@ -1370,7 +1370,7 @@
          <x>10</x>
          <y>80</y>
          <width>201</width>
-         <height>681</height>
+         <height>1406</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -1688,7 +1688,7 @@
          <x>420</x>
          <y>70</y>
          <width>141</width>
-         <height>681</height>
+         <height>1151</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1967,7 +1967,7 @@
          <x>750</x>
          <y>70</y>
          <width>151</width>
-         <height>401</height>
+         <height>657</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -2748,8 +2748,8 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <rect>
           <x>0</x>
           <y>70</y>
-          <width>41</width>
-          <height>281</height>
+          <width>51</width>
+          <height>284</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_17">
@@ -3004,235 +3004,12 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="label_86">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>10</y>
-          <width>91</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>17</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Group Add</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_87">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>210</y>
-          <width>71</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>17</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Reg Add</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QFrame" name="frame_5">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>50</y>
-          <width>71</width>
-          <height>161</height>
-         </rect>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <widget class="QCheckBox" name="checkBox_group_add_0">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>51</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>    0</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="checkBox_group_add_1">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>40</y>
-           <width>51</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>    1</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="checkBox_group_add_2">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>70</y>
-           <width>51</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>    2</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="checkBox_group_add_3">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>100</y>
-           <width>51</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>    3</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="checkBox_group_add_4">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>130</y>
-           <width>51</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>    4</string>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QFrame" name="frame_6">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>250</y>
-          <width>71</width>
-          <height>161</height>
-         </rect>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <widget class="QCheckBox" name="checkBox_reg_add__0">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>51</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>    0</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="checkBox_reg_add_1">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>40</y>
-           <width>51</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>    1</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="checkBox_reg_add_2">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>70</y>
-           <width>51</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>    2</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="checkBox_reg_add_3">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>100</y>
-           <width>51</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>    3</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="checkBox_reg_add_4">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>130</y>
-           <width>51</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>    4</string>
-         </property>
-        </widget>
-       </widget>
        <widget class="QFrame" name="frame_14">
         <property name="geometry">
          <rect>
-          <x>100</x>
+          <x>60</x>
           <y>30</y>
-          <width>151</width>
+          <width>191</width>
           <height>381</height>
          </rect>
         </property>
@@ -3327,7 +3104,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QCheckBox" name="checkBox_RD_Control_EN2_4">
+          <widget class="QCheckBox" name="checkBox_Temp_RD_Control_EN2_4">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -3503,86 +3280,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
             <height>31</height>
            </rect>
           </property>
-          <item>
-           <property name="text">
-            <string>CH 0</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 1</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 2</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 3</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 4</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 5</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 6</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 7</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 8</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 9</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 10</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 11</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 12</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 13</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 14</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>CH 15</string>
-           </property>
-          </item>
          </widget>
         </widget>
         <widget class="QFrame" name="frame_10">
@@ -3623,7 +3320,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
-         <widget class="QCheckBox" name="checkBox_RD_Control_FA">
+         <widget class="QCheckBox" name="checkBox_Temp_RD_Control_FA">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -3636,7 +3333,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <string>FA</string>
           </property>
          </widget>
-         <widget class="QCheckBox" name="checkBox_RD_Control_FB">
+         <widget class="QCheckBox" name="checkBox_Temp_RD_Control_FB">
           <property name="geometry">
            <rect>
             <x>70</x>
@@ -3649,7 +3346,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <string>FB</string>
           </property>
          </widget>
-         <widget class="QCheckBox" name="checkBox_RD_Control_SGL">
+         <widget class="QCheckBox" name="checkBox_Temp_RD_Control_SGL">
           <property name="geometry">
            <rect>
             <x>70</x>
@@ -3662,7 +3359,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <string>SGL </string>
           </property>
          </widget>
-         <widget class="QCheckBox" name="checkBox_RD_Control_IM">
+         <widget class="QCheckBox" name="checkBox_Temp_RD_Control_IM">
           <property name="geometry">
            <rect>
             <x>70</x>
@@ -3675,7 +3372,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <string>IM</string>
           </property>
          </widget>
-         <widget class="QCheckBox" name="checkBox_RD_Control_EN2">
+         <widget class="QCheckBox" name="checkBox_Temp_RD_Control_EN2">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -3688,7 +3385,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <string>EN2</string>
           </property>
          </widget>
-         <widget class="QCheckBox" name="checkBox_RD_Control_SPD">
+         <widget class="QCheckBox" name="checkBox_Temp_RD_Control_SPD">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -3707,7 +3404,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <rect>
            <x>10</x>
            <y>320</y>
-           <width>131</width>
+           <width>151</width>
            <height>41</height>
           </rect>
          </property>
@@ -3745,15 +3442,21 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <rect>
             <x>50</x>
             <y>10</y>
-            <width>51</width>
+            <width>71</width>
             <height>21</height>
            </rect>
+          </property>
+          <property name="maximum">
+           <number>41943000</number>
+          </property>
+          <property name="singleStep">
+           <number>40</number>
           </property>
          </widget>
          <widget class="QLabel" name="label_101">
           <property name="geometry">
            <rect>
-            <x>100</x>
+            <x>120</x>
             <y>10</y>
             <width>21</width>
             <height>21</height>
@@ -3767,21 +3470,13 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            </font>
           </property>
           <property name="text">
-           <string>(s)</string>
+           <string>(ns)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </widget>
-        <zorder>pushButton_Temp_hw_reg</zorder>
-        <zorder>frame_118</zorder>
-        <zorder>pushButton_Temp_hw_reg</zorder>
-        <zorder>frame_8</zorder>
-        <zorder>frame_7</zorder>
-        <zorder>frame_11</zorder>
-        <zorder>frame_10</zorder>
-        <zorder>frame_13</zorder>
        </widget>
        <widget class="QFrame" name="frame_22">
         <property name="geometry">
@@ -4180,9 +3875,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
-         <zorder>checkBox_Pwr_GStart</zorder>
-         <zorder>label_103</zorder>
-         <zorder>frame_22</zorder>
         </widget>
         <widget class="QFrame" name="frame_19">
          <property name="geometry">
@@ -4239,21 +3931,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           </property>
          </widget>
         </widget>
-        <zorder>pushButton_Power_hw_reg</zorder>
-        <zorder>frame_15</zorder>
-        <zorder>checkBox_PWR_18DIS</zorder>
-        <zorder>frame_16</zorder>
-        <zorder>frame_21</zorder>
-        <zorder>frame_20</zorder>
-        <zorder>frame_17</zorder>
-        <zorder>frame_19</zorder>
-        <zorder>frame_18</zorder>
-        <zorder>frame_16</zorder>
-        <zorder>frame_21</zorder>
-        <zorder>frame_20</zorder>
-        <zorder>frame_17</zorder>
-        <zorder>frame_15</zorder>
-        <zorder>frame_19</zorder>
        </widget>
        <widget class="QFrame" name="frame_85">
         <property name="geometry">
@@ -5102,26 +4779,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <string>LMK CONFIG REG</string>
           </property>
          </widget>
-         <zorder>frame_27</zorder>
-         <zorder>frame_25</zorder>
-         <zorder>label_148</zorder>
-         <zorder>pushButton_Clock_LMK_hw_reg</zorder>
-         <zorder>frame_26</zorder>
-         <zorder>frame_25</zorder>
-         <zorder>frame_27</zorder>
-         <zorder>pushButton_Clock_LMK_hw_reg</zorder>
         </widget>
-        <zorder>frame_118</zorder>
-        <zorder>frame_27</zorder>
-        <zorder>frame_25</zorder>
-        <zorder>frame_120</zorder>
-        <zorder>frame_26</zorder>
-        <zorder>pushButton_Clock_LMK_hw_reg</zorder>
-        <zorder>frame_119</zorder>
-        <zorder>pushButton_Clock_control_hw_reg</zorder>
-        <zorder>frame_23</zorder>
-        <zorder>frame_24</zorder>
-        <zorder>frame_120</zorder>
        </widget>
        <widget class="QFrame" name="frame_130">
         <property name="geometry">
@@ -6232,19 +5890,10 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        <zorder>frame_85</zorder>
        <zorder>frame_22</zorder>
        <zorder>frame_14</zorder>
-       <zorder>frame_6</zorder>
-       <zorder>frame_5</zorder>
        <zorder>label_85</zorder>
-       <zorder>label_86</zorder>
-       <zorder>label_87</zorder>
        <zorder>frame_130</zorder>
        <zorder>frame_141</zorder>
       </widget>
-      <zorder>label_63</zorder>
-      <zorder>label_64</zorder>
-      <zorder></zorder>
-      <zorder>label_72</zorder>
-      <zorder>frame_3</zorder>
      </widget>
     </widget>
     <widget class="QFrame" name="frame_2">
@@ -6554,7 +6203,7 @@ CONFIG</string>
      <x>0</x>
      <y>0</y>
      <width>1625</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>

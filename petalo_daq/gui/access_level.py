@@ -553,4 +553,56 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
+
+
+    'checkBox_Temp_RST' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_Temp_Start' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_Temp_RD_Control_EN2' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_Temp_RD_Control_FA' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_Temp_RD_Control_SPD' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_Temp_RD_Control_IM' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_Temp_RD_Control_FB' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_Temp_RD_Control_SGL' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'spinBox_Temp_Time' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'comboBox_Temp_CH_Sel' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
 }

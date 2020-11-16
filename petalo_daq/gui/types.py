@@ -7,3 +7,4 @@ from petalo_daq.io import config_params
 
 global_config_tuple  = namedtuple('global_config' , config_params.global_config_fields)
 channel_config_tuple = namedtuple('channel_config', config_params.channel_config_fields)
+temperature_config_tuple = namedtuple('temperature_config', config_params.temperature_config_fields)

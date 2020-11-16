@@ -127,3 +127,15 @@ channel_config_fields = {
 
 }
 
+temperature_config_fields = {
+    "Temp_Time"           : reverse_range_inclusive(31, 12),
+    "Temp_CH_Sel"         : reverse_range_inclusive(11, 8),
+    "Temp_RD_Control_EN2" : reverse_range_inclusive( 7, 7),
+    "Temp_RD_Control_IM"  : reverse_range_inclusive( 6, 6),
+    "Temp_RD_Control_FA"  : reverse_range_inclusive( 5, 5),
+    "Temp_RD_Control_FB"  : reverse_range_inclusive( 4, 4),
+    "Temp_RD_Control_SPD" : reverse_range_inclusive( 3, 3),
+    "Temp_RD_Control_SGL" : reverse_range_inclusive( 2, 2),
+    "Temp_Start"          : reverse_range_inclusive( 1, 1),
+    "Temp_RST"            : reverse_range_inclusive( 0, 0),
+}

@@ -11,12 +11,14 @@ import petalo_daq.windows.main           as window_main
 import petalo_daq.windows.general        as window_general
 import petalo_daq.windows.global_config  as window_global
 import petalo_daq.windows.channel_config as window_channel
+import petalo_daq.windows.register_config as window_register
 import petalo_daq.windows.commands       as window_commands
 
 
 from petalo_daq.gui.widget_data  import global_data
 from petalo_daq.gui.widget_data  import channel_data
 from petalo_daq.gui.widget_data  import general_data
+from petalo_daq.gui.widget_data  import temperature_data
 from petalo_daq.gui.access_level import user_access
 from petalo_daq.io.data_store    import DataStore
 from petalo_daq.io.configuration import load_configuration_file
@@ -44,6 +46,8 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         gui.populate_fields(self, general_data)
         gui.populate_fields(self, channel_data)
 
+        gui.populate_fields(self, temperature_data)
+
         # Data store
         self.data_store = DataStore()
 
@@ -60,6 +64,8 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         window_global .connect_buttons(self)
         window_channel.connect_buttons(self)
         window_commands.connect_buttons(self)
+
+        window_register.connect_buttons(self)
 
 
         # Socket

@@ -83,8 +83,8 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
             self.thread_TXRX  = SCK_TXRX(cfg_data,self.tx_queue,self.rx_queue,self.stopper)
             self.thread_TXRX.daemon = True
             self.thread_TXRX.start()
-        except ConnectionRefusedError:
-            pass
+        except ConnectionRefusedError as e:
+            self.update_log_info("Connection error", str(e))
 
         rx_consumer = threading.Thread(target=read_network_responses, args=(self,))
         rx_consumer.daemon = True

@@ -22,7 +22,7 @@ def connect_buttons(window):
     window (PetaloRunConfigurationGUI): Main application
     """
     window.pushButton_Temp_hw_reg.clicked.connect(config_temperature(window))
-    window.checkBox_Temp_allch   .clicked.connect(set_channels      (window))
+    window.pushButton_Temp_read  .clicked.connect(read_temperature  (window))
 
 
 def config_temperature(window):
@@ -58,17 +58,7 @@ def config_temperature(window):
             print(field, positions, value)
             insert_bitarray_slice(temperature_bitarray, positions, value)
 
-        try:
-            temperatures_config = window.data_store.retrieve('temperatures_config')
-        except KeyError:
-            temperatures_config = {}
-
-        channel = window.comboBox_Temp_CH_Sel.currentIndex()
-        print("channel: ", channel)
-        temperatures_config[channel] = {}
-        temperatures_config[channel]['value'] = temperature_bitarray
-
-        window.data_store.insert('temperature_config', temperatures_config)
+        window.data_store.insert('temperature_config', temperature_bitarray)
 
         #Build command
         daq_id = 0x0000
@@ -86,16 +76,14 @@ def config_temperature(window):
         window.update_log_info("Temperature config",
                                "Temperature configuration sent")
 
-        # Read temperature values
-        command = build_sw_register_read_command(daq_id, register_group=2, register_id=channel)
-        window.tx_queue.put(command)
-
     return on_click
 
 
-def set_channels(window):
+def read_temperature(window):
     """
-    Function to set the same configuration for all channels
+    Function to update the Temperature sensor configuration.
+    It reads the values from the GUI fields and updates the bitarray in
+    data_store
 
     Parameters
     window (PetaloRunConfigurationGUI): Main application
@@ -105,9 +93,16 @@ def set_channels(window):
     """
 
     def on_click():
-        if (window.checkBox_Temp_allch.isChecked() == True):
-            window.comboBox_Temp_CH_Sel.setEnabled (False)
-        else:
-            window.comboBox_Temp_CH_Sel.setEnabled (True)
+        # Read temperature values
+        daq_id = 0
+        for channel in range(9):
+            command = build_sw_register_read_command(daq_id, register_group=2, register_id=channel)
+            window.tx_queue.put(command)
+            window.tx_queue.put(sleep_cmd(500))
+
+        window.update_log_info("Temperature config",
+                               "Temperature configuration sent")
 
     return on_click
+
+

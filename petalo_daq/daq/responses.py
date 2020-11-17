@@ -1,10 +1,20 @@
 from petalo_daq.daq.commands import commands as cmd
+from petalo_daq.daq.commands        import status_codes   as status
 from petalo_daq.daq.commands import register_tuple
 from petalo_daq.gui.types    import LogError
 
 from petalo_daq.daq.process_responses import read_temperature
 
+
+def check_write_response(window, cmd, params):
+    status_code = params[0]
+    if isinstance(status_code, status):
+        raise LogError("{} register error {}".format(cmd.name, status_code))
+
+
 response_functions = {
+    cmd.SOFT_REG_W_r: check_write_response,
+    cmd.HARD_REG_W_r: check_write_response,
     cmd.SOFT_REG_R_r : {
         register_tuple(2, 0): read_temperature,
         register_tuple(2, 1): read_temperature,
@@ -31,8 +41,10 @@ def read_network_responses(window):
             try:
                 cmd      = message['command']
                 register = message['params' ][0]
-                fn = response_functions[cmd][register]
-                fn(window, message['params'])
+                fn = response_functions[cmd]
+                if isinstance(fn, dict):
+                    fn = fn[register]
+                fn(window, cmd, message['params'])
             except KeyError as e:
                 print("Function to process {} not found. ".format(register), e)
             except LogError as e:

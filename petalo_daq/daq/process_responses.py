@@ -1,6 +1,6 @@
 from petalo_daq.gui.types import LogError
 
-def read_temperature(window, params):
+def read_temperature(window, cmd, params):
     reg_to_tofpet = {0 : 1,
                      1 : 3,
                      2 : 5,
@@ -24,7 +24,7 @@ def read_temperature(window, params):
         raise LogError(f"Temperature error. Register {register}, input signal out of ADC range")
 
     if register.id < 8: # conversion 1
-        temperature = 1.65 / 2**24 * (value & 0x0FFFFFFF) + 1.65
+        temperature = 1.65 / 2**24 * (value & 0x0FFFFFFF) #+ 1.65
     else: # conversion 2
         temperature = (value & 0x0FFFFFFF) / 32. / 1570 * 3.3 - 273
 

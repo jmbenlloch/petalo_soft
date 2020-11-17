@@ -892,13 +892,6 @@ temperature_data = {
     'spinBox_Temp_Time' : {
         'default' : 41943000,
     },
-    #  'checkBox_Temp_allch' : {
-    #      'default' : False,
-    #      'values' : {
-    #          False : {'value' : False },
-    #          True  : {'value' : True },
-    #      },
-    #  },
     'comboBox_Temp_CH_Sel' : {
         'default' : 0,
         'values' : {

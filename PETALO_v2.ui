@@ -2317,10 +2317,10 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
       <widget class="QFrame" name="frame_4">
        <property name="geometry">
         <rect>
-         <x>600</x>
+         <x>540</x>
          <y>110</y>
-         <width>261</width>
-         <height>421</height>
+         <width>301</width>
+         <height>471</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -2332,9 +2332,9 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        <widget class="QLabel" name="label_74">
         <property name="geometry">
          <rect>
-          <x>-10</x>
+          <x>30</x>
           <y>0</y>
-          <width>211</width>
+          <width>251</width>
           <height>41</height>
          </rect>
         </property>
@@ -2353,7 +2353,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        <widget class="QLabel" name="label_76">
         <property name="geometry">
          <rect>
-          <x>40</x>
+          <x>140</x>
           <y>40</y>
           <width>81</width>
           <height>20</height>
@@ -2374,7 +2374,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        <widget class="QWidget" name="layoutWidget_3">
         <property name="geometry">
          <rect>
-          <x>0</x>
+          <x>80</x>
           <y>70</y>
           <width>51</width>
           <height>284</height>
@@ -2482,7 +2482,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        <widget class="QWidget" name="layoutWidget_5">
         <property name="geometry">
          <rect>
-          <x>60</x>
+          <x>140</x>
           <y>70</y>
           <width>91</width>
           <height>281</height>
@@ -2574,7 +2574,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        <widget class="QLabel" name="label_86">
         <property name="geometry">
          <rect>
-          <x>0</x>
+          <x>80</x>
           <y>350</y>
           <width>49</width>
           <height>30</height>
@@ -2592,7 +2592,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        <widget class="QLCDNumber" name="lcdNumber_Temp_8">
         <property name="geometry">
          <rect>
-          <x>60</x>
+          <x>140</x>
           <y>350</y>
           <width>91</width>
           <height>30</height>
@@ -2603,6 +2603,19 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <weight>75</weight>
           <bold>true</bold>
          </font>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_Temp_read">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>400</y>
+          <width>151</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Read temperatures</string>
         </property>
        </widget>
       </widget>
@@ -2652,7 +2665,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <rect>
           <x>20</x>
           <y>30</y>
-          <width>201</width>
+          <width>181</width>
           <height>381</height>
          </rect>
         </property>
@@ -2790,7 +2803,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <rect>
            <x>10</x>
            <y>40</y>
-           <width>131</width>
+           <width>141</width>
            <height>41</height>
           </rect>
          </property>
@@ -2828,7 +2841,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <rect>
             <x>10</x>
             <y>20</y>
-            <width>111</width>
+            <width>121</width>
             <height>21</height>
            </rect>
           </property>
@@ -2842,7 +2855,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <rect>
            <x>10</x>
            <y>260</y>
-           <width>181</width>
+           <width>151</width>
            <height>51</height>
           </rect>
          </property>
@@ -2885,26 +2898,13 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            </rect>
           </property>
          </widget>
-         <widget class="QCheckBox" name="checkBox_Temp_allch">
-          <property name="geometry">
-           <rect>
-            <x>120</x>
-            <y>20</y>
-            <width>71</width>
-            <height>25</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>All ch.</string>
-          </property>
-         </widget>
         </widget>
         <widget class="QFrame" name="frame_10">
          <property name="geometry">
           <rect>
            <x>10</x>
            <y>140</y>
-           <width>131</width>
+           <width>151</width>
            <height>111</height>
           </rect>
          </property>
@@ -2919,7 +2919,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <rect>
             <x>10</x>
             <y>10</y>
-            <width>111</width>
+            <width>131</width>
             <height>21</height>
            </rect>
           </property>
@@ -3021,7 +3021,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <rect>
            <x>10</x>
            <y>320</y>
-           <width>151</width>
+           <width>161</width>
            <height>41</height>
           </rect>
          </property>
@@ -3036,7 +3036,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <rect>
             <x>10</x>
             <y>10</y>
-            <width>41</width>
+            <width>51</width>
             <height>21</height>
            </rect>
           </property>
@@ -3057,7 +3057,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <widget class="QSpinBox" name="spinBox_Temp_Time">
           <property name="geometry">
            <rect>
-            <x>50</x>
+            <x>60</x>
             <y>10</y>
             <width>71</width>
             <height>21</height>
@@ -3073,7 +3073,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <widget class="QLabel" name="label_101">
           <property name="geometry">
            <rect>
-            <x>120</x>
+            <x>130</x>
             <y>10</y>
             <width>21</width>
             <height>21</height>
@@ -5541,7 +5541,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../petalo_soft-master 2/PETALO_LOGO_2.jpg</pixmap>
+       <pixmap>PETALO_LOGO_2.jpg</pixmap>
       </property>
      </widget>
     </widget>

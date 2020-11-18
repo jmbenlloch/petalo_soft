@@ -42,7 +42,7 @@ def petalo_connection():
     expected_response = {
         'command'  : cmd.CON_STATUS,
         'L1_id'    : 0,
-        'n_params' : 3,
+        'n_params' : 1,
         'params'   : [status.STA_CONNECTION_ACCEPT.value]
     }
 
@@ -66,7 +66,7 @@ def check_expected_response(response, expected_response):
     assert response['command']  == expected_response['command']
     assert response['L1_id']    == expected_response['L1_id']
     assert response['n_params'] == expected_response['n_params']
-    assert response['n_params'] == len(response['params']) + 2
+    assert response['n_params'] == len(response['params'])
     np.testing.assert_equal(response['params'], expected_response['params'])
 
 
@@ -85,7 +85,7 @@ def test_write_sw_register(petalo_connection):
     expected_response = {
         'command'  : cmd.SOFT_REG_W_r,
         'L1_id'    : daq_id,
-        'n_params' : 3,
+        'n_params' : 1,
         'params'   : [register]
     }
 
@@ -112,7 +112,7 @@ def test_write_invalid_sw_register(petalo_connection):
     expected_response = {
         'command'  : cmd.SOFT_REG_W_r,
         'L1_id'    : daq_id,
-        'n_params' : 3,
+        'n_params' : 1,
         'params'   : [status.ERR_INVALID_REGISTER]
     }
 
@@ -139,7 +139,7 @@ def test_write_readonly_sw_register(petalo_connection):
     expected_response = {
         'command'  : cmd.SOFT_REG_W_r,
         'L1_id'    : daq_id,
-        'n_params' : 3,
+        'n_params' : 1,
         'params'   : [status.ERR_READ_ONLY]
     }
 
@@ -165,7 +165,7 @@ def test_write_hw_register(petalo_connection):
     expected_response = {
         'command'  : cmd.HARD_REG_W_r,
         'L1_id'    : daq_id,
-        'n_params' : 3,
+        'n_params' : 1,
         'params'   : [register]
     }
 
@@ -192,7 +192,7 @@ def test_write_invalid_hw_register(petalo_connection):
     expected_response = {
         'command'  : cmd.HARD_REG_W_r,
         'L1_id'    : daq_id,
-        'n_params' : 3,
+        'n_params' : 1,
         'params'   : [status.ERR_INVALID_REGISTER]
     }
 
@@ -219,7 +219,7 @@ def test_write_readonly_hw_register(petalo_connection):
     expected_response = {
         'command'  : cmd.HARD_REG_W_r,
         'L1_id'    : daq_id,
-        'n_params' : 3,
+        'n_params' : 1,
         'params'   : [status.ERR_READ_ONLY]
     }
 
@@ -246,7 +246,7 @@ def test_read_sw_register(petalo_connection):
     expected_response = {
         'command'  : cmd.SOFT_REG_R_r,
         'L1_id'    : daq_id,
-        'n_params' : 4,
+        'n_params' : 2,
         'params'   : [register,
                       expected_value]
     }
@@ -273,7 +273,7 @@ def test_read_hw_register(petalo_connection):
     expected_response = {
         'command'  : cmd.HARD_REG_R_r,
         'L1_id'    : daq_id,
-        'n_params' : 4,
+        'n_params' : 2,
         'params'   : [register,
                       expected_value]
     }
@@ -300,7 +300,7 @@ def test_read_invalid_sw_register(petalo_connection):
     expected_response = {
         'command'  : cmd.SOFT_REG_R_r,
         'L1_id'    : daq_id,
-        'n_params' : 4,
+        'n_params' : 2,
         'params'   : [status.ERR_INVALID_REGISTER, 0]
     }
 
@@ -326,7 +326,7 @@ def test_read_invalid_hw_register(petalo_connection):
     expected_response = {
         'command'  : cmd.HARD_REG_R_r,
         'L1_id'    : daq_id,
-        'n_params' : 4,
+        'n_params' : 2,
         'params'   : [status.ERR_INVALID_REGISTER, 0]
     }
 
@@ -352,7 +352,7 @@ def test_read_writeonly_hw_register(petalo_connection):
     expected_response = {
         'command'  : cmd.HARD_REG_R_r,
         'L1_id'    : daq_id,
-        'n_params' : 4,
+        'n_params' : 2,
         'params'   : [status.ERR_WRITE_ONLY, 0]
     }
 

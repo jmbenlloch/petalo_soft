@@ -73,12 +73,17 @@ def on_new_client(clientsocket,addr, petalo_server):
 
     while True and one_client:
         # Run until 0xfafafafa is recieved from the client
-        msg = clientsocket.recv(1024)
-        petalo_server.logger.debug("msg: {}".format(msg))
+        try:
+            msg = clientsocket.recv(1024)
+            petalo_server.logger.debug("msg: {}".format(msg))
+        except ConnectionResetError:
+            print("ConnectionResetError")
+            break
 
         if msg:
             if msg == b'\xfa\xfa\xfa\xfa': #keyword to disconnect
                 break
+
 
             data = message(msg)
             petalo_server.logger.debug('{}'.format(data))

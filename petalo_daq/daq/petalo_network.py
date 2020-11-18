@@ -84,7 +84,7 @@ class MESSAGE():
         #  else:
         self.dict['command']  = command.value.code
         self.dict['L1_id']    = L1_id
-        self.dict['n_params'] = len(args) + 2
+        self.dict['n_params'] = len(args) #+ 2
         if (str(type(args[0]))=="<class 'int'>"):
             self.dict['params']   = args
         else:
@@ -107,7 +107,8 @@ class MESSAGE():
         L1_id    = struct.unpack('<H',v[2:4])[0]
         n_params = struct.unpack('<I',v[4:8])[0]
         print("n_params: ", n_params)
-        format = '<'+str(n_params-2)+'I'
+        #format = '<'+str(n_params-2)+'I'
+        format = '<'+str(n_params)+'I'
         params   = struct.unpack(format,v[8:])
 
         # Extract COMMAND
@@ -149,8 +150,6 @@ class MESSAGE():
 
 
 class SCK_TXRX(Thread):
-    ###This is the class actually used
-
     """ PETALO DAQ Transmission Socket.
         Designed to run as TXRX thread
 
@@ -175,12 +174,11 @@ class SCK_TXRX(Thread):
 
         self.buffer    = int(config['buffer_size'])
 
-        #  try:
-        #print self.config.daqd_cfg['ext_ip']
         self.s.connect((self.config['ext_ip'],
                         int(self.config['port'])))
         # ADD TIMEOUT Mechanism !!!!
         self.s.settimeout(5.0)
+
         data_r = self.M(bytearray(self.s.recv(self.buffer)))
 
         self.out_queue.put(data_r)
@@ -194,11 +192,6 @@ class SCK_TXRX(Thread):
             raise ConnectionRefusedError(f'Unsuccessful: DAQ is already connected to {IP}')
         else:
             print('\n<< Connection Stablished \n>> ')
-
-        #  except sk.error as e:
-        #      raise sk.error("Client couldn't open socket: %s \n>>" % e)
-
-        #  self.s.close()
 
 
     def run(self):
@@ -225,3 +218,4 @@ class SCK_TXRX(Thread):
                 except:
                     print ('\n<< Communication Error - Timeout \n>> ')
         print ("TXRX SOCKET IS DEAD")
+

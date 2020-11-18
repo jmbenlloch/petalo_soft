@@ -1,5 +1,5 @@
 from petalo_daq.daq.commands import commands as cmd
-from petalo_daq.daq.commands        import status_codes   as status
+from petalo_daq.daq.commands import status_codes   as status
 from petalo_daq.daq.commands import register_tuple
 from petalo_daq.gui.types    import LogError
 
@@ -9,7 +9,7 @@ from petalo_daq.daq.process_responses import read_temperature
 def check_write_response(window, cmd, params):
     status_code = params[0]
     if isinstance(status_code, status):
-        raise LogError("{} register error {}".format(cmd.name, status_code))
+        raise LogError("{} register error {}".format(cmd.name, status_code.name))
 
 
 response_functions = {

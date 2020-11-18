@@ -1,0 +1,247 @@
+import sys
+from pytest import fixture
+from pytest import raises
+from pytest import mark
+from PyQt5 import uic
+from PyQt5 import QtWidgets
+from PyQt5 import QtCore
+
+from time import sleep
+import numpy as np
+import re
+
+
+from petalo_daq.daq.commands import commands
+from petalo_daq.daq.commands import status_codes
+from petalo_daq.daq.commands import register_tuple
+from petalo_daq.gui.types    import LogError
+from petalo_daq.daq.petalo_network    import MESSAGE
+
+from petalo_daq.daq.command_utils import encode_error_value
+
+from petalo_daq.daq.responses import check_write_response
+from petalo_daq.daq.process_responses import temperature_conversion_1
+from petalo_daq.daq.process_responses import temperature_conversion_2
+
+from PETALO_v7 import PetaloRunConfigurationGUI
+# from Libraries import database as db
+
+def close_connection(window):
+    end_connection_word = 0xfafafafa.to_bytes(length=4, byteorder='little')
+    window.tx_queue.put(end_connection_word)
+    window.stopper.set()
+    window.thread_TXRX.join()
+
+
+def check_pattern_present_in_log(window, pattern, expected_matches, escape=True):
+    if escape:
+        pattern = re.escape(pattern)
+
+    text = window.textBrowser.toPlainText()
+    r = re.search(f'({pattern})', text, re.DOTALL)
+    try:
+        n_groups = len(r.groups())
+    except AttributeError:
+        n_groups = 0
+
+    assert n_groups == expected_matches
+
+
+def test_check_write_response(qtbot, petalo_test_server):
+    """
+    Write response commands must raise LogError if status code is
+    an error code.
+    """
+    window = PetaloRunConfigurationGUI()
+
+    cmds = [commands.SOFT_REG_W_r, commands.HARD_REG_W_r]
+
+    for cmd in cmds:
+        for status in status_codes:
+            if status.name.startswith('ERR'):
+                with raises(LogError):
+                    check_write_response(window, cmd, [status])
+    close_connection(window)
+
+
+def test_read_network_responses_logerror(qtbot, petalo_test_server):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    cmd   = commands.SOFT_REG_W_r
+    error = status_codes.ERR_INVALID_REGISTER
+
+    command_with_error = {
+        'command'  : cmd,
+        'L1_id'    : 0,
+        'n_params' : 1,
+        'params'   : [error]
+    }
+
+    window.rx_queue.put(command_with_error)
+    sleep(0.1)
+
+    # check error is shown in log
+    pattern = '{} register error {}'.format(cmd.name, error.name)
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    close_connection(window)
+
+
+def test_temperature_conversion_1():
+    # TODO add hypothesis
+    # TODO define range of operation
+    samples = np.random.uniform(0, 0.8, 100)
+
+    for temperature in samples:
+        value_temp = np.round(temperature * 2**24 / 1.65).astype(np.int32)
+        value      = (value_temp << 5) | 0xF000001F
+        temp_converted = temperature_conversion_1(value)
+
+        np.testing.assert_almost_equal(temperature, temp_converted, decimal=4)
+
+
+def test_temperature_conversion_2():
+    # TODO add hypothesis
+    # TODO define range of operation
+    samples = np.random.uniform(0, 0.8, 100)
+
+    for temperature in samples:
+        value_temp = np.round((temperature + 273) * 1570 * 32 / 3.3).astype(np.int32)
+        value      = value_temp | 0xF0000000
+        temp_converted = temperature_conversion_2(value)
+
+        np.testing.assert_almost_equal(temperature, temp_converted, decimal=4)
+
+
+def test_read_temperatures(qtbot, petalo_test_server):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.pushButton_Temp_read, QtCore.Qt.LeftButton)
+
+    # wait for results
+    sleep(6)
+
+    print(window.lcdNumber_Temp_0.value())
+    print(window.lcdNumber_Temp_1.value())
+    print(window.lcdNumber_Temp_2.value())
+    print(window.lcdNumber_Temp_3.value())
+    print(window.lcdNumber_Temp_4.value())
+    print(window.lcdNumber_Temp_5.value())
+    print(window.lcdNumber_Temp_6.value())
+    print(window.lcdNumber_Temp_7.value())
+    print(window.lcdNumber_Temp_8.value())
+
+    # check all temperatures
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_0.value(),  0.792, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_1.value(),  0.786, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_2.value(),  0.527, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_3.value(),  0    , decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_4.value(),  0.785, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_5.value(),  0    , decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_6.value(),  0.734, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_7.value(),  0.786, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_8.value(), 38.842, decimal=3)
+
+
+    # check errors are shown in log
+    pattern = 'Temperature configuration sent'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+    pattern = 'Temperature error. Register register_tuple(group=2, id=1) has not 00 in bits 30, 31'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+    pattern = 'Temperature error. Register register_tuple(group=2, id=2), input signal out of ADC range'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    close_connection(window)
+
+
+def test_temperature_control_register(qtbot):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.pushButton_Temp_hw_reg, QtCore.Qt.LeftButton)
+    pattern = 'Temperature configuration sent'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    assert window.tx_queue.qsize() == 1
+    print(window.tx_queue.get(0))
+
+
+
+#  @fixture(scope='session')
+#  def database_connection():
+#      conn, cursor = db.mysql_connect('localhost', 'root', 'root', 'petalo')
+#      return conn, cursor
+#
+#  @mark.skip(reason="TBD")
+#  def test_start_run(qtbot, database_connection):
+#      window = MyApp()
+#      qtbot.mouseClick(window.pushButton_reg_glob, QtCore.Qt.LeftButton)
+#      qtbot.mouseClick(window.pushButton_reg_ch  , QtCore.Qt.LeftButton)
+#      qtbot.mouseClick(window.START, QtCore.Qt.LeftButton)
+#
+#      print('\n\n\n\n run number:')
+#      print(db.get_latest_run_number(database_connection[1]))
+#      assert 0
+
+
+# Check save to json
+# Check load from json
+# Check save to database
+
+# define one config word and all the associated fields
+
+@fixture()
+def global_config():
+    values = {
+        'word' : '100000 00000 1 010011 11 0111 01101 110000 010011 111011 10111 1 0010 10010 101000 1110 110110 110000 111010 10011 00100 10111 111011 100011 00000 00001 10100 10111 11111 111001 101111 1 0 0 00 1001 1 110 0 00 00 110 1 000000 0 10 1 10',
+        'fields' : {
+            "tx_nlinks"         : '10',
+            "tx_ddr"            : '1',
+            "tx_mode"           : '10',
+            "debug_mode"        : '0',
+            "veto_mode"         : '000000',
+            "tdc_clk_div"       : '1',
+            "r_clk_en"          : '110',
+            "stop_ramp_en"      : '00',
+            "counter_en"        : '0',
+            "counter_period"    : '110',
+            "tac_refresh_en"    : '1',
+            "tac_refresh_period": '1001',
+            "data_clk_div"      : '00',
+            "fetp_enable"       : '0',
+            "input_polarity"    : '1',
+            "attenuator_ls"     : '101111',
+            "v_ref_diff_bias_ig": '111001',
+            "v_cal_ref_ig"      : '11111',
+            "fe_postamp_t"      : '10111',
+            "fe_postamp_e"      : '10100',
+            "v_cal_tp_top"      : '00001',
+            "v_cal_diff_bias_ig": '00000',
+            "v_att_diff_bias_ig": '100011',
+            "v_integ_ref_ig"    : '111011',
+            "imirror_bias_top"  : '10111',
+            "tdc_comp_bias"     : '00100',
+            "tdc_i_lsb"         : '10011',
+            "disc_lsb_t1"       : '111010',
+            "fe_ib2"            : '110000',
+            "vdifffoldcas"      : '110110',
+            "disc_vcas"         : '1110',
+            "disc_lsb_e"        : '101000',
+            "tdc_i_ref"         : '10010',
+            "tdc_comp_vcas"     : '0010',
+            "fe_ib2_x2"         : '1',
+            "main_global_dac"   : '10111',
+            "fe_ib1"            : '111011',
+            "disc_ib"           : '010011',
+            "disc_lsb_t2"       : '110000',
+            "tdc_tac_vcas_p"    : '1101',
+            "tdc_tac_vcas_n"    : '11',
+            "adebug_out_mode"   : '010011',
+            "tdc_global_dac"    : '1',
+            "adebug_buffer"     : '00000',
+            "disc_sf_bias"      : '100000',
+        }
+    }
+    return values

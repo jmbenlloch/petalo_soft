@@ -11,6 +11,7 @@ from petalo_daq.daq.client_commands import build_hw_register_write_command
 from petalo_daq.daq.client_commands import build_sw_register_read_command
 from petalo_daq.daq.commands        import register_tuple
 from petalo_daq.daq.commands        import sleep_cmd
+from petalo_daq.daq.process_responses import temperature_tofpet_to_ch
 
 
 def connect_buttons(window):
@@ -71,7 +72,7 @@ def config_temperature(window):
         print(command)
         # Send command
         window.tx_queue.put(command)
-        window.tx_queue.put(sleep_cmd(700)) # 5s delay
+        #window.tx_queue.put(sleep_cmd(700))
 
         window.update_log_info("Temperature config",
                                "Temperature configuration sent")
@@ -95,7 +96,8 @@ def read_temperature(window):
     def on_click():
         # Read temperature values
         daq_id = 0
-        for channel in range(9):
+        for tofpet_id in range(9):
+            channel = temperature_tofpet_to_ch[tofpet_id]
             command = build_sw_register_read_command(daq_id, register_group=2, register_id=channel)
             window.tx_queue.put(command)
             window.tx_queue.put(sleep_cmd(500))

@@ -67,7 +67,7 @@ sw_registers = {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x12345678,
+            'value' : 0x2F3E8B4C,
            },
         1: {
             'permissions' : {
@@ -88,42 +88,42 @@ sw_registers = {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x00000000,
+            'value' : 0x2F3C8B4C,
            },
         4: {
             'permissions' : {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x00000000,
+            'value' : 0x2F5E8B4C,
            },
         5: {
             'permissions' : {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x00000000,
+            'value' : 0x2A39618B,
            },
         6: {
             'permissions' : {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x00000000,
+            'value' : 0x2F39618B,
            },
         7: {
             'permissions' : {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x00000000,
+            'value' : 0x2E3E8B4C,
            },
-        8: { # Temperature sensor 8-15. Temperature data
+        8: { # Temperature sensor Mezzanine
             'permissions' : {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x00467528, # ~30 degrees celsius
+            'value' : 0x20487132, # ~30 degrees celsius
            },
        },
 }

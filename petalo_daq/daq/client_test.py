@@ -53,7 +53,7 @@ def test_connection_one_client():
 
             assert message['command'] == cmd.CON_STATUS
             assert message['L1_id']   == 0
-            assert message['n_params']   == 3
+            assert message['n_params']   == 1
             assert len(message['params'])   == 1
             assert message['params'][0]   == 0
 

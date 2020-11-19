@@ -148,8 +148,9 @@ def test_read_temperatures(qtbot, petalo_test_server):
     close_connection(window)
 
 
-def test_read_temperatures_send_correct_commands(qtbot):
+def test_read_temperatures_send_correct_commands(qtbot, petalo_test_server):
     window = PetaloRunConfigurationGUI()
+    close_connection(window)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_Temp_read, QtCore.Qt.LeftButton)
@@ -202,6 +203,34 @@ def test_temperature_control_register(qtbot):
     assert register.group  == 0
     assert register.id     == 0
     #TODO test register content somehow...
+
+
+def test_power_control_register(qtbot):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.pushButton_Power_hw_reg, QtCore.Qt.LeftButton)
+    pattern = 'Power control register sent'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    assert window.tx_queue.qsize() == 1
+    cmd_binary = window.tx_queue.get(0)
+
+    message  = MESSAGE()
+    cmd      = message(cmd_binary)
+    params   = cmd['params']
+    register = params[0]
+    print(cmd_binary)
+    print(cmd)
+
+    assert cmd['command' ] == commands.HARD_REG_W
+    assert cmd['L1_id'   ] == 0
+    assert cmd['n_params'] == 2
+    assert len(params)     == cmd['n_params']
+    assert register.group  == 1
+    assert register.id     == 0
+    #TODO test register content somehow...
+
 
 
 #  @fixture(scope='session')

@@ -605,4 +605,41 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
+
+
+    "checkBox_PWR_GStart" : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    "checkBox_PWR_Start" : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    "checkBox_PWR_RST" : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    "checkBox_PWR_18DIS"  : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    "checkBox_PWR_25EN"  : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    "checkBox_PWR_TOFPET_VCCEN" : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    "checkBox_PWR_TOFPET_VCCEN_2" : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
 }

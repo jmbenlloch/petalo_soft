@@ -5,7 +5,13 @@ from petalo_daq.gui.utils        import read_parameters
 from petalo_daq.gui.widget_data  import temperature_data
 from petalo_daq.gui.types        import temperature_config_tuple
 from petalo_daq.io.config_params import temperature_config_fields
+
+from petalo_daq.gui.widget_data  import power_control_data
+from petalo_daq.gui.types        import power_control_tuple
+from petalo_daq.io.config_params import power_control_fields
+
 from petalo_daq.io.utils         import insert_bitarray_slice
+from petalo_daq.io.config_params import range_inclusive
 
 from petalo_daq.daq.client_commands import build_hw_register_write_command
 from petalo_daq.daq.client_commands import build_sw_register_read_command
@@ -22,8 +28,9 @@ def connect_buttons(window):
     Parameters
     window (PetaloRunConfigurationGUI): Main application
     """
-    window.pushButton_Temp_hw_reg.clicked.connect(config_temperature(window))
-    window.pushButton_Temp_read  .clicked.connect(read_temperature  (window))
+    window.pushButton_Temp_hw_reg .clicked.connect(config_temperature(window))
+    window.pushButton_Temp_read   .clicked.connect(read_temperature  (window))
+    window.pushButton_Power_hw_reg.clicked.connect(power_control     (window))
 
 
 def config_temperature(window):
@@ -97,6 +104,7 @@ def read_temperature(window):
         # Read temperature values
         daq_id = 0
         for tofpet_id in range(9):
+            print("tofpet_id: ", tofpet_id)
             channel = temperature_tofpet_to_ch[tofpet_id]
             command = build_sw_register_read_command(daq_id, register_group=2, register_id=channel)
             window.tx_queue.put(command)
@@ -104,6 +112,55 @@ def read_temperature(window):
 
         window.update_log_info("Temperature config",
                                "Temperature configuration sent")
+
+    return on_click
+
+
+def power_control(window):
+    """
+    Function to update the Temperature sensor configuration.
+    It reads the values from the GUI fields and updates the bitarray in
+    data_store
+
+    Parameters
+    window (PetaloRunConfigurationGUI): Main application
+
+    Returns
+    function: To be triggered on click
+    """
+
+    def on_click():
+        power_control_bitarray = bitarray(32)
+
+        power_config = read_parameters(window, power_control_data, power_control_tuple)
+
+        for field, positions in power_control_fields.items():
+            print(field)
+            value = getattr(power_config, field)
+            print(field, positions, value)
+            insert_bitarray_slice(power_control_bitarray, positions, value)
+
+        #fill unused bits
+        insert_bitarray_slice(power_control_bitarray,
+                              range_inclusive(19, 28),
+                              bitarray('0000000000'))
+
+        window.data_store.insert('power_control', power_control_bitarray)
+
+        #Build command
+        daq_id = 0x0000
+        register = register_tuple(group=1, id=0)
+        print(power_control_bitarray)
+        value = int(power_control_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
+        print(value, hex(value))
+
+        command = build_hw_register_write_command(daq_id, register.group, register.id, value)
+        print(command)
+        # Send command
+        window.tx_queue.put(command)
+
+        window.update_log_info("PWR control sent",
+                               "Power control register sent")
 
     return on_click
 

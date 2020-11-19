@@ -3456,7 +3456,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QCheckBox" name="checkBox_Pwr_GStart">
+         <widget class="QCheckBox" name="checkBox_PWR_GStart">
           <property name="geometry">
            <rect>
             <x>10</x>

@@ -916,3 +916,56 @@ temperature_data = {
         },
     },
 }
+
+
+power_control_data = {
+    "checkBox_PWR_GStart" : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    "checkBox_PWR_Start" : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    "checkBox_PWR_RST" : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    "checkBox_PWR_18DIS" : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    "checkBox_PWR_25EN" : {
+        'default' : True,
+        'values' : {
+            False : {'value' : bitarray('00') },
+            True  : {'value' : bitarray('11') },
+        },
+    },
+    "checkBox_PWR_TOFPET_VCCEN" : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('00000000') },
+            True  : {'value' : bitarray('11111111') },
+        },
+    },
+    "checkBox_PWR_TOFPET_VCCEN_2" : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('00000000') },
+            True  : {'value' : bitarray('11111111') },
+        },
+    },
+}

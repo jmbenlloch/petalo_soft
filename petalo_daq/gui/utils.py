@@ -40,7 +40,6 @@ def enable_fields(window, user):
     for field, access_levels in user_access.items():
         widget = getattr(window, field)
         access = access_levels[user]
-        #print(field, access)
         widget.setEnabled(access)
 
 

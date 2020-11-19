@@ -19,6 +19,7 @@ from petalo_daq.gui.widget_data  import global_data
 from petalo_daq.gui.widget_data  import channel_data
 from petalo_daq.gui.widget_data  import general_data
 from petalo_daq.gui.widget_data  import temperature_data
+from petalo_daq.gui.widget_data  import power_control_data
 from petalo_daq.gui.access_level import user_access
 from petalo_daq.io.data_store    import DataStore
 from petalo_daq.io.configuration import load_configuration_file
@@ -48,6 +49,7 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         gui.populate_fields(self, channel_data)
 
         gui.populate_fields(self, temperature_data)
+        gui.populate_fields(self, power_control_data)
 
         # Data store
         self.data_store = DataStore()
@@ -66,7 +68,7 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         window_register.connect_buttons(self)
 
         # Disable everything before authentication
-        window_main.validate_pass(self)
+        window_main.validate_pass(self)()
 
         # Socket
         cfg_data = {'port'           :9116,

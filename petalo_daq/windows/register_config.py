@@ -15,6 +15,7 @@ from petalo_daq.io.config_params import range_inclusive
 
 from petalo_daq.daq.client_commands import build_hw_register_write_command
 from petalo_daq.daq.client_commands import build_sw_register_read_command
+from petalo_daq.daq.client_commands import build_hw_register_read_command
 from petalo_daq.daq.commands        import register_tuple
 from petalo_daq.daq.commands        import sleep_cmd
 from petalo_daq.daq.process_responses import temperature_tofpet_to_ch
@@ -31,6 +32,7 @@ def connect_buttons(window):
     window.pushButton_Temp_hw_reg .clicked.connect(config_temperature(window))
     window.pushButton_Temp_read   .clicked.connect(read_temperature  (window))
     window.pushButton_Power_hw_reg.clicked.connect(power_control     (window))
+    window.pushButton_Power_status_hw_reg.clicked.connect(power_status(window))
 
 
 def config_temperature(window):
@@ -89,7 +91,7 @@ def config_temperature(window):
 
 def read_temperature(window):
     """
-    Function to update the Temperature sensor configuration.
+    Function to read temperature sensors.
     It reads the values from the GUI fields and updates the bitarray in
     data_store
 
@@ -118,7 +120,7 @@ def read_temperature(window):
 
 def power_control(window):
     """
-    Function to update the Temperature sensor configuration.
+    Function to update the power configuration.
     It reads the values from the GUI fields and updates the bitarray in
     data_store
 
@@ -164,4 +166,28 @@ def power_control(window):
 
     return on_click
 
+
+def power_status(window):
+    """
+    Function to read the power status register.
+    It reads the values from the GUI fields and updates the bitarray in
+    data_store
+
+    Parameters
+    window (PetaloRunConfigurationGUI): Main application
+
+    Returns
+    function: To be triggered on click
+    """
+
+    def on_click():
+        # Read temperature values
+        daq_id = 0
+        command = build_hw_register_read_command(daq_id, register_group=1, register_id=1)
+        window.tx_queue.put(command)
+
+        window.update_log_info("Power status sent",
+                               "Power status command sent")
+
+    return on_click
 

@@ -13,7 +13,6 @@ temperature_ch_to_tofpet = {0 : 1,
 temperature_tofpet_to_ch = {v: k for k, v in temperature_ch_to_tofpet.items()}
 
 def read_temperature(window, cmd, params):
-    print("Read: ", params)
     register, value = params
 
     tofpet_id = temperature_ch_to_tofpet[register.id]
@@ -41,3 +40,9 @@ def temperature_conversion_1(value):
 
 def temperature_conversion_2(value):
     return (value & 0x0FFFFFFF) / 32. / 1570 * 3.3 - 273
+
+
+def power_regulator_status(window, cmd, params):
+    register, value = params
+    widget_name = 'lcdNumber_Temp_{}'.format(tofpet_id)
+    widget = getattr(window, widget_name)

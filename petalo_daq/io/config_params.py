@@ -147,5 +147,5 @@ power_control_fields = {
     "PWR_18DIS"          : reverse_range_inclusive(18, 18),
     "PWR_25EN"           : reverse_range_inclusive(17, 16),
     "PWR_TOFPET_VCCEN"   : reverse_range_inclusive(15,  8),
-    "PWR_TOFPET_VCCEN_2" : reverse_range_inclusive( 7,  0),
+    "PWR_TOFPET_VCC25EN" : reverse_range_inclusive( 7,  0),
 }

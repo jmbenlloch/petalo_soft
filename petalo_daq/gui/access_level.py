@@ -637,7 +637,7 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
-    "checkBox_PWR_TOFPET_VCCEN_2" : {
+    "checkBox_PWR_TOFPET_VCC25EN" : {
         'admin'   : True,
         'shifter' : True,
         'none'    : False,

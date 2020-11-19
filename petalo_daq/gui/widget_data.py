@@ -961,7 +961,7 @@ power_control_data = {
             True  : {'value' : bitarray('11111111') },
         },
     },
-    "checkBox_PWR_TOFPET_VCCEN_2" : {
+    "checkBox_PWR_TOFPET_VCC25EN" : {
         'default' : False,
         'values' : {
             False : {'value' : bitarray('00000000') },

@@ -4,6 +4,7 @@ from petalo_daq.daq.commands import register_tuple
 from petalo_daq.gui.types    import LogError
 
 from petalo_daq.daq.process_responses import read_temperature
+from petalo_daq.daq.process_responses import power_regulator_status
 
 
 def check_write_response(window, cmd, params):
@@ -25,6 +26,9 @@ response_functions = {
         register_tuple(2, 6): read_temperature,
         register_tuple(2, 7): read_temperature,
         register_tuple(2, 8): read_temperature,
+    }
+    cmd.SOFT_REG_R_r : {
+        register_tuple(1, 1): power_regulator_status,
     }
 }
 

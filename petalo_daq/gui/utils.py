@@ -40,7 +40,7 @@ def enable_fields(window, user):
     for field, access_levels in user_access.items():
         widget = getattr(window, field)
         access = access_levels[user]
-        print(field, access)
+        #print(field, access)
         widget.setEnabled(access)
 
 
@@ -91,22 +91,22 @@ def read_parameters(window, fields_data, params_tuple):
 
     for field, values in fields_data.items():
         fieldname = '_'.join(field.split('_')[1:])
-        print(field, fieldname)
+        #print(field, fieldname)
 
         widget = getattr(window, field)
         if isinstance(widget, QtWidgets.QComboBox):
-            print(widget.currentData())
+            #print(widget.currentData())
             params[fieldname] = widget.currentData()
         if isinstance(widget, QtWidgets.QCheckBox):
             status = widget.isChecked()
-            print(field, status)
+            #print(field, status)
             params[fieldname] = fields_data[field]['values'][status]['value']
         if isinstance(widget, QtWidgets.QSpinBox):
             params[fieldname] = widget.value()
-    print(params)
+    #print(params)
 
     #global_config = types.global_config_tuple(**params)
     parameters = params_tuple(**params)
-    print(parameters)
+    #  print(parameters)
 
     return parameters

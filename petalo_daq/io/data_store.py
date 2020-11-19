@@ -18,10 +18,10 @@ class DataStore():
         name (string): Variable name
         value (Object): Value associated to "name"
         """
-        if name in self.data:
-            print(f"There is already a variable named {name}")
+        #  if name in self.data:
+        #      print(f"There is already a variable named {name}")
         self.data[name] = value
-        print(name, value)
+        #print(name, value)
 
     def retrieve(self, name):
         """

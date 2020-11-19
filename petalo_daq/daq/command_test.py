@@ -23,7 +23,7 @@ from petalo_daq.daq.commands        import register_tuple
 
 
 
-@fixture(scope='session')
+@fixture(scope='module')
 def petalo_connection():
     cfg_data = {'port'           :9116,
                 'buffer_size'    :1024,

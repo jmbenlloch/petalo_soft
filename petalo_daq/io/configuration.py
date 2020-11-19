@@ -24,7 +24,7 @@ def load_configuration_file(window, fname):
         load_general_parameters       (window, data)
         load_global_config_parameters (window, data)
         load_channel_config_parameters(window, data)
-    print(window.data_store.data)
+    #print(window.data_store.data)
 
 
 def load_general_parameters(window, data):
@@ -71,6 +71,6 @@ def load_channel_config_parameters(window, data):
     window.data_store.insert('all_channels'  , all_channels)
 
     default_channel = "0"
-    print(channel_config)
+    #print(channel_config)
     load_bitarray_config(window, channel_config[default_channel]['value'], channel_config_fields, channel_data)
 

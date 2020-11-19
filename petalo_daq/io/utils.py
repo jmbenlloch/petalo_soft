@@ -56,15 +56,15 @@ def load_bitarray_config(window, config, config_fields, config_data):
     Object: Index of the correspoding value in "value_data".
     """
     for field, bit_slice in config_fields.items():
-        print(field, bit_slice)
+        #print(field, bit_slice)
         value = read_bitarray_slice(config, bit_slice)
-        print(field, value)
+        #print(field, value)
 
         gui_field = f'comboBox_{field}'
         if gui_field not in config_data:
             gui_field = f'checkBox_{field}'
 
-        print(gui_field)
+        #print(gui_field)
 
         index = find_gui_value_from_bitarray(value, config_data[gui_field]['values'])
         if index == -1:
@@ -90,7 +90,7 @@ def insert_bitarray_slice(config, indices, bits):
     """
     for index, bit in zip(indices, bits):
         config[index] = bit
-        print(index, bit)
+        #print(index, bit)
 
 
 def read_bitarray_slice(bits, indices):
@@ -105,5 +105,5 @@ def read_bitarray_slice(bits, indices):
     bits_slice = bitarray()
     for index in indices:
         bits_slice.append(bits[index])
-        print(index, bits[index])
+        #print(index, bits[index])
     return bits_slice

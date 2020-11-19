@@ -22,6 +22,8 @@ from petalo_daq.daq.command_utils import encode_error_value
 from petalo_daq.daq.responses import check_write_response
 from petalo_daq.daq.process_responses import temperature_conversion_1
 from petalo_daq.daq.process_responses import temperature_conversion_2
+from petalo_daq.daq.process_responses import temperature_tofpet_to_ch
+from petalo_daq.daq.commands import sleep_cmd
 
 from PETALO_v7 import PetaloRunConfigurationGUI
 # from Libraries import database as db
@@ -123,16 +125,6 @@ def test_read_temperatures(qtbot, petalo_test_server):
     # wait for results
     sleep(6)
 
-    print(window.lcdNumber_Temp_0.value())
-    print(window.lcdNumber_Temp_1.value())
-    print(window.lcdNumber_Temp_2.value())
-    print(window.lcdNumber_Temp_3.value())
-    print(window.lcdNumber_Temp_4.value())
-    print(window.lcdNumber_Temp_5.value())
-    print(window.lcdNumber_Temp_6.value())
-    print(window.lcdNumber_Temp_7.value())
-    print(window.lcdNumber_Temp_8.value())
-
     # check all temperatures
     np.testing.assert_almost_equal(window.lcdNumber_Temp_0.value(),  0.792, decimal=3)
     np.testing.assert_almost_equal(window.lcdNumber_Temp_1.value(),  0.786, decimal=3)
@@ -156,6 +148,35 @@ def test_read_temperatures(qtbot, petalo_test_server):
     close_connection(window)
 
 
+def test_read_temperatures_send_correct_commands(qtbot):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.pushButton_Temp_read, QtCore.Qt.LeftButton)
+
+    assert window.tx_queue.qsize() == 18 # 9 channels + 9 sleeps
+
+    message  = MESSAGE()
+    for i in range(window.tx_queue.qsize()):
+        # The sequence must be one (read cmd, sleep), 9 times
+        cmd = window.tx_queue.get(i)
+        if (i % 2) == 0:
+            cmd      = message(cmd)
+            params   = cmd['params']
+            register = params[0]
+            print(cmd)
+
+            assert cmd['command' ] == commands.SOFT_REG_R
+            assert cmd['L1_id'   ] == 0
+            assert cmd['n_params'] == 1
+            assert len(params)     == cmd['n_params']
+            assert register.group  == 2
+            assert register.id     == temperature_tofpet_to_ch[i/2]
+
+        else:
+            assert isinstance(cmd, sleep_cmd)
+
+
 def test_temperature_control_register(qtbot):
     window = PetaloRunConfigurationGUI()
     window.textBrowser.clear()
@@ -165,8 +186,22 @@ def test_temperature_control_register(qtbot):
     check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
     assert window.tx_queue.qsize() == 1
-    print(window.tx_queue.get(0))
+    cmd_binary = window.tx_queue.get(0)
 
+    message  = MESSAGE()
+    cmd      = message(cmd_binary)
+    params   = cmd['params']
+    register = params[0]
+    print(cmd_binary)
+    print(cmd)
+
+    assert cmd['command' ] == commands.HARD_REG_W
+    assert cmd['L1_id'   ] == 0
+    assert cmd['n_params'] == 2
+    assert len(params)     == cmd['n_params']
+    assert register.group  == 0
+    assert register.id     == 0
+    #TODO test register content somehow...
 
 
 #  @fixture(scope='session')

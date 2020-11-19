@@ -9292,7 +9292,7 @@ REGISTERS</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QCheckBox" name="checkBox_PWR_CONF_DONE">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_CONF_DONE">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -9344,7 +9344,7 @@ REGISTERS</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QCheckBox" name="checkBox_PWR_CONF_DONE_2">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_CONF_ON">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -9419,7 +9419,7 @@ REGISTERS</string>
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR__STATUS_18DIS">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_18DIS">
            <property name="geometry">
             <rect>
              <x>30</x>

@@ -659,20 +659,94 @@ user_access = {
         'shifter' : False,
         'none'    : False,
     },
-    'checkBox_PWR_STATUS_25EN' : {
+    'checkBox_PWR_STATUS_25EN_1' : {
         'admin'   : False,
         'shifter' : False,
         'none'    : False,
     },
-    'checkBox_PWR_STATUS_TOFPET_VCCEN' : {
+    'checkBox_PWR_STATUS_25EN_2' : {
         'admin'   : False,
         'shifter' : False,
         'none'    : False,
     },
-    'checkBox_PWR_STATUS_TOFPET_VCC25EN' : {
+    'checkBox_PWR_STATUS_TOFPET_VCCEN_0' : {
         'admin'   : False,
         'shifter' : False,
         'none'    : False,
     },
-
+    'checkBox_PWR_STATUS_TOFPET_VCCEN_1' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCCEN_2' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCCEN_3' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCCEN_4' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCCEN_5' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCCEN_6' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCCEN_7' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCC25EN_0' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCC25EN_1' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCC25EN_2' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCC25EN_3' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCC25EN_4' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCC25EN_5' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCC25EN_6' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCC25EN_7' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
 }

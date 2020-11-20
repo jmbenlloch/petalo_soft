@@ -9578,7 +9578,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCCEN_1">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCCEN_1">
            <property name="geometry">
             <rect>
              <x>120</x>
@@ -9591,7 +9591,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCCEN_0">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCCEN_0">
            <property name="geometry">
             <rect>
              <x>100</x>
@@ -9604,7 +9604,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCCEN_3">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCCEN_3">
            <property name="geometry">
             <rect>
              <x>160</x>
@@ -9617,7 +9617,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCCEN_2">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCCEN_2">
            <property name="geometry">
             <rect>
              <x>140</x>
@@ -9630,7 +9630,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCCEN_5">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCCEN_5">
            <property name="geometry">
             <rect>
              <x>200</x>
@@ -9643,7 +9643,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCCEN_4">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCCEN_4">
            <property name="geometry">
             <rect>
              <x>180</x>
@@ -9656,7 +9656,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCCEN_7">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCCEN_7">
            <property name="geometry">
             <rect>
              <x>240</x>
@@ -9669,7 +9669,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCCEN_6">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCCEN_6">
            <property name="geometry">
             <rect>
              <x>220</x>
@@ -9682,7 +9682,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCC25EN_3">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCC25EN_3">
            <property name="geometry">
             <rect>
              <x>160</x>
@@ -9695,7 +9695,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCC25EN_4">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCC25EN_4">
            <property name="geometry">
             <rect>
              <x>180</x>
@@ -9708,7 +9708,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCC25EN_7">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCC25EN_7">
            <property name="geometry">
             <rect>
              <x>240</x>
@@ -9721,7 +9721,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCC25EN_2">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCC25EN_2">
            <property name="geometry">
             <rect>
              <x>140</x>
@@ -9734,7 +9734,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCC25EN_1">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCC25EN_1">
            <property name="geometry">
             <rect>
              <x>120</x>
@@ -9747,7 +9747,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCC25EN_0">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCC25EN_0">
            <property name="geometry">
             <rect>
              <x>100</x>
@@ -9760,7 +9760,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCC25EN_6">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCC25EN_6">
            <property name="geometry">
             <rect>
              <x>220</x>
@@ -9773,7 +9773,7 @@ REGISTERS</string>
             <string/>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_PWR_STATUS_VCC25EN_5">
+          <widget class="QCheckBox" name="checkBox_PWR_STATUS_TOFPET_VCC25EN_5">
            <property name="geometry">
             <rect>
              <x>200</x>

@@ -265,7 +265,7 @@ def test_read_hw_register(petalo_connection):
 
     daq_id         = 0xffff
     register       = register_tuple(group=1, id=1)
-    expected_value = 0x00000000
+    expected_value = 0x800300FF
 
     command = build_hw_register_read_command(daq_id, register.group, register.id)
     tx_queue.put(command)

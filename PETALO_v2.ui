@@ -4169,7 +4169,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
             <x>70</x>
             <y>240</y>
             <width>181</width>
-            <height>41</height>
+            <height>51</height>
            </rect>
           </property>
           <property name="frameShape">
@@ -4178,25 +4178,12 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QCheckBox" name="checkBox_CLK_CONF_REG_PROG_VALUE">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>20</y>
-             <width>181</width>
-             <height>21</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>LMK Conf Reg Prog Value</string>
-           </property>
-          </widget>
           <widget class="QLabel" name="label_219">
            <property name="geometry">
             <rect>
-             <x>20</x>
+             <x>10</x>
              <y>0</y>
-             <width>131</width>
+             <width>151</width>
              <height>21</height>
             </rect>
            </property>
@@ -4209,6 +4196,19 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            </property>
            <property name="text">
             <string>CONF  DATA OUT</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="CLK_CONF_REG_PROG_VALUE_2">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>20</y>
+             <width>131</width>
+             <height>21</height>
+            </rect>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>

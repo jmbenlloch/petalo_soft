@@ -173,3 +173,15 @@ power_status_fields = {
     "PWR_STATUS_TOFPET_VCC25EN_6" : reverse_range_inclusive( 1,  1),
     "PWR_STATUS_TOFPET_VCC25EN_7" : reverse_range_inclusive( 0,  0),
 }
+
+clock_status_fields = {
+    "CLK_STAT_1"              : reverse_range_inclusive(15, 15),
+    "CLK_STAT_0"              : reverse_range_inclusive(14, 14),
+    "CLK_SEL_1"               : reverse_range_inclusive(13, 13),
+    "CLK_SEL_0"               : reverse_range_inclusive(12, 12),
+    "CLK_CONF_DONE"           : reverse_range_inclusive(11, 11),
+    "CLK_CONF_ON"             : reverse_range_inclusive(10, 10),
+    "CLK_REG_PROG_DONE"       : reverse_range_inclusive( 9,  9),
+    "CLK_REG_PROG_READY"      : reverse_range_inclusive( 8,  8),
+    "CLK_CONF_REG_PROG_VALUE" : reverse_range_inclusive( 0,  0),
+}

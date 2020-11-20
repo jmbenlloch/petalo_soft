@@ -174,7 +174,7 @@ hw_registers = {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x00000000,
+            'value' : 0x0000AF35,
            },
        },
     3: { # TOFPET Control / TOFPET DATA WR

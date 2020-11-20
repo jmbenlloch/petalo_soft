@@ -749,4 +749,52 @@ user_access = {
         'shifter' : False,
         'none'    : False,
     },
+
+
+
+    'checkBox_CLK_STAT_1' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_CLK_STAT_0' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_CLK_SEL_0' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_CLK_SEL_1' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_CLK_CONF_DONE' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_CLK_CONF_ON' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_CLK_REG_PROG_DONE' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_CLK_REG_PROG_READY' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_CLK_CONF_REG_PROG_VALUE' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
 }

@@ -4230,7 +4230,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QCheckBox" name="checkBox_CLK_SEL1">
+          <widget class="QCheckBox" name="checkBox_CLK_SEL_1">
            <property name="geometry">
             <rect>
              <x>30</x>
@@ -4282,7 +4282,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QCheckBox" name="checkBox_CLK_STAT1">
+          <widget class="QCheckBox" name="checkBox_CLK_STAT_1">
            <property name="geometry">
             <rect>
              <x>30</x>
@@ -4386,7 +4386,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QCheckBox" name="checkBox_CLK_REG_PROG_DONE_2">
+          <widget class="QCheckBox" name="checkBox_CLK_REG_PROG_READY">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -4542,7 +4542,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QCheckBox" name="checkBox_CLK_STAT0">
+          <widget class="QCheckBox" name="checkBox_CLK_STAT_0">
            <property name="geometry">
             <rect>
              <x>30</x>
@@ -4594,7 +4594,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QCheckBox" name="checkBox_CLK_SEL0">
+          <widget class="QCheckBox" name="checkBox_CLK_SEL_0">
            <property name="geometry">
             <rect>
              <x>30</x>

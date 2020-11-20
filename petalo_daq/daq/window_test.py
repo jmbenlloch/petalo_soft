@@ -247,8 +247,6 @@ def test_power_status_register_command(qtbot):
     cmd      = message(cmd_binary)
     params   = cmd['params']
     register = params[0]
-    print(cmd_binary)
-    print(cmd)
 
     assert cmd['command' ] == commands.HARD_REG_R
     assert cmd['L1_id'   ] == 0
@@ -256,7 +254,32 @@ def test_power_status_register_command(qtbot):
     assert len(params)     == cmd['n_params']
     assert register.group  == 1
     assert register.id     == 1
-    #TODO test register content somehow...
+    #TODO test register content somehow... and test GUI update
+
+
+def test_clock_status_register_command(qtbot):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.pushButton_Clock_status_hw_reg, QtCore.Qt.LeftButton)
+    pattern = 'Clock status command sent'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    assert window.tx_queue.qsize() == 1
+    cmd_binary = window.tx_queue.get(0)
+
+    message  = MESSAGE()
+    cmd      = message(cmd_binary)
+    params   = cmd['params']
+    register = params[0]
+
+    assert cmd['command' ] == commands.HARD_REG_R
+    assert cmd['L1_id'   ] == 0
+    assert cmd['n_params'] == 1
+    assert len(params)     == cmd['n_params']
+    assert register.group  == 2
+    assert register.id     == 2
+    #TODO test register content somehow... and test GUI update
 
 
 #  @fixture(scope='session')

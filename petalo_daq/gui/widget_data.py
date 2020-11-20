@@ -1119,3 +1119,69 @@ power_status_data = {
         },
     },
 }
+
+clock_status_data = {
+    'checkBox_CLK_STAT_1' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_CLK_STAT_0' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_CLK_SEL_0' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_CLK_SEL_1' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_CLK_CONF_DONE' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_CLK_CONF_ON' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_CLK_REG_PROG_DONE' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_CLK_REG_PROG_READY' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_CLK_CONF_REG_PROG_VALUE' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+}

@@ -2242,7 +2242,7 @@ REGISTERS</string>
         <rect>
          <x>10</x>
          <y>100</y>
-         <width>181</width>
+         <width>191</width>
          <height>711</height>
         </rect>
        </property>
@@ -2480,7 +2480,7 @@ REGISTERS</string>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>200</x>
          <y>90</y>
          <width>161</width>
          <height>731</height>
@@ -2537,9 +2537,9 @@ REGISTERS</string>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>420</x>
+         <x>410</x>
          <y>100</y>
-         <width>131</width>
+         <width>141</width>
          <height>711</height>
         </rect>
        </property>
@@ -2816,9 +2816,9 @@ REGISTERS</string>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>760</x>
+         <x>750</x>
          <y>100</y>
-         <width>131</width>
+         <width>141</width>
          <height>411</height>
         </rect>
        </property>

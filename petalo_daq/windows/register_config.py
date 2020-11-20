@@ -34,6 +34,7 @@ def connect_buttons(window):
     window.pushButton_Power_hw_reg.clicked.connect(power_control     (window))
     window.pushButton_Power_status_hw_reg.clicked.connect(power_status(window))
     window.pushButton_Clock_status_hw_reg.clicked.connect(clock_status(window))
+    window.pushButton_Link_status_hw_reg.clicked .connect(link_status(window))
 
 
 def config_temperature(window):
@@ -182,7 +183,6 @@ def power_status(window):
     """
 
     def on_click():
-        # Read temperature values
         daq_id = 0
         command = build_hw_register_read_command(daq_id, register_group=1, register_id=1)
         window.tx_queue.put(command)
@@ -207,13 +207,36 @@ def clock_status(window):
     """
 
     def on_click():
-        # Read temperature values
         daq_id = 0
         command = build_hw_register_read_command(daq_id, register_group=2, register_id=2)
         window.tx_queue.put(command)
 
         window.update_log_info("Clock status sent",
                                "Clock status command sent")
+
+    return on_click
+
+
+def link_status(window):
+    """
+    Function to read the link status register.
+    It reads the values from the GUI fields and updates the bitarray in
+    data_store
+
+    Parameters
+    window (PetaloRunConfigurationGUI): Main application
+
+    Returns
+    function: To be triggered on click
+    """
+
+    def on_click():
+        daq_id = 0
+        command = build_hw_register_read_command(daq_id, register_group=3, register_id=1)
+        window.tx_queue.put(command)
+
+        window.update_log_info("Link status sent",
+                               "Link status command sent")
 
     return on_click
 

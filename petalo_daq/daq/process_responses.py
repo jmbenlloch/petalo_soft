@@ -3,6 +3,8 @@ from petalo_daq.io.config_params import power_status_fields
 from petalo_daq.gui.widget_data  import power_status_data
 from petalo_daq.io.config_params import clock_status_fields
 from petalo_daq.gui.widget_data  import clock_status_data
+from petalo_daq.io.config_params import link_status_fields
+from petalo_daq.gui.widget_data  import link_status_data
 from petalo_daq.io.utils         import load_bitarray_config
 
 from bitarray import bitarray
@@ -67,4 +69,11 @@ def clock_status(window, cmd, params):
     value_bitarray = convert_int32_to_bitarray(value)
 
     load_bitarray_config(window, value_bitarray, clock_status_fields, clock_status_data)
+
+
+def link_status(window, cmd, params):
+    register, value = params
+    value_bitarray = convert_int32_to_bitarray(value)
+
+    load_bitarray_config(window, value_bitarray, link_status_fields, link_status_data)
 

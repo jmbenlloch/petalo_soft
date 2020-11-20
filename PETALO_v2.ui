@@ -3188,7 +3188,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
         <property name="geometry">
          <rect>
           <x>460</x>
-          <y>40</y>
+          <y>20</y>
           <width>471</width>
           <height>31</height>
          </rect>
@@ -3211,7 +3211,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>110</y>
+          <y>60</y>
           <width>151</width>
           <height>431</height>
          </rect>
@@ -3821,6 +3821,15 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -3952,6 +3961,15 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -4095,6 +4113,15 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </disabled>
           </palette>
          </property>
@@ -4117,8 +4144,8 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        <widget class="QFrame" name="frame_85">
         <property name="geometry">
          <rect>
-          <x>870</x>
-          <y>110</y>
+          <x>780</x>
+          <y>60</y>
           <width>531</width>
           <height>431</height>
          </rect>
@@ -4144,7 +4171,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QPushButton" name="pushButton_Clock_status_hw_reg">
+         <widget class="QPushButton" name="pushButton_2">
           <property name="geometry">
            <rect>
             <x>80</x>
@@ -5133,6 +5160,15 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -5264,6 +5300,15 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -5407,6 +5452,15 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </disabled>
           </palette>
          </property>
@@ -5429,9 +5483,9 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>550</y>
+          <y>510</y>
           <width>1461</width>
-          <height>351</height>
+          <height>381</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -5810,6 +5864,15 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
                </color>
               </brush>
              </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </brush>
+             </colorrole>
             </active>
             <inactive>
              <colorrole role="WindowText">
@@ -5941,6 +6004,15 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
              <colorrole role="ToolTipText">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
                 <red>0</red>
                 <green>0</green>
                 <blue>0</blue>
@@ -6084,6 +6156,15 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
                </color>
               </brush>
              </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </brush>
+             </colorrole>
             </disabled>
            </palette>
           </property>
@@ -6108,8 +6189,8 @@ REGISTERS</string>
           <rect>
            <x>220</x>
            <y>70</y>
-           <width>181</width>
-           <height>221</height>
+           <width>261</width>
+           <height>271</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -6118,63 +6199,11 @@ REGISTERS</string>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QFrame" name="frame_128">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>160</y>
-            <width>161</width>
-            <height>41</height>
-           </rect>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <widget class="QLabel" name="label_261">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>0</y>
-             <width>141</width>
-             <height>21</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>13</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>TOFPET ALIGNING</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-          <widget class="QCheckBox" name="checkBox_TOFPET_aligning">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>20</y>
-             <width>131</width>
-             <height>21</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>TOFPET aligning</string>
-           </property>
-          </widget>
-         </widget>
          <widget class="QFrame" name="frame_126">
           <property name="geometry">
            <rect>
-            <x>10</x>
-            <y>60</y>
+            <x>50</x>
+            <y>50</y>
             <width>161</width>
             <height>41</height>
            </rect>
@@ -6208,7 +6237,7 @@ REGISTERS</string>
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_TOFPET_IDL_ready">
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_IDL_ready">
            <property name="geometry">
             <rect>
              <x>30</x>
@@ -6226,9 +6255,9 @@ REGISTERS</string>
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>110</y>
-            <width>161</width>
-            <height>41</height>
+            <y>100</y>
+            <width>241</width>
+            <height>101</height>
            </rect>
           </property>
           <property name="frameShape">
@@ -6240,9 +6269,9 @@ REGISTERS</string>
           <widget class="QLabel" name="label_259">
            <property name="geometry">
             <rect>
-             <x>10</x>
-             <y>0</y>
-             <width>141</width>
+             <x>20</x>
+             <y>10</y>
+             <width>201</width>
              <height>21</height>
             </rect>
            </property>
@@ -6254,23 +6283,348 @@ REGISTERS</string>
             </font>
            </property>
            <property name="text">
-            <string>TOFPET ALIGNED</string>
+            <string>TOFPET ALIGNMENT</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_TOFPET_aligned">
+          <widget class="QLabel" name="label_180">
            <property name="geometry">
             <rect>
-             <x>20</x>
-             <y>20</y>
-             <width>121</width>
-             <height>21</height>
+             <x>10</x>
+             <y>50</y>
+             <width>67</width>
+             <height>19</height>
             </rect>
            </property>
            <property name="text">
-            <string>TOFPET aligned</string>
+            <string>Aligned</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNED_1">
+           <property name="geometry">
+            <rect>
+             <x>100</x>
+             <y>50</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNED_7">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>50</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNED_3">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>50</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_182">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>70</y>
+             <width>67</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Aligning</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNING_3">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>70</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNING_5">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>70</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNING_1">
+           <property name="geometry">
+            <rect>
+             <x>100</x>
+             <y>70</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNING_6">
+           <property name="geometry">
+            <rect>
+             <x>200</x>
+             <y>70</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNED_2">
+           <property name="geometry">
+            <rect>
+             <x>120</x>
+             <y>50</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNING_4">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>70</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNING_0">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>70</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNED_5">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>50</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNING_2">
+           <property name="geometry">
+            <rect>
+             <x>120</x>
+             <y>70</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNED_0">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>50</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNED_4">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>50</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNED_6">
+           <property name="geometry">
+            <rect>
+             <x>200</x>
+             <y>50</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_LINK_STATUS_ALIGNING_7">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>70</y>
+             <width>20</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_67">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>30</y>
+             <width>16</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>7</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_68">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>30</y>
+             <width>16</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>5</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_69">
+           <property name="geometry">
+            <rect>
+             <x>120</x>
+             <y>30</y>
+             <width>16</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>2</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_70">
+           <property name="geometry">
+            <rect>
+             <x>200</x>
+             <y>30</y>
+             <width>16</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>6</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_71">
+           <property name="geometry">
+            <rect>
+             <x>100</x>
+             <y>30</y>
+             <width>16</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_72">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>30</y>
+             <width>10</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_107">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>30</y>
+             <width>16</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>4</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_147">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>30</y>
+             <width>16</width>
+             <height>19</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>3</string>
            </property>
           </widget>
          </widget>
@@ -6279,7 +6633,7 @@ REGISTERS</string>
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>181</width>
+            <width>261</width>
             <height>51</height>
            </rect>
           </property>
@@ -6421,6 +6775,15 @@ REGISTERS</string>
                </color>
               </brush>
              </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </brush>
+             </colorrole>
             </active>
             <inactive>
              <colorrole role="WindowText">
@@ -6552,6 +6915,15 @@ REGISTERS</string>
              <colorrole role="ToolTipText">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
                 <red>0</red>
                 <green>0</green>
                 <blue>0</blue>
@@ -6695,6 +7067,15 @@ REGISTERS</string>
                </color>
               </brush>
              </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </brush>
+             </colorrole>
             </disabled>
            </palette>
           </property>
@@ -6706,18 +7087,30 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>LINK STATUS
-REGISTERS</string>
+           <string>LINK STATUS REGISTERS</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_Link_status_hw_reg">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>210</y>
+            <width>181</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>LINK STATUS</string>
           </property>
          </widget>
         </widget>
         <widget class="QFrame" name="frame_131">
          <property name="geometry">
           <rect>
-           <x>410</x>
+           <x>490</x>
            <y>70</y>
            <width>391</width>
            <height>241</height>
@@ -7271,6 +7664,15 @@ REGISTERS</string>
                </color>
               </brush>
              </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </brush>
+             </colorrole>
             </active>
             <inactive>
              <colorrole role="WindowText">
@@ -7402,6 +7804,15 @@ REGISTERS</string>
              <colorrole role="ToolTipText">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
                 <red>0</red>
                 <green>0</green>
                 <blue>0</blue>
@@ -7545,6 +7956,15 @@ REGISTERS</string>
                </color>
               </brush>
              </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </brush>
+             </colorrole>
             </disabled>
            </palette>
           </property>
@@ -7566,10 +7986,10 @@ REGISTERS</string>
         <widget class="QFrame" name="frame_140">
          <property name="geometry">
           <rect>
-           <x>810</x>
+           <x>890</x>
            <y>70</y>
-           <width>581</width>
-           <height>191</height>
+           <width>391</width>
+           <height>241</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -7583,7 +8003,7 @@ REGISTERS</string>
            <rect>
             <x>10</x>
             <y>40</y>
-            <width>121</width>
+            <width>131</width>
             <height>131</height>
            </rect>
           </property>
@@ -7621,7 +8041,7 @@ REGISTERS</string>
             <rect>
              <x>10</x>
              <y>40</y>
-             <width>101</width>
+             <width>121</width>
              <height>21</height>
             </rect>
            </property>
@@ -7634,7 +8054,7 @@ REGISTERS</string>
             <rect>
              <x>10</x>
              <y>60</y>
-             <width>101</width>
+             <width>121</width>
              <height>21</height>
             </rect>
            </property>
@@ -7647,7 +8067,7 @@ REGISTERS</string>
             <rect>
              <x>10</x>
              <y>80</y>
-             <width>101</width>
+             <width>121</width>
              <height>21</height>
             </rect>
            </property>
@@ -7660,7 +8080,7 @@ REGISTERS</string>
             <rect>
              <x>10</x>
              <y>100</y>
-             <width>101</width>
+             <width>121</width>
              <height>21</height>
             </rect>
            </property>
@@ -7672,10 +8092,10 @@ REGISTERS</string>
          <widget class="QFrame" name="frame_153">
           <property name="geometry">
            <rect>
-            <x>140</x>
+            <x>150</x>
             <y>40</y>
-            <width>211</width>
-            <height>61</height>
+            <width>231</width>
+            <height>91</height>
            </rect>
           </property>
           <property name="frameShape">
@@ -7710,7 +8130,7 @@ REGISTERS</string>
           <widget class="QCheckBox" name="checkBox_TOFPET_ERR_CFG_CH_REG">
            <property name="geometry">
             <rect>
-             <x>0</x>
+             <x>10</x>
              <y>30</y>
              <width>201</width>
              <height>21</height>
@@ -7720,50 +8140,11 @@ REGISTERS</string>
             <string>Config err written ch config reg</string>
            </property>
           </widget>
-         </widget>
-         <widget class="QFrame" name="frame_154">
-          <property name="geometry">
-           <rect>
-            <x>140</x>
-            <y>110</y>
-            <width>211</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <widget class="QLabel" name="label_304">
-           <property name="geometry">
-            <rect>
-             <x>40</x>
-             <y>0</y>
-             <width>131</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>13</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>ERR CRC CH</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
           <widget class="QCheckBox" name="checkBox_TOFPET_TOFPET_ERR_CRC_CH_REG">
            <property name="geometry">
             <rect>
-             <x>0</x>
-             <y>30</y>
+             <x>10</x>
+             <y>60</y>
              <width>201</width>
              <height>21</height>
             </rect>
@@ -7776,10 +8157,10 @@ REGISTERS</string>
          <widget class="QFrame" name="frame_155">
           <property name="geometry">
            <rect>
-            <x>360</x>
-            <y>40</y>
-            <width>211</width>
-            <height>61</height>
+            <x>150</x>
+            <y>140</y>
+            <width>231</width>
+            <height>91</height>
            </rect>
           </property>
           <property name="frameShape">
@@ -7814,7 +8195,7 @@ REGISTERS</string>
           <widget class="QCheckBox" name="checkBox_TOFPET_TOFPET_ERR_CFG_GL_REG">
            <property name="geometry">
             <rect>
-             <x>0</x>
+             <x>10</x>
              <y>30</y>
              <width>201</width>
              <height>21</height>
@@ -7824,50 +8205,11 @@ REGISTERS</string>
             <string>Config err written gl config reg</string>
            </property>
           </widget>
-         </widget>
-         <widget class="QFrame" name="frame_156">
-          <property name="geometry">
-           <rect>
-            <x>360</x>
-            <y>110</y>
-            <width>211</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <widget class="QLabel" name="label_306">
-           <property name="geometry">
-            <rect>
-             <x>40</x>
-             <y>0</y>
-             <width>141</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>13</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>ERR CRC GL</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
           <widget class="QCheckBox" name="checkBox_TOFPET_TOFPET_ERR_CRC_GL_REG">
            <property name="geometry">
             <rect>
-             <x>0</x>
-             <y>30</y>
+             <x>10</x>
+             <y>60</y>
              <width>201</width>
              <height>21</height>
             </rect>
@@ -7880,7 +8222,7 @@ REGISTERS</string>
          <widget class="QLabel" name="label_307">
           <property name="geometry">
            <rect>
-            <x>150</x>
+            <x>60</x>
             <y>10</y>
             <width>271</width>
             <height>31</height>
@@ -8024,6 +8366,15 @@ REGISTERS</string>
                </color>
               </brush>
              </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </brush>
+             </colorrole>
             </active>
             <inactive>
              <colorrole role="WindowText">
@@ -8161,6 +8512,15 @@ REGISTERS</string>
                </color>
               </brush>
              </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </brush>
+             </colorrole>
             </inactive>
             <disabled>
              <colorrole role="WindowText">
@@ -8292,6 +8652,15 @@ REGISTERS</string>
              <colorrole role="ToolTipText">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
                 <red>0</red>
                 <green>0</green>
                 <blue>0</blue>
@@ -8463,6 +8832,15 @@ REGISTERS</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -8594,6 +8972,15 @@ REGISTERS</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -8737,6 +9124,15 @@ REGISTERS</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </disabled>
           </palette>
          </property>
@@ -8778,8 +9174,8 @@ REGISTERS</string>
         <property name="geometry">
          <rect>
           <x>170</x>
-          <y>110</y>
-          <width>691</width>
+          <y>60</y>
+          <width>601</width>
           <height>401</height>
          </rect>
         </property>
@@ -9246,7 +9642,7 @@ REGISTERS</string>
         <widget class="QFrame" name="frame_5">
          <property name="geometry">
           <rect>
-           <x>420</x>
+           <x>320</x>
            <y>70</y>
            <width>261</width>
            <height>311</height>
@@ -9830,7 +10226,7 @@ REGISTERS</string>
         <widget class="QLabel" name="label_297">
          <property name="geometry">
           <rect>
-           <x>170</x>
+           <x>100</x>
            <y>10</y>
            <width>341</width>
            <height>41</height>
@@ -9974,6 +10370,15 @@ REGISTERS</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -10111,6 +10516,15 @@ REGISTERS</string>
               </color>
              </brush>
             </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -10242,6 +10656,15 @@ REGISTERS</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="NoBrush">
+              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>

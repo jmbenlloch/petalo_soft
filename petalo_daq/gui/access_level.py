@@ -797,4 +797,91 @@ user_access = {
         'shifter' : False,
         'none'    : False,
     },
+
+
+    'checkBox_LINK_STATUS_IDL_ready' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNED_0' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNED_1' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNED_2' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNED_3' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNED_4' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNED_5' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNED_6' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNED_7' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNING_0' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNING_1' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNING_2' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNING_3' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNING_4' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNING_5' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNING_6' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LINK_STATUS_ALIGNING_7' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
 }

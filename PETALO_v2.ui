@@ -2241,9 +2241,9 @@ REGISTERS</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>120</y>
-         <width>201</width>
-         <height>1406</height>
+         <y>100</y>
+         <width>181</width>
+         <height>711</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -2257,7 +2257,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;Set trigger_mode_1&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>Set trigger_mode_1</string>
           </property>
          </widget>
         </item>
@@ -2271,7 +2271,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;debug_mode&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>debug_mode</string>
           </property>
          </widget>
         </item>
@@ -2285,7 +2285,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;sync_chain_length&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>sync_chain_length</string>
           </property>
          </widget>
         </item>
@@ -2299,7 +2299,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;dead_time&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>dead_time</string>
           </property>
          </widget>
         </item>
@@ -2313,7 +2313,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;counter_mode&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>counter_mode</string>
           </property>
          </widget>
         </item>
@@ -2327,7 +2327,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;tac_max_age&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>tac_max_age</string>
           </property>
          </widget>
         </item>
@@ -2341,7 +2341,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;tac_min_age&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>tac_min_age</string>
           </property>
          </widget>
         </item>
@@ -2355,7 +2355,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;Set trigger_mode_2_t&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>Set trigger_mode_2_t</string>
           </property>
          </widget>
         </item>
@@ -2369,7 +2369,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;Set trigger_mode_2_e&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>Set trigger_mode_2_e</string>
           </property>
          </widget>
         </item>
@@ -2383,7 +2383,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;Set trigger_mode_2_q&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>Set trigger_mode_2_q</string>
           </property>
          </widget>
         </item>
@@ -2397,7 +2397,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;Set trigger_mode_2_b&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>Set trigger_mode_2_b</string>
           </property>
          </widget>
         </item>
@@ -2411,7 +2411,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;branch_en_eq&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>branch_en_eq</string>
           </property>
          </widget>
         </item>
@@ -2425,7 +2425,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;branch_en_t&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>branch_en_t</string>
           </property>
          </widget>
         </item>
@@ -2439,7 +2439,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;qdc_mode&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>qdc_mode</string>
           </property>
          </widget>
         </item>
@@ -2453,7 +2453,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;Set trigger_b_latched&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>Set trigger_b_latched</string>
           </property>
          </widget>
         </item>
@@ -2480,10 +2480,10 @@ REGISTERS</string>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>230</x>
-         <y>100</y>
+         <x>190</x>
+         <y>90</y>
          <width>161</width>
-         <height>711</height>
+         <height>731</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -2537,10 +2537,10 @@ REGISTERS</string>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>430</x>
-         <y>120</y>
-         <width>141</width>
-         <height>1151</height>
+         <x>420</x>
+         <y>100</y>
+         <width>131</width>
+         <height>711</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -2554,7 +2554,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;min_intg_time&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>min_intg_time</string>
           </property>
          </widget>
         </item>
@@ -2568,7 +2568,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;max_intg_time&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>max_intg_time</string>
           </property>
          </widget>
         </item>
@@ -2582,7 +2582,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;output_en&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>output_en</string>
           </property>
          </widget>
         </item>
@@ -2596,7 +2596,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;qtx2_en&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>qtx2_en</string>
           </property>
          </widget>
         </item>
@@ -2610,7 +2610,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;baseline_t&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>baseline_t</string>
           </property>
          </widget>
         </item>
@@ -2624,7 +2624,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;vth_t1&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>vth_t1</string>
           </property>
          </widget>
         </item>
@@ -2638,7 +2638,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;vth_t2&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>vth_t2</string>
           </property>
          </widget>
         </item>
@@ -2652,7 +2652,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;vth_e&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>vth_e</string>
           </property>
          </widget>
         </item>
@@ -2666,7 +2666,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;baseline_e&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>baseline_e</string>
           </property>
          </widget>
         </item>
@@ -2680,7 +2680,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;fe_delay&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>fe_delay</string>
           </property>
          </widget>
         </item>
@@ -2694,7 +2694,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;postamp_gain_t&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>postamp_gain_t</string>
           </property>
          </widget>
         </item>
@@ -2708,7 +2708,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;postamp_gain_e&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>postamp_gain_e</string>
           </property>
          </widget>
         </item>
@@ -2722,7 +2722,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;postamp_sh_e&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>postamp_sh_e</string>
           </property>
          </widget>
         </item>
@@ -2736,7 +2736,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;intg_en&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>intg_en</string>
           </property>
          </widget>
         </item>
@@ -2750,7 +2750,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;intg_signal_en&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>intg_signal_en</string>
           </property>
          </widget>
         </item>
@@ -2759,10 +2759,10 @@ REGISTERS</string>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>580</x>
-         <y>100</y>
+         <x>550</x>
+         <y>90</y>
          <width>151</width>
-         <height>711</height>
+         <height>741</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -2817,9 +2817,9 @@ REGISTERS</string>
        <property name="geometry">
         <rect>
          <x>760</x>
-         <y>120</y>
-         <width>151</width>
-         <height>657</height>
+         <y>100</y>
+         <width>131</width>
+         <height>411</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -2833,7 +2833,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;att&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>att</string>
           </property>
          </widget>
         </item>
@@ -2847,7 +2847,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;tdc_current_t&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>tdc_current_t</string>
           </property>
          </widget>
         </item>
@@ -2861,7 +2861,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;tdc_current_e&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>tdc_current_e</string>
           </property>
          </widget>
         </item>
@@ -2875,7 +2875,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;fe_tp_en&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>fe_tp_en</string>
           </property>
          </widget>
         </item>
@@ -2889,7 +2889,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;integ_source_sw&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>integ_source_sw</string>
           </property>
          </widget>
         </item>
@@ -2903,7 +2903,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;t1_hysteresis&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>t1_hysteresis</string>
           </property>
          </widget>
         </item>
@@ -2917,7 +2917,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;t2_hysteresis&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>t2_hysteresis</string>
           </property>
          </widget>
         </item>
@@ -2931,7 +2931,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;e_hysteresis&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>e_hysteresis</string>
           </property>
          </widget>
         </item>
@@ -2945,7 +2945,7 @@ REGISTERS</string>
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; color:#000000;&quot;&gt;hysteresis_en_n&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>hysteresis_en_n</string>
           </property>
          </widget>
         </item>
@@ -2954,10 +2954,10 @@ REGISTERS</string>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>920</x>
-         <y>100</y>
+         <x>890</x>
+         <y>90</y>
          <width>151</width>
-         <height>421</height>
+         <height>431</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_9">

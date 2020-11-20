@@ -190,7 +190,7 @@ hw_registers = {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x00000000,
+            'value' : 0x0001A21C,
            },
         2: { # TOFPET DATA WR Control Register
             'permissions' : {

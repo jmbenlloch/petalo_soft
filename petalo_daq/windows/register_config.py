@@ -34,7 +34,7 @@ def connect_buttons(window):
     window.pushButton_Power_hw_reg.clicked.connect(power_control     (window))
     window.pushButton_Power_status_hw_reg.clicked.connect(power_status(window))
     window.pushButton_Clock_status_hw_reg.clicked.connect(clock_status(window))
-    window.pushButton_Link_status_hw_reg.clicked .connect(link_status(window))
+    window.pushButton_Link_status_hw_reg .clicked.connect(link_status(window))
 
 
 def config_temperature(window):

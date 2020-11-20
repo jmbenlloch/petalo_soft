@@ -969,3 +969,48 @@ power_control_data = {
         },
     },
 }
+
+power_status_data = {
+    "checkBox_PWR_STATUS_CONF_DONE" : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    "checkBox_PWR_STATUS_CONF_ON" : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    "checkBox_PWR_STATUS_18DIS" : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    "checkBox_PWR_STATUS_25EN" : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('00') },
+            True  : {'value' : bitarray('11') },
+        },
+    },
+    "checkBox_PWR_STATUS_TOFPET_VCCEN" : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('00000000') },
+            True  : {'value' : bitarray('11111111') },
+        },
+    },
+    "checkBox_PWR_STATUS_TOFPET_VCC25EN" : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('00000000') },
+            True  : {'value' : bitarray('11111111') },
+        },
+    },
+}

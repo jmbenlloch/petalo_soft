@@ -1,4 +1,9 @@
 from petalo_daq.gui.types import LogError
+from petalo_daq.io.config_params import power_status_fields
+from petalo_daq.gui.widget_data  import power_status_data
+from petalo_daq.io.utils         import load_bitarray_config
+
+from bitarray import bitarray
 
 temperature_ch_to_tofpet = {0 : 1,
                             1 : 3,
@@ -42,7 +47,16 @@ def temperature_conversion_2(value):
     return (value & 0x0FFFFFFF) / 32. / 1570 * 3.3 - 273
 
 
+def convert_int32_to_bitarray(value):
+    value_binary_str = '{:032b}'.format(value)
+    value_bitarray = bitarray(value_binary_str[::-1])
+    return value_bitarray
+
+
 def power_regulator_status(window, cmd, params):
+    print("power_regulator_status")
     register, value = params
-    widget_name = 'lcdNumber_Temp_{}'.format(tofpet_id)
-    widget = getattr(window, widget_name)
+    value_bitarray = convert_int32_to_bitarray(value)
+
+    load_bitarray_config(window, value_bitarray, power_status_fields, power_status_data)
+

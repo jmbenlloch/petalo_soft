@@ -642,4 +642,37 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
+
+
+    'checkBox_PWR_STATUS_CONF_DONE' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_CONF_ON' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_18DIS' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_25EN' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCCEN' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_PWR_STATUS_TOFPET_VCC25EN' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+
 }

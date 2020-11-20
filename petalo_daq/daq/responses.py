@@ -26,10 +26,10 @@ response_functions = {
         register_tuple(2, 6): read_temperature,
         register_tuple(2, 7): read_temperature,
         register_tuple(2, 8): read_temperature,
-    }
-    cmd.SOFT_REG_R_r : {
+    },
+    cmd.HARD_REG_R_r : {
         register_tuple(1, 1): power_regulator_status,
-    }
+    },
 }
 
 
@@ -42,6 +42,7 @@ def read_network_responses(window):
                 response_str += f'\t{key}: {value}\n'
             window.plainTextEdit_cmdResponse.insertPlainText(f'{response_str}\n')
 
+            print(message)
             try:
                 cmd      = message['command']
                 register = message['params' ][0]

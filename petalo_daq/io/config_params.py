@@ -149,3 +149,12 @@ power_control_fields = {
     "PWR_TOFPET_VCCEN"   : reverse_range_inclusive(15,  8),
     "PWR_TOFPET_VCC25EN" : reverse_range_inclusive( 7,  0),
 }
+
+power_status_fields = {
+    "PWR_STATUS_CONF_DONE"      : reverse_range_inclusive(31, 31),
+    "PWR_STATUS_CONF_ON"        : reverse_range_inclusive(30, 30),
+    "PWR_STATUS_18DIS"          : reverse_range_inclusive(18, 18),
+    "PWR_STATUS_25EN"           : reverse_range_inclusive(17, 16),
+    "PWR_STATUS_TOFPET_VCCEN"   : reverse_range_inclusive(15,  8),
+    "PWR_STATUS_TOFPET_VCC25EN" : reverse_range_inclusive( 7,  0),
+}

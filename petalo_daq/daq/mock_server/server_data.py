@@ -151,7 +151,7 @@ hw_registers = {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x00000000,
+            'value' : 0x800300FF,
            },
        },
     2: { # Clock control

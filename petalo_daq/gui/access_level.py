@@ -792,7 +792,7 @@ user_access = {
         'shifter' : False,
         'none'    : False,
     },
-    'checkBox_CLK_CONF_REG_PROG_VALUE' : {
+    'lineEdit_CLK_CONF_REG_PROG_VALUE' : {
         'admin'   : False,
         'shifter' : False,
         'none'    : False,

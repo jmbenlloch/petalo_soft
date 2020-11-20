@@ -1177,11 +1177,9 @@ clock_status_data = {
             True  : {'value' : bitarray('1') },
         },
     },
-    'checkBox_CLK_CONF_REG_PROG_VALUE' : {
-        'default' : False,
-        'values' : {
-            False : {'value' : bitarray('0') },
-            True  : {'value' : bitarray('1') },
+    'lineEdit_CLK_CONF_REG_PROG_VALUE' : {
+        'default' : '0x12345678',
+        'values'  : {
         },
     },
 }

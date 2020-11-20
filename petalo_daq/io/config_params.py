@@ -183,5 +183,5 @@ clock_status_fields = {
     "CLK_CONF_ON"             : reverse_range_inclusive(10, 10),
     "CLK_REG_PROG_DONE"       : reverse_range_inclusive( 9,  9),
     "CLK_REG_PROG_READY"      : reverse_range_inclusive( 8,  8),
-    "CLK_CONF_REG_PROG_VALUE" : reverse_range_inclusive( 0,  0),
+    "CLK_CONF_REG_PROG_VALUE" : reverse_range_inclusive( 7,  0),
 }

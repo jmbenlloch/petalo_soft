@@ -4201,7 +4201,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QLineEdit" name="CLK_CONF_REG_PROG_VALUE_2">
+          <widget class="QLineEdit" name="lineEdit_CLK_CONF_REG_PROG_VALUE">
            <property name="geometry">
             <rect>
              <x>20</x>

@@ -3,6 +3,7 @@ from PyQt5    import QtWidgets
 from bitarray import bitarray
 
 
+
 def find_gui_value_from_bitarray(expected_value, values_dict):
     """
     Function to find the GUI value of a particular bitarray
@@ -58,24 +59,27 @@ def load_bitarray_config(window, config, config_fields, config_data):
     for field, bit_slice in config_fields.items():
         #print(field, bit_slice)
         value = read_bitarray_slice(config, bit_slice)
-        #print(field, value)
+        print(field, value)
 
-        gui_field = f'comboBox_{field}'
-        if gui_field not in config_data:
-            gui_field = f'checkBox_{field}'
-
-        #print(gui_field)
-
-        index = find_gui_value_from_bitarray(value, config_data[gui_field]['values'])
-        if index == -1:
-            raise ValueError(f'Value {value} for {field} not found!')
+        gui_field = field
+        for key in config_data.keys():
+            if(key.endswith(gui_field)):
+                gui_field = key
 
         widget = getattr(window, gui_field)
 
-        if isinstance(widget, QtWidgets.QComboBox):
-            widget.setCurrentIndex(index)
-        if isinstance(widget, QtWidgets.QCheckBox):
-            widget.setChecked(index)
+        if isinstance(widget, QtWidgets.QLineEdit):
+            value_int = convert_bitarray_to_int32(value)
+            widget.setText('0x{:02X}'.format(value_int))
+        else:
+            index = find_gui_value_from_bitarray(value, config_data[gui_field]['values'])
+            if index == -1:
+                raise ValueError(f'Value {value} for {field} not found!')
+
+            if isinstance(widget, QtWidgets.QComboBox):
+                widget.setCurrentIndex(index)
+            if isinstance(widget, QtWidgets.QCheckBox):
+                widget.setChecked(index)
 
 
 def insert_bitarray_slice(config, indices, bits):
@@ -107,3 +111,9 @@ def read_bitarray_slice(bits, indices):
         bits_slice.append(bits[index])
         #print(index, bits[index])
     return bits_slice
+
+
+def convert_bitarray_to_int32(bitarray):
+    value = int(bitarray.to01(), 2)
+    return value
+

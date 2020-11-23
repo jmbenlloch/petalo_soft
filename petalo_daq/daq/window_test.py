@@ -307,6 +307,60 @@ def test_link_status_register_command(qtbot):
     #TODO test register content somehow... and test GUI update
 
 
+def test_start_run_register_send_command(qtbot):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.START, QtCore.Qt.LeftButton)
+    pattern = 'Run has started'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    assert window.tx_queue.qsize() == 1
+    cmd_binary = window.tx_queue.get(0)
+
+    message  = MESSAGE()
+    cmd      = message(cmd_binary)
+    params   = cmd['params']
+    register = params[0]
+    print(cmd_binary)
+    print(cmd)
+
+    assert cmd['command' ] == commands.HARD_REG_W
+    assert cmd['L1_id'   ] == 0
+    assert cmd['n_params'] == 2
+    assert len(params)     == cmd['n_params']
+    assert register.group  == 4
+    assert register.id     == 0
+    #TODO test register content somehow...
+
+
+def test_stop_run_register_send_command(qtbot):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.STOP, QtCore.Qt.LeftButton)
+    pattern = 'The run is stopped'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    assert window.tx_queue.qsize() == 1
+    cmd_binary = window.tx_queue.get(0)
+
+    message  = MESSAGE()
+    cmd      = message(cmd_binary)
+    params   = cmd['params']
+    register = params[0]
+    print(cmd_binary)
+    print(cmd)
+
+    assert cmd['command' ] == commands.HARD_REG_W
+    assert cmd['L1_id'   ] == 0
+    assert cmd['n_params'] == 2
+    assert len(params)     == cmd['n_params']
+    assert register.group  == 4
+    assert register.id     == 0
+    #TODO test register content somehow...
+
+
 #  @fixture(scope='session')
 #  def database_connection():
 #      conn, cursor = db.mysql_connect('localhost', 'root', 'root', 'petalo')

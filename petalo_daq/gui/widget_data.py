@@ -891,6 +891,9 @@ temperature_data = {
     },
     'spinBox_Temp_Time' : {
         'default' : 41943000,
+        #  'min' : 0,
+        #  'max' : 35,
+        #  'step' : 2
     },
     'comboBox_Temp_CH_Sel' : {
         'default' : 0,
@@ -1304,4 +1307,38 @@ link_status_data = {
             True  : {'value' : bitarray('1') },
         },
     },
+}
+
+run_control_data = {
+    'comboBox_RUN_MODE' : {
+        'default' : 0,
+        'values' : {
+            0 : {'value': bitarray('00'),
+                 'text' : 'QDC: Charge Integration'},
+            1 : {'value': bitarray('01'),
+                 'text' : 'TOT: Time Over Threshold'},
+            2 : {'value': bitarray('11'),
+                 'text' : 'Calibration: Event counter'},
+        },
+    },
+    'checkBox_RUN_THR_ON' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'spinBox_RUN_Throughput' : {
+        'default' : 30,
+        'min' : 0,
+        'max' : 255,
+        'step' : 1,
+    },
+    'spinBox_RUN_Event' : {
+        'default' : 2,
+        #  'min' : 0,
+        #  'max' : (2**16-1) * 2**16 / 125e6,
+        #  'step' : 2**16 / 125e6 *1000,
+    },
+
 }

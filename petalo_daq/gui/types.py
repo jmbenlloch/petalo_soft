@@ -9,6 +9,7 @@ global_config_tuple      = namedtuple('global_config'     , config_params.global
 channel_config_tuple     = namedtuple('channel_config'    , config_params.channel_config_fields)
 temperature_config_tuple = namedtuple('temperature_config', config_params.temperature_config_fields)
 power_control_tuple      = namedtuple('power_control'     , config_params.power_control_fields)
+run_control_tuple        = namedtuple('run_control'       , config_params.run_control_fields)
 
 
 class LogError(Exception):

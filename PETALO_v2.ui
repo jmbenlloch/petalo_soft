@@ -10784,21 +10784,6 @@ CONFIG</string>
         <height>26</height>
        </rect>
       </property>
-      <item>
-       <property name="text">
-        <string>QDC: Charge intergration</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>TOT:  Time Over Threshold</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Calibration: Event counter</string>
-       </property>
-      </item>
      </widget>
      <widget class="QLabel" name="label_292">
       <property name="geometry">
@@ -10908,7 +10893,7 @@ CONFIG</string>
        </font>
       </property>
       <property name="text">
-       <string>(Bytes/s)</string>
+       <string>(MB/s)</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>

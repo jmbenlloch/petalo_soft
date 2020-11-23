@@ -205,3 +205,11 @@ link_status_fields = {
     "LINK_STATUS_ALIGNING_1" : reverse_range_inclusive( 1, 1),
     "LINK_STATUS_ALIGNING_0" : reverse_range_inclusive( 0, 0),
 }
+
+
+run_control_fields = {
+    "RUN_MODE"       : reverse_range_inclusive(29, 28),
+    "RUN_THR_ON"     : reverse_range_inclusive(27, 27),
+    "RUN_Throughput" : reverse_range_inclusive(26, 16),
+    "RUN_Event"      : reverse_range_inclusive(15,  0),
+}

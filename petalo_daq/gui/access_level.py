@@ -884,4 +884,27 @@ user_access = {
         'shifter' : False,
         'none'    : False,
     },
+
+
+    'comboBox_RUN_MODE' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_RUN_THR_ON' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'spinBox_RUN_Throughput' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'spinBox_RUN_Event' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+
 }

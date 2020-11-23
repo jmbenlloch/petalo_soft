@@ -25,7 +25,13 @@ def populate_fields(window, gui_data):
         if isinstance(widget, QtWidgets.QCheckBox):
             widget.setEnabled(entries['default'])
         if isinstance(widget, QtWidgets.QSpinBox):
-            widget.setValue(entries['default'])
+            widget.setValue     (entries['default'])
+            if 'min' in entries:
+                widget.setMinimum   (entries['min'])
+            if 'max' in entries:
+                widget.setMaximum   (entries['max'])
+            if 'step' in entries:
+                widget.setSingleStep(entries['step'])
 
 
 

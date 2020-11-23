@@ -213,3 +213,8 @@ run_control_fields = {
     "RUN_Throughput" : reverse_range_inclusive(26, 16),
     "RUN_Event"      : reverse_range_inclusive(15,  0),
 }
+
+run_status_fields = {
+    "RUN_MODE" : reverse_range_inclusive(2, 1),
+    "ACQ_ON"   : reverse_range_inclusive(0 ,0),
+}

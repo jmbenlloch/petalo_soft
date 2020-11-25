@@ -919,4 +919,21 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
+
+
+    'checkBox_LMK_WREN' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'spinBox_LMK_REG_ADD' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'spinBox_LMK_REG_VALUE' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
 }

@@ -10,6 +10,14 @@ from petalo_daq.gui.widget_data  import power_control_data
 from petalo_daq.gui.types        import power_control_tuple
 from petalo_daq.io.config_params import power_control_fields
 
+from petalo_daq.gui.widget_data  import clock_control_data
+from petalo_daq.gui.types        import clock_control_tuple
+from petalo_daq.io.config_params import clock_control_fields
+
+from petalo_daq.gui.widget_data  import lmk_control_data
+from petalo_daq.gui.types        import lmk_control_tuple
+from petalo_daq.io.config_params import lmk_control_fields
+
 from petalo_daq.io.utils         import insert_bitarray_slice
 from petalo_daq.io.config_params import range_inclusive
 
@@ -36,6 +44,7 @@ def connect_buttons(window):
     window.pushButton_Clock_status_hw_reg .clicked.connect(clock_status(window))
     window.pushButton_Link_status_hw_reg  .clicked.connect(link_status(window))
     window.pushButton_Clock_control_hw_reg.clicked.connect(clock_control(window))
+    window.pushButton_Clock_LMK_hw_reg    .clicked.connect(lmk_control(window))
 
 
 def config_temperature(window):
@@ -256,8 +265,86 @@ def clock_control(window):
     """
 
     def on_click():
+        clock_bitarray = bitarray('0'*32)
+
+        # ASIC parameters to be update
+        clock_control = read_parameters(window, clock_control_data, clock_control_tuple)
+
+        for field, positions in clock_control_fields.items():
+            value = getattr(clock_control, field)
+            insert_bitarray_slice(clock_bitarray, positions, value)
+
+        #Build command
+        daq_id = 0x0000
+        register = register_tuple(group=2, id=0)
+        print(clock_bitarray)
+        value = int(clock_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
+        print(value)
+
+        command = build_hw_register_write_command(daq_id, register.group, register.id, value)
+        print(command)
+        # Send command
+        window.tx_queue.put(command)
         window.update_log_info("Clock control sent",
                                "Clock control command sent")
+
+    return on_click
+
+
+def lmk_control(window):
+    """
+    Function to write the clock control register.
+    It reads the values from the GUI fields and updates the bitarray in
+    data_store
+
+    Parameters
+    window (PetaloRunConfigurationGUI): Main application
+
+    Returns
+    function: To be triggered on click
+    """
+
+    def on_click():
+        lmk_bitarray = bitarray('0'*32)
+
+        # ASIC parameters to be update
+        lmk_control = read_parameters(window, lmk_control_data, lmk_control_tuple)
+        print(lmk_control)
+
+        # Convert address and value to bitarray
+        lmk_address          = lmk_control.LMK_REG_ADD
+        lmk_address_binary   = '{:07b}'.format(lmk_address)
+        lmk_address_bitarray = bitarray(lmk_address_binary.encode())
+
+        lmk_value          = lmk_control.LMK_REG_VALUE
+        lmk_value_binary   = '{:08b}'.format(lmk_value)
+        lmk_value_bitarray = bitarray(lmk_value_binary.encode())
+
+        lmk_control = lmk_control._replace(LMK_REG_ADD   = lmk_address_bitarray,
+                                           LMK_REG_VALUE = lmk_value_bitarray )
+
+
+        for field, positions in lmk_control_fields.items():
+            value = getattr(lmk_control, field)
+            print(field, positions, value)
+            insert_bitarray_slice(lmk_bitarray, positions, value)
+
+        #fill bit 31
+        insert_bitarray_slice(lmk_bitarray, [31], bitarray('1'))
+
+        #Build command
+        daq_id = 0x0000
+        register = register_tuple(group=2, id=1)
+        print(lmk_bitarray)
+        value = int(lmk_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
+        print(value)
+
+        command = build_hw_register_write_command(daq_id, register.group, register.id, value)
+        print(command)
+        # Send command
+        window.tx_queue.put(command)
+        window.update_log_info("LMK control sent",
+                               "LMK control command sent")
 
     return on_click
 

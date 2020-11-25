@@ -361,6 +361,60 @@ def test_stop_run_register_send_command(qtbot):
     #TODO test register content somehow...
 
 
+def test_clock_control_register_send_command(qtbot):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.pushButton_Clock_control_hw_reg, QtCore.Qt.LeftButton)
+    pattern = 'Clock control command sent'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    assert window.tx_queue.qsize() == 1
+    cmd_binary = window.tx_queue.get(0)
+
+    message  = MESSAGE()
+    cmd      = message(cmd_binary)
+    params   = cmd['params']
+    register = params[0]
+    print(cmd_binary)
+    print(cmd)
+
+    assert cmd['command' ] == commands.HARD_REG_W
+    assert cmd['L1_id'   ] == 0
+    assert cmd['n_params'] == 2
+    assert len(params)     == cmd['n_params']
+    assert register.group  == 2
+    assert register.id     == 0
+    #TODO test register content somehow...
+
+
+def test_lmk_control_register_send_command(qtbot):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.pushButton_Clock_LMK_hw_reg, QtCore.Qt.LeftButton)
+    pattern = 'LMK control command sent'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    assert window.tx_queue.qsize() == 1
+    cmd_binary = window.tx_queue.get(0)
+
+    message  = MESSAGE()
+    cmd      = message(cmd_binary)
+    params   = cmd['params']
+    register = params[0]
+    print(cmd_binary)
+    print(cmd)
+
+    assert cmd['command' ] == commands.HARD_REG_W
+    assert cmd['L1_id'   ] == 0
+    assert cmd['n_params'] == 2
+    assert len(params)     == cmd['n_params']
+    assert register.group  == 2
+    assert register.id     == 1
+    #TODO test register content somehow...
+
+
 #  @fixture(scope='session')
 #  def database_connection():
 #      conn, cursor = db.mysql_connect('localhost', 'root', 'root', 'petalo')

@@ -1360,3 +1360,25 @@ clock_control_data = {
         },
     },
 }
+
+lmk_control_data = {
+    'checkBox_LMK_WREN' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'spinBox_LMK_REG_ADD' : {
+        'default' : 0,
+        'min' : 0,
+        'max' : 127,
+        'step' : 1,
+    },
+    'spinBox_LMK_REG_VALUE' : {
+        'default' : 0,
+        'min' : 0,
+        'max' : 255,
+        'step' : 1,
+    },
+}

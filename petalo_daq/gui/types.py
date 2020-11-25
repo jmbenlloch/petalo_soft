@@ -10,6 +10,8 @@ channel_config_tuple     = namedtuple('channel_config'    , config_params.channe
 temperature_config_tuple = namedtuple('temperature_config', config_params.temperature_config_fields)
 power_control_tuple      = namedtuple('power_control'     , config_params.power_control_fields)
 run_control_tuple        = namedtuple('run_control'       , config_params.run_control_fields)
+clock_control_tuple      = namedtuple('clock_control'     , config_params.clock_control_fields)
+lmk_control_tuple        = namedtuple('lmk_control'       , config_params.lmk_control_fields)
 
 
 class LogError(Exception):

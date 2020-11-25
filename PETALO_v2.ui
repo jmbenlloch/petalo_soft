@@ -4824,7 +4824,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QComboBox" name="comboBox_LMK_REG_ADD">
+          <widget class="QSpinBox" name="spinBox_LMK_REG_ADD">
            <property name="geometry">
             <rect>
              <x>20</x>
@@ -4833,36 +4833,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
              <height>26</height>
             </rect>
            </property>
-           <item>
-            <property name="text">
-             <string>100h</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>01h</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>02h</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>03h</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>04h</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>05h</string>
-            </property>
-           </item>
           </widget>
          </widget>
          <widget class="QFrame" name="frame_25">
@@ -4955,7 +4925,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QComboBox" name="comboBox_LMK_REG_VALUE">
+          <widget class="QSpinBox" name="spinBox_LMK_REG_VALUE">
            <property name="geometry">
             <rect>
              <x>20</x>

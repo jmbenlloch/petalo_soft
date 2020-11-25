@@ -223,3 +223,9 @@ clock_control_fields = {
     "CLK_Start" : reverse_range_inclusive(30, 30),
     "CLK_RST"   : reverse_range_inclusive(29, 29),
 }
+
+lmk_control_fields = {
+    "LMK_WREN"      : reverse_range_inclusive(15, 15),
+    "LMK_REG_ADD"   : reverse_range_inclusive(14,  8),
+    "LMK_REG_VALUE" : reverse_range_inclusive( 7,  0),
+}

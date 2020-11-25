@@ -907,4 +907,16 @@ user_access = {
         'none'    : False,
     },
 
+
+    'checkBox_CLK_Start' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+
+    'checkBox_CLK_RST' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
 }

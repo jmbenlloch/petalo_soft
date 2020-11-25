@@ -218,3 +218,8 @@ run_status_fields = {
     "RUN_MODE" : reverse_range_inclusive(2, 1),
     "ACQ_ON"   : reverse_range_inclusive(0 ,0),
 }
+
+clock_control_fields = {
+    "CLK_Start" : reverse_range_inclusive(30, 30),
+    "CLK_RST"   : reverse_range_inclusive(29, 29),
+}

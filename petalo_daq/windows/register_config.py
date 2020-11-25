@@ -32,9 +32,10 @@ def connect_buttons(window):
     window.pushButton_Temp_hw_reg .clicked.connect(config_temperature(window))
     window.pushButton_Temp_read   .clicked.connect(read_temperature  (window))
     window.pushButton_Power_hw_reg.clicked.connect(power_control     (window))
-    window.pushButton_Power_status_hw_reg.clicked.connect(power_status(window))
-    window.pushButton_Clock_status_hw_reg.clicked.connect(clock_status(window))
-    window.pushButton_Link_status_hw_reg .clicked.connect(link_status(window))
+    window.pushButton_Power_status_hw_reg .clicked.connect(power_status(window))
+    window.pushButton_Clock_status_hw_reg .clicked.connect(clock_status(window))
+    window.pushButton_Link_status_hw_reg  .clicked.connect(link_status(window))
+    window.pushButton_Clock_control_hw_reg.clicked.connect(clock_control(window))
 
 
 def config_temperature(window):
@@ -237,6 +238,26 @@ def link_status(window):
 
         window.update_log_info("Link status sent",
                                "Link status command sent")
+
+    return on_click
+
+
+def clock_control(window):
+    """
+    Function to write the clock control register.
+    It reads the values from the GUI fields and updates the bitarray in
+    data_store
+
+    Parameters
+    window (PetaloRunConfigurationGUI): Main application
+
+    Returns
+    function: To be triggered on click
+    """
+
+    def on_click():
+        window.update_log_info("Clock control sent",
+                               "Clock control command sent")
 
     return on_click
 

@@ -1342,3 +1342,21 @@ run_control_data = {
     },
 
 }
+
+
+clock_control_data = {
+    'checkBox_CLK_Start' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_CLK_RST' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+}

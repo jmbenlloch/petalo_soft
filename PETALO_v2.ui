@@ -4666,19 +4666,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <string>CLOCK CONTROL</string>
           </property>
          </widget>
-         <widget class="QCheckBox" name="checkBox_CLK_Start">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>60</y>
-            <width>131</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Conf. START</string>
-          </property>
-         </widget>
          <widget class="QFrame" name="frame_23">
           <property name="geometry">
            <rect>
@@ -4767,6 +4754,19 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_CLK_Start">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>20</y>
+             <width>131</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Conf. START</string>
            </property>
           </widget>
          </widget>

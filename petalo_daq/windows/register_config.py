@@ -18,6 +18,10 @@ from petalo_daq.gui.widget_data  import lmk_control_data
 from petalo_daq.gui.types        import lmk_control_tuple
 from petalo_daq.io.config_params import lmk_control_fields
 
+from petalo_daq.gui.widget_data  import link_control_data
+from petalo_daq.gui.types        import link_control_tuple
+from petalo_daq.io.config_params import link_control_fields
+
 from petalo_daq.io.utils         import insert_bitarray_slice
 from petalo_daq.io.config_params import range_inclusive
 
@@ -45,6 +49,7 @@ def connect_buttons(window):
     window.pushButton_Link_status_hw_reg  .clicked.connect(link_status(window))
     window.pushButton_Clock_control_hw_reg.clicked.connect(clock_control(window))
     window.pushButton_Clock_LMK_hw_reg    .clicked.connect(lmk_control(window))
+    window.pushButton_TOFPET_LINK_CONTROL .clicked.connect(link_control(window))
 
 
 def config_temperature(window):
@@ -348,3 +353,42 @@ def lmk_control(window):
 
     return on_click
 
+
+def link_control(window):
+    """
+    Function to write the link control register.
+    It reads the values from the GUI fields and updates the bitarray in
+    data_store
+
+    Parameters
+    window (PetaloRunConfigurationGUI): Main application
+
+    Returns
+    function: To be triggered on click
+    """
+
+    def on_click():
+        link_bitarray = bitarray('0'*32)
+
+        # ASIC parameters to be update
+        link_control = read_parameters(window, link_control_data, link_control_tuple)
+
+        for field, positions in link_control_fields.items():
+            value = getattr(link_control, field)
+            insert_bitarray_slice(link_bitarray, positions, value)
+
+        #Build command
+        daq_id = 0x0000
+        register = register_tuple(group=3, id=0)
+        print(link_bitarray)
+        value = int(link_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
+        print(value)
+
+        command = build_hw_register_write_command(daq_id, register.group, register.id, value)
+        print(command)
+        # Send command
+        window.tx_queue.put(command)
+        window.update_log_info("Link control sent",
+                               "Link control command sent")
+
+    return on_click

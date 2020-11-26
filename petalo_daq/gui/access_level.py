@@ -978,5 +978,27 @@ user_access = {
         'shifter' : False,
         'none'    : False,
     },
+
+
+    'checkBox_TOFPET_LINK_RST' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_TOFPET_LINK_CONF' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_TOFPET_LINK_BC' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'comboBox_TOFPET_LINK_SEL_MUX' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
 }
 

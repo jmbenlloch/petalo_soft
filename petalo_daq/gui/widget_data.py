@@ -1187,6 +1187,53 @@ clock_status_data = {
     },
 }
 
+
+link_control_data = {
+    'checkBox_TOFPET_LINK_RST' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TOFPET_LINK_CONF' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TOFPET_LINK_BC' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'comboBox_TOFPET_LINK_SEL_MUX' : {
+        'default' : 0,
+        'values' : {
+            0 : {'value': bitarray('000'),
+                 'text' : '0'},
+            1 : {'value': bitarray('000'),
+                 'text' : '1'},
+            2 : {'value': bitarray('001'),
+                 'text' : '2'},
+            3 : {'value': bitarray('010'),
+                 'text' : '3'},
+            4 : {'value': bitarray('011'),
+                 'text' : '4'},
+            5 : {'value': bitarray('100'),
+                 'text' : '5'},
+            6 : {'value': bitarray('101'),
+                 'text' : '6'},
+            7 : {'value': bitarray('110'),
+                 'text' : '7'},
+        }
+    },
+
+}
+
 link_status_data = {
     'checkBox_LINK_STATUS_IDL_ready' : {
         'default' : False,

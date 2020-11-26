@@ -13,6 +13,7 @@ run_control_tuple        = namedtuple('run_control'       , config_params.run_co
 clock_control_tuple      = namedtuple('clock_control'     , config_params.clock_control_fields)
 lmk_control_tuple        = namedtuple('lmk_control'       , config_params.lmk_control_fields)
 tofpet_config_tuple      = namedtuple('tofpet_config'     , config_params.tofpet_config_fields)
+link_control_tuple       = namedtuple('link_control'      , config_params.link_control_fields)
 
 
 class LogError(Exception):

@@ -1392,14 +1392,14 @@ tofpet_config_data = {
             True  : {'value' : bitarray('1') },
         },
     },
-    'checkBox_TOFPET_VERIFY' : {
+    'checkBox_TOFPET_CONF_VERIFY' : {
         'default' : False,
         'values' : {
             False : {'value' : bitarray('0') },
             True  : {'value' : bitarray('1') },
         },
     },
-    'checkBox_TOFPET_ERROR_RST' : {
+    'checkBox_TOFPET_CONF_ERROR_RST' : {
         'default' : False,
         'values' : {
             False : {'value' : bitarray('0') },
@@ -1419,7 +1419,7 @@ tofpet_config_data = {
         'max' : 511,
         'step' : 1,
     },
-    'comboBox_TOFPET_MODE' : {
+    'comboBox_TOFPET_CONF_MODE' : {
         'default' : 0,
         'values' : {
             0 : {'value': bitarray('00'),
@@ -1432,7 +1432,7 @@ tofpet_config_data = {
                  'text' : 'Channel register selected'},
         }
     },
-    'spinBox_TOFPET_CH_SEL' : {
+    'spinBox_TOFPET_CONF_CH_SEL' : {
         'default' : 0,
         'min' : 0,
         'max' : 63,

@@ -3821,15 +3821,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
               </color>
              </brush>
             </colorrole>
-            <colorrole role="PlaceholderText">
-             <brush brushstyle="NoBrush">
-              <color alpha="128">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -3967,15 +3958,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
               </color>
              </brush>
             </colorrole>
-            <colorrole role="PlaceholderText">
-             <brush brushstyle="NoBrush">
-              <color alpha="128">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -4107,15 +4089,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="PlaceholderText">
-             <brush brushstyle="NoBrush">
-              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -5130,15 +5103,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
               </color>
              </brush>
             </colorrole>
-            <colorrole role="PlaceholderText">
-             <brush brushstyle="NoBrush">
-              <color alpha="128">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -5276,15 +5240,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
               </color>
              </brush>
             </colorrole>
-            <colorrole role="PlaceholderText">
-             <brush brushstyle="NoBrush">
-              <color alpha="128">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -5416,15 +5371,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="PlaceholderText">
-             <brush brushstyle="NoBrush">
-              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -5831,15 +5777,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
                </color>
               </brush>
              </colorrole>
-             <colorrole role="PlaceholderText">
-              <brush brushstyle="NoBrush">
-               <color alpha="128">
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
             </active>
             <inactive>
              <colorrole role="WindowText">
@@ -5977,15 +5914,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
                </color>
               </brush>
              </colorrole>
-             <colorrole role="PlaceholderText">
-              <brush brushstyle="NoBrush">
-               <color alpha="128">
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
             </inactive>
             <disabled>
              <colorrole role="WindowText">
@@ -6117,15 +6045,6 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
              <colorrole role="ToolTipText">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
-             <colorrole role="PlaceholderText">
-              <brush brushstyle="NoBrush">
-               <color alpha="128">
                 <red>0</red>
                 <green>0</green>
                 <blue>0</blue>
@@ -6761,15 +6680,6 @@ REGISTERS</string>
                </color>
               </brush>
              </colorrole>
-             <colorrole role="PlaceholderText">
-              <brush brushstyle="NoBrush">
-               <color alpha="128">
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
             </active>
             <inactive>
              <colorrole role="WindowText">
@@ -6907,15 +6817,6 @@ REGISTERS</string>
                </color>
               </brush>
              </colorrole>
-             <colorrole role="PlaceholderText">
-              <brush brushstyle="NoBrush">
-               <color alpha="128">
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
             </inactive>
             <disabled>
              <colorrole role="WindowText">
@@ -7047,15 +6948,6 @@ REGISTERS</string>
              <colorrole role="ToolTipText">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
-             <colorrole role="PlaceholderText">
-              <brush brushstyle="NoBrush">
-               <color alpha="128">
                 <red>0</red>
                 <green>0</green>
                 <blue>0</blue>
@@ -7340,9 +7232,9 @@ REGISTERS</string>
           <widget class="QLabel" name="label_267">
            <property name="geometry">
             <rect>
-             <x>30</x>
+             <x>10</x>
              <y>0</y>
-             <width>121</width>
+             <width>161</width>
              <height>21</height>
             </rect>
            </property>
@@ -7616,15 +7508,6 @@ REGISTERS</string>
                </color>
               </brush>
              </colorrole>
-             <colorrole role="PlaceholderText">
-              <brush brushstyle="NoBrush">
-               <color alpha="128">
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
             </active>
             <inactive>
              <colorrole role="WindowText">
@@ -7762,15 +7645,6 @@ REGISTERS</string>
                </color>
               </brush>
              </colorrole>
-             <colorrole role="PlaceholderText">
-              <brush brushstyle="NoBrush">
-               <color alpha="128">
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
             </inactive>
             <disabled>
              <colorrole role="WindowText">
@@ -7902,15 +7776,6 @@ REGISTERS</string>
              <colorrole role="ToolTipText">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
-             <colorrole role="PlaceholderText">
-              <brush brushstyle="NoBrush">
-               <color alpha="128">
                 <red>0</red>
                 <green>0</green>
                 <blue>0</blue>
@@ -8395,15 +8260,6 @@ REGISTERS</string>
                </color>
               </brush>
              </colorrole>
-             <colorrole role="PlaceholderText">
-              <brush brushstyle="NoBrush">
-               <color alpha="128">
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
             </active>
             <inactive>
              <colorrole role="WindowText">
@@ -8541,15 +8397,6 @@ REGISTERS</string>
                </color>
               </brush>
              </colorrole>
-             <colorrole role="PlaceholderText">
-              <brush brushstyle="NoBrush">
-               <color alpha="128">
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
             </inactive>
             <disabled>
              <colorrole role="WindowText">
@@ -8681,15 +8528,6 @@ REGISTERS</string>
              <colorrole role="ToolTipText">
               <brush brushstyle="SolidPattern">
                <color alpha="255">
-                <red>0</red>
-                <green>0</green>
-                <blue>0</blue>
-               </color>
-              </brush>
-             </colorrole>
-             <colorrole role="PlaceholderText">
-              <brush brushstyle="NoBrush">
-               <color alpha="128">
                 <red>0</red>
                 <green>0</green>
                 <blue>0</blue>
@@ -8880,15 +8718,6 @@ REGISTERS</string>
               </color>
              </brush>
             </colorrole>
-            <colorrole role="PlaceholderText">
-             <brush brushstyle="NoBrush">
-              <color alpha="128">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -9026,15 +8855,6 @@ REGISTERS</string>
               </color>
              </brush>
             </colorrole>
-            <colorrole role="PlaceholderText">
-             <brush brushstyle="NoBrush">
-              <color alpha="128">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -9166,15 +8986,6 @@ REGISTERS</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="PlaceholderText">
-             <brush brushstyle="NoBrush">
-              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>
@@ -10399,15 +10210,6 @@ REGISTERS</string>
               </color>
              </brush>
             </colorrole>
-            <colorrole role="PlaceholderText">
-             <brush brushstyle="NoBrush">
-              <color alpha="128">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
            </active>
            <inactive>
             <colorrole role="WindowText">
@@ -10545,15 +10347,6 @@ REGISTERS</string>
               </color>
              </brush>
             </colorrole>
-            <colorrole role="PlaceholderText">
-             <brush brushstyle="NoBrush">
-              <color alpha="128">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
            </inactive>
            <disabled>
             <colorrole role="WindowText">
@@ -10685,15 +10478,6 @@ REGISTERS</string>
             <colorrole role="ToolTipText">
              <brush brushstyle="SolidPattern">
               <color alpha="255">
-               <red>0</red>
-               <green>0</green>
-               <blue>0</blue>
-              </color>
-             </brush>
-            </colorrole>
-            <colorrole role="PlaceholderText">
-             <brush brushstyle="NoBrush">
-              <color alpha="128">
                <red>0</red>
                <green>0</green>
                <blue>0</blue>

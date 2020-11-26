@@ -653,7 +653,7 @@ TEMPERATURE DATA</string>
       <widget class="QFrame" name="frame_6">
        <property name="geometry">
         <rect>
-         <x>340</x>
+         <x>320</x>
          <y>90</y>
          <width>271</width>
          <height>211</height>
@@ -693,7 +693,7 @@ TEMPERATURE DATA</string>
          <rect>
           <x>30</x>
           <y>40</y>
-          <width>161</width>
+          <width>181</width>
           <height>41</height>
          </rect>
         </property>
@@ -734,7 +734,7 @@ TEMPERATURE DATA</string>
          <rect>
           <x>10</x>
           <y>120</y>
-          <width>221</width>
+          <width>251</width>
           <height>41</height>
          </rect>
         </property>
@@ -826,9 +826,9 @@ TEMPERATURE DATA</string>
       <widget class="QFrame" name="frame_149">
        <property name="geometry">
         <rect>
-         <x>370</x>
+         <x>320</x>
          <y>310</y>
-         <width>241</width>
+         <width>271</width>
          <height>211</height>
         </rect>
        </property>
@@ -875,9 +875,9 @@ TEMPERATURE DATA</string>
       <widget class="QFrame" name="frame_150">
        <property name="geometry">
         <rect>
-         <x>620</x>
+         <x>600</x>
          <y>260</y>
-         <width>241</width>
+         <width>261</width>
          <height>261</height>
         </rect>
        </property>
@@ -955,9 +955,9 @@ TEMPERATURE DATA</string>
        <widget class="QLabel" name="label_288">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>0</x>
           <y>130</y>
-          <width>111</width>
+          <width>131</width>
           <height>41</height>
          </rect>
         </property>

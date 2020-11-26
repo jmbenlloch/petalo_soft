@@ -8,6 +8,7 @@ from petalo_daq.daq.process_responses import power_regulator_status
 from petalo_daq.daq.process_responses import clock_status
 from petalo_daq.daq.process_responses import link_status
 from petalo_daq.daq.process_responses import run_status
+from petalo_daq.daq.process_responses import tofpet_status
 
 
 def check_write_response(window, cmd, params):
@@ -34,6 +35,7 @@ response_functions = {
         register_tuple(1, 1): power_regulator_status,
         register_tuple(2, 2): clock_status,
         register_tuple(3, 1): link_status,
+        register_tuple(3, 4): tofpet_status,
         register_tuple(4, 1): run_status,
     },
 }

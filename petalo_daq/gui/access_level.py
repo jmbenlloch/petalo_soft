@@ -936,4 +936,47 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
+
+
+    'checkBox_TOFPET_STATUS_ERR_CRC_GL' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_TOFPET_STATUS_ERR_CFG_GL' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_TOFPET_STATUS_ERR_CRC_CH' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_TOFPET_STATUS_ERR_CFG_CH' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_TOFPET_STATUS_ERR_ACK_CREAD' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_TOFPET_STATUS_ERR_ACK_CWRITE' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_TOFPET_STATUS_ERR_ACK_GREAD' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_TOFPET_STATUS_ERR_ACK_GWRITE' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
 }
+

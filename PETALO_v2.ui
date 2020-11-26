@@ -682,7 +682,7 @@ TEMPERATURE DATA</string>
          </font>
         </property>
         <property name="text">
-         <string>TOPFET ALIGNEMENT</string>
+         <string>TOPFET ALIGNMENT</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -2192,7 +2192,7 @@ TEMPERATURE DATA</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>24</pointsize>
+         <pointsize>20</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -3066,7 +3066,7 @@ REGISTERS</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>24</pointsize>
+         <pointsize>20</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -3195,7 +3195,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
         </property>
         <property name="font">
          <font>
-          <pointsize>30</pointsize>
+          <pointsize>20</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -7211,7 +7211,7 @@ REGISTERS</string>
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>10</y>
+             <y>0</y>
              <width>121</width>
              <height>21</height>
             </rect>
@@ -7228,6 +7228,16 @@ REGISTERS</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spinBox_TOFPET_CONF_ADDR">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>20</y>
+             <width>104</width>
+             <height>26</height>
+            </rect>
            </property>
           </widget>
          </widget>
@@ -7278,26 +7288,6 @@ REGISTERS</string>
              <height>41</height>
             </rect>
            </property>
-           <item>
-            <property name="text">
-             <string>All register</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Global registers</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>All channel registers</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Channel register selected by CH SEL</string>
-            </property>
-           </item>
           </widget>
          </widget>
          <widget class="QFrame" name="frame_138">
@@ -7338,7 +7328,7 @@ REGISTERS</string>
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QComboBox" name="comboBox_TOFPET_CH_SEL">
+          <widget class="QSpinBox" name="spinBox_TOFPET_CH_SEL">
            <property name="geometry">
             <rect>
              <x>80</x>
@@ -7347,36 +7337,6 @@ REGISTERS</string>
              <height>51</height>
             </rect>
            </property>
-           <item>
-            <property name="text">
-             <string>Global</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Channel 0</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Channel  1</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Channel  2</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Channel 3</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Channel 63</string>
-            </property>
-           </item>
           </widget>
          </widget>
          <widget class="QLabel" name="label_302">
@@ -7871,7 +7831,7 @@ REGISTERS</string>
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_TOFPET_WR_STATUS_Gwrite">
+          <widget class="QCheckBox" name="checkBox_TOFPET_STATUS_ERR_ACK_GWRITE">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -7884,7 +7844,7 @@ REGISTERS</string>
             <string>Global write</string>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_TOFPET_WR_STATUS_Cwrite_2">
+          <widget class="QCheckBox" name="checkBox_TOFPET_STATUS_ERR_ACK_CWRITE">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -7897,7 +7857,7 @@ REGISTERS</string>
             <string>Channel write</string>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_TOFPET_WR_STATUS_Gread">
+          <widget class="QCheckBox" name="checkBox_TOFPET_STATUS_ERR_ACK_GREAD">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -7907,10 +7867,10 @@ REGISTERS</string>
             </rect>
            </property>
            <property name="text">
-            <string>Global write</string>
+            <string>Global read</string>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_TOFPET_WR_STATUS_Cread_3">
+          <widget class="QCheckBox" name="checkBox_TOFPET_STATUS_ERR_ACK_CREAD">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -7962,7 +7922,7 @@ REGISTERS</string>
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_TOFPET_ERR_CFG_CH_REG">
+          <widget class="QCheckBox" name="checkBox_TOFPET_STATUS_ERR_CFG_CH">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -7975,7 +7935,7 @@ REGISTERS</string>
             <string>Config err written ch config reg</string>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_TOFPET_TOFPET_ERR_CRC_CH_REG">
+          <widget class="QCheckBox" name="checkBox_TOFPET_STATUS_ERR_CRC_CH">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -8027,7 +7987,7 @@ REGISTERS</string>
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_TOFPET_TOFPET_ERR_CFG_GL_REG">
+          <widget class="QCheckBox" name="checkBox_TOFPET_STATUS_ERR_CFG_GL">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -8040,7 +8000,7 @@ REGISTERS</string>
             <string>Config err written gl config reg</string>
            </property>
           </widget>
-          <widget class="QCheckBox" name="checkBox_TOFPET_TOFPET_ERR_CRC_GL_REG">
+          <widget class="QCheckBox" name="checkBox_TOFPET_STATUS_ERR_CRC_GL">
            <property name="geometry">
             <rect>
              <x>10</x>

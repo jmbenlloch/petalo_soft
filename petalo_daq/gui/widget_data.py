@@ -1382,3 +1382,119 @@ lmk_control_data = {
         'step' : 1,
     },
 }
+
+
+tofpet_config_data = {
+    'checkBox_TOFPET_CONF_START' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TOFPET_VERIFY' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TOFPET_ERROR_RST' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TOFPET_CONF_WR' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'spinBox_TOFPET_CONF_ADDR' : {
+        'default' : 0,
+        'min' : 0,
+        'max' : 511,
+        'step' : 1,
+    },
+    'comboBox_TOFPET_MODE' : {
+        'default' : 0,
+        'values' : {
+            0 : {'value': bitarray('00'),
+                 'text' : 'All registers'},
+            1 : {'value': bitarray('01'),
+                 'text' : 'Global register'},
+            2 : {'value': bitarray('10'),
+                 'text' : 'All channel registers'},
+            3 : {'value': bitarray('11'),
+                 'text' : 'Channel register selected'},
+        }
+    },
+    'spinBox_TOFPET_CH_SEL' : {
+        'default' : 0,
+        'min' : 0,
+        'max' : 63,
+        'step' : 1,
+    },
+}
+
+tofpet_status_data = {
+    'checkBox_TOFPET_STATUS_ERR_CRC_GL' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TOFPET_STATUS_ERR_CFG_GL' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TOFPET_STATUS_ERR_CRC_CH' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TOFPET_STATUS_ERR_CFG_CH' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TOFPET_STATUS_ERR_ACK_CREAD' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TOFPET_STATUS_ERR_ACK_CWRITE' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TOFPET_STATUS_ERR_ACK_GREAD' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TOFPET_STATUS_ERR_ACK_GWRITE' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+}

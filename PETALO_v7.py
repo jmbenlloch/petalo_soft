@@ -23,6 +23,7 @@ from petalo_daq.gui.widget_data  import power_control_data
 from petalo_daq.gui.widget_data  import run_control_data
 from petalo_daq.gui.widget_data  import lmk_control_data
 from petalo_daq.gui.widget_data  import clock_control_data
+from petalo_daq.gui.widget_data  import tofpet_config_data
 from petalo_daq.gui.access_level import user_access
 from petalo_daq.io.data_store    import DataStore
 from petalo_daq.io.configuration import load_configuration_file
@@ -56,6 +57,7 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         gui.populate_fields(self, run_control_data)
         gui.populate_fields(self, clock_control_data)
         gui.populate_fields(self, lmk_control_data)
+        gui.populate_fields(self, tofpet_config_data)
 
         # Data store
         self.data_store = DataStore()

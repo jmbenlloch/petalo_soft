@@ -229,3 +229,32 @@ lmk_control_fields = {
     "LMK_REG_ADD"   : reverse_range_inclusive(14,  8),
     "LMK_REG_VALUE" : reverse_range_inclusive( 7,  0),
 }
+
+tofpet_config_fields = {
+    "TOFPET_CONF_START" : reverse_range_inclusive(31, 31),
+    "TOFPET_VERIFY"     : reverse_range_inclusive(30, 30),
+    "TOFPET_ERROR_RST"  : reverse_range_inclusive(29, 29),
+    "TOFPET_CONF_WR"    : reverse_range_inclusive(20, 20),
+    "TOFPET_CONF_ADDR"  : reverse_range_inclusive(16,  8),
+    "TOFPET_MODE"       : reverse_range_inclusive( 7,  6),
+    "TOFPET_CH_SEL"     : reverse_range_inclusive( 5,  0),
+}
+
+tofpet_status_fields =  {
+    'TOFPET_STATUS_ERR_CRC_GL'     : reverse_range_inclusive(7, 7),
+    'TOFPET_STATUS_ERR_CFG_GL'     : reverse_range_inclusive(6, 6),
+    'TOFPET_STATUS_ERR_CRC_CH'     : reverse_range_inclusive(5, 5),
+    'TOFPET_STATUS_ERR_CFG_CH'     : reverse_range_inclusive(4, 4),
+    'TOFPET_STATUS_ERR_ACK_CREAD'  : reverse_range_inclusive(3, 3),
+    'TOFPET_STATUS_ERR_ACK_CWRITE' : reverse_range_inclusive(2, 2),
+    'TOFPET_STATUS_ERR_ACK_GREAD'  : reverse_range_inclusive(1, 1),
+    'TOFPET_STATUS_ERR_ACK_GWRITE' : reverse_range_inclusive(0, 0),
+}
+
+# 'checkBox_TOFPET_CONF_START'
+# 'checkBox_TOFPET_VERIFY'
+# 'checkBox_TOFPET_ERROR_RST'
+# 'checkBox_TOFPET_CONF_WR'
+# 'spinBox_TOFPET_CONF_ADDR'
+# 'comboBox_TOFPET_MODE'
+# 'comboBox_TOFPET_CH_SEL'

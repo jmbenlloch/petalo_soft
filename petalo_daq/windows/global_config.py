@@ -128,13 +128,13 @@ def build_start_global_configuration_command(daq_id):
     Returns:
     bitarray: Command to be sent
     '''
-    tofpet_config = tofpet_config_tuple(TOFPET_CONF_START = bitarray('1'),
-                                        TOFPET_VERIFY     = bitarray('0'),
-                                        TOFPET_ERROR_RST  = bitarray('0'),
-                                        TOFPET_CONF_WR    = bitarray('1'),
-                                        TOFPET_CONF_ADDR  = bitarray('000000000'),
-                                        TOFPET_MODE       = bitarray('01') ,
-                                        TOFPET_CH_SEL     = bitarray('000000'))
+    tofpet_config = tofpet_config_tuple(TOFPET_CONF_START     = bitarray('1'),
+                                        TOFPET_CONF_VERIFY    = bitarray('0'),
+                                        TOFPET_CONF_ERROR_RST = bitarray('0'),
+                                        TOFPET_CONF_WR        = bitarray('1'),
+                                        TOFPET_CONF_ADDR      = bitarray('000000000'),
+                                        TOFPET_CONF_MODE      = bitarray('01') ,
+                                        TOFPET_CONF_CH_SEL    = bitarray('000000'))
 
     value    = build_tofpet_configuration_register_value(tofpet_config)
     register = register_tuple(group=3, id=2)

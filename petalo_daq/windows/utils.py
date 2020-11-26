@@ -32,12 +32,12 @@ def build_tofpet_configuration_register_value(tofpet_config):
 
 def build_tofpet_ram_address_command(daq_id, address_bitarray):
     tofpet_config = tofpet_config_tuple(TOFPET_CONF_START = bitarray('0'),
-                                        TOFPET_VERIFY     = bitarray('0'),
-                                        TOFPET_ERROR_RST  = bitarray('0'),
+                                        TOFPET_CONF_VERIFY     = bitarray('0'),
+                                        TOFPET_CONF_ERROR_RST  = bitarray('0'),
                                         TOFPET_CONF_WR    = bitarray('1'),
                                         TOFPET_CONF_ADDR  = address_bitarray,
-                                        TOFPET_MODE       = bitarray('00'),
-                                        TOFPET_CH_SEL     = bitarray('000000'))
+                                        TOFPET_CONF_MODE       = bitarray('00'),
+                                        TOFPET_CONF_CH_SEL     = bitarray('000000'))
 
     value    = build_tofpet_configuration_register_value(tofpet_config)
     register = register_tuple(group=3, id=2)

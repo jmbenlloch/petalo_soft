@@ -1007,5 +1007,42 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
+
+
+    'checkBox_TOFPET_CONF_START' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_TOFPET_CONF_VERIFY' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_TOFPET_CONF_ERROR_RST' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_TOFPET_CONF_WR' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'spinBox_TOFPET_CONF_ADDR' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'comboBox_TOFPET_CONF_MODE' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'spinBox_TOFPET_CONF_CH_SEL' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
 }
 

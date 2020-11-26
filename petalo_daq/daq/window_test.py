@@ -496,6 +496,73 @@ def test_tofpet_config_value_register_command(qtbot):
     #TODO test register content somehow... and test GUI update
 
 
+def test_tofpet_config_register_command(qtbot):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.pushButton_TOPFET_CONF, QtCore.Qt.LeftButton)
+    pattern = 'TOFPET configuration command sent'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    assert window.tx_queue.qsize() == 1
+    cmd_binary = window.tx_queue.get(0)
+
+    message  = MESSAGE()
+    cmd      = message(cmd_binary)
+    params   = cmd['params']
+    register = params[0]
+
+    assert cmd['command' ] == commands.HARD_REG_W
+    assert cmd['L1_id'   ] == 0
+    assert cmd['n_params'] == 2
+    assert len(params)     == cmd['n_params']
+    assert register.group  == 3
+    assert register.id     == 2
+    #TODO test register content somehow... and test GUI update
+
+
+
+import petalo_daq.daq.mock_server.binary_responses as srv_cmd
+
+def test_link_status_gui(qtbot ):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    # Check RDY IDLYCTRL
+    value = 1 << 16
+    cmd = srv_cmd.build_hw_register_read_response(daq_id=0, register_group=3, register_id=1, value=value, error_code=None)
+    message = MESSAGE()
+    cmd = message(cmd)
+    print(cmd)
+
+    window.rx_queue.put(cmd)
+    sleep(1)
+
+    assert window.checkBox_LINK_STATUS_IDL_ready.isChecked() == True
+    assert window.checkBox_LINK_STATUS_ALIGNED_0.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNED_1.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNED_2.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNED_3.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNED_4.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNED_5.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNED_6.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNED_7.isChecked() == False
+
+    assert window.checkBox_LINK_STATUS_ALIGNING_0.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNING_1.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNING_2.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNING_3.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNING_4.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNING_5.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNING_6.isChecked() == False
+    assert window.checkBox_LINK_STATUS_ALIGNING_7.isChecked() == False
+
+
+
+
+
+
+
 
 #  @fixture(scope='session')
 #  def database_connection():

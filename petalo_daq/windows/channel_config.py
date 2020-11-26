@@ -147,6 +147,7 @@ def send_channel_configuration_to_ram(window, channel_id, channel_bitarray):
 def send_start_channel_configuration_to_card(window, channel):
     # TODO Select TOPFET id
     tofpet_id = 0
+    daq_id    = 0
     register  = register_tuple(group=3, id=0)
     command = build_hw_register_write_command(daq_id, register.group, register.id, tofpet_id)
     print(command)
@@ -157,7 +158,7 @@ def send_start_channel_configuration_to_card(window, channel):
     command  = build_start_channel_configuration_command(daq_id, channel)
     print(command)
     window.tx_queue.put(command)
-    window.update_log_info("", "Channel config start sent".format(addr))
+    window.update_log_info("", "Channel {} config start sent".format(channel))
 
     # Check TOFPET configuration status register
     window.tx_queue.put(sleep_cmd(1000))
@@ -193,12 +194,12 @@ def build_start_all_channels_configuration_command(daq_id):
     bitarray: Command to be sent
     '''
     tofpet_config = tofpet_config_tuple(TOFPET_CONF_START = bitarray('1'),
-                                        TOFPET_VERIFY     = bitarray('0'),
-                                        TOFPET_ERROR_RST  = bitarray('0'),
+                                        TOFPET_CONF_VERIFY     = bitarray('0'),
+                                        TOFPET_CONF_ERROR_RST  = bitarray('0'),
                                         TOFPET_CONF_WR    = bitarray('1'),
                                         TOFPET_CONF_ADDR  = bitarray('000000000'),
-                                        TOFPET_MODE       = bitarray('10') ,
-                                        TOFPET_CH_SEL     = bitarray('000000'))
+                                        TOFPET_CONF_MODE       = bitarray('10') ,
+                                        TOFPET_CONF_CH_SEL     = bitarray('000000'))
 
     value    = build_tofpet_configuration_register_value(tofpet_config)
     register = register_tuple(group=3, id=2)
@@ -217,12 +218,12 @@ def build_start_channel_configuration_command(daq_id, channel):
     channel_bitarray = bitarray(channel_binary.encode())
 
     tofpet_config = tofpet_config_tuple(TOFPET_CONF_START = bitarray('1'),
-                                        TOFPET_VERIFY     = bitarray('0'),
-                                        TOFPET_ERROR_RST  = bitarray('0'),
+                                        TOFPET_CONF_VERIFY     = bitarray('0'),
+                                        TOFPET_CONF_ERROR_RST  = bitarray('0'),
                                         TOFPET_CONF_WR    = bitarray('1'),
                                         TOFPET_CONF_ADDR  = bitarray('000000000'),
-                                        TOFPET_MODE       = bitarray('11') ,
-                                        TOFPET_CH_SEL     = channel_binary)
+                                        TOFPET_CONF_MODE       = bitarray('11') ,
+                                        TOFPET_CONF_CH_SEL     = channel_binary)
 
     value    = build_tofpet_configuration_register_value(tofpet_config)
     register = register_tuple(group=3, id=2)

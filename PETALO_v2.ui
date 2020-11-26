@@ -1099,7 +1099,8 @@ TEMPERATURE DATA</string>
         </font>
        </property>
        <property name="text">
-        <string>Save registers global parameters</string>
+		   <string>Save registers
+global parameters</string>
        </property>
       </widget>
       <widget class="QComboBox" name="comboBox_tx_ddr">
@@ -7799,7 +7800,7 @@ REGISTERS</string>
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_Link_status_hw_reg_2">
+         <widget class="QPushButton" name="pushButton_TOPFET_CONF">
           <property name="geometry">
            <rect>
             <x>10</x>

@@ -445,6 +445,58 @@ def test_link_control_register_send_command(qtbot):
     #TODO test register content somehow...
 
 
+def test_tofpet_status_register_command(qtbot):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.pushButton_TOFPET_STATUS, QtCore.Qt.LeftButton)
+    pattern = 'TOFPET status command sent'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    assert window.tx_queue.qsize() == 1
+    cmd_binary = window.tx_queue.get(0)
+
+    message  = MESSAGE()
+    cmd      = message(cmd_binary)
+    params   = cmd['params']
+    register = params[0]
+
+    assert cmd['command' ] == commands.HARD_REG_R
+    assert cmd['L1_id'   ] == 0
+    assert cmd['n_params'] == 1
+    assert len(params)     == cmd['n_params']
+    assert register.group  == 3
+    assert register.id     == 4
+    #TODO test register content somehow... and test GUI update
+    #TODO check effect on GUI
+
+
+def test_tofpet_config_value_register_command(qtbot):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.pushButton_TOPFET_CONF_VALUE, QtCore.Qt.LeftButton)
+    pattern = 'TOFPET configuration value sent'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    assert window.tx_queue.qsize() == 1
+    cmd_binary = window.tx_queue.get(0)
+
+    message  = MESSAGE()
+    cmd      = message(cmd_binary)
+    params   = cmd['params']
+    register = params[0]
+
+    assert cmd['command' ] == commands.HARD_REG_W
+    assert cmd['L1_id'   ] == 0
+    assert cmd['n_params'] == 2
+    assert len(params)     == cmd['n_params']
+    assert register.group  == 3
+    assert register.id     == 3
+    #TODO test register content somehow... and test GUI update
+
+
+
 #  @fixture(scope='session')
 #  def database_connection():
 #      conn, cursor = db.mysql_connect('localhost', 'root', 'root', 'petalo')

@@ -22,6 +22,10 @@ from petalo_daq.gui.widget_data  import link_control_data
 from petalo_daq.gui.types        import link_control_tuple
 from petalo_daq.io.config_params import link_control_fields
 
+from petalo_daq.gui.widget_data  import tofpet_config_value_data
+from petalo_daq.gui.types        import tofpet_config_value_tuple
+from petalo_daq.io.config_params import tofpet_config_value_fields
+
 from petalo_daq.io.utils         import insert_bitarray_slice
 from petalo_daq.io.config_params import range_inclusive
 
@@ -31,6 +35,7 @@ from petalo_daq.daq.client_commands import build_hw_register_read_command
 from petalo_daq.daq.commands        import register_tuple
 from petalo_daq.daq.commands        import sleep_cmd
 from petalo_daq.daq.process_responses import temperature_tofpet_to_ch
+from petalo_daq.windows.utils       import tofpet_status
 
 
 def connect_buttons(window):
@@ -50,6 +55,8 @@ def connect_buttons(window):
     window.pushButton_Clock_control_hw_reg.clicked.connect(clock_control(window))
     window.pushButton_Clock_LMK_hw_reg    .clicked.connect(lmk_control(window))
     window.pushButton_TOFPET_LINK_CONTROL .clicked.connect(link_control(window))
+    window.pushButton_TOFPET_STATUS       .clicked.connect(tofpet_status(window))
+    window.pushButton_TOPFET_CONF_VALUE   .clicked.connect(tofpet_config_value(window))
 
 
 def config_temperature(window):
@@ -390,5 +397,49 @@ def link_control(window):
         window.tx_queue.put(command)
         window.update_log_info("Link control sent",
                                "Link control command sent")
+
+    return on_click
+
+
+def tofpet_config_value(window):
+    """
+    Function to write the TOFPET configuration value register.
+    It reads the values from the GUI fields and updates the bitarray in
+    data_store
+
+    Parameters
+    window (PetaloRunConfigurationGUI): Main application
+
+    Returns
+    function: To be triggered on click
+    """
+
+    def on_click():
+        config_bitarray = bitarray('0'*32)
+
+        # ASIC parameters to be update
+        tofpet_config_value = read_parameters(window, tofpet_config_value_data, tofpet_config_value_tuple)
+
+        binary_value        = '{:032b}'.format(tofpet_config_value.TOPFET_CONF_VALUE)
+        value_bitarray      = bitarray(binary_value.encode())
+        tofpet_config_value = tofpet_config_value._replace(TOPFET_CONF_VALUE = value_bitarray)
+
+        for field, positions in tofpet_config_value_fields.items():
+            value = getattr(tofpet_config_value, field)
+            insert_bitarray_slice(config_bitarray, positions, value)
+
+        #Build command
+        daq_id = 0x0000
+        register = register_tuple(group=3, id=3)
+        print(config_bitarray)
+        value = int(config_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
+        print(value)
+
+        command = build_hw_register_write_command(daq_id, register.group, register.id, value)
+        print(command)
+        # Send command
+        window.tx_queue.put(command)
+        window.update_log_info("TOFPET config value sent",
+                               "TOFPET configuration value sent")
 
     return on_click

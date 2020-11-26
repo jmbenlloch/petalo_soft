@@ -1000,5 +1000,12 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
+
+
+    'spinBox_TOPFET_CONF_VALUE' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
 }
 

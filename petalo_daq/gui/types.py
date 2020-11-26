@@ -14,6 +14,7 @@ clock_control_tuple      = namedtuple('clock_control'     , config_params.clock_
 lmk_control_tuple        = namedtuple('lmk_control'       , config_params.lmk_control_fields)
 tofpet_config_tuple      = namedtuple('tofpet_config'     , config_params.tofpet_config_fields)
 link_control_tuple       = namedtuple('link_control'      , config_params.link_control_fields)
+tofpet_config_value_tuple = namedtuple('tofpet_config_value', config_params.tofpet_config_value_fields)
 
 
 class LogError(Exception):

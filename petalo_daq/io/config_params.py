@@ -258,6 +258,10 @@ link_control_fields = {
     'TOFPET_LINK_SEL_MUX' : reverse_range_inclusive( 2,  0),
 }
 
+tofpet_config_value_fields = {
+    'TOPFET_CONF_VALUE' : reverse_range_inclusive(31, 0),
+}
+
 # 'checkBox_TOFPET_CONF_START'
 # 'checkBox_TOFPET_VERIFY'
 # 'checkBox_TOFPET_ERROR_RST'

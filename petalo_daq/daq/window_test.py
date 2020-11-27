@@ -21,6 +21,7 @@ from petalo_daq.daq.command_utils import encode_error_value
 
 from petalo_daq.daq.responses import check_write_response
 from petalo_daq.daq.process_responses import temperature_conversion_1
+from petalo_daq.daq.process_responses import temperature_conversion_1_celsius
 from petalo_daq.daq.process_responses import temperature_conversion_2
 from petalo_daq.daq.process_responses import temperature_tofpet_to_ch
 from petalo_daq.daq.commands import sleep_cmd
@@ -103,6 +104,19 @@ def test_temperature_conversion_1():
         np.testing.assert_almost_equal(temperature, temp_converted, decimal=4)
 
 
+def test_temperature_conversion_1_celsius():
+    # TODO add hypothesis
+    # TODO define range of operation
+    samples = np.random.uniform(-50, 150, 300)
+
+    for temperature in samples:
+        voltage = 1777.3 - (10.888 * (temperature-30)) - (0.00347 * (temperature-30)**2)
+        temp_converted = temperature_conversion_1_celsius(voltage/1000)
+        print(temperature, voltage, temp_converted)
+        np.testing.assert_almost_equal(temperature, temp_converted, decimal=4)
+
+
+
 def test_temperature_conversion_2():
     # TODO add hypothesis
     # TODO define range of operation
@@ -126,15 +140,24 @@ def test_read_temperatures(qtbot, petalo_test_server):
     sleep(6)
 
     # check all temperatures
-    np.testing.assert_almost_equal(window.lcdNumber_Temp_0.value(),  0.792, decimal=3)
-    np.testing.assert_almost_equal(window.lcdNumber_Temp_1.value(),  0.786, decimal=3)
-    np.testing.assert_almost_equal(window.lcdNumber_Temp_2.value(),  0.527, decimal=3)
-    np.testing.assert_almost_equal(window.lcdNumber_Temp_3.value(),  0    , decimal=3)
-    np.testing.assert_almost_equal(window.lcdNumber_Temp_4.value(),  0.785, decimal=3)
-    np.testing.assert_almost_equal(window.lcdNumber_Temp_5.value(),  0    , decimal=3)
-    np.testing.assert_almost_equal(window.lcdNumber_Temp_6.value(),  0.734, decimal=3)
-    np.testing.assert_almost_equal(window.lcdNumber_Temp_7.value(),  0.786, decimal=3)
-    np.testing.assert_almost_equal(window.lcdNumber_Temp_8.value(), 38.842, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_0.value(), 117.983, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_1.value(), 118.543, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_2.value(), 140.897, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_3.value(),   0    , decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_4.value(), 118.634, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_5.value(),   0    , decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_6.value(), 123.020, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_7.value(), 118.578, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_8.value(),  38.842, decimal=3)
+
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_0.value(),  0.792, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_1.value(),  0.786, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_2.value(),  0.527, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_3.value(),  0    , decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_4.value(),  0.785, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_5.value(),  0    , decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_6.value(),  0.734, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_7.value(),  0.786, decimal=3)
 
 
     # check errors are shown in log

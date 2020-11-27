@@ -13,6 +13,7 @@ from petalo_daq.io.config_params import tofpet_status_fields
 from petalo_daq.gui.widget_data  import tofpet_status_data
 
 from bitarray import bitarray
+import numpy as np
 
 temperature_ch_to_tofpet = {0 : 1,
                             1 : 3,
@@ -42,7 +43,12 @@ def read_temperature(window, cmd, params):
         raise LogError(f"Temperature error. Register {register}, input signal out of ADC range")
 
     if register.id < 8:
-        temperature = temperature_conversion_1(value)
+        raw_value   = temperature_conversion_1(value)
+        temperature = temperature_conversion_1_celsius(raw_value)
+
+        widget_raw_name = 'lcdNumber_Temp_raw_{}'.format(tofpet_id)
+        widget_raw      = getattr(window, widget_raw_name)
+        widget_raw.display(raw_value)
     else:
         temperature = temperature_conversion_2(value)
 
@@ -51,6 +57,11 @@ def read_temperature(window, cmd, params):
 
 def temperature_conversion_1(value):
     return 1.65 / 2**24 * ((value & 0x0FFFFFE0) >> 5) #+ 1.65
+
+def temperature_conversion_1_celsius(value):
+    degrees = (10.888 - np.sqrt((-10.888)**2 + 4*0.00347*(1777.3-value*1000))) / (2*-0.00347) + 30
+    print("Conversion1 to degrees: {} V, {} ºC".format(value, degrees))
+    return degrees
 
 def temperature_conversion_2(value):
     return (value & 0x0FFFFFFF) / 32. / 1570 * 3.3 - 273

@@ -205,7 +205,7 @@
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLCDNumber" name="lcdNumber_Temp_raw">
+       <widget class="QLCDNumber" name="lcdNumber_Temp_raw_1">
         <property name="geometry">
          <rect>
           <x>190</x>
@@ -221,7 +221,7 @@
          </font>
         </property>
        </widget>
-       <widget class="QLCDNumber" name="lcdNumber_Temp_raw_1">
+       <widget class="QLCDNumber" name="lcdNumber_Temp_raw_0">
         <property name="geometry">
          <rect>
           <x>189</x>
@@ -598,22 +598,6 @@ TEMPERATURE DATA</string>
           </widget>
          </item>
         </layout>
-       </widget>
-       <widget class="QLCDNumber" name="lcdNumber_Temp_raw_8">
-        <property name="geometry">
-         <rect>
-          <x>140</x>
-          <y>430</y>
-          <width>71</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
        </widget>
        <widget class="QLabel" name="label_294">
         <property name="geometry">
@@ -7159,7 +7143,7 @@ REGISTERS</string>
             </rect>
            </property>
            <property name="text">
-            <string>When '1' reser error bits</string>
+            <string>When '1' reset error bits</string>
            </property>
           </widget>
          </widget>

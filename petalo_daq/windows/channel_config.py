@@ -147,6 +147,8 @@ def send_channel_configuration_to_ram(window, channel_id, channel_bitarray):
 def send_start_channel_configuration_to_card(window, channel):
     # TODO Select TOPFET id
     tofpet_id = 0
+    tofpet_id = window.spinBox_ASIC_n_2.value()
+    print("tofpet_id: ", tofpet_id)
     daq_id    = 0
     register  = register_tuple(group=3, id=0)
     command = build_hw_register_write_command(daq_id, register.group, register.id, tofpet_id)

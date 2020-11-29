@@ -161,7 +161,7 @@ def power_control(window):
     """
 
     def on_click():
-        power_control_bitarray = bitarray(32)
+        power_control_bitarray = bitarray('0'*32)
 
         power_config = read_parameters(window, power_control_data, power_control_tuple)
 
@@ -170,11 +170,6 @@ def power_control(window):
             value = getattr(power_config, field)
             print(field, positions, value)
             insert_bitarray_slice(power_control_bitarray, positions, value)
-
-        #fill unused bits
-        insert_bitarray_slice(power_control_bitarray,
-                              range_inclusive(19, 28),
-                              bitarray('0000000000'))
 
         window.data_store.insert('power_control', power_control_bitarray)
 

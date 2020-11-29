@@ -141,13 +141,28 @@ temperature_config_fields = {
 }
 
 power_control_fields = {
-    "PWR_GStart"         : reverse_range_inclusive(31, 31),
-    "PWR_Start"          : reverse_range_inclusive(30, 30),
-    "PWR_RST"            : reverse_range_inclusive(29, 29),
-    "PWR_18DIS"          : reverse_range_inclusive(18, 18),
-    "PWR_25EN"           : reverse_range_inclusive(17, 16),
-    "PWR_TOFPET_VCCEN"   : reverse_range_inclusive(15,  8),
-    "PWR_TOFPET_VCC25EN" : reverse_range_inclusive( 7,  0),
+    "PWR_GStart"           : reverse_range_inclusive(31, 31),
+    "PWR_Start"            : reverse_range_inclusive(30, 30),
+    "PWR_RST"              : reverse_range_inclusive(29, 29),
+    "PWR_18DIS"            : reverse_range_inclusive(18, 18),
+    "PWR_25EN_1"           : reverse_range_inclusive(17, 17),
+    "PWR_25EN_2"           : reverse_range_inclusive(16, 16),
+    "PWR_TOFPET_VCCEN_7"   : reverse_range_inclusive(15, 15),
+    "PWR_TOFPET_VCCEN_6"   : reverse_range_inclusive(14, 14),
+    "PWR_TOFPET_VCCEN_5"   : reverse_range_inclusive(13, 13),
+    "PWR_TOFPET_VCCEN_4"   : reverse_range_inclusive(12, 12),
+    "PWR_TOFPET_VCCEN_3"   : reverse_range_inclusive(11, 11),
+    "PWR_TOFPET_VCCEN_2"   : reverse_range_inclusive(10, 10),
+    "PWR_TOFPET_VCCEN_1"   : reverse_range_inclusive( 9,  9),
+    "PWR_TOFPET_VCCEN_0"   : reverse_range_inclusive( 8,  8),
+    "PWR_TOFPET_VCC25EN_7" : reverse_range_inclusive( 7,  7),
+    "PWR_TOFPET_VCC25EN_6" : reverse_range_inclusive( 6,  6),
+    "PWR_TOFPET_VCC25EN_5" : reverse_range_inclusive( 5,  5),
+    "PWR_TOFPET_VCC25EN_4" : reverse_range_inclusive( 4,  4),
+    "PWR_TOFPET_VCC25EN_3" : reverse_range_inclusive( 3,  3),
+    "PWR_TOFPET_VCC25EN_2" : reverse_range_inclusive( 2,  2),
+    "PWR_TOFPET_VCC25EN_1" : reverse_range_inclusive( 1,  1),
+    "PWR_TOFPET_VCC25EN_0" : reverse_range_inclusive( 0,  0),
 }
 
 power_status_fields = {

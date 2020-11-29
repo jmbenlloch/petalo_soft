@@ -277,3 +277,11 @@ tofpet_config_value_fields = {
     'TOPFET_CONF_VALUE' : reverse_range_inclusive(31, 0),
 }
 
+leds_status_fields = {
+    'LED_7'              : reverse_range_inclusive(7, 7),
+    'LED_6'              : reverse_range_inclusive(6, 6),
+    'LED_5'              : reverse_range_inclusive(5, 5),
+    'LED_4'              : reverse_range_inclusive(4, 4),
+    'LED_3'              : reverse_range_inclusive(3, 3),
+    'LED_Link_Alignment' : reverse_range_inclusive(2, 0),
+}

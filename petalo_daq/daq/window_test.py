@@ -544,6 +544,30 @@ def test_tofpet_config_register_command(qtbot):
     #TODO test register content somehow... and test GUI update
 
 
+def test_leds_status_register_command(qtbot):
+    window = PetaloRunConfigurationGUI()
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.pushButton_LEDs_read, QtCore.Qt.LeftButton)
+    pattern = 'LEDs status command sent'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    assert window.tx_queue.qsize() == 1
+    cmd_binary = window.tx_queue.get(0)
+
+    message  = MESSAGE()
+    cmd      = message(cmd_binary)
+    params   = cmd['params']
+    register = params[0]
+
+    assert cmd['command' ] == commands.SOFT_REG_R
+    assert cmd['L1_id'   ] == 0
+    assert cmd['n_params'] == 1
+    assert len(params)     == cmd['n_params']
+    assert register.group  == 1
+    assert register.id     == 0
+    #TODO test register content somehow... and test GUI update
+
 
 import petalo_daq.daq.mock_server.binary_responses as srv_cmd
 

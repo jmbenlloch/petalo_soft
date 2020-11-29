@@ -8,6 +8,9 @@ from petalo_daq.gui.widget_data  import link_status_data
 from petalo_daq.io.utils         import load_bitarray_config
 from petalo_daq.io.utils         import read_bitarray_slice
 
+from petalo_daq.io.config_params import leds_status_fields
+from petalo_daq.gui.widget_data  import leds_status_data
+
 from petalo_daq.io.config_params import run_status_fields
 from petalo_daq.io.config_params import tofpet_status_fields
 from petalo_daq.gui.widget_data  import tofpet_status_data
@@ -111,3 +114,13 @@ def tofpet_status(window, cmd, params):
         value = read_bitarray_slice(value_bitarray, bit_slice)
         window.update_log_info('', f'{field}: {value}')
     load_bitarray_config(window, value_bitarray, tofpet_status_fields, tofpet_status_data)
+
+
+def leds_status(window, cmd, params):
+    print("read leds status cmd repsonse")
+    register, value = params
+    value_bitarray = convert_int32_to_bitarray(value)
+    print(value_bitarray)
+    print(type(window.lcdNumber_LED_Link_Alignment))
+
+    load_bitarray_config(window, value_bitarray, leds_status_fields, leds_status_data)

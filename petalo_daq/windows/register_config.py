@@ -30,6 +30,10 @@ from petalo_daq.gui.widget_data  import tofpet_config_data
 from petalo_daq.gui.types        import tofpet_config_tuple
 from petalo_daq.io.config_params import tofpet_config_fields
 
+from petalo_daq.gui.widget_data  import leds_status_data
+from petalo_daq.gui.types        import leds_status_tuple
+from petalo_daq.io.config_params import leds_status_fields
+
 from petalo_daq.io.utils         import insert_bitarray_slice
 from petalo_daq.io.config_params import range_inclusive
 
@@ -62,6 +66,7 @@ def connect_buttons(window):
     window.pushButton_TOFPET_STATUS       .clicked.connect(tofpet_status(window))
     window.pushButton_TOPFET_CONF_VALUE   .clicked.connect(tofpet_config_value(window))
     window.pushButton_TOPFET_CONF         .clicked.connect(tofpet_config(window))
+    window.pushButton_LEDs_read           .clicked.connect(read_leds(window))
 
 
 def config_temperature(window):
@@ -495,3 +500,26 @@ def tofpet_config(window):
 
     return on_click
 
+
+def read_leds(window):
+    """
+    Function to read the leds status register.
+    It reads the values from the GUI fields and updates the bitarray in
+    data_store
+
+    Parameters
+    window (PetaloRunConfigurationGUI): Main application
+
+    Returns
+    function: To be triggered on click
+    """
+
+    def on_click():
+        daq_id = 0
+        command = build_sw_register_read_command(daq_id, register_group=1, register_id=0)
+        window.tx_queue.put(command)
+
+        window.update_log_info("LEDs status sent",
+                               "LEDs status command sent")
+
+    return on_click

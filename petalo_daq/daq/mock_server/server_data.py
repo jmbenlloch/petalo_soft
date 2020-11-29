@@ -51,7 +51,7 @@ sw_registers = {
                 'read'  : True,
                 'write' : True,
             },
-            'value' : 0x00000000,
+            'value' : 0x000000AA,
            },
         1: { # Push button & DIP switch status
             'permissions' : {

@@ -1659,3 +1659,54 @@ tofpet_config_value_data = {
         'step' : 1
     },
 }
+
+leds_status_data = {
+'checkBox_LED_7' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_LED_6' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_LED_5' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_LED_4' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_LED_3' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'lcdNumber_LED_Link_Alignment' : {
+        'default' : False,
+        'values' : {
+            0 : {'value' : bitarray('000') },
+            1 : {'value' : bitarray('001') },
+            2 : {'value' : bitarray('010') },
+            3 : {'value' : bitarray('011') },
+            4 : {'value' : bitarray('100') },
+            5 : {'value' : bitarray('101') },
+            6 : {'value' : bitarray('110') },
+            7 : {'value' : bitarray('111') },
+        },
+    },
+}

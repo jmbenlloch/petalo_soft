@@ -39,7 +39,7 @@
       </rect>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="General">
       <attribute name="title">
@@ -196,7 +196,7 @@
          <x>10</x>
          <y>90</y>
          <width>301</width>
-         <height>481</height>
+         <height>501</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -602,7 +602,7 @@ TEMPERATURE DATA</string>
        <widget class="QLabel" name="label_294">
         <property name="geometry">
          <rect>
-          <x>60</x>
+          <x>10</x>
           <y>400</y>
           <width>151</width>
           <height>28</height>
@@ -620,8 +620,8 @@ TEMPERATURE DATA</string>
        <widget class="QLCDNumber" name="lcdNumber_Temp_8">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>430</y>
+          <x>140</x>
+          <y>400</y>
           <width>71</width>
           <height>25</height>
          </rect>
@@ -631,6 +631,19 @@ TEMPERATURE DATA</string>
           <weight>75</weight>
           <bold>true</bold>
          </font>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_Temp_read">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>440</y>
+          <width>161</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Read Temperatures</string>
         </property>
        </widget>
       </widget>
@@ -1050,18 +1063,219 @@ TEMPERATURE DATA</string>
         </property>
        </widget>
       </widget>
-      <widget class="QPushButton" name="pushButton_Temp_read">
+      <widget class="QFrame" name="frame_32">
        <property name="geometry">
         <rect>
-         <x>390</x>
-         <y>580</y>
-         <width>161</width>
-         <height>51</height>
+         <x>330</x>
+         <y>530</y>
+         <width>251</width>
+         <height>261</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Read Temperatures</string>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
        </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QCheckBox" name="checkBox_LED_6">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>60</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_LED_7">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>40</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_LED_4">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>100</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_LED_5">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>80</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_LED_3">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>120</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_162">
+        <property name="geometry">
+         <rect>
+          <x>-10</x>
+          <y>0</y>
+          <width>211</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>LEDs status</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_190">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>40</y>
+          <width>121</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>SPF connected</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_191">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>60</y>
+          <width>121</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>GbE link valid</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_192">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>80</y>
+          <width>151</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TOFPET link aligned</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_193">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>100</y>
+          <width>151</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>LMK conf done</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_194">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>120</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Power regulator conf done</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_195">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>148</y>
+          <width>191</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TOFPET link align. selected</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_LEDs_read">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>190</y>
+          <width>161</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Read LEDs</string>
+        </property>
+       </widget>
+       <widget class="QLCDNumber" name="lcdNumber_LED_Link_Alignment">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>150</y>
+          <width>21</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="digitCount">
+         <number>1</number>
+        </property>
+       </widget>
       </widget>
      </widget>
      <widget class="QWidget" name="GlobalASICconfig">

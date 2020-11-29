@@ -86,6 +86,7 @@ def Start_run(window):
         binary_value       = '{:016b}'.format(discretized_value)
         evt_time_bitarray  = bitarray(binary_value.encode())
         run_control_config = run_control_config._replace(RUN_Event = evt_time_bitarray)
+        print(evt_time, discretized_value, binary_value, evt_time_bitarray)
 
         throughput          = run_control_config.RUN_Throughput
         discretized_value   = np.round(throughput * 2**20 / 2**16).astype(np.int32)

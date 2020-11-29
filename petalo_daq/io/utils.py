@@ -80,6 +80,8 @@ def load_bitarray_config(window, config, config_fields, config_data):
                 widget.setCurrentIndex(index)
             if isinstance(widget, QtWidgets.QCheckBox):
                 widget.setChecked(index)
+            if isinstance(widget, QtWidgets.QLCDNumber):
+                widget.display(index)
 
 
 def insert_bitarray_slice(config, indices, bits):

@@ -1121,5 +1121,31 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
+
+    'checkBox_LED_7' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LED_6' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LED_5' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LED_4' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_LED_3' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
 }
 

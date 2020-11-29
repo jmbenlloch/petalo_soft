@@ -9,6 +9,7 @@ from petalo_daq.daq.process_responses import clock_status
 from petalo_daq.daq.process_responses import link_status
 from petalo_daq.daq.process_responses import run_status
 from petalo_daq.daq.process_responses import tofpet_status
+from petalo_daq.daq.process_responses import leds_status
 
 
 def check_write_response(window, cmd, params):
@@ -21,6 +22,7 @@ response_functions = {
     cmd.SOFT_REG_W_r: check_write_response,
     cmd.HARD_REG_W_r: check_write_response,
     cmd.SOFT_REG_R_r : {
+        register_tuple(1, 0): leds_status,
         register_tuple(2, 0): read_temperature,
         register_tuple(2, 1): read_temperature,
         register_tuple(2, 2): read_temperature,

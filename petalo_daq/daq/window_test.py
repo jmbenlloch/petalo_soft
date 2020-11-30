@@ -552,21 +552,32 @@ def test_leds_status_register_command(qtbot):
     pattern = 'LEDs status command sent'
     check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
-    assert window.tx_queue.qsize() == 1
-    cmd_binary = window.tx_queue.get(0)
+    assert window.tx_queue.qsize() == 2
 
     message  = MESSAGE()
-    cmd      = message(cmd_binary)
-    params   = cmd['params']
-    register = params[0]
+    for i in range(window.tx_queue.qsize()):
+        # The sequence must be write and read
+        cmd_binary = window.tx_queue.get(i)
+        cmd       = message(cmd_binary)
+        params    = cmd['params']
+        register  = params[0]
 
-    assert cmd['command' ] == commands.SOFT_REG_R
-    assert cmd['L1_id'   ] == 0
-    assert cmd['n_params'] == 1
-    assert len(params)     == cmd['n_params']
-    assert register.group  == 1
-    assert register.id     == 0
-    #TODO test register content somehow... and test GUI update
+        if i == 0:
+            assert cmd['command' ] == commands.SOFT_REG_W
+            assert cmd['L1_id'   ] == 0
+            assert cmd['n_params'] == 2
+            assert len(params)     == cmd['n_params']
+            assert register.group  == 1
+            assert register.id     == 0
+            assert params[1]       == 0xFFFFFFFF
+        if i == 1:
+            assert cmd['command' ] == commands.SOFT_REG_R
+            assert cmd['L1_id'   ] == 0
+            assert cmd['n_params'] == 1
+            assert len(params)     == cmd['n_params']
+            assert register.group  == 1
+            assert register.id     == 0
+            #TODO test register content somehow... and test GUI update
 
 
 import petalo_daq.daq.mock_server.binary_responses as srv_cmd

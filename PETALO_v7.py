@@ -43,6 +43,27 @@ qtCreatorFile = "PETALO_v2.ui" # Enter file here.
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
 
+def connect_server(window):
+    localhost = window.textBrowser_Localhost    .toPlainText()
+    server    = window.textBrowser_Petalo_server.toPlainText()
+    cfg_data = {'port'        : 9116,
+                'buffer_size' : 1024,
+                'localhost'   : localhost,
+                'ext_ip'      : server,
+               }
+
+    try:
+        window.thread_TXRX  = SCK_TXRX(cfg_data,window.tx_queue,window.rx_queue,window.stopper)
+        window.thread_TXRX.daemon = True
+        window.thread_TXRX.start()
+    except ConnectionRefusedError as e:
+        window.update_log_info("Connection error", str(e))
+
+    window.rx_consumer = threading.Thread(target=read_network_responses, args=(window,))
+    window.rx_consumer.daemon = True
+    window.rx_consumer.start()
+
+
 class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
@@ -100,9 +121,12 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         except ConnectionRefusedError as e:
             self.update_log_info("Connection error", str(e))
 
-        rx_consumer = threading.Thread(target=read_network_responses, args=(self,))
-        rx_consumer.daemon = True
-        rx_consumer.start()
+        self.rx_consumer = threading.Thread(target=read_network_responses, args=(self,))
+        self.rx_consumer.daemon = True
+        self.rx_consumer.start()
+
+
+        #  self.pushButton_Connect.clicked.connect(lambda: connect_server(self))
 
 
     def update_log_info(self, status, message):

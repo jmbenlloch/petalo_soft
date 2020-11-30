@@ -38,6 +38,7 @@ from petalo_daq.io.utils         import insert_bitarray_slice
 from petalo_daq.io.config_params import range_inclusive
 
 from petalo_daq.daq.client_commands import build_hw_register_write_command
+from petalo_daq.daq.client_commands import build_sw_register_write_command
 from petalo_daq.daq.client_commands import build_sw_register_read_command
 from petalo_daq.daq.client_commands import build_hw_register_read_command
 from petalo_daq.daq.commands        import register_tuple
@@ -515,6 +516,15 @@ def read_leds(window):
     """
 
     def on_click():
+        #Build command
+        daq_id = 0x0000
+        register = register_tuple(group=1, id=0)
+        value = 0xFFFFFFFF
+
+        command = build_sw_register_write_command(daq_id, register.group, register.id, value)
+        print(command)
+        window.tx_queue.put(command)
+
         daq_id = 0
         command = build_sw_register_read_command(daq_id, register_group=1, register_id=0)
         window.tx_queue.put(command)

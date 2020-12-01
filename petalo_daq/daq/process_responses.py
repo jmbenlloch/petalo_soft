@@ -15,6 +15,8 @@ from petalo_daq.io.config_params import run_status_fields
 from petalo_daq.io.config_params import tofpet_status_fields
 from petalo_daq.gui.widget_data  import tofpet_status_data
 
+from petalo_daq.daq.commands     import status_codes
+
 from bitarray import bitarray
 import numpy as np
 
@@ -117,10 +119,17 @@ def tofpet_status(window, cmd, params):
 
 
 def leds_status(window, cmd, params):
-    print("read leds status cmd repsonse")
     register, value = params
     value_bitarray = convert_int32_to_bitarray(value)
-    print(value_bitarray)
-    print(type(window.lcdNumber_LED_Link_Alignment))
 
     load_bitarray_config(window, value_bitarray, leds_status_fields, leds_status_data)
+
+
+def check_connection(window, cmd, params):
+    print("read connection status response")
+    status = params[0]
+
+    if status == status_codes.STA_CONNECTION_ACCEPT.value:
+        window.checkBox_Connected.setChecked(True)
+    else:
+        window.checkBox_Connected.setChecked(False)

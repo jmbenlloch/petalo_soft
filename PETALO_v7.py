@@ -53,19 +53,27 @@ def connect_server(window):
                }
 
     try:
-        window.thread_TXRX  = SCK_TXRX(cfg_data,window.tx_queue,window.rx_queue,window.stopper)
+        window.tx_stopper.set()
+        window.thread_TXRX.join()
+    except:
+        pass
+    window.tx_stopper.clear()
+
+    # Empty cmd queue
+    for i in range(window.tx_queue.unfinished_tasks):
+        window.tx_queue.get(i)
+        window.tx_queue.task_done()
+
+    try:
+        window.thread_TXRX  = SCK_TXRX(cfg_data,window.tx_queue,window.rx_queue,window.tx_stopper)
         window.thread_TXRX.daemon = True
         window.thread_TXRX.start()
     except ConnectionRefusedError as e:
         window.update_log_info("Connection error", str(e))
 
-    window.rx_consumer = threading.Thread(target=read_network_responses, args=(window,))
-    window.rx_consumer.daemon = True
-    window.rx_consumer.start()
-
 
 class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
-    def __init__(self):
+    def __init__(self, test_mode=False):
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
@@ -103,30 +111,22 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         # Disable everything before authentication
         window_main.validate_pass(self)()
 
-        # Socket
-        cfg_data = {'port'           :9116,
-                    'buffer_size'    :1024,
-                    'localhost'      :'127.0.0.1',
-                    'ext_ip'         :'127.0.0.1',
-                   }
+        if test_mode:
+            self.textBrowser_Localhost    .setText('127.0.0.1')
+            self.textBrowser_Petalo_server.setText('127.0.0.1')
 
         self.tx_queue = Queue()
         self.rx_queue = Queue()
-        self.stopper  = Event()
-
-        try:
-            self.thread_TXRX  = SCK_TXRX(cfg_data,self.tx_queue,self.rx_queue,self.stopper)
-            self.thread_TXRX.daemon = True
-            self.thread_TXRX.start()
-        except ConnectionRefusedError as e:
-            self.update_log_info("Connection error", str(e))
+        self.tx_stopper = Event()
+        self.rx_stopper = Event()
 
         self.rx_consumer = threading.Thread(target=read_network_responses, args=(self,))
         self.rx_consumer.daemon = True
         self.rx_consumer.start()
 
+        connect_server(self)
 
-        #  self.pushButton_Connect.clicked.connect(lambda: connect_server(self))
+        self.pushButton_Connect.clicked.connect(lambda: connect_server(self))
 
 
     def update_log_info(self, status, message):
@@ -152,6 +152,11 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    window = PetaloRunConfigurationGUI()
+    print (sys.argv)
+    test_mode = False
+    if (len(sys.argv) > 1):
+        if (sys.argv[1] == '-test'):
+            test_mode = True
+    window = PetaloRunConfigurationGUI(test_mode=test_mode)
     window.show()
     sys.exit(app.exec_())

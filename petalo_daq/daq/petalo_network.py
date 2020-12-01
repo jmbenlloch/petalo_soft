@@ -171,13 +171,13 @@ class SCK_TXRX(Thread):
         self.stopper    = stopper
         self.M          = MESSAGE()
         self.s = sk.socket(sk.AF_INET, sk.SOCK_STREAM)
+        # ADD TIMEOUT Mechanism !!!!
+        self.s.settimeout(3.0)
 
         self.buffer    = int(config['buffer_size'])
 
         self.s.connect((self.config['ext_ip'],
                         int(self.config['port'])))
-        # ADD TIMEOUT Mechanism !!!!
-        self.s.settimeout(5.0)
 
         data_r = self.M(bytearray(self.s.recv(self.buffer)))
 
@@ -217,5 +217,7 @@ class SCK_TXRX(Thread):
                         self.out_queue.put(data)
                 except:
                     print ('\n<< Communication Error - Timeout \n>> ')
+        self.s.close()
+        sleep(0.5)
         print ("TXRX SOCKET IS DEAD")
 

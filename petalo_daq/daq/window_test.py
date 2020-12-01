@@ -32,8 +32,10 @@ from PETALO_v7 import PetaloRunConfigurationGUI
 def close_connection(window):
     end_connection_word = 0xfafafafa.to_bytes(length=4, byteorder='little')
     window.tx_queue.put(end_connection_word)
-    window.stopper.set()
+    window.tx_stopper.set()
+    window.rx_stopper.set()
     window.thread_TXRX.join()
+    #  window.rx_consumer.join()
 
 
 def check_pattern_present_in_log(window, pattern, expected_matches, escape=True):
@@ -55,7 +57,7 @@ def test_check_write_response(qtbot, petalo_test_server):
     Write response commands must raise LogError if status code is
     an error code.
     """
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
 
     cmds = [commands.SOFT_REG_W_r, commands.HARD_REG_W_r]
 
@@ -68,7 +70,7 @@ def test_check_write_response(qtbot, petalo_test_server):
 
 
 def test_read_network_responses_logerror(qtbot, petalo_test_server):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     cmd   = commands.SOFT_REG_W_r
@@ -131,7 +133,7 @@ def test_temperature_conversion_2():
 
 
 def test_read_temperatures(qtbot, petalo_test_server):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_Temp_read, QtCore.Qt.LeftButton)
@@ -172,7 +174,7 @@ def test_read_temperatures(qtbot, petalo_test_server):
 
 
 def test_read_temperatures_send_correct_commands(qtbot, petalo_test_server):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     close_connection(window)
     window.textBrowser.clear()
 
@@ -202,7 +204,7 @@ def test_read_temperatures_send_correct_commands(qtbot, petalo_test_server):
 
 
 def test_temperature_control_register(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_Temp_hw_reg, QtCore.Qt.LeftButton)
@@ -229,7 +231,7 @@ def test_temperature_control_register(qtbot):
 
 
 def test_power_control_register(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_Power_hw_reg, QtCore.Qt.LeftButton)
@@ -256,7 +258,7 @@ def test_power_control_register(qtbot):
 
 
 def test_power_status_register_command(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_Power_status_hw_reg, QtCore.Qt.LeftButton)
@@ -281,7 +283,7 @@ def test_power_status_register_command(qtbot):
 
 
 def test_clock_status_register_command(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_Clock_status_hw_reg, QtCore.Qt.LeftButton)
@@ -306,7 +308,7 @@ def test_clock_status_register_command(qtbot):
 
 
 def test_link_status_register_command(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_Link_status_hw_reg, QtCore.Qt.LeftButton)
@@ -331,7 +333,7 @@ def test_link_status_register_command(qtbot):
 
 
 def test_start_run_register_send_command(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.START, QtCore.Qt.LeftButton)
@@ -358,7 +360,7 @@ def test_start_run_register_send_command(qtbot):
 
 
 def test_stop_run_register_send_command(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.STOP, QtCore.Qt.LeftButton)
@@ -385,7 +387,7 @@ def test_stop_run_register_send_command(qtbot):
 
 
 def test_clock_control_register_send_command(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_Clock_control_hw_reg, QtCore.Qt.LeftButton)
@@ -412,7 +414,7 @@ def test_clock_control_register_send_command(qtbot):
 
 
 def test_lmk_control_register_send_command(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_Clock_LMK_hw_reg, QtCore.Qt.LeftButton)
@@ -439,7 +441,7 @@ def test_lmk_control_register_send_command(qtbot):
 
 
 def test_link_control_register_send_command(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_TOFPET_LINK_CONTROL, QtCore.Qt.LeftButton)
@@ -469,7 +471,7 @@ def test_link_control_register_send_command(qtbot):
 
 
 def test_tofpet_status_register_command(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_TOFPET_STATUS, QtCore.Qt.LeftButton)
@@ -495,7 +497,7 @@ def test_tofpet_status_register_command(qtbot):
 
 
 def test_tofpet_config_value_register_command(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_TOPFET_CONF_VALUE, QtCore.Qt.LeftButton)
@@ -520,7 +522,7 @@ def test_tofpet_config_value_register_command(qtbot):
 
 
 def test_tofpet_config_register_command(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_TOPFET_CONF, QtCore.Qt.LeftButton)
@@ -545,7 +547,7 @@ def test_tofpet_config_register_command(qtbot):
 
 
 def test_leds_status_register_command(qtbot):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     qtbot.mouseClick(window.pushButton_LEDs_read, QtCore.Qt.LeftButton)
@@ -583,7 +585,7 @@ def test_leds_status_register_command(qtbot):
 import petalo_daq.daq.mock_server.binary_responses as srv_cmd
 
 def test_link_status_gui(qtbot ):
-    window = PetaloRunConfigurationGUI()
+    window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     # Check RDY IDLYCTRL
@@ -614,12 +616,6 @@ def test_link_status_gui(qtbot ):
     assert window.checkBox_LINK_STATUS_ALIGNING_5.isChecked() == False
     assert window.checkBox_LINK_STATUS_ALIGNING_6.isChecked() == False
     assert window.checkBox_LINK_STATUS_ALIGNING_7.isChecked() == False
-
-
-
-
-
-
 
 
 #  @fixture(scope='session')

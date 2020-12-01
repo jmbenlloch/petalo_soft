@@ -1147,5 +1147,11 @@ user_access = {
         'shifter' : False,
         'none'    : False,
     },
+
+    'checkBox_Connected' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    }
 }
 

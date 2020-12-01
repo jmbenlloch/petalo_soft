@@ -10,6 +10,7 @@ from petalo_daq.daq.process_responses import link_status
 from petalo_daq.daq.process_responses import run_status
 from petalo_daq.daq.process_responses import tofpet_status
 from petalo_daq.daq.process_responses import leds_status
+from petalo_daq.daq.process_responses import check_connection
 
 
 def check_write_response(window, cmd, params):
@@ -19,6 +20,7 @@ def check_write_response(window, cmd, params):
 
 
 response_functions = {
+    cmd.CON_STATUS  : check_connection,
     cmd.SOFT_REG_W_r: check_write_response,
     cmd.HARD_REG_W_r: check_write_response,
     cmd.SOFT_REG_R_r : {
@@ -44,7 +46,7 @@ response_functions = {
 
 
 def read_network_responses(window):
-    while not window.stopper.is_set():
+    while not window.rx_stopper.is_set():
         message = window.rx_queue.get()
         if message:
             response_str = 'Response:\n'

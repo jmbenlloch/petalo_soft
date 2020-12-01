@@ -59,7 +59,7 @@ def load_bitarray_config(window, config, config_fields, config_data):
     for field, bit_slice in config_fields.items():
         #print(field, bit_slice)
         value = read_bitarray_slice(config, bit_slice)
-        print(field, value)
+        #  print(field, value)
 
         gui_field = field
         for key in config_data.keys():

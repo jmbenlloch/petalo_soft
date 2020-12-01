@@ -285,3 +285,15 @@ leds_status_fields = {
     'LED_3'              : reverse_range_inclusive(3, 3),
     'LED_Link_Alignment' : reverse_range_inclusive(2, 0),
 }
+
+
+activate_fields = {
+    'Activate_TOFPET_0' : None,
+    'Activate_TOFPET_1' : None,
+    'Activate_TOFPET_2' : None,
+    'Activate_TOFPET_3' : None,
+    'Activate_TOFPET_4' : None,
+    'Activate_TOFPET_5' : None,
+    'Activate_TOFPET_6' : None,
+    'Activate_TOFPET_7' : None,
+}

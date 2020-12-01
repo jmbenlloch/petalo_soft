@@ -1710,3 +1710,62 @@ leds_status_data = {
         },
     },
 }
+
+activate_data = {
+    'checkBox_Activate_TOFPET_0' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : False },
+            True  : {'value' : True },
+        },
+    },
+    'checkBox_Activate_TOFPET_1' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : False },
+            True  : {'value' : True },
+        },
+    },
+    'checkBox_Activate_TOFPET_2' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : False },
+            True  : {'value' : True },
+        },
+    },
+    'checkBox_Activate_TOFPET_3' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : False },
+            True  : {'value' : True },
+        },
+    },
+    'checkBox_Activate_TOFPET_4' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : False },
+            True  : {'value' : True },
+        },
+    },
+    'checkBox_Activate_TOFPET_5' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : False },
+            True  : {'value' : True },
+        },
+    },
+    'checkBox_Activate_TOFPET_6' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : False },
+            True  : {'value' : True },
+        },
+    },
+    'checkBox_Activate_TOFPET_7' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : False },
+            True  : {'value' : True },
+        },
+    },
+}

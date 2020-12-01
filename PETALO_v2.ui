@@ -751,10 +751,10 @@ TEMPERATURE DATA</string>
       <widget class="QFrame" name="frame_148">
        <property name="geometry">
         <rect>
-         <x>620</x>
+         <x>880</x>
          <y>90</y>
          <width>241</width>
-         <height>161</height>
+         <height>111</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -766,8 +766,8 @@ TEMPERATURE DATA</string>
        <widget class="QLabel" name="label_282">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>10</y>
+          <x>0</x>
+          <y>0</y>
           <width>231</width>
           <height>41</height>
          </rect>
@@ -790,9 +790,9 @@ TEMPERATURE DATA</string>
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>40</y>
+          <y>30</y>
           <width>231</width>
-          <height>41</height>
+          <height>31</height>
          </rect>
         </property>
         <property name="font">
@@ -813,7 +813,7 @@ TEMPERATURE DATA</string>
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>100</y>
+          <y>70</y>
           <width>171</width>
           <height>31</height>
          </rect>
@@ -826,7 +826,7 @@ TEMPERATURE DATA</string>
          <x>320</x>
          <y>310</y>
          <width>271</width>
-         <height>211</height>
+         <height>81</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -839,7 +839,7 @@ TEMPERATURE DATA</string>
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>10</y>
+          <y>0</y>
           <width>231</width>
           <height>41</height>
          </rect>
@@ -861,8 +861,8 @@ TEMPERATURE DATA</string>
        <widget class="QTextBrowser" name="textBrowser_PLL_STATUS">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>60</y>
+          <x>50</x>
+          <y>40</y>
           <width>161</width>
           <height>31</height>
          </rect>
@@ -873,7 +873,7 @@ TEMPERATURE DATA</string>
        <property name="geometry">
         <rect>
          <x>600</x>
-         <y>260</y>
+         <y>90</y>
          <width>261</width>
          <height>261</height>
         </rect>
@@ -1067,7 +1067,7 @@ TEMPERATURE DATA</string>
        <property name="geometry">
         <rect>
          <x>330</x>
-         <y>530</y>
+         <y>610</y>
          <width>251</width>
          <height>261</height>
         </rect>
@@ -1281,7 +1281,7 @@ TEMPERATURE DATA</string>
        <property name="geometry">
         <rect>
          <x>600</x>
-         <y>530</y>
+         <y>610</y>
          <width>261</width>
          <height>261</height>
         </rect>
@@ -1442,6 +1442,279 @@ p, li { white-space: pre-wrap; }
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="frame_19">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>399</y>
+         <width>271</width>
+         <height>191</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QCheckBox" name="checkBox_Activate_TOFPET_1">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>70</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Activate_TOFPET_3">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>70</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_109">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>50</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_110">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>50</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Activate_TOFPET_5">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>70</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_141">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>50</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_142">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>50</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>7</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Activate_TOFPET_7">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>70</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Activate_TOFPET_4">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>70</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_159">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>50</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Activate_TOFPET_0">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>70</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_160">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>50</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Activate_TOFPET_2">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>70</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_161">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>50</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_163">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>50</y>
+          <width>10</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Activate_TOFPET_6">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>70</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_164">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>71</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TOFPET</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_165">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>0</y>
+          <width>211</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>TOPFET ON/OFF</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_Activate_TOFPET">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>110</y>
+          <width>171</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Configure</string>
         </property>
        </widget>
       </widget>

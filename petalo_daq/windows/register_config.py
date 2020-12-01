@@ -34,6 +34,10 @@ from petalo_daq.gui.widget_data  import leds_status_data
 from petalo_daq.gui.types        import leds_status_tuple
 from petalo_daq.io.config_params import leds_status_fields
 
+from petalo_daq.gui.widget_data  import activate_data
+from petalo_daq.gui.types        import activate_tuple
+from petalo_daq.io.config_params import activate_fields
+
 from petalo_daq.io.utils         import insert_bitarray_slice
 from petalo_daq.io.config_params import range_inclusive
 
@@ -68,6 +72,7 @@ def connect_buttons(window):
     window.pushButton_TOPFET_CONF_VALUE   .clicked.connect(tofpet_config_value(window))
     window.pushButton_TOPFET_CONF         .clicked.connect(tofpet_config(window))
     window.pushButton_LEDs_read           .clicked.connect(read_leds(window))
+    window.pushButton_Activate_TOFPET     .clicked.connect(activate_tofpets(window))
 
 
 def config_temperature(window):
@@ -531,5 +536,45 @@ def read_leds(window):
 
         window.update_log_info("LEDs status sent",
                                "LEDs status command sent")
+
+    return on_click
+
+
+def activate_tofpets(window):
+    """
+    Function to activate selected TOFPETs. It manages power supplies, LMK
+    and alignment.
+    It reads the values from the GUI fields and updates the bitarray in
+    data_store
+
+    Parameters
+    window (PetaloRunConfigurationGUI): Main application
+
+    Returns
+    function: To be triggered on click
+    """
+
+    def on_click():
+        # Read tofpets to be activated
+        activate_config = read_parameters(window, activate_data, activate_tuple)
+
+        # Setup power supplies
+        print(activate_config)
+        power_bitarray = convert_int32_to_bitarray(0x04030000)
+
+        for i in range(8):
+            value = getattr(activate_config, f'Activate_TOFPET_{i}')
+            print(i, value)
+            # VCC25EN activates on 0 and VCCEN activates on 1
+            insert_bitarray_slice(power_bitarray, [i, i+8], [not value, value])
+
+        #Build command
+        daq_id = 0x0000
+        register = register_tuple(group=1, id=0)
+        value = int(power_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
+
+        command = build_sw_register_write_command(daq_id, register.group, register.id, value)
+        print(command)
+        window.tx_queue.put(command)
 
     return on_click

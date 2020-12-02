@@ -12,6 +12,9 @@ from petalo_daq.daq.process_responses import tofpet_status
 from petalo_daq.daq.process_responses import leds_status
 from petalo_daq.daq.process_responses import check_connection
 
+from petalo_daq.io.command_dispatcher import add_response_to_dispatcher_log
+from petalo_daq.io.command_dispatcher import check_command_dispatcher
+
 
 def check_write_response(window, cmd, params):
     status_code = params[0]
@@ -54,14 +57,23 @@ def read_network_responses(window):
                 response_str += f'\t{key}: {value}\n'
             window.plainTextEdit_cmdResponse.insertPlainText(f'{response_str}\n')
 
-            print(message)
+            print("Netword response: ", message)
             try:
                 cmd      = message['command']
                 register = message['params' ][0]
                 fn = response_functions[cmd]
+                print(cmd, register, fn)
                 if isinstance(fn, dict):
+                    print("shouldnt be here")
                     fn = fn[register]
+                # add response to Command dispatcher log
+                add_response_to_dispatcher_log(window, register, message)
+
+                # process response
                 fn(window, cmd, message['params'])
+
+                # check command dispatcher
+                check_command_dispatcher(window)
             except KeyError as e:
                 print("Function to process {} not found. ".format(register), e)
             except LogError as e:

@@ -41,6 +41,18 @@ def load_gui_config(window, config):
             widget.setValue(data['value'])
 
 
+def read_bitarray_into_namedtuple(value_bitarray, params_fields, params_tuple):
+    params = {}
+
+    for field, bit_slice in params_fields.items():
+        #  print(field, bit_slice)
+        value = read_bitarray_slice(value_bitarray, bit_slice)
+        params[field] = value
+    parameters = params_tuple(**params)
+
+    return parameters
+
+
 def load_bitarray_config(window, config, config_fields, config_data):
     """
     Function to find the GUI value of a particular bitarray

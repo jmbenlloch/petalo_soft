@@ -10,6 +10,9 @@ from petalo_daq.gui.widget_data  import power_control_data
 from petalo_daq.gui.types        import power_control_tuple
 from petalo_daq.io.config_params import power_control_fields
 
+from petalo_daq.gui.types        import power_status_tuple
+from petalo_daq.io.config_params import power_status_fields
+
 from petalo_daq.gui.widget_data  import clock_control_data
 from petalo_daq.gui.types        import clock_control_tuple
 from petalo_daq.io.config_params import clock_control_fields
@@ -49,7 +52,18 @@ from petalo_daq.daq.commands        import register_tuple
 from petalo_daq.daq.commands        import sleep_cmd
 from petalo_daq.daq.process_responses import temperature_tofpet_to_ch
 from petalo_daq.windows.utils       import tofpet_status
+from petalo_daq.daq.process_responses import convert_int32_to_bitarray
 
+
+# dispatch
+from petalo_daq.io.utils              import read_bitarray_into_namedtuple
+from petalo_daq.io.command_dispatcher import add_function_to_dispatcher
+from petalo_daq.io.command_dispatcher import check_command_dispatcher
+from petalo_daq.io.command_dispatcher import read_hw_response_from_log
+from petalo_daq.gui.types import dispatchable_fn
+from petalo_daq.gui.types import dispatch_type
+from petalo_daq.gui.types import CommandDispatcherException
+from datetime import datetime
 
 def connect_buttons(window):
     """
@@ -558,6 +572,44 @@ def activate_tofpets(window):
         # Read tofpets to be activated
         activate_config = read_parameters(window, activate_data, activate_tuple)
 
+        # reset power regulators
+        fn = dispatchable_fn(type = dispatch_type.function,
+                             condition_fn = None,
+                             fn = reset_power_supplies(window))
+        add_function_to_dispatcher(window, fn)
+
+        # send config
+        fn = dispatchable_fn(type = dispatch_type.function,
+                             condition_fn = None,
+                             fn = activate_power_supplies(window, activate_config))
+
+        add_function_to_dispatcher(window, fn)
+
+        # monitor status until conf done
+        fn = dispatchable_fn(type = dispatch_type.loop,
+                             condition_fn = check_power_supplies_conf_done(window, activate_config),
+                             fn = power_status(window))
+        add_function_to_dispatcher(window, fn)
+
+        check_command_dispatcher(window)
+
+    return on_click
+
+
+def reset_power_supplies(window):
+    def to_dispatch():
+        daq_id = 0x0000
+        register = register_tuple(group=1, id=0)
+        value = 0x20000000 # reset
+
+        command = build_hw_register_write_command(daq_id, register.group, register.id, value)
+        print(command)
+        window.tx_queue.put(command)
+    return to_dispatch
+
+
+def activate_power_supplies(window, activate_config):
+    def to_dispatch():
         # Setup power supplies
         print(activate_config)
         power_bitarray = convert_int32_to_bitarray(0x04030000)
@@ -573,8 +625,57 @@ def activate_tofpets(window):
         register = register_tuple(group=1, id=0)
         value = int(power_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
 
-        command = build_sw_register_write_command(daq_id, register.group, register.id, value)
+        command = build_hw_register_write_command(daq_id, register.group, register.id, value)
         print(command)
         window.tx_queue.put(command)
 
-    return on_click
+    return to_dispatch
+
+
+def check_power_supplies_conf_done(window, active_tofpets):
+    now = datetime.now()
+
+    def to_dispatch():
+        result = False
+        register = register_tuple(group=1, id=1)
+        cmd_response_log = read_hw_response_from_log(window, register)
+        print("value read: ", cmd_response_log)
+        if cmd_response_log:
+            value = cmd_response_log.cmd['params'][1]
+            value_bitarray = convert_int32_to_bitarray(value)
+            print(value)
+            power_status = read_bitarray_into_namedtuple(value_bitarray, power_status_fields, power_status_tuple)
+            print(power_status)
+
+            if now < cmd_response_log.timestamp:
+                # Check configuration is already done
+                result = power_status.PWR_STATUS_CONF_DONE == bitarray('1')
+
+                # check everything is enabled
+                status_check = (power_status.PWR_STATUS_18DIS  == bitarray('0')) & \
+                               (power_status.PWR_STATUS_25EN_1 == bitarray('1')) & \
+                               (power_status.PWR_STATUS_25EN_2 == bitarray('1'))
+                print("status_check: ", status_check)
+
+                # check tofpets one by one
+                tofpet_checks = True
+                for i in range(8):
+                    active_tofpet = getattr(active_tofpets, f'Activate_TOFPET_{i}')
+                    print(i, active_tofpet)
+                    # VCC25EN activates on 0 and VCCEN activates on 1
+                    vccen   = getattr(power_status, f'PWR_STATUS_TOFPET_VCCEN_{i}')
+                    vcc25en = getattr(power_status, f'PWR_STATUS_TOFPET_VCC25EN_{i}')
+                    tofpet_checks &= (    vccen  .all() == active_tofpet)
+                    tofpet_checks &= (not vcc25en.all() == active_tofpet)
+                    print(tofpet_checks)
+                print("tofpet_checks: ", tofpet_checks)
+
+                if result:
+                    if not status_check:
+                        raise CommandDispatcherException('Error in 18DIS or 25EN status')
+                    if not tofpet_checks:
+                        raise CommandDispatcherException('Error in TOFPET power supplies status')
+
+        return result
+
+    return to_dispatch

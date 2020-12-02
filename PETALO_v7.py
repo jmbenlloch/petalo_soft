@@ -31,6 +31,7 @@ from petalo_daq.io.data_store    import DataStore
 from petalo_daq.io.configuration import load_configuration_file
 
 
+from petalo_daq.io.command_dispatcher import initialize_command_dispatcher
 
 from petalo_daq.daq.petalo_network import SCK_TXRX
 from petalo_daq.daq.responses      import read_network_responses
@@ -94,6 +95,9 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # Data store
         self.data_store = DataStore()
+
+        # Initialize command dispatcher
+        initialize_command_dispatcher(self)
 
         # Load default config file
         default_config = os.environ['PETALO_DAQ_DIR'] + '/petalo_daq/config/default.json'

@@ -8,6 +8,8 @@ from petalo_daq.daq.mock_server.binary_responses import build_sw_register_write_
 from petalo_daq.daq.mock_server.binary_responses import build_hw_register_write_response
 from petalo_daq.daq.command_utils import decode_register_address
 
+from petalo_daq.daq.commands import register_tuple
+
 
 def write_register(registers, reg_group, reg_id, value):
     """
@@ -95,9 +97,25 @@ def write_hw_register(petalo_server, daq_id, params):
     """
     register   = params[0]
     value      = params[1]
+
+    response_functions = {
+        register_tuple(1, 0): power_regulator_control
+    }
+
     error_code = write_register(petalo_server.hw_registers, register.group, register.id, value)
+    if register in response_functions:
+        fn = response_functions[register]
+        fn(petalo_server, value)
+
     response   = build_hw_register_write_response(daq_id, register.group, register.id, error_code)
     return response
+
+
+def power_regulator_control(petalo_server, value):
+    print("power supplies: ", value)
+    value_updated = value & 0x0003FFFF
+    value_updated = value_updated | 0x80000000
+    petalo_server.hw_registers[1][1]['value'] = value_updated
 
 
 def read_sw_register(petalo_server, daq_id, params):

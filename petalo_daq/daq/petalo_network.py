@@ -176,10 +176,14 @@ class SCK_TXRX(Thread):
 
         self.buffer    = int(config['buffer_size'])
 
-        self.s.connect((self.config['ext_ip'],
-                        int(self.config['port'])))
-
-        data_r = self.M(bytearray(self.s.recv(self.buffer)))
+        try:
+            self.s.connect((self.config['ext_ip'],
+                            int(self.config['port'])))
+            data_r = self.M(bytearray(self.s.recv(self.buffer)))
+        except Exception as e:
+            # TODO test
+            # control for timeout, no route to host, etc.
+            raise ConnectionRefusedError('{}'.format(e))
 
         self.out_queue.put(data_r)
 

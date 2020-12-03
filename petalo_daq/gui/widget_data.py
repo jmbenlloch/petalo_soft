@@ -890,7 +890,8 @@ temperature_data = {
         },
     },
     'spinBox_Temp_Time' : {
-        'default' : 41943000,
+        #'default' : 41943000,
+        'default' : 0,
         #  'min' : 0,
         #  'max' : 35,
         #  'step' : 2

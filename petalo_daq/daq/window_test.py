@@ -10,12 +10,16 @@ from time import sleep
 import numpy as np
 import re
 
+from bitarray import bitarray
+
 
 from petalo_daq.daq.commands import commands
 from petalo_daq.daq.commands import status_codes
 from petalo_daq.daq.commands import register_tuple
 from petalo_daq.gui.types    import LogError
 from petalo_daq.daq.petalo_network    import MESSAGE
+
+from petalo_daq.daq.command_test import check_expected_response
 
 from petalo_daq.daq.command_utils import encode_error_value
 
@@ -203,31 +207,80 @@ def test_read_temperatures_send_correct_commands(qtbot, petalo_test_server):
             assert isinstance(cmd, sleep_cmd)
 
 
-def test_temperature_control_register(qtbot):
+@mark.parametrize(('bit_position', 'field'),
+                 ((0, 'Temp_RST'),
+                  (1, 'Temp_Start'),
+                  (2, 'Temp_RD_Control_SGL'),
+                  (3, 'Temp_RD_Control_SPD'),
+                  (4, 'Temp_RD_Control_FB'),
+                  (5, 'Temp_RD_Control_FA'),
+                  (6, 'Temp_RD_Control_IM'),
+                  (7, 'Temp_RD_Control_EN2')))
+def test_temperature_control_register_boolean_fields(qtbot, bit_position, field):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
-    qtbot.mouseClick(window.pushButton_Temp_hw_reg, QtCore.Qt.LeftButton)
-    pattern = 'Temperature configuration sent'
-    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+    for status in [True, False]:
+        widget = getattr(window, f'checkBox_{field}')
+        widget.setChecked(status)
 
-    assert window.tx_queue.qsize() == 1
-    cmd_binary = window.tx_queue.get(0)
+        qtbot.mouseClick(window.pushButton_Temp_hw_reg, QtCore.Qt.LeftButton)
+        pattern = 'Temperature configuration sent'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
-    message  = MESSAGE()
-    cmd      = message(cmd_binary)
-    params   = cmd['params']
-    register = params[0]
-    print(cmd_binary)
-    print(cmd)
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
 
-    assert cmd['command' ] == commands.HARD_REG_W
-    assert cmd['L1_id'   ] == 0
-    assert cmd['n_params'] == 2
-    assert len(params)     == cmd['n_params']
-    assert register.group  == 0
-    assert register.id     == 0
-    #TODO test register content somehow...
+        expected_value    = int(status) << bit_position
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=0, id=0),
+                          expected_value]
+        }
+
+        check_expected_response(cmd, expected_response)
+
+
+def test_temperature_control_register_channel_selection(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    widget = window.comboBox_Temp_CH_Sel
+
+    #check number of channels
+    assert widget.count() == 9
+
+    for channel in range(0, 9):
+        # choose channel and check widget properties
+        widget.setCurrentIndex(channel)
+        assert widget.currentIndex() == channel
+        assert widget.currentText()  == f"CH {channel}"
+        expected_bitarray = bitarray('{:04b}'.format(channel))
+        assert widget.currentData() == expected_bitarray
+
+        qtbot.mouseClick(window.pushButton_Temp_hw_reg, QtCore.Qt.LeftButton)
+        pattern = 'Temperature configuration sent'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
+
+        expected_value    = channel << 8
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=0, id=0),
+                          expected_value]
+        }
+
+        check_expected_response(cmd, expected_response)
 
 
 def test_power_control_register(qtbot):

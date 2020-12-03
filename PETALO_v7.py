@@ -152,6 +152,9 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         self.textBrowser.append(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
         self.textBrowser.append(message + '\n')
         self.Log.setText(status)
+        # set scroll to the end
+        scrollbar = self.textBrowser.verticalScrollBar()
+        scrollbar.setValue(scrollbar.maximum())
 
 
 if __name__ == "__main__":

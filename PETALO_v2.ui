@@ -39,7 +39,7 @@
       </rect>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="General">
       <attribute name="title">
@@ -6123,7 +6123,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <x>10</x>
            <y>40</y>
            <width>201</width>
-           <height>311</height>
+           <height>351</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -6136,7 +6136,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>210</y>
+            <y>250</y>
             <width>181</width>
             <height>41</height>
            </rect>
@@ -6185,7 +6185,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>60</y>
+            <y>50</y>
             <width>181</width>
             <height>41</height>
            </rect>
@@ -6237,7 +6237,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>110</y>
+            <y>100</y>
             <width>181</width>
             <height>41</height>
            </rect>
@@ -6289,7 +6289,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>160</y>
+            <y>200</y>
             <width>181</width>
             <height>41</height>
            </rect>
@@ -6780,7 +6780,7 @@ REGISTERS</string>
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>260</y>
+            <y>300</y>
             <width>181</width>
             <height>41</height>
            </rect>
@@ -6794,6 +6794,71 @@ REGISTERS</string>
           <property name="text">
            <string>LINK CONTROL</string>
           </property>
+         </widget>
+         <widget class="QFrame" name="frame_128">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>150</y>
+            <width>181</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_168">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>0</y>
+             <width>91</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>IODELAY</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_TOFPET_LINK_CONF_IODELAY">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>20</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>CONF</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="checkBox_TOFPET_LINK_RST_IODELAY">
+           <property name="geometry">
+            <rect>
+             <x>110</x>
+             <y>20</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>RST</string>
+           </property>
+          </widget>
          </widget>
         </widget>
         <widget class="QFrame" name="frame_129">

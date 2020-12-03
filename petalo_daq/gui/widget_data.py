@@ -1308,6 +1308,20 @@ link_control_data = {
             True  : {'value' : bitarray('1') },
         },
     },
+    'checkBox_TOFPET_LINK_CONF_IODELAY' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TOFPET_LINK_RST_IODELAY' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
     'checkBox_TOFPET_LINK_BC' : {
         'default' : False,
         'values' : {

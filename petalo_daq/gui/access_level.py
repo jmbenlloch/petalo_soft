@@ -1067,6 +1067,16 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
+    'checkBox_TOFPET_LINK_CONF_IODELAY' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_TOFPET_LINK_RST_IODELAY' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
     'checkBox_TOFPET_LINK_BC' : {
         'admin'   : True,
         'shifter' : True,

@@ -584,38 +584,286 @@ def test_leds_status_register_command(qtbot):
 
 import petalo_daq.daq.mock_server.binary_responses as srv_cmd
 
-def test_link_status_gui(qtbot ):
+@mark.parametrize(('value', 'activated_field'),
+                 ((1 << 16, 'LINK_STATUS_IDL_ready'),
+                  (1 << 15, 'LINK_STATUS_ALIGNING_7'),
+                  (1 << 14, 'LINK_STATUS_ALIGNING_6'),
+                  (1 << 13, 'LINK_STATUS_ALIGNING_5'),
+                  (1 << 12, 'LINK_STATUS_ALIGNING_4'),
+                  (1 << 11, 'LINK_STATUS_ALIGNING_3'),
+                  (1 << 10, 'LINK_STATUS_ALIGNING_2'),
+                  (1 <<  9, 'LINK_STATUS_ALIGNING_1'),
+                  (1 <<  8, 'LINK_STATUS_ALIGNING_0'),
+                  (1 <<  7, 'LINK_STATUS_ALIGNED_7'),
+                  (1 <<  6, 'LINK_STATUS_ALIGNED_6'),
+                  (1 <<  5, 'LINK_STATUS_ALIGNED_5'),
+                  (1 <<  4, 'LINK_STATUS_ALIGNED_4'),
+                  (1 <<  3, 'LINK_STATUS_ALIGNED_3'),
+                  (1 <<  2, 'LINK_STATUS_ALIGNED_2'),
+                  (1 <<  1, 'LINK_STATUS_ALIGNED_1'),
+                  (1      , 'LINK_STATUS_ALIGNED_0')))
+def test_link_status_gui(qtbot, value, activated_field):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
     # Check RDY IDLYCTRL
-    value = 1 << 16
     cmd = srv_cmd.build_hw_register_read_response(daq_id=0, register_group=3, register_id=1, value=value, error_code=None)
     message = MESSAGE()
     cmd = message(cmd)
     print(cmd)
 
     window.rx_queue.put(cmd)
-    sleep(1)
+    sleep(0.1)
 
-    assert window.checkBox_LINK_STATUS_IDL_ready.isChecked() == True
-    assert window.checkBox_LINK_STATUS_ALIGNED_0.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNED_1.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNED_2.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNED_3.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNED_4.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNED_5.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNED_6.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNED_7.isChecked() == False
+    fields = ['LINK_STATUS_IDL_ready',
+              'LINK_STATUS_ALIGNED_0',
+              'LINK_STATUS_ALIGNED_1',
+              'LINK_STATUS_ALIGNED_2',
+              'LINK_STATUS_ALIGNED_3',
+              'LINK_STATUS_ALIGNED_4',
+              'LINK_STATUS_ALIGNED_5',
+              'LINK_STATUS_ALIGNED_6',
+              'LINK_STATUS_ALIGNED_7',
 
-    assert window.checkBox_LINK_STATUS_ALIGNING_0.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNING_1.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNING_2.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNING_3.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNING_4.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNING_5.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNING_6.isChecked() == False
-    assert window.checkBox_LINK_STATUS_ALIGNING_7.isChecked() == False
+              'LINK_STATUS_ALIGNING_0',
+              'LINK_STATUS_ALIGNING_1',
+              'LINK_STATUS_ALIGNING_2',
+              'LINK_STATUS_ALIGNING_3',
+              'LINK_STATUS_ALIGNING_4',
+              'LINK_STATUS_ALIGNING_5',
+              'LINK_STATUS_ALIGNING_6',
+              'LINK_STATUS_ALIGNING_7']
+
+    for field in fields:
+        widget = getattr(window, f'checkBox_{field}')
+        if field == activated_field:
+            assert widget.isChecked() == True
+        else:
+            assert widget.isChecked() == False
+
+
+@mark.parametrize(('value', 'activated_field'),
+                 (((1 << 31) ^ 0x000000FF, 'PWR_STATUS_CONF_DONE'),
+                  ((1 << 30) ^ 0x000000FF, 'PWR_STATUS_CONF_ON'),
+                  ((1 << 18) ^ 0x000000FF, 'PWR_STATUS_18DIS'),
+                  ((1 << 17) ^ 0x000000FF, 'PWR_STATUS_25EN_1'),
+                  ((1 << 16) ^ 0x000000FF, 'PWR_STATUS_25EN_2'),
+                  ((1 << 15) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCCEN_7'),
+                  ((1 << 14) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCCEN_6'),
+                  ((1 << 13) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCCEN_5'),
+                  ((1 << 12) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCCEN_4'),
+                  ((1 << 11) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCCEN_3'),
+                  ((1 << 10) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCCEN_2'),
+                  ((1 <<  9) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCCEN_1'),
+                  ((1 <<  8) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCCEN_0'),
+
+                  ((1 <<  7) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCC25EN_7'),
+                  ((1 <<  6) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCC25EN_6'),
+                  ((1 <<  5) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCC25EN_5'),
+                  ((1 <<  4) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCC25EN_4'),
+                  ((1 <<  3) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCC25EN_3'),
+                  ((1 <<  2) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCC25EN_2'),
+                  ((1 <<  1) ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCC25EN_1'),
+                  ( 1        ^ 0x000000FF, 'PWR_STATUS_TOFPET_VCC25EN_0')))
+def test_power_status_gui(qtbot, value, activated_field):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    # Check RDY IDLYCTRL
+    cmd = srv_cmd.build_hw_register_read_response(daq_id=0, register_group=1, register_id=1, value=value, error_code=None)
+    message = MESSAGE()
+    cmd = message(cmd)
+    print(cmd)
+
+    window.rx_queue.put(cmd)
+    sleep(0.1)
+
+    fields = ['PWR_STATUS_CONF_DONE',
+              'PWR_STATUS_CONF_ON',
+              'PWR_STATUS_18DIS',
+              'PWR_STATUS_25EN_1',
+              'PWR_STATUS_25EN_2',
+              'PWR_STATUS_TOFPET_VCCEN_0',
+              'PWR_STATUS_TOFPET_VCCEN_1',
+              'PWR_STATUS_TOFPET_VCCEN_2',
+              'PWR_STATUS_TOFPET_VCCEN_3',
+              'PWR_STATUS_TOFPET_VCCEN_4',
+              'PWR_STATUS_TOFPET_VCCEN_5',
+              'PWR_STATUS_TOFPET_VCCEN_6',
+              'PWR_STATUS_TOFPET_VCCEN_7',
+              'PWR_STATUS_TOFPET_VCC25EN_0',
+              'PWR_STATUS_TOFPET_VCC25EN_1',
+              'PWR_STATUS_TOFPET_VCC25EN_2',
+              'PWR_STATUS_TOFPET_VCC25EN_3',
+              'PWR_STATUS_TOFPET_VCC25EN_4',
+              'PWR_STATUS_TOFPET_VCC25EN_5',
+              'PWR_STATUS_TOFPET_VCC25EN_6',
+              'PWR_STATUS_TOFPET_VCC25EN_7']
+
+
+    for field in fields:
+        widget = getattr(window, f'checkBox_{field}')
+        if field == activated_field:
+            assert widget.isChecked() == True
+        else:
+            assert widget.isChecked() == False
+
+
+@mark.parametrize(('value', 'activated_field'),
+                 ((1 << 7, 'TOFPET_STATUS_ERR_CRC_GL'),
+                  (1 << 6, 'TOFPET_STATUS_ERR_CFG_GL'),
+                  (1 << 5, 'TOFPET_STATUS_ERR_CRC_CH'),
+                  (1 << 4, 'TOFPET_STATUS_ERR_CFG_CH'),
+                  (1 << 3, 'TOFPET_STATUS_ERR_ACK_CREAD'),
+                  (1 << 2, 'TOFPET_STATUS_ERR_ACK_CWRITE'),
+                  (1 << 1, 'TOFPET_STATUS_ERR_ACK_GREAD'),
+                  (1     , 'TOFPET_STATUS_ERR_ACK_GWRITE')))
+def test_tofpet_conf_status_gui(qtbot, value, activated_field):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    # Check RDY IDLYCTRL
+    cmd = srv_cmd.build_hw_register_read_response(daq_id=0, register_group=3, register_id=4, value=value, error_code=None)
+    message = MESSAGE()
+    cmd = message(cmd)
+    print(cmd)
+
+    window.rx_queue.put(cmd)
+    sleep(0.1)
+
+    fields = ['TOFPET_STATUS_ERR_CRC_GL',
+              'TOFPET_STATUS_ERR_CFG_GL',
+              'TOFPET_STATUS_ERR_CRC_CH',
+              'TOFPET_STATUS_ERR_CFG_CH',
+              'TOFPET_STATUS_ERR_ACK_CREAD',
+              'TOFPET_STATUS_ERR_ACK_CWRITE',
+              'TOFPET_STATUS_ERR_ACK_GREAD',
+              'TOFPET_STATUS_ERR_ACK_GWRITE']
+
+    for field in fields:
+        widget = getattr(window, f'checkBox_{field}')
+        if field == activated_field:
+            assert widget.isChecked() == True
+        else:
+            assert widget.isChecked() == False
+
+
+@mark.parametrize(('value', 'activated_field'),
+                 ((1 << 7, 'LED_7'),
+                  (1 << 6, 'LED_6'),
+                  (1 << 5, 'LED_5'),
+                  (1 << 4, 'LED_4'),
+                  (1 << 3, 'LED_3')))
+def test_leds_status_gui(qtbot, value, activated_field):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    # Check RDY IDLYCTRL
+    cmd = srv_cmd.build_sw_register_read_response(daq_id=0, register_group=1, register_id=0, value=value, error_code=None)
+    message = MESSAGE()
+    cmd = message(cmd)
+    print(cmd)
+
+    window.rx_queue.put(cmd)
+    sleep(0.1)
+
+    fields = ['LED_7', 'LED_6', 'LED_5','LED_4','LED_3']
+
+    for field in fields:
+        assert window.lcdNumber_LED_Link_Alignment.value() == 0
+        widget = getattr(window, f'checkBox_{field}')
+        if field == activated_field:
+            assert widget.isChecked() == True
+        else:
+            assert widget.isChecked() == False
+
+
+def test_leds_status_selected_link_gui(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    for value in range(0, 8):
+        cmd = srv_cmd.build_sw_register_read_response(daq_id=0, register_group=1, register_id=0,
+                                                      value=value, error_code=None)
+        message = MESSAGE()
+        cmd = message(cmd)
+        print(cmd)
+
+        window.rx_queue.put(cmd)
+        sleep(0.1)
+
+        assert window.lcdNumber_LED_Link_Alignment.value() == value
+        assert window.checkBox_LED_7.isChecked() == False
+        assert window.checkBox_LED_6.isChecked() == False
+        assert window.checkBox_LED_5.isChecked() == False
+        assert window.checkBox_LED_4.isChecked() == False
+        assert window.checkBox_LED_3.isChecked() == False
+        assert window.checkBox_LED_7.isChecked() == False
+
+
+@mark.parametrize(('value', 'activated_field'),
+                 ((1 << 15, 'CLK_STAT_1'),
+                  (1 << 14, 'CLK_STAT_0'),
+                  (1 << 13, 'CLK_SEL_1'),
+                  (1 << 12, 'CLK_SEL_0'),
+                  (1 << 11, 'CLK_CONF_DONE'),
+                  (1 << 10, 'CLK_CONF_ON'),
+                  (1 <<  9, 'CLK_REG_PROG_DONE'),
+                  (1 <<  8, 'CLK_REG_PROG_READY')))
+def test_clock_status_gui(qtbot, value, activated_field):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    # Check RDY IDLYCTRL
+    cmd = srv_cmd.build_hw_register_read_response(daq_id=0, register_group=2, register_id=2, value=value, error_code=None)
+    message = MESSAGE()
+    cmd = message(cmd)
+    print(cmd)
+
+    window.rx_queue.put(cmd)
+    sleep(0.1)
+
+    fields = ['CLK_STAT_1',
+              'CLK_STAT_0',
+              'CLK_SEL_0',
+              'CLK_SEL_1',
+              'CLK_CONF_DONE',
+              'CLK_CONF_ON',
+              'CLK_REG_PROG_DONE',
+              'CLK_REG_PROG_READY']
+
+    for field in fields:
+        assert window.lineEdit_CLK_CONF_REG_PROG_VALUE.text() == '0x00'
+        widget = getattr(window, f'checkBox_{field}')
+        if field == activated_field:
+            assert widget.isChecked() == True
+        else:
+            assert widget.isChecked() == False
+
+
+def test_clock_status_conf_data_out_gui(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    for value in range(0, 127):
+        cmd = srv_cmd.build_hw_register_read_response(daq_id=0, register_group=2, register_id=2, value=value, error_code=None)
+        message = MESSAGE()
+        cmd = message(cmd)
+        print(cmd)
+
+        window.rx_queue.put(cmd)
+        sleep(0.1)
+
+        expected_value = '0x{:02X}'.format(value)
+        assert window.lineEdit_CLK_CONF_REG_PROG_VALUE.text() == expected_value
+        assert window.checkBox_CLK_STAT_1.isChecked() == False
+        assert window.checkBox_CLK_STAT_0.isChecked()          == False
+        assert window.checkBox_CLK_SEL_0.isChecked()           == False
+        assert window.checkBox_CLK_SEL_1.isChecked()           == False
+        assert window.checkBox_CLK_CONF_DONE.isChecked()       == False
+        assert window.checkBox_CLK_CONF_ON.isChecked()         == False
+        assert window.checkBox_CLK_REG_PROG_DONE.isChecked()   == False
+        assert window.checkBox_CLK_REG_PROG_READY.isChecked()  == False
 
 
 #  @fixture(scope='session')

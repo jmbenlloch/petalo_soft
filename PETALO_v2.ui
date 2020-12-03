@@ -11463,11 +11463,6 @@ REGISTERS</string>
        <zorder>frame_141</zorder>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab">
-      <attribute name="title">
-       <string>Page</string>
-      </attribute>
-     </widget>
     </widget>
     <widget class="QFrame" name="frame_2">
      <property name="geometry">

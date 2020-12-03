@@ -267,8 +267,8 @@ tofpet_status_fields =  {
 }
 
 link_control_fields = {
-    'TOFPET_LINK_RST'     : reverse_range_inclusive(31, 31),
-    'TOFPET_LINK_CONF'    : reverse_range_inclusive(30, 30),
+    'TOFPET_LINK_CONF'    : reverse_range_inclusive(31, 31),
+    'TOFPET_LINK_RST'     : reverse_range_inclusive(30, 30),
     'TOFPET_LINK_BC'      : reverse_range_inclusive( 3,  3),
     'TOFPET_LINK_SEL_MUX' : reverse_range_inclusive( 2,  0),
 }

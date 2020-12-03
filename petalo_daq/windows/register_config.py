@@ -586,6 +586,8 @@ def activate_tofpets(window):
         # Read tofpets to be activated
         activate_config = read_parameters(window, activate_data, activate_tuple)
 
+        window.checkBox_Activate_done.setChecked(False)
+
         # reset power regulators
         fn = dispatchable_fn(type = dispatch_type.function,
                              condition_fn = None,
@@ -641,8 +643,20 @@ def activate_tofpets(window):
         add_function_to_dispatcher(window, fn)
         check_command_dispatcher(window)
 
+        # signal finish upon success
+        fn = dispatchable_fn(type = dispatch_type.function,
+                             condition_fn = None,
+                             fn = activate_finished(window))
+
+        add_function_to_dispatcher(window, fn)
 
     return on_click
+
+
+def activate_finished(window):
+    def to_dispatch():
+        window.checkBox_Activate_done.setChecked(True)
+    return to_dispatch
 
 
 def reset_power_supplies(window):
@@ -724,6 +738,11 @@ def check_power_supplies_conf_done(window, active_tofpets):
                         raise CommandDispatcherException('Error in 18DIS or 25EN status')
                     if not tofpet_checks:
                         raise CommandDispatcherException('Error in TOFPET power supplies status')
+
+                # Break look if it takes too long
+                tdelta = cmd_response_log.timestamp - now
+                if (not result) and (tdelta.total_seconds() > 10):
+                    raise CommandDispatcherException('Error in Power regulators configuration')
 
         return result
 
@@ -812,6 +831,12 @@ def check_lmk_conf_done(window):
             if now < cmd_response_log.timestamp:
                 result = (clock_status.CLK_CONF_DONE == bitarray('1')) & \
                          (clock_status.CLK_CONF_ON   == bitarray('0'))
+
+            # Break look if it takes too long
+            tdelta = cmd_response_log.timestamp - now
+            if (not result) and (tdelta.total_seconds() > 10):
+                raise CommandDispatcherException('Error in LMK configuration')
+
         return result
 
     return to_dispatch
@@ -827,6 +852,7 @@ def align_topet_links(window, activate_config):
             if active_tofpet:
                 reset_link_alignment(window, i)
                 align_link(window, i)
+                window.tx_queue.put(sleep_cmd(3000))
 
     return to_dispatch
 
@@ -877,6 +903,7 @@ def check_alignment_done(window, active_tofpets):
     def to_dispatch():
         result = False
         register = register_tuple(group=3, id=1)
+        window.tx_queue.put(sleep_cmd(2000))
         cmd_response_log = read_hw_response_from_log(window, register)
         print("value read: ", cmd_response_log)
         if cmd_response_log:
@@ -900,6 +927,11 @@ def check_alignment_done(window, active_tofpets):
                 print("tofpet_checks: ", tofpet_checks)
 
                 result = tofpet_checks
+
+                # Break look if it takes too long
+                tdelta = cmd_response_log.timestamp - now
+                if (not result) and (tdelta.total_seconds() > 10):
+                    raise CommandDispatcherException('Error in TOFPET alignment')
 
         return result
 

@@ -1708,13 +1708,39 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>70</x>
-          <y>110</y>
+          <y>130</y>
           <width>171</width>
           <height>51</height>
          </rect>
         </property>
         <property name="text">
          <string>Configure</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Activate_done">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>100</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_166">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>100</y>
+          <width>131</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Configuration done</string>
         </property>
        </widget>
       </widget>

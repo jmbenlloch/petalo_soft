@@ -1152,6 +1152,12 @@ user_access = {
         'admin'   : False,
         'shifter' : False,
         'none'    : False,
-    }
+    },
+
+    'checkBox_Activate_done' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
 }
 

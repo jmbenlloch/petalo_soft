@@ -99,7 +99,9 @@ def write_hw_register(petalo_server, daq_id, params):
     value      = params[1]
 
     response_functions = {
-        register_tuple(1, 0): power_regulator_control
+        register_tuple(1, 0): power_regulator_control,
+        register_tuple(2, 0): lmk_control,
+        register_tuple(3, 0): link_control,
     }
 
     error_code = write_register(petalo_server.hw_registers, register.group, register.id, value)
@@ -116,6 +118,30 @@ def power_regulator_control(petalo_server, value):
     value_updated = value & 0x0003FFFF
     value_updated = value_updated | 0x80000000
     petalo_server.hw_registers[1][1]['value'] = value_updated
+
+
+def lmk_control(petalo_server, value):
+    if (value & 0x40000000) > 0:
+        petalo_server.hw_registers[2][2]['value'] = 0x00000800
+
+
+def link_control(petalo_server, value):
+    tofpet_id = value & 0x07
+    if value & 0x40000000 > 0:
+        old_value = petalo_server.hw_registers[3][1]['value']
+        mask1 = 0xFFFFFFFF ^ (1 << tofpet_id)
+        mask2 = 0xFFFFFFFF ^ (1 << (tofpet_id + 8))
+        mask  = mask1 & mask2
+        new_value = old_value & mask
+        petalo_server.hw_registers[3][1]['value'] = new_value
+    if value & 0x80000000 > 0:
+        old_value = petalo_server.hw_registers[3][1]['value']
+        mask1 = (1 << tofpet_id)
+        new_value = old_value | mask1
+
+        mask2 = 0xFFFFFFFF ^ (1 << (tofpet_id + 8))
+        new_value = new_value & mask2
+        petalo_server.hw_registers[3][1]['value'] = new_value
 
 
 def read_sw_register(petalo_server, daq_id, params):

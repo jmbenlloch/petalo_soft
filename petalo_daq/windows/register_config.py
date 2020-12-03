@@ -5,6 +5,7 @@ from petalo_daq.gui.utils        import read_parameters
 from petalo_daq.gui.widget_data  import temperature_data
 from petalo_daq.gui.types        import temperature_config_tuple
 from petalo_daq.io.config_params import temperature_config_fields
+from petalo_daq.io.config_params import reverse_range_inclusive
 
 from petalo_daq.gui.widget_data  import power_control_data
 from petalo_daq.gui.types        import power_control_tuple
@@ -17,6 +18,10 @@ from petalo_daq.gui.widget_data  import clock_control_data
 from petalo_daq.gui.types        import clock_control_tuple
 from petalo_daq.io.config_params import clock_control_fields
 
+from petalo_daq.gui.widget_data  import clock_status_data
+from petalo_daq.gui.types        import clock_status_tuple
+from petalo_daq.io.config_params import clock_status_fields
+
 from petalo_daq.gui.widget_data  import lmk_control_data
 from petalo_daq.gui.types        import lmk_control_tuple
 from petalo_daq.io.config_params import lmk_control_fields
@@ -24,6 +29,10 @@ from petalo_daq.io.config_params import lmk_control_fields
 from petalo_daq.gui.widget_data  import link_control_data
 from petalo_daq.gui.types        import link_control_tuple
 from petalo_daq.io.config_params import link_control_fields
+
+from petalo_daq.gui.widget_data  import link_status_data
+from petalo_daq.gui.types        import link_status_tuple
+from petalo_daq.io.config_params import link_status_fields
 
 from petalo_daq.gui.widget_data  import tofpet_config_value_data
 from petalo_daq.gui.types        import tofpet_config_value_tuple
@@ -348,42 +357,47 @@ def lmk_control(window):
         lmk_control = read_parameters(window, lmk_control_data, lmk_control_tuple)
         print(lmk_control)
 
-        # Convert address and value to bitarray
-        lmk_address          = lmk_control.LMK_REG_ADD
-        lmk_address_binary   = '{:07b}'.format(lmk_address)
-        lmk_address_bitarray = bitarray(lmk_address_binary.encode())
+        write_to_lmk_ram(window,
+                         lmk_control.LMK_WREN,
+                         lmk_control.LMK_REG_ADD,
+                         lmk_control.LMK_REG_VALUE)
 
-        lmk_value          = lmk_control.LMK_REG_VALUE
-        lmk_value_binary   = '{:08b}'.format(lmk_value)
-        lmk_value_bitarray = bitarray(lmk_value_binary.encode())
-
-        lmk_control = lmk_control._replace(LMK_REG_ADD   = lmk_address_bitarray,
-                                           LMK_REG_VALUE = lmk_value_bitarray )
-
-
-        for field, positions in lmk_control_fields.items():
-            value = getattr(lmk_control, field)
-            print(field, positions, value)
-            insert_bitarray_slice(lmk_bitarray, positions, value)
-
-        #fill bit 31
-        insert_bitarray_slice(lmk_bitarray, [31], bitarray('1'))
-
-        #Build command
-        daq_id = 0x0000
-        register = register_tuple(group=2, id=1)
-        print(lmk_bitarray)
-        value = int(lmk_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
-        print(value)
-
-        command = build_hw_register_write_command(daq_id, register.group, register.id, value)
-        print(command)
-        # Send command
-        window.tx_queue.put(command)
         window.update_log_info("LMK control sent",
                                "LMK control command sent")
 
     return on_click
+
+
+def write_to_lmk_ram(window, wr_enable, address, value):
+    lmk_bitarray = bitarray('0'*32)
+
+    # Convert address and value to bitarray
+    address_binary   = '{:07b}'.format(address)
+    address_bitarray = bitarray(address_binary.encode())
+
+    value_binary   = '{:08b}'.format(value)
+    value_bitarray = bitarray(value_binary.encode())
+
+    lmk_control = lmk_control_tuple(LMK_WREN      = wr_enable,
+                                    LMK_REG_ADD   = address_bitarray,
+                                    LMK_REG_VALUE = value_bitarray )
+
+
+    for field, positions in lmk_control_fields.items():
+        value = getattr(lmk_control, field)
+        insert_bitarray_slice(lmk_bitarray, positions, value)
+
+    #fill bit 31
+    insert_bitarray_slice(lmk_bitarray, [31], bitarray('1'))
+
+    #Build command
+    daq_id = 0x0000
+    register = register_tuple(group=2, id=1)
+    value = int(lmk_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
+
+    command = build_hw_register_write_command(daq_id, register.group, register.id, value)
+    print(command)
+    window.tx_queue.put(command)
 
 
 def link_control(window):
@@ -590,8 +604,43 @@ def activate_tofpets(window):
                              condition_fn = check_power_supplies_conf_done(window, activate_config),
                              fn = power_status(window))
         add_function_to_dispatcher(window, fn)
-
         check_command_dispatcher(window)
+
+        # send config
+        fn = dispatchable_fn(type = dispatch_type.function,
+                             condition_fn = None,
+                             fn = activate_lmk(window, activate_config))
+
+        add_function_to_dispatcher(window, fn)
+
+        # start lmk conf
+        fn = dispatchable_fn(type = dispatch_type.function,
+                             condition_fn = None,
+                             fn = start_lmk_config(window))
+
+        add_function_to_dispatcher(window, fn)
+
+        # monitor status until conf done
+        fn = dispatchable_fn(type = dispatch_type.loop,
+                             condition_fn = check_lmk_conf_done(window),
+                             fn = clock_status(window))
+        add_function_to_dispatcher(window, fn)
+        check_command_dispatcher(window)
+
+        # align links
+        fn = dispatchable_fn(type = dispatch_type.function,
+                             condition_fn = None,
+                             fn = align_topet_links(window, activate_config))
+
+        add_function_to_dispatcher(window, fn)
+
+        # monitor status until alignment done
+        fn = dispatchable_fn(type = dispatch_type.loop,
+                             condition_fn = check_alignment_done(window, activate_config),
+                             fn = link_status(window))
+        add_function_to_dispatcher(window, fn)
+        check_command_dispatcher(window)
+
 
     return on_click
 
@@ -600,7 +649,7 @@ def reset_power_supplies(window):
     def to_dispatch():
         daq_id = 0x0000
         register = register_tuple(group=1, id=0)
-        value = 0x20000000 # reset
+        value = 0x200000FF # reset
 
         command = build_hw_register_write_command(daq_id, register.group, register.id, value)
         print(command)
@@ -612,7 +661,7 @@ def activate_power_supplies(window, activate_config):
     def to_dispatch():
         # Setup power supplies
         print(activate_config)
-        power_bitarray = convert_int32_to_bitarray(0x04030000)
+        power_bitarray = convert_int32_to_bitarray(0x40030000)
 
         for i in range(8):
             value = getattr(activate_config, f'Activate_TOFPET_{i}')
@@ -675,6 +724,182 @@ def check_power_supplies_conf_done(window, active_tofpets):
                         raise CommandDispatcherException('Error in 18DIS or 25EN status')
                     if not tofpet_checks:
                         raise CommandDispatcherException('Error in TOFPET power supplies status')
+
+        return result
+
+    return to_dispatch
+
+
+def activate_lmk(window, active_tofpets):
+    def to_dispatch():
+        print("activate lmks")
+        print(active_tofpets)
+
+        if (active_tofpets.Activate_TOFPET_0 == True ) and (active_tofpets.Activate_TOFPET_1 == True):
+            write_to_lmk_ram(window, bitarray('1'), address = 7, value = 0x11)
+            write_to_lmk_ram(window, bitarray('1'), address = 6, value = 0xF0)
+        if (active_tofpets.Activate_TOFPET_0 == True ) and (active_tofpets.Activate_TOFPET_1 == False):
+            write_to_lmk_ram(window, bitarray('1'), address = 7, value = 0x01)
+        if (active_tofpets.Activate_TOFPET_0 == False) and (active_tofpets.Activate_TOFPET_1 == True):
+            write_to_lmk_ram(window, bitarray('1'), address = 7, value = 0x10)
+        if (active_tofpets.Activate_TOFPET_0 == False) and (active_tofpets.Activate_TOFPET_1 == False):
+            write_to_lmk_ram(window, bitarray('1'), address = 7, value = 0x00)
+            write_to_lmk_ram(window, bitarray('1'), address = 6, value = 0xF9)
+
+        if (active_tofpets.Activate_TOFPET_2 == True ) and (active_tofpets.Activate_TOFPET_3 == True):
+            write_to_lmk_ram(window, bitarray('1'), address = 55, value = 0x11)
+            write_to_lmk_ram(window, bitarray('1'), address = 54, value = 0xF0)
+        if (active_tofpets.Activate_TOFPET_2 == True ) and (active_tofpets.Activate_TOFPET_3 == False):
+            write_to_lmk_ram(window, bitarray('1'), address = 55, value = 0x01)
+        if (active_tofpets.Activate_TOFPET_2 == False) and (active_tofpets.Activate_TOFPET_3 == True):
+            write_to_lmk_ram(window, bitarray('1'), address = 55, value = 0x10)
+        if (active_tofpets.Activate_TOFPET_2 == False) and (active_tofpets.Activate_TOFPET_3 == False):
+            write_to_lmk_ram(window, bitarray('1'), address = 55, value = 0x00)
+            write_to_lmk_ram(window, bitarray('1'), address = 54, value = 0xF9)
+
+        if (active_tofpets.Activate_TOFPET_4 == True ) and (active_tofpets.Activate_TOFPET_5 == True):
+            write_to_lmk_ram(window, bitarray('1'), address = 31, value = 0x11)
+            write_to_lmk_ram(window, bitarray('1'), address = 30, value = 0xF0)
+        if (active_tofpets.Activate_TOFPET_4 == True ) and (active_tofpets.Activate_TOFPET_5 == False):
+            write_to_lmk_ram(window, bitarray('1'), address = 31, value = 0x10)
+        if (active_tofpets.Activate_TOFPET_4 == False) and (active_tofpets.Activate_TOFPET_5 == True):
+            write_to_lmk_ram(window, bitarray('1'), address = 31, value = 0x01)
+        if (active_tofpets.Activate_TOFPET_4 == False) and (active_tofpets.Activate_TOFPET_5 == False):
+            write_to_lmk_ram(window, bitarray('1'), address = 31, value = 0x00)
+            write_to_lmk_ram(window, bitarray('1'), address = 30, value = 0xF9)
+
+        if (active_tofpets.Activate_TOFPET_6 == True ) and (active_tofpets.Activate_TOFPET_7 == True):
+            write_to_lmk_ram(window, bitarray('1'), address = 23, value = 0x11)
+            write_to_lmk_ram(window, bitarray('1'), address = 22, value = 0xF0)
+        if (active_tofpets.Activate_TOFPET_6 == True ) and (active_tofpets.Activate_TOFPET_7 == False):
+            write_to_lmk_ram(window, bitarray('1'), address = 23, value = 0x01)
+        if (active_tofpets.Activate_TOFPET_6 == False) and (active_tofpets.Activate_TOFPET_7 == True):
+            write_to_lmk_ram(window, bitarray('1'), address = 23, value = 0x10)
+        if (active_tofpets.Activate_TOFPET_6 == False) and (active_tofpets.Activate_TOFPET_7 == False):
+            write_to_lmk_ram(window, bitarray('1'), address = 23, value = 0x00)
+            write_to_lmk_ram(window, bitarray('1'), address = 22, value = 0xF9)
+
+    return to_dispatch
+
+
+def start_lmk_config(window):
+    def to_dispatch():
+        daq_id = 0x0000
+        register = register_tuple(group=2, id=0)
+        value = 0x40000000 # start
+
+        command = build_hw_register_write_command(daq_id, register.group, register.id, value)
+        print(command)
+        window.tx_queue.put(command)
+    return to_dispatch
+
+
+def check_lmk_conf_done(window):
+    now = datetime.now()
+
+    def to_dispatch():
+        result = False
+        register = register_tuple(group=2, id=2)
+        cmd_response_log = read_hw_response_from_log(window, register)
+        print("value read: ", cmd_response_log)
+        if cmd_response_log:
+            value = cmd_response_log.cmd['params'][1]
+            value_bitarray = convert_int32_to_bitarray(value)
+            print(value)
+            clock_status = read_bitarray_into_namedtuple(value_bitarray, clock_status_fields, clock_status_tuple)
+            print(clock_status)
+
+            if now < cmd_response_log.timestamp:
+                result = (clock_status.CLK_CONF_DONE == bitarray('1')) & \
+                         (clock_status.CLK_CONF_ON   == bitarray('0'))
+        return result
+
+    return to_dispatch
+
+
+def align_topet_links(window, activate_config):
+    def to_dispatch():
+        print(activate_config)
+
+        for i in range(8):
+            active_tofpet = getattr(activate_config, f'Activate_TOFPET_{i}')
+            print(i, active_tofpet)
+            if active_tofpet:
+                reset_link_alignment(window, i)
+                align_link(window, i)
+
+    return to_dispatch
+
+
+def reset_link_alignment(window, tofpet_id):
+    cmd_bitarray = convert_int32_to_bitarray(0x40000000)
+
+    tofpet_binary   = '{:03b}'.format(tofpet_id)
+    tofpet_bitarray = bitarray(tofpet_binary.encode())
+
+    insert_bitarray_slice(cmd_bitarray,
+                          reverse_range_inclusive(2, 0),
+                          tofpet_bitarray)
+
+    #Build command
+    daq_id = 0x0000
+    register = register_tuple(group=3, id=0)
+    value = int(cmd_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
+
+    command = build_hw_register_write_command(daq_id, register.group, register.id, value)
+    print(command)
+    window.tx_queue.put(command)
+
+
+def align_link(window, tofpet_id):
+    cmd_bitarray = convert_int32_to_bitarray(0x80000000)
+
+    tofpet_binary   = '{:03b}'.format(tofpet_id)
+    tofpet_bitarray = bitarray(tofpet_binary.encode())
+
+    insert_bitarray_slice(cmd_bitarray,
+                          reverse_range_inclusive(2, 0),
+                          tofpet_bitarray)
+
+    #Build command
+    daq_id = 0x0000
+    register = register_tuple(group=3, id=0)
+    value = int(cmd_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
+
+    command = build_hw_register_write_command(daq_id, register.group, register.id, value)
+    print(command)
+    window.tx_queue.put(command)
+
+
+def check_alignment_done(window, active_tofpets):
+    now = datetime.now()
+
+    def to_dispatch():
+        result = False
+        register = register_tuple(group=3, id=1)
+        cmd_response_log = read_hw_response_from_log(window, register)
+        print("value read: ", cmd_response_log)
+        if cmd_response_log:
+            value = cmd_response_log.cmd['params'][1]
+            value_bitarray = convert_int32_to_bitarray(value)
+            print(value)
+            link_status = read_bitarray_into_namedtuple(value_bitarray, link_status_fields, link_status_tuple)
+            print(link_status)
+
+            if now < cmd_response_log.timestamp:
+                # check tofpets one by one
+                tofpet_checks = True
+                for i in range(8):
+                    active_tofpet = getattr(active_tofpets, f'Activate_TOFPET_{i}')
+                    print(i, active_tofpet)
+                    aligned  = getattr(link_status, f'LINK_STATUS_ALIGNED_{i}')
+                    aligning = getattr(link_status, f'LINK_STATUS_ALIGNING_{i}')
+                    tofpet_checks &= (aligned .all() == active_tofpet)
+                    tofpet_checks &= (aligning.all() == False)
+                    print(tofpet_checks)
+                print("tofpet_checks: ", tofpet_checks)
+
+                result = tofpet_checks
 
         return result
 

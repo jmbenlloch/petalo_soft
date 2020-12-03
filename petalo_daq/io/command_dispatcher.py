@@ -88,6 +88,8 @@ def check_command_dispatcher(window):
                     # if the condition is satisfied, remove fn from list
                     fn_list.pop(0)
                     loop_counter = 0
+                    # TODO check
+                    check_command_dispatcher(window)
                 else:
                     # if false, keep trying
                     current_fn.fn()

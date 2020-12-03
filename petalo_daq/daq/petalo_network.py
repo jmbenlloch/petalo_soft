@@ -172,7 +172,7 @@ class SCK_TXRX(Thread):
         self.M          = MESSAGE()
         self.s = sk.socket(sk.AF_INET, sk.SOCK_STREAM)
         # ADD TIMEOUT Mechanism !!!!
-        self.s.settimeout(3.0)
+        self.s.settimeout(5.0)
 
         self.buffer    = int(config['buffer_size'])
 

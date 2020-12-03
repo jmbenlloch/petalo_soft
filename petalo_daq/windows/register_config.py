@@ -225,7 +225,7 @@ def power_control(window):
     return on_click
 
 
-def power_status(window):
+def power_status(window, verbose=True):
     """
     Function to read the power status register.
     It reads the values from the GUI fields and updates the bitarray in
@@ -239,17 +239,26 @@ def power_status(window):
     """
 
     def on_click():
-        daq_id = 0
-        command = build_hw_register_read_command(daq_id, register_group=1, register_id=1)
-        window.tx_queue.put(command)
+        #  daq_id = 0
+        #  command = build_hw_register_read_command(daq_id, register_group=1, register_id=1)
+        #  window.tx_queue.put(command)
+        read_hw_status_register(window, register_group=1, register_id=1)
 
-        window.update_log_info("Power status sent",
-                               "Power status command sent")
+        if verbose:
+            window.update_log_info("Power status sent",
+                                   "Power status command sent")
 
     return on_click
 
 
-def clock_status(window):
+# TODO: Test this
+def read_hw_status_register(window, register_group, register_id):
+    daq_id = 0
+    command = build_hw_register_read_command(daq_id, register_group, register_id)
+    window.tx_queue.put(command)
+
+
+def clock_status(window, verbose=True):
     """
     Function to read the clock status register.
     It reads the values from the GUI fields and updates the bitarray in
@@ -263,17 +272,19 @@ def clock_status(window):
     """
 
     def on_click():
-        daq_id = 0
-        command = build_hw_register_read_command(daq_id, register_group=2, register_id=2)
-        window.tx_queue.put(command)
+        #  daq_id = 0
+        #  command = build_hw_register_read_command(daq_id, register_group=2, register_id=2)
+        #  window.tx_queue.put(command)
+        read_hw_status_register(window, register_group=2, register_id=2)
 
-        window.update_log_info("Clock status sent",
-                               "Clock status command sent")
+        if verbose:
+            window.update_log_info("Clock status sent",
+                                   "Clock status command sent")
 
     return on_click
 
 
-def link_status(window):
+def link_status(window, verbose=True):
     """
     Function to read the link status register.
     It reads the values from the GUI fields and updates the bitarray in
@@ -287,12 +298,14 @@ def link_status(window):
     """
 
     def on_click():
-        daq_id = 0
-        command = build_hw_register_read_command(daq_id, register_group=3, register_id=1)
-        window.tx_queue.put(command)
+        #  daq_id = 0
+        #  command = build_hw_register_read_command(daq_id, register_group=3, register_id=1)
+        #  window.tx_queue.put(command)
+        read_hw_status_register(window, register_group=3, register_id=1)
 
-        window.update_log_info("Link status sent",
-                               "Link status command sent")
+        if verbose:
+            window.update_log_info("Link status sent",
+                                   "Link status command sent")
 
     return on_click
 
@@ -604,7 +617,7 @@ def activate_tofpets(window):
         # monitor status until conf done
         fn = dispatchable_fn(type = dispatch_type.loop,
                              condition_fn = check_power_supplies_conf_done(window, activate_config),
-                             fn = power_status(window))
+                             fn = power_status(window, verbose=False))
         add_function_to_dispatcher(window, fn)
         check_command_dispatcher(window)
 
@@ -625,7 +638,7 @@ def activate_tofpets(window):
         # monitor status until conf done
         fn = dispatchable_fn(type = dispatch_type.loop,
                              condition_fn = check_lmk_conf_done(window),
-                             fn = clock_status(window))
+                             fn = clock_status(window, verbose=False))
         add_function_to_dispatcher(window, fn)
         check_command_dispatcher(window)
 
@@ -639,7 +652,7 @@ def activate_tofpets(window):
         # monitor status until alignment done
         fn = dispatchable_fn(type = dispatch_type.loop,
                              condition_fn = check_alignment_done(window, activate_config),
-                             fn = link_status(window))
+                             fn = link_status(window, verbose=False))
         add_function_to_dispatcher(window, fn)
         check_command_dispatcher(window)
 
@@ -691,6 +704,8 @@ def activate_power_supplies(window, activate_config):
         command = build_hw_register_write_command(daq_id, register.group, register.id, value)
         print(command)
         window.tx_queue.put(command)
+        window.update_log_info("Configuring TOFPETs",
+                               "Configuring power regulators")
 
     return to_dispatch
 
@@ -810,6 +825,8 @@ def start_lmk_config(window):
         command = build_hw_register_write_command(daq_id, register.group, register.id, value)
         print(command)
         window.tx_queue.put(command)
+        window.update_log_info("Configuring TOFPETs",
+                               "Configuring LMK")
     return to_dispatch
 
 
@@ -853,6 +870,9 @@ def align_topet_links(window, activate_config):
                 reset_link_alignment(window, i)
                 align_link(window, i)
                 window.tx_queue.put(sleep_cmd(3000))
+
+        window.update_log_info("Configuring TOFPETs",
+                               "Aligning links")
 
     return to_dispatch
 

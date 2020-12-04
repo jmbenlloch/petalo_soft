@@ -709,29 +709,134 @@ def test_tofpet_config_value_register_command(qtbot):
         check_expected_response(cmd, expected_response)
 
 
-def test_tofpet_config_register_command(qtbot):
+
+@mark.parametrize(('bit_position', 'field'),
+                  ((31, 'TOFPET_CONF_START'),
+                   (30, 'TOFPET_CONF_VERIFY'),
+                   (29, 'TOFPET_CONF_ERROR_RST'),
+                   (20, 'TOFPET_CONF_WR')))
+def test_tofpet_config_register_command_boolean_fields(qtbot, bit_position, field):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
-    qtbot.mouseClick(window.pushButton_TOPFET_CONF, QtCore.Qt.LeftButton)
-    pattern = 'TOFPET configuration command sent'
-    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+    for status in [True, False]:
+        widget = getattr(window, f'checkBox_{field}')
+        widget.setChecked(status)
 
-    assert window.tx_queue.qsize() == 1
-    cmd_binary = window.tx_queue.get(0)
+        qtbot.mouseClick(window.pushButton_TOPFET_CONF, QtCore.Qt.LeftButton)
+        pattern = 'TOFPET configuration command sent'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
-    message  = MESSAGE()
-    cmd      = message(cmd_binary)
-    params   = cmd['params']
-    register = params[0]
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
 
-    assert cmd['command' ] == commands.HARD_REG_W
-    assert cmd['L1_id'   ] == 0
-    assert cmd['n_params'] == 2
-    assert len(params)     == cmd['n_params']
-    assert register.group  == 3
-    assert register.id     == 2
-    #TODO test register content somehow... and test GUI update
+        expected_value    = int(status) << bit_position
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=3, id=2),
+                          expected_value]
+        }
+
+        check_expected_response(cmd, expected_response)
+
+
+def test_tofpet_config_register_command_ram_address(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    for address in range(0, 2**9):
+        window.spinBox_TOFPET_CONF_ADDR.setValue(address)
+        qtbot.mouseClick(window.pushButton_TOPFET_CONF, QtCore.Qt.LeftButton)
+        pattern = 'TOFPET configuration command sent'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
+
+        expected_value    = address << 8
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=3, id=2),
+                          expected_value]
+        }
+
+        check_expected_response(cmd, expected_response)
+
+
+def test_link_control_register_send_command_mode(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    widget = window.comboBox_TOFPET_CONF_MODE
+
+    #check number of TOFPETs
+    assert widget.count() == 4
+
+    modes = ['All registers', 'Global register',
+             'All channel registers', 'Channel register selected']
+
+    for mode in range(0, 4):
+        print("mode: ", mode)
+        # choose channel and check widget properties
+        widget.setCurrentIndex(mode)
+        assert widget.currentIndex() == mode
+        assert widget.currentText()  == modes[mode]
+        expected_bitarray = bitarray('{:02b}'.format(mode))
+        assert widget.currentData() == expected_bitarray
+
+        qtbot.mouseClick(window.pushButton_TOPFET_CONF, QtCore.Qt.LeftButton)
+        pattern = 'TOFPET configuration command sent'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
+
+        expected_value    = mode << 6
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=3, id=2),
+                          expected_value]
+        }
+        check_expected_response(cmd, expected_response)
+
+
+def test_tofpet_config_register_command_ch_sel(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    for address in range(0, 2**6):
+        window.spinBox_TOFPET_CONF_CH_SEL.setValue(address)
+
+        qtbot.mouseClick(window.pushButton_TOPFET_CONF, QtCore.Qt.LeftButton)
+        pattern = 'TOFPET configuration command sent'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
+
+        expected_value    = address
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=3, id=2),
+                          expected_value]
+        }
+        check_expected_response(cmd, expected_response)
 
 
 def test_leds_status_register_command(qtbot):

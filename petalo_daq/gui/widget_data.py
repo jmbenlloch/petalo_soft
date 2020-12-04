@@ -890,11 +890,10 @@ temperature_data = {
         },
     },
     'spinBox_Temp_Time' : {
-        #'default' : 41943000,
-        'default' : 0,
-        #  'min' : 0,
-        #  'max' : 35,
-        #  'step' : 2
+        'default' : 42,
+        'min'  : 0,
+        'max'  : 42,
+        'step' : 1
     },
     'comboBox_Temp_CH_Sel' : {
         'default' : 0,

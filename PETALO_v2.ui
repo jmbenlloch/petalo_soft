@@ -4223,15 +4223,15 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <widget class="QLabel" name="label_89">
           <property name="geometry">
            <rect>
-            <x>10</x>
+            <x>0</x>
             <y>10</y>
-            <width>41</width>
+            <width>51</width>
             <height>21</height>
            </rect>
           </property>
           <property name="font">
            <font>
-            <pointsize>13</pointsize>
+            <pointsize>12</pointsize>
             <weight>50</weight>
             <bold>false</bold>
            </font>
@@ -4248,7 +4248,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <rect>
             <x>50</x>
             <y>10</y>
-            <width>51</width>
+            <width>41</width>
             <height>21</height>
            </rect>
           </property>
@@ -4256,21 +4256,21 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <widget class="QLabel" name="label_101">
           <property name="geometry">
            <rect>
-            <x>100</x>
+            <x>90</x>
             <y>10</y>
-            <width>21</width>
+            <width>41</width>
             <height>21</height>
            </rect>
           </property>
           <property name="font">
            <font>
-            <pointsize>13</pointsize>
+            <pointsize>12</pointsize>
             <weight>50</weight>
             <bold>false</bold>
            </font>
           </property>
           <property name="text">
-           <string>(s)</string>
+           <string>ms</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>

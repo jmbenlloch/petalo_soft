@@ -120,15 +120,16 @@ def config_temperature(window):
 
         # Convert time
         time_ns            = temperature_config.Temp_Time
-        discretized_value  = np.round(time_ns / 40).astype(np.int32)
+        discretized_value  = np.round(time_ns * 1e6/ 40).astype(np.int32)
+        # if overflow, assign the max value
+        if discretized_value > 0xFFFFF:
+            discretized_value = 0xFFFFF
         binary_value       = '{:020b}'.format(discretized_value)
         time_bitarray      = bitarray(binary_value.encode())
         temperature_config = temperature_config._replace(Temp_Time = time_bitarray)
 
         for field, positions in temperature_config_fields.items():
-            print(field)
             value = getattr(temperature_config, field)
-            print(field, positions, value)
             insert_bitarray_slice(temperature_bitarray, positions, value)
 
         window.data_store.insert('temperature_config', temperature_bitarray)

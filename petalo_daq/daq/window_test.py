@@ -283,31 +283,97 @@ def test_temperature_control_register_channel_selection(qtbot):
         check_expected_response(cmd, expected_response)
 
 
-def test_power_control_register(qtbot):
+def test_temperature_control_register_time_selection(qtbot):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
-    qtbot.mouseClick(window.pushButton_Power_hw_reg, QtCore.Qt.LeftButton)
-    pattern = 'Power control register sent'
-    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+    widget = window.spinBox_Temp_Time
+    min_value_ms = 0
+    max_value_ms = 42
+    step_ms      = 1
 
-    assert window.tx_queue.qsize() == 1
-    cmd_binary = window.tx_queue.get(0)
+    for time_gui in range(min_value_ms, max_value_ms+step_ms, step_ms):
+        print("time: " , time_gui)
+        widget.setValue(time_gui)
 
-    message  = MESSAGE()
-    cmd      = message(cmd_binary)
-    params   = cmd['params']
-    register = params[0]
-    print(cmd_binary)
-    print(cmd)
+        qtbot.mouseClick(window.pushButton_Temp_hw_reg, QtCore.Qt.LeftButton)
+        pattern = 'Temperature configuration sent'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
-    assert cmd['command' ] == commands.HARD_REG_W
-    assert cmd['L1_id'   ] == 0
-    assert cmd['n_params'] == 2
-    assert len(params)     == cmd['n_params']
-    assert register.group  == 1
-    assert register.id     == 0
-    #TODO test register content somehow...
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
+
+        # Convert time
+        discretized_value  = np.round(time_gui * 10**6 / 40).astype(np.int32)
+        binary_value       = '{:020b}'.format(discretized_value)
+
+        expected_value    = discretized_value << 12
+        if expected_value > 0x0FFFFFFFF:
+            expected_value = 0xFFFFF000
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=0, id=0),
+                          expected_value]
+        }
+
+        check_expected_response(cmd, expected_response)
+
+
+@mark.parametrize(('bit_position', 'field'),
+                  ((31, 'PWR_GStart'),
+                   (30, 'PWR_Start'),
+                   (29, 'PWR_RST'),
+                   (18, 'PWR_18DIS'),
+                   (17, 'PWR_25EN_1'),
+                   (16, 'PWR_25EN_2'),
+                   (15, 'PWR_TOFPET_VCCEN_7'),
+                   (14, 'PWR_TOFPET_VCCEN_6'),
+                   (13, 'PWR_TOFPET_VCCEN_5'),
+                   (12, 'PWR_TOFPET_VCCEN_4'),
+                   (11, 'PWR_TOFPET_VCCEN_3'),
+                   (10, 'PWR_TOFPET_VCCEN_2'),
+                   ( 9, 'PWR_TOFPET_VCCEN_1'),
+                   ( 8, 'PWR_TOFPET_VCCEN_0'),
+                   ( 7, 'PWR_TOFPET_VCC25EN_7'),
+                   ( 6, 'PWR_TOFPET_VCC25EN_6'),
+                   ( 5, 'PWR_TOFPET_VCC25EN_5'),
+                   ( 4, 'PWR_TOFPET_VCC25EN_4'),
+                   ( 3, 'PWR_TOFPET_VCC25EN_3'),
+                   ( 2, 'PWR_TOFPET_VCC25EN_2'),
+                   ( 1, 'PWR_TOFPET_VCC25EN_1'),
+                   ( 0, 'PWR_TOFPET_VCC25EN_0')))
+def test_power_control_register(qtbot, bit_position, field):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    for status in [True, False]:
+        widget = getattr(window, f'checkBox_{field}')
+        widget.setChecked(status)
+
+        qtbot.mouseClick(window.pushButton_Power_hw_reg, QtCore.Qt.LeftButton)
+        pattern = 'Power control register sent'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
+
+        expected_value    = int(status) << bit_position
+        expected_value    = expected_value ^ 0x000000FF # VCC25EN are disabled on 1
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=1, id=0),
+                          expected_value]
+        }
+
+        check_expected_response(cmd, expected_response)
 
 
 def test_power_status_register_command(qtbot):

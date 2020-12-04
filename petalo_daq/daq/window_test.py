@@ -220,6 +220,8 @@ def test_temperature_control_register_boolean_fields(qtbot, bit_position, field)
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
+    window.spinBox_Temp_Time.setValue(0)
+
     for status in [True, False]:
         widget = getattr(window, f'checkBox_{field}')
         widget.setChecked(status)
@@ -248,6 +250,8 @@ def test_temperature_control_register_boolean_fields(qtbot, bit_position, field)
 def test_temperature_control_register_channel_selection(qtbot):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
+
+    window.spinBox_Temp_Time.setValue(0)
 
     widget = window.comboBox_Temp_CH_Sel
 
@@ -541,27 +545,41 @@ def test_lmk_control_register_send_command(qtbot):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
+    # Check all options for each field separately
+    for enable in (True, False):
+        check_lmk_control_cmd(qtbot, window, enable, address=0, value=0)
+    for address in range(0, 128):
+        check_lmk_control_cmd(qtbot, window, enable=True, address=address, value=0)
+    for value in range(0, 256):
+        check_lmk_control_cmd(qtbot, window, enable=True, address=0, value=value)
+
+
+def check_lmk_control_cmd(qtbot, window, enable, address, value):
+    # set values in GUI
+    window.checkBox_LMK_WREN    .setChecked(enable)
+    window.spinBox_LMK_REG_ADD  .setValue(address)
+    window.spinBox_LMK_REG_VALUE.setValue(value)
+
     qtbot.mouseClick(window.pushButton_Clock_LMK_hw_reg, QtCore.Qt.LeftButton)
     pattern = 'LMK control command sent'
     check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
     assert window.tx_queue.qsize() == 1
     cmd_binary = window.tx_queue.get(0)
+    message    = MESSAGE()
+    cmd        = message(cmd_binary)
 
-    message  = MESSAGE()
-    cmd      = message(cmd_binary)
-    params   = cmd['params']
-    register = params[0]
-    print(cmd_binary)
-    print(cmd)
+    expected_value    = (1 << 31) | (int(enable) << 15) | (address << 8) | value
+    expected_response = {
+        'command'  : commands.HARD_REG_W,
+        'L1_id'    : 0,
+        'n_params' : 2,
+        'params'   : [register_tuple(group=2, id=1),
+                      expected_value]
+    }
+    check_expected_response(cmd, expected_response)
 
-    assert cmd['command' ] == commands.HARD_REG_W
-    assert cmd['L1_id'   ] == 0
-    assert cmd['n_params'] == 2
-    assert len(params)     == cmd['n_params']
-    assert register.group  == 2
-    assert register.id     == 1
-    #TODO test register content somehow...
+
 
 
 def test_link_control_register_send_command(qtbot):

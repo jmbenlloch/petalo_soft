@@ -554,6 +554,84 @@ def test_start_run_register_send_command_mode(qtbot):
         check_expected_response(cmd, expected_response)
 
 
+def test_start_run_register_send_command_throughput(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    # set the rest of fields to zero (their defaults are not zero)
+    window.spinBox_RUN_Event.setValue(0)
+
+    for throughput in range(1, 81):
+        window.spinBox_RUN_Throughput.setValue(throughput)
+
+        qtbot.mouseClick(window.START, QtCore.Qt.LeftButton)
+        pattern = 'Run has started'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
+
+        discretized_value   = np.round(throughput * 2**20 / 2**16).astype(np.int32)
+        if discretized_value > 0x0FFF:
+            discretized_value = 0x0FFF
+
+        expected_value    = 1 << 31 | (discretized_value << 16)
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=4, id=0),
+                          expected_value]
+        }
+        check_expected_response(cmd, expected_response)
+
+
+def test_start_run_register_send_command_evt_time(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    # set the rest of fields to zero (their defaults are not zero)
+    window.spinBox_RUN_Throughput.setValue(0)
+
+
+    # Range from 1 to 34360. Too many values. This test checks the
+    # lower and upper part of the interval and some random values
+    # in the middle.
+    values_to_check_beginning = np.arange(0, 10)
+    values_to_check_middle    = np.random.randint(10, 34350, 300)
+    values_to_check_ending    = np.arange(34350, 34361)
+    values_to_check = np.concatenate((values_to_check_beginning,
+                                      values_to_check_middle,
+                                      values_to_check_ending))
+
+    for time in values_to_check:
+        window.spinBox_RUN_Event.setValue(time)
+        qtbot.mouseClick(window.START, QtCore.Qt.LeftButton)
+        pattern = 'Run has started'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
+
+        discretized_value   = np.round(time * 125e3 / 2**16).astype(np.int32)
+        if discretized_value > 0x0FFFF:
+            discretized_value = 0x0FFFF
+
+        expected_value    = 1 << 31 | discretized_value
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=4, id=0),
+                          expected_value]
+        }
+        check_expected_response(cmd, expected_response)
+
+
 def test_stop_run_register_send_command(qtbot):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()

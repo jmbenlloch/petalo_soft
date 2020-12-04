@@ -1497,14 +1497,14 @@ run_control_data = {
     'spinBox_RUN_Throughput' : {
         'default' : 30,
         'min' : 0,
-        'max' : 255,
+        'max' : 80,
         'step' : 1,
     },
     'spinBox_RUN_Event' : {
-        'default' : 2,
-        #  'min' : 0,
-        #  'max' : (2**16-1) * 2**16 / 125e6,
-        #  'step' : 2**16 / 125e6 *1000,
+        'default' : 1000,
+        'min' : 0,
+        'max' : 34360,
+        'step' : 1,
     },
 
 }

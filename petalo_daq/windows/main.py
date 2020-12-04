@@ -82,31 +82,26 @@ def start_run(window):
         run_control_config = read_parameters(window, run_control_data, run_control_tuple)
 
         evt_time           = run_control_config.RUN_Event
-        discretized_value  = np.round(evt_time / 2**16 * 125e6).astype(np.int32)
+        discretized_value  = np.round(evt_time / 2**16 * 125e3).astype(np.int32)
+        # check for overflow
+        if discretized_value > 0x0FFFF:
+            discretized_value = 0x0FFFF
         binary_value       = '{:016b}'.format(discretized_value)
         evt_time_bitarray  = bitarray(binary_value.encode())
         run_control_config = run_control_config._replace(RUN_Event = evt_time_bitarray)
-        print(evt_time, discretized_value, binary_value, evt_time_bitarray)
 
         throughput          = run_control_config.RUN_Throughput
         discretized_value   = np.round(throughput * 2**20 / 2**16).astype(np.int32)
         binary_value        = '{:011b}'.format(discretized_value)
         throughput_bitarray = bitarray(binary_value.encode())
-        print(throughput, discretized_value, binary_value, throughput_bitarray)
         run_control_config  = run_control_config._replace(RUN_Throughput = throughput_bitarray)
 
-        print(run_control_config)
         for field, positions in run_control_fields.items():
-            print(field)
             value = getattr(run_control_config, field)
-            print(field, positions, value)
             insert_bitarray_slice(run_control_bitarray, positions, value)
-
-        print(run_control_bitarray)
 
         # Set Start bit to 1
         insert_bitarray_slice(run_control_bitarray, [31], [1])
-        print(run_control_bitarray)
 
         #Build command
         daq_id = 0x0000
@@ -141,7 +136,7 @@ def stop_run(window):
         run_control_config = read_parameters(window, run_control_data, run_control_tuple)
 
         evt_time           = run_control_config.RUN_Event
-        discretized_value  = np.round(evt_time / 2**16 * 125e6).astype(np.int32)
+        discretized_value  = np.round(evt_time / 2**16 * 125e3).astype(np.int32)
         binary_value       = '{:016b}'.format(discretized_value)
         evt_time_bitarray  = bitarray(binary_value.encode())
         run_control_config = run_control_config._replace(RUN_Event = evt_time_bitarray)
@@ -150,26 +145,19 @@ def stop_run(window):
         discretized_value   = np.round(throughput * 2**20 / 2**16).astype(np.int32)
         binary_value        = '{:011b}'.format(discretized_value)
         throughput_bitarray = bitarray(binary_value.encode())
-        print(throughput, discretized_value, binary_value, throughput_bitarray)
         run_control_config  = run_control_config._replace(RUN_Throughput = throughput_bitarray)
 
         print(run_control_config)
         for field, positions in run_control_fields.items():
-            print(field)
             value = getattr(run_control_config, field)
-            print(field, positions, value)
             insert_bitarray_slice(run_control_bitarray, positions, value)
-
-        print(run_control_bitarray)
 
         # Set Start bit to 1
         insert_bitarray_slice(run_control_bitarray, [30], [1])
-        print(run_control_bitarray)
 
         #Build command
         daq_id = 0x0000
         register = register_tuple(group=4, id=0)
-        print(run_control_bitarray)
         value = int(run_control_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
         print(value)
 

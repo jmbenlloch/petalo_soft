@@ -683,25 +683,30 @@ def test_tofpet_config_value_register_command(qtbot):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
-    qtbot.mouseClick(window.pushButton_TOPFET_CONF_VALUE, QtCore.Qt.LeftButton)
-    pattern = 'TOFPET configuration value sent'
-    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+    # Check all bits to 1, one by one
+    for bit_position in range(0, 32):
+        print("bit_position: ", bit_position)
+        expected_value    = 1 << bit_position
+        window.spinBox_TOPFET_CONF_VALUE.setValue(expected_value)
 
-    assert window.tx_queue.qsize() == 1
-    cmd_binary = window.tx_queue.get(0)
+        qtbot.mouseClick(window.pushButton_TOPFET_CONF_VALUE, QtCore.Qt.LeftButton)
+        pattern = 'TOFPET configuration value sent'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
-    message  = MESSAGE()
-    cmd      = message(cmd_binary)
-    params   = cmd['params']
-    register = params[0]
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
 
-    assert cmd['command' ] == commands.HARD_REG_W
-    assert cmd['L1_id'   ] == 0
-    assert cmd['n_params'] == 2
-    assert len(params)     == cmd['n_params']
-    assert register.group  == 3
-    assert register.id     == 3
-    #TODO test register content somehow... and test GUI update
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=3, id=3),
+                          expected_value]
+        }
+
+        check_expected_response(cmd, expected_response)
 
 
 def test_tofpet_config_register_command(qtbot):

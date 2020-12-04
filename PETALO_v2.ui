@@ -8605,7 +8605,7 @@ REGISTERS</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QSpinBox" name="spinBox_TOPFET_CONF_VALUE">
+          <widget class="QDoubleSpinBox" name="spinBox_TOPFET_CONF_VALUE">
            <property name="geometry">
             <rect>
              <x>63</x>

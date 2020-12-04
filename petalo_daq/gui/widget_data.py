@@ -1669,8 +1669,9 @@ tofpet_config_value_data = {
     'spinBox_TOPFET_CONF_VALUE' : {
         'default' : 0,
         'min' : 0,
-        'max' : 4294967295/2, # TODO: Fix range and base (should be hex)
-        'step' : 1
+        'max' : 2**32-1,
+        'step' : 1,
+        'decimals': 0,
     },
 }
 

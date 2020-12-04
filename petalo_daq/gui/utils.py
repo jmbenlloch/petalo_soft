@@ -32,6 +32,16 @@ def populate_fields(window, gui_data):
                 widget.setMaximum   (entries['max'])
             if 'step' in entries:
                 widget.setSingleStep(entries['step'])
+        if isinstance(widget, QtWidgets.QDoubleSpinBox):
+            widget.setValue     (entries['default'])
+            if 'min' in entries:
+                widget.setMinimum   (entries['min'])
+            if 'max' in entries:
+                widget.setMaximum   (entries['max'])
+            if 'step' in entries:
+                widget.setSingleStep(entries['step'])
+            if 'decimals' in entries:
+                widget.setSingleStep(entries['decimals'])
 
 
 
@@ -108,6 +118,8 @@ def read_parameters(window, fields_data, params_tuple):
             params[fieldname] = fields_data[field]['values'][status]['value']
         if isinstance(widget, QtWidgets.QSpinBox):
             params[fieldname] = widget.value()
+        if isinstance(widget, QtWidgets.QDoubleSpinBox):
+            params[fieldname] = int(widget.value())
     #print(params)
 
     #global_config = types.global_config_tuple(**params)

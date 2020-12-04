@@ -486,7 +486,6 @@ def tofpet_config_value(window):
         register = register_tuple(group=3, id=3)
         print(config_bitarray)
         value = int(config_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
-        print(value)
 
         command = build_hw_register_write_command(daq_id, register.group, register.id, value)
         print(command)

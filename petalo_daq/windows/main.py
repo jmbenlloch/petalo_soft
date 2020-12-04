@@ -35,13 +35,13 @@ def connect_buttons(window):
 
     window.pushButton_config.clicked.connect(lambda: window.data_store.export_to_json('/tmp/test.json'))
 
-    window.START.clicked.connect(Start_run(window))
-    window.STOP .clicked.connect(Stop_run (window))
+    window.START.clicked.connect(start_run(window))
+    window.STOP .clicked.connect(stop_run (window))
 
     window.pass_lineEdit.editingFinished.connect(validate_pass(window))
 
 
-def Start_run(window):
+def start_run(window):
     """
     Function to start the run logging the configuration in the database
 
@@ -125,7 +125,7 @@ def Start_run(window):
     return on_click
 
 
-def Stop_run(window):
+def stop_run(window):
     """
     Function to stop the run
 

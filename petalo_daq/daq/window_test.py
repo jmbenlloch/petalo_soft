@@ -455,36 +455,112 @@ def test_link_status_register_command(qtbot):
     #TODO test register content somehow... and test GUI update
 
 
-def test_start_run_register_send_command(qtbot):
+def test_clock_control_register_send_command(qtbot, bit_position, field):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
-    qtbot.mouseClick(window.START, QtCore.Qt.LeftButton)
-    pattern = 'Run has started'
-    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
-    assert window.tx_queue.qsize() == 1
-    cmd_binary = window.tx_queue.get(0)
+@mark.parametrize(('bit_position', 'field'),
+                  ((27, 'RUN_THR_ON'),))
+def test_start_run_register_send_command_boolean_fields(qtbot, bit_position, field):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
 
-    message  = MESSAGE()
-    cmd      = message(cmd_binary)
-    params   = cmd['params']
-    register = params[0]
-    print(cmd_binary)
-    print(cmd)
+    # set the rest of fields to zero (their defaults are not zero)
+    window.spinBox_RUN_Throughput.setValue(0)
+    window.spinBox_RUN_Event.setValue(0)
 
-    assert cmd['command' ] == commands.HARD_REG_W
-    assert cmd['L1_id'   ] == 0
-    assert cmd['n_params'] == 2
-    assert len(params)     == cmd['n_params']
-    assert register.group  == 4
-    assert register.id     == 0
-    #TODO test register content somehow...
+    for status in [True, False]:
+        widget = getattr(window, f'checkBox_{field}')
+        widget.setChecked(status)
+
+        qtbot.mouseClick(window.START, QtCore.Qt.LeftButton)
+        pattern = 'Run has started'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
+
+        expected_value    = 1 << 31 | (int(status) << bit_position)
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=4, id=0),
+                          expected_value]
+        }
+
+        check_expected_response(cmd, expected_response)
+
+
+def test_start_run_register_send_command_mode(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    # set the rest of fields to zero (their defaults are not zero)
+    window.spinBox_RUN_Throughput.setValue(0)
+    window.spinBox_RUN_Event     .setValue(0)
+
+    widget = window.comboBox_RUN_MODE
+
+    #check number of TOFPETs
+    assert widget.count() == 3
+
+    modes = [
+        {'index' : 0,
+         'code'  : 0,
+         'label' : 'QDC: Charge Integration'
+        },
+        {'index' : 1,
+         'code'  : 1,
+         'label' : 'TOT: Time Over Threshold'
+        },
+        {'index' : 2,
+         'code'  : 3,
+         'label' : 'Calibration: Event counter'
+        },
+    ]
+
+    for mode in range(0, 2):
+        # choose channel and check widget properties
+        index = modes[mode]['index']
+        widget.setCurrentIndex(index)
+        assert widget.currentIndex() == index
+        assert widget.currentText()  == modes[mode]['label']
+        binary_code = '{:02b}'.format(modes[mode]['code'])
+        expected_bitarray = bitarray(binary_code.encode())
+        assert widget.currentData()  == expected_bitarray
+
+        qtbot.mouseClick(window.START, QtCore.Qt.LeftButton)
+        pattern = 'Run has started'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
+
+        expected_value    =  (1 << 31) | (modes[mode]['code'] << 28)
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=4, id=0),
+                          expected_value]
+        }
+
+        check_expected_response(cmd, expected_response)
 
 
 def test_stop_run_register_send_command(qtbot):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
+
+    # set the rest of fields to zero (their defaults are not zero)
+    window.spinBox_RUN_Throughput.setValue(0)
+    window.spinBox_RUN_Event.setValue(0)
 
     qtbot.mouseClick(window.STOP, QtCore.Qt.LeftButton)
     pattern = 'The run is stopped'
@@ -492,21 +568,19 @@ def test_stop_run_register_send_command(qtbot):
 
     assert window.tx_queue.qsize() == 1
     cmd_binary = window.tx_queue.get(0)
+    message    = MESSAGE()
+    cmd        = message(cmd_binary)
 
-    message  = MESSAGE()
-    cmd      = message(cmd_binary)
-    params   = cmd['params']
-    register = params[0]
-    print(cmd_binary)
-    print(cmd)
+    expected_value    = 1 << 30
+    expected_response = {
+        'command'  : commands.HARD_REG_W,
+        'L1_id'    : 0,
+        'n_params' : 2,
+        'params'   : [register_tuple(group=4, id=0),
+                      expected_value]
+    }
 
-    assert cmd['command' ] == commands.HARD_REG_W
-    assert cmd['L1_id'   ] == 0
-    assert cmd['n_params'] == 2
-    assert len(params)     == cmd['n_params']
-    assert register.group  == 4
-    assert register.id     == 0
-    #TODO test register content somehow...
+    check_expected_response(cmd, expected_response)
 
 
 @mark.parametrize(('bit_position', 'field'),

@@ -505,31 +505,36 @@ def test_stop_run_register_send_command(qtbot):
     #TODO test register content somehow...
 
 
-def test_clock_control_register_send_command(qtbot):
+@mark.parametrize(('bit_position', 'field'),
+                  ((30, 'CLK_Start'),
+                   (29, 'CLK_RST')))
+def test_clock_control_register_send_command(qtbot, bit_position, field):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
-    qtbot.mouseClick(window.pushButton_Clock_control_hw_reg, QtCore.Qt.LeftButton)
-    pattern = 'Clock control command sent'
-    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+    for status in [True, False]:
+        widget = getattr(window, f'checkBox_{field}')
+        widget.setChecked(status)
 
-    assert window.tx_queue.qsize() == 1
-    cmd_binary = window.tx_queue.get(0)
+        qtbot.mouseClick(window.pushButton_Clock_control_hw_reg, QtCore.Qt.LeftButton)
+        pattern = 'Clock control command sent'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
-    message  = MESSAGE()
-    cmd      = message(cmd_binary)
-    params   = cmd['params']
-    register = params[0]
-    print(cmd_binary)
-    print(cmd)
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
 
-    assert cmd['command' ] == commands.HARD_REG_W
-    assert cmd['L1_id'   ] == 0
-    assert cmd['n_params'] == 2
-    assert len(params)     == cmd['n_params']
-    assert register.group  == 2
-    assert register.id     == 0
-    #TODO test register content somehow...
+        expected_value    = int(status) << bit_position
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=2, id=0),
+                          expected_value]
+        }
+
+        check_expected_response(cmd, expected_response)
 
 
 def test_lmk_control_register_send_command(qtbot):

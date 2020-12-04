@@ -580,36 +580,77 @@ def check_lmk_control_cmd(qtbot, window, enable, address, value):
     check_expected_response(cmd, expected_response)
 
 
-
-
-def test_link_control_register_send_command(qtbot):
+@mark.parametrize(('bit_position', 'field'),
+                  ((31, 'TOFPET_LINK_CONF'),
+                   (30, 'TOFPET_LINK_RST'),
+                   (29, 'TOFPET_LINK_CONF_IODELAY'),
+                   (28, 'TOFPET_LINK_RST_IODELAY'),
+                   ( 3, 'TOFPET_LINK_BC')))
+def test_link_control_register_send_command_boolean_fields(qtbot, bit_position, field):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
-    qtbot.mouseClick(window.pushButton_TOFPET_LINK_CONTROL, QtCore.Qt.LeftButton)
-    pattern = 'Link control command sent'
+    for status in [True, False]:
+        widget = getattr(window, f'checkBox_{field}')
+        widget.setChecked(status)
 
-    print("log: ", window.textBrowser.toPlainText())
+        qtbot.mouseClick(window.pushButton_TOFPET_LINK_CONTROL, QtCore.Qt.LeftButton)
+        pattern = 'Link control command sent'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
-    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
 
-    assert window.tx_queue.qsize() == 1
-    cmd_binary = window.tx_queue.get(0)
+        expected_value    = int(status) << bit_position
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=3, id=0),
+                          expected_value]
+        }
 
-    message  = MESSAGE()
-    cmd      = message(cmd_binary)
-    params   = cmd['params']
-    register = params[0]
-    print(cmd_binary)
-    print(cmd)
+        check_expected_response(cmd, expected_response)
 
-    assert cmd['command' ] == commands.HARD_REG_W
-    assert cmd['L1_id'   ] == 0
-    assert cmd['n_params'] == 2
-    assert len(params)     == cmd['n_params']
-    assert register.group  == 3
-    assert register.id     == 0
-    #TODO test register content somehow...
+
+def test_link_control_register_send_command_sel_mux(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    widget = window.comboBox_TOFPET_LINK_SEL_MUX
+
+    #check number of TOFPETs
+    assert widget.count() == 8
+
+    for channel in range(0, 8):
+        # choose channel and check widget properties
+        widget.setCurrentIndex(channel)
+        assert widget.currentIndex() == channel
+        assert widget.currentText()  == f"{channel}"
+        expected_bitarray = bitarray('{:03b}'.format(channel))
+        assert widget.currentData() == expected_bitarray
+
+        qtbot.mouseClick(window.pushButton_TOFPET_LINK_CONTROL, QtCore.Qt.LeftButton)
+        pattern = 'Link control command sent'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
+
+        expected_value    = channel
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=3, id=0),
+                          expected_value]
+        }
+
+        check_expected_response(cmd, expected_response)
 
 
 def test_tofpet_status_register_command(qtbot):

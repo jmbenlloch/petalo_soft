@@ -116,7 +116,7 @@ sw_registers = {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x2E3E8B4C,
+            'value' : 0x0E3E8B4C,
            },
         8: { # Temperature sensor Mezzanine
             'permissions' : {

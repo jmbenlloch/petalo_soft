@@ -100,11 +100,11 @@ def test_read_network_responses_logerror(qtbot, petalo_test_server):
 def test_temperature_conversion_1():
     # TODO add hypothesis
     # TODO define range of operation
-    samples = np.random.uniform(0, 0.8, 100)
+    samples = np.random.uniform(-1.15, 0.85, 100)
 
     for temperature in samples:
         value_temp = np.round(temperature * 2**24 / 1.65).astype(np.int32)
-        value      = (value_temp << 5) | 0xF000001F
+        value      = (value_temp << 5) | 0xE000001F
         temp_converted = temperature_conversion_1(value)
 
         np.testing.assert_almost_equal(temperature, temp_converted, decimal=4)
@@ -152,7 +152,7 @@ def test_read_temperatures(qtbot, petalo_test_server):
     np.testing.assert_almost_equal(window.lcdNumber_Temp_3.value(),   0    , decimal=3)
     np.testing.assert_almost_equal(window.lcdNumber_Temp_4.value(), 118.634, decimal=3)
     np.testing.assert_almost_equal(window.lcdNumber_Temp_5.value(),   0    , decimal=3)
-    np.testing.assert_almost_equal(window.lcdNumber_Temp_6.value(), 123.020, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_6.value(),   0    , decimal=3)
     np.testing.assert_almost_equal(window.lcdNumber_Temp_7.value(), 118.578, decimal=3)
     np.testing.assert_almost_equal(window.lcdNumber_Temp_8.value(),  38.842, decimal=3)
 
@@ -162,7 +162,7 @@ def test_read_temperatures(qtbot, petalo_test_server):
     np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_3.value(),  0    , decimal=3)
     np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_4.value(),  0.785, decimal=3)
     np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_5.value(),  0    , decimal=3)
-    np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_6.value(),  0.734, decimal=3)
+    np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_6.value(),  0    , decimal=3)
     np.testing.assert_almost_equal(window.lcdNumber_Temp_raw_7.value(),  0.786, decimal=3)
 
 

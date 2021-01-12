@@ -43,7 +43,7 @@ def read_temperature(window, cmd, params):
     if (value & 0xC0000000) >> 30 != 0:
         widget.display('Err')
         raise LogError(f"Temperature error. Register {register} has not 00 in bits 30, 31")
-    if (value & 0x30000000) >> 28 == 3:
+    if ((value & 0x30000000) >> 28 == 3) or ((value & 0x30000000) >> 28 == 0):
         widget.display('Err')
         raise LogError(f"Temperature error. Register {register}, input signal out of ADC range")
 
@@ -61,7 +61,13 @@ def read_temperature(window, cmd, params):
 
 
 def temperature_conversion_1(value):
-    return 1.65 / 2**24 * ((value & 0x0FFFFFE0) >> 5) #+ 1.65
+    # TODO: fix test for conversion 1
+    value = 0
+    if ((value & 0x10000000) >> 28) == 0:
+        value = 1.65 / 2**23 * ((value & 0x0FFFFFE0) >> 5) - 1.65
+    else:
+        value = 1.65 / 2**23 * ((value & 0x0FFFFFE0) >> 5)
+    return value
 
 def temperature_conversion_1_celsius(value):
     degrees = (10.888 - np.sqrt((-10.888)**2 + 4*0.00347*(1777.3-value*1000))) / (2*-0.00347) + 30

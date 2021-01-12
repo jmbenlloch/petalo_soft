@@ -52,7 +52,7 @@ def add_response_to_dispatcher_log(window, register, cmd_response):
                                            cmd       = cmd_response)
     window.data_store.insert(field_name, responses)
 
-    print(window.data_store.data)
+    #  print(window.data_store.data)
 
 
 def add_function_to_dispatcher(window, dispatch_fn):

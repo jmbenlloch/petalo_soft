@@ -643,18 +643,22 @@ def activate_tofpets(window):
         check_command_dispatcher(window)
 
         # align links
-        fn = dispatchable_fn(type = dispatch_type.function,
-                             condition_fn = None,
-                             fn = align_topet_links(window, activate_config))
+        for i in range(8):
+            active_tofpet = getattr(activate_config, f'Activate_TOFPET_{i}')
+            print(i, active_tofpet)
+            if active_tofpet:
+                fn = dispatchable_fn(type = dispatch_type.function,
+                                     condition_fn = None,
+                                     fn = align_topet_links(window, i))
 
-        add_function_to_dispatcher(window, fn)
+                add_function_to_dispatcher(window, fn)
 
-        # monitor status until alignment done
-        fn = dispatchable_fn(type = dispatch_type.loop,
-                             condition_fn = check_alignment_done(window, activate_config),
-                             fn = link_status(window, verbose=False))
-        add_function_to_dispatcher(window, fn)
-        check_command_dispatcher(window)
+                # monitor status until alignment done
+                fn = dispatchable_fn(type = dispatch_type.loop,
+                                     condition_fn = check_alignment_done(window, i),
+                                     fn = link_status(window, verbose=False))
+                add_function_to_dispatcher(window, fn)
+                check_command_dispatcher(window)
 
         # signal finish upon success
         fn = dispatchable_fn(type = dispatch_type.function,
@@ -669,6 +673,8 @@ def activate_tofpets(window):
 def activate_finished(window):
     def to_dispatch():
         window.checkBox_Activate_done.setChecked(True)
+        window.update_log_info("Configuring TOFPETs",
+                               f"TOFPETs activated!")
     return to_dispatch
 
 
@@ -859,20 +865,13 @@ def check_lmk_conf_done(window):
     return to_dispatch
 
 
-def align_topet_links(window, activate_config):
+def align_topet_links(window, tofpet_id):
     def to_dispatch():
-        print(activate_config)
-
-        for i in range(8):
-            active_tofpet = getattr(activate_config, f'Activate_TOFPET_{i}')
-            print(i, active_tofpet)
-            if active_tofpet:
-                reset_link_alignment(window, i)
-                align_link(window, i)
-                window.tx_queue.put(sleep_cmd(3000))
+        reset_link_alignment(window, tofpet_id)
+        align_link(window, tofpet_id)
 
         window.update_log_info("Configuring TOFPETs",
-                               "Aligning links")
+                               f"Aligning links {tofpet_id}")
 
     return to_dispatch
 
@@ -917,7 +916,7 @@ def align_link(window, tofpet_id):
     window.tx_queue.put(command)
 
 
-def check_alignment_done(window, active_tofpets):
+def check_alignment_done(window, tofpet_id):
     now = datetime.now()
 
     def to_dispatch():
@@ -934,23 +933,18 @@ def check_alignment_done(window, active_tofpets):
             print(link_status)
 
             if now < cmd_response_log.timestamp:
-                # check tofpets one by one
-                tofpet_checks = True
-                for i in range(8):
-                    active_tofpet = getattr(active_tofpets, f'Activate_TOFPET_{i}')
-                    print(i, active_tofpet)
-                    aligned  = getattr(link_status, f'LINK_STATUS_ALIGNED_{i}')
-                    aligning = getattr(link_status, f'LINK_STATUS_ALIGNING_{i}')
-                    tofpet_checks &= (aligned .all() == active_tofpet)
-                    tofpet_checks &= (aligning.all() == False)
-                    print(tofpet_checks)
-                print("tofpet_checks: ", tofpet_checks)
+                print("link_status: ", link_status)
+                aligned  = getattr(link_status, f'LINK_STATUS_ALIGNED_{tofpet_id}')
+                aligning = getattr(link_status, f'LINK_STATUS_ALIGNING_{tofpet_id}')
 
-                result = tofpet_checks
+                print("\n\n\n aligned: ", aligned)
+                print("\n aligning: ", aligning, "\n\n\n\n\n")
+
+                result = aligned.all() and (not aligning.all())
 
                 # Break look if it takes too long
                 tdelta = cmd_response_log.timestamp - now
-                if (not result) and (tdelta.total_seconds() > 10):
+                if (not result) and (tdelta.total_seconds() > 30):
                     raise CommandDispatcherException('Error in TOFPET alignment')
 
         return result

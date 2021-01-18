@@ -62,12 +62,16 @@ def read_temperature(window, cmd, params):
 
 def temperature_conversion_1(value):
     # TODO: fix test for conversion 1
-    value = 0
-    if ((value & 0x10000000) >> 28) == 0:
-        value = 1.65 / 2**23 * ((value & 0x0FFFFFE0) >> 5) - 1.65
-    else:
-        value = 1.65 / 2**23 * ((value & 0x0FFFFFE0) >> 5)
-    return value
+    #  value = 0
+    #  if ((value & 0x10000000) >> 28) == 0:
+    #      value = 1.65 / 2**23 * ((value & 0x0FFFFFE0) >> 5) - 1.65
+    #  else:
+        #  value = 1.65 / 2**23 * ((value & 0x0FFFFFE0) >> 5)
+    value_ca2 = (value & 0x1FFFFFE0) >> 5
+    if ((value & 0x10000000) >> 28) == 1:
+        value_ca2 = value_ca2 - (1<<24)
+    result = value_ca2 * 1.65/2**23 + 1.65
+    return result
 
 def temperature_conversion_1_celsius(value):
     degrees = (10.888 - np.sqrt((-10.888)**2 + 4*0.00347*(1777.3-value*1000))) / (2*-0.00347) + 30

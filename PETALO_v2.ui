@@ -4006,7 +4006,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <x>10</x>
            <y>320</y>
            <width>131</width>
-           <height>51</height>
+           <height>31</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -4018,10 +4018,10 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <widget class="QLabel" name="label_90">
           <property name="geometry">
            <rect>
-            <x>30</x>
+            <x>20</x>
             <y>0</y>
-            <width>71</width>
-            <height>21</height>
+            <width>31</width>
+            <height>31</height>
            </rect>
           </property>
           <property name="font">
@@ -4032,7 +4032,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            </font>
           </property>
           <property name="text">
-           <string>CH SEL</string>
+           <string>CH</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -4080,9 +4080,9 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <widget class="QComboBox" name="comboBox_Temp_CH_Sel">
           <property name="geometry">
            <rect>
-            <x>20</x>
-            <y>20</y>
-            <width>91</width>
+            <x>60</x>
+            <y>0</y>
+            <width>51</width>
             <height>31</height>
            </rect>
           </property>
@@ -4209,9 +4209,9 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>380</y>
+           <y>360</y>
            <width>131</width>
-           <height>41</height>
+           <height>61</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -4223,10 +4223,10 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <widget class="QLabel" name="label_89">
           <property name="geometry">
            <rect>
-            <x>0</x>
-            <y>10</y>
+            <x>40</x>
+            <y>0</y>
             <width>51</width>
-            <height>21</height>
+            <height>31</height>
            </rect>
           </property>
           <property name="font">
@@ -4246,9 +4246,9 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <widget class="QSpinBox" name="spinBox_Temp_Time">
           <property name="geometry">
            <rect>
-            <x>50</x>
-            <y>10</y>
-            <width>41</width>
+            <x>10</x>
+            <y>30</y>
+            <width>71</width>
             <height>21</height>
            </rect>
           </property>
@@ -4256,8 +4256,8 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <widget class="QLabel" name="label_101">
           <property name="geometry">
            <rect>
-            <x>90</x>
-            <y>10</y>
+            <x>80</x>
+            <y>30</y>
             <width>41</width>
             <height>21</height>
            </rect>

@@ -395,8 +395,8 @@ global_data = {
     'checkBox_counter_en' : {
         'default' : True,
         'values' : {
-            False : {'value' : bitarray('1') },
-            True  : {'value' : bitarray('0') },
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
         },
     },
 

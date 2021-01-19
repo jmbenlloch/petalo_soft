@@ -67,14 +67,14 @@ sw_registers = {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x2F3E8B4C,
+            'value' : 0x16C9B260,
            },
         1: {
             'permissions' : {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0xC0123456,
+            'value' : 0xCD1745E0,
            },
         2: {
             'permissions' : {
@@ -88,35 +88,35 @@ sw_registers = {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x2F3C8B4C,
+            'value' : 0x15D1747F,
            },
         4: {
             'permissions' : {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x2F5E8B4C,
+            'value' : 0x1E8BA2E0,
            },
         5: {
             'permissions' : {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x2A39618B,
+            'value' : 0x21745D20,
            },
         6: {
             'permissions' : {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x2F39618B,
+            'value' : 0x245D1740,
            },
         7: {
             'permissions' : {
                 'read'  : True,
                 'write' : False,
             },
-            'value' : 0x0E3E8B4C,
+            'value' : 0x25D1747F,
            },
         8: { # Temperature sensor Mezzanine
             'permissions' : {

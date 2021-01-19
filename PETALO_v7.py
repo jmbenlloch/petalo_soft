@@ -113,6 +113,7 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         window_register.connect_buttons(self)
 
         # Disable everything before authentication
+        self.pass_lineEdit.setText("Petalo")
         window_main.validate_pass(self)()
 
         if test_mode:

@@ -1501,7 +1501,7 @@ run_control_data = {
         'step' : 1,
     },
     'spinBox_RUN_Event' : {
-        'default' : 1000,
+        'default' : 1,
         'min' : 0,
         'max' : 34360,
         'step' : 1,

@@ -581,9 +581,9 @@ channel_data = {
     'comboBox_qdc_mode' : {
         'default' : 1,
         'values' : {
-            0 : {'value': bitarray('0'),
+            0 : {'value': bitarray('1'),
                  'text' : 'Time and charge (QDC) mode.'},
-            1 : {'value': bitarray('1'),
+            1 : {'value': bitarray('0'),
                  'text' : 'Dual time (ToT) mode.'},
         },
     },

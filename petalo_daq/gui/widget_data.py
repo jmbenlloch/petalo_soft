@@ -1173,57 +1173,57 @@ power_status_data = {
     "checkBox_PWR_STATUS_TOFPET_VCC25EN_0" : {
         'default' : False,
         'values' : {
-            False : {'value' : bitarray('1') },
-            True  : {'value' : bitarray('0') },
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
         },
     },
     "checkBox_PWR_STATUS_TOFPET_VCC25EN_1" : {
         'default' : False,
         'values' : {
-            False : {'value' : bitarray('1') },
-            True  : {'value' : bitarray('0') },
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
         },
     },
     "checkBox_PWR_STATUS_TOFPET_VCC25EN_2" : {
         'default' : False,
         'values' : {
-            False : {'value' : bitarray('1') },
-            True  : {'value' : bitarray('0') },
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
         },
     },
     "checkBox_PWR_STATUS_TOFPET_VCC25EN_3" : {
         'default' : False,
         'values' : {
-            False : {'value' : bitarray('1') },
-            True  : {'value' : bitarray('0') },
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
         },
     },
     "checkBox_PWR_STATUS_TOFPET_VCC25EN_4" : {
         'default' : False,
         'values' : {
-            False : {'value' : bitarray('1') },
-            True  : {'value' : bitarray('0') },
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
         },
     },
     "checkBox_PWR_STATUS_TOFPET_VCC25EN_5" : {
         'default' : False,
         'values' : {
-            False : {'value' : bitarray('1') },
-            True  : {'value' : bitarray('0') },
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
         },
     },
     "checkBox_PWR_STATUS_TOFPET_VCC25EN_6" : {
         'default' : False,
         'values' : {
-            False : {'value' : bitarray('1') },
-            True  : {'value' : bitarray('0') },
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
         },
     },
     "checkBox_PWR_STATUS_TOFPET_VCC25EN_7" : {
         'default' : False,
         'values' : {
-            False : {'value' : bitarray('1') },
-            True  : {'value' : bitarray('0') },
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
         },
     },
 }

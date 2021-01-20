@@ -67,3 +67,31 @@ def tofpet_status(window):
                                "TOFPET status command sent")
 
     return on_click
+
+
+def set_run_mode(window):
+    """
+    Function to set the run mode
+
+    Parameters
+    window (PetaloRunConfigurationGUI): Main application
+
+    Returns
+    function: To be triggered on click
+    """
+
+    def on_click():
+        qdc_mode_index = window.comboBox_qdc_mode.currentIndex()
+        window.comboBox_intg_en       .setCurrentIndex(qdc_mode_index)
+        window.comboBox_intg_signal_en.setCurrentIndex(qdc_mode_index)
+
+        if (window.checkBox_counter_en.isChecked() == False):
+            if window.comboBox_qdc_mode.currentIndex() == 0:
+                window.comboBox_RUN_MODE.setCurrentIndex(0)
+
+            if window.comboBox_qdc_mode.currentIndex() == 1:
+                window.comboBox_RUN_MODE.setCurrentIndex(1)
+        else:
+            window.comboBox_RUN_MODE.setCurrentIndex(2)
+
+    return on_click

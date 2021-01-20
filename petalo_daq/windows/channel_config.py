@@ -17,6 +17,7 @@ from petalo_daq.daq.commands        import sleep_cmd
 from petalo_daq.windows.utils     import build_tofpet_configuration_register_value
 from petalo_daq.windows.utils     import build_tofpet_ram_address_command
 from petalo_daq.windows.utils     import tofpet_status
+from petalo_daq.windows.utils     import set_run_mode
 
 
 def connect_buttons(window):
@@ -29,6 +30,11 @@ def connect_buttons(window):
     """
     window.pushButton_reg_ch.clicked.connect(Config_update_ch(window))
     window.checkBox_all_ch  .clicked.connect(set_channels    (window))
+
+    # Run mode
+    window.comboBox_qdc_mode      .currentIndexChanged.connect(set_run_mode(window))
+    #  window.comboBox_intg_en       .currentIndexChanged.connect(set_run_mode(window))
+    #  window.comboBox_intg_signal_en.currentIndexChanged.connect(set_run_mode(window))
 
 
 def set_channels(window):

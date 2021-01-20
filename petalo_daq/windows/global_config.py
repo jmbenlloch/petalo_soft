@@ -17,6 +17,7 @@ from petalo_daq.daq.commands        import sleep_cmd
 from petalo_daq.windows.utils     import build_tofpet_configuration_register_value
 from petalo_daq.windows.utils     import build_tofpet_ram_address_command
 from petalo_daq.windows.utils     import tofpet_status
+from petalo_daq.windows.utils     import set_run_mode
 
 def connect_buttons(window):
     """
@@ -27,6 +28,7 @@ def connect_buttons(window):
     window (PetaloRunConfigurationGUI): Main application
     """
     window.pushButton_reg_glob.clicked.connect(Config_update_glob(window))
+    window.checkBox_counter_en.clicked.connect(set_run_mode(window))
     #  window.checkBox_all_ASIC.clicked.connect()
 
 

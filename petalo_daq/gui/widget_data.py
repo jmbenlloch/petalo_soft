@@ -1477,7 +1477,7 @@ link_status_data = {
 
 run_control_data = {
     'comboBox_RUN_MODE' : {
-        'default' : 0,
+        'default' : 2,
         'values' : {
             0 : {'value': bitarray('00'),
                  'text' : 'QDC: Charge Integration'},

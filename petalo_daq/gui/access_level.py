@@ -542,12 +542,6 @@ user_access = {
         'none'    : False,
     },
 
-    'spinBox_ch_number_2' : {
-        'admin'   : True,
-        'shifter' : True,
-        'none'    : False,
-    },
-
     'spinBox_ASIC_n' : {
         'admin'   : True,
         'shifter' : True,

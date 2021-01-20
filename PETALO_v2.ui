@@ -2753,7 +2753,7 @@ global parameters</string>
        <property name="geometry">
         <rect>
          <x>740</x>
-         <y>10</y>
+         <y>30</y>
          <width>131</width>
          <height>20</height>
         </rect>
@@ -2769,50 +2769,11 @@ global parameters</string>
         <string>All ASICS</string>
        </property>
       </widget>
-      <widget class="QSpinBox" name="spinBox_ch_number_2">
-       <property name="geometry">
-        <rect>
-         <x>882</x>
-         <y>3</y>
-         <width>51</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_24">
-       <property name="geometry">
-        <rect>
-         <x>940</x>
-         <y>10</y>
-         <width>101</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <kerning>false</kerning>
-        </font>
-       </property>
-       <property name="text">
-        <string>CH number</string>
-       </property>
-      </widget>
       <widget class="QSpinBox" name="spinBox_ASIC_n">
        <property name="geometry">
         <rect>
          <x>882</x>
-         <y>43</y>
+         <y>23</y>
          <width>51</width>
          <height>31</height>
         </rect>
@@ -2832,7 +2793,7 @@ global parameters</string>
        <property name="geometry">
         <rect>
          <x>940</x>
-         <y>50</y>
+         <y>30</y>
          <width>111</width>
          <height>20</height>
         </rect>
@@ -2893,8 +2854,6 @@ REGISTERS</string>
       <zorder>checkBox_fetp_enable</zorder>
       <zorder>checkBox_stop_ramp_en</zorder>
       <zorder>checkBox_all_ASIC</zorder>
-      <zorder>spinBox_ch_number_2</zorder>
-      <zorder>label_24</zorder>
       <zorder>spinBox_ASIC_n</zorder>
       <zorder>label_56</zorder>
       <zorder>label_296</zorder>
@@ -3676,10 +3635,10 @@ REGISTERS</string>
         <set>Qt::AlignCenter</set>
        </property>
        <property name="minimum">
-        <number>1</number>
+        <number>0</number>
        </property>
        <property name="maximum">
-        <number>64</number>
+        <number>63</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_16">

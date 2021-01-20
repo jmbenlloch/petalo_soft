@@ -227,7 +227,7 @@ def build_start_channel_configuration_command(daq_id, channel):
                                         TOFPET_CONF_WR        = bitarray('0'),
                                         TOFPET_CONF_ADDR      = bitarray('000000000'),
                                         TOFPET_CONF_MODE      = bitarray('11') ,
-                                        TOFPET_CONF_CH_SEL    = channel_binary)
+                                        TOFPET_CONF_CH_SEL    = channel_bitarray)
 
     value    = build_tofpet_configuration_register_value(tofpet_config)
     register = register_tuple(group=3, id=2)

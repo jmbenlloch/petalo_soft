@@ -83,6 +83,9 @@ def load_bitarray_config(window, config, config_fields, config_data):
         if isinstance(widget, QtWidgets.QLineEdit):
             value_int = convert_bitarray_to_int32(value)
             widget.setText('0x{:02X}'.format(value_int))
+        elif isinstance(widget, QtWidgets.QSpinBox):
+            value_int = convert_bitarray_to_int32(value)
+            widget.setValue(value_int)
         else:
             index = find_gui_value_from_bitarray(value, config_data[gui_field]['values'])
             if index == -1:

@@ -3122,7 +3122,7 @@ REGISTERS</string>
          <widget class="QComboBox" name="comboBox_sync_chain_length"/>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox_dead_time"/>
+         <widget class="QSpinBox" name="spinBox_dead_time"/>
         </item>
         <item>
          <widget class="QComboBox" name="comboBox_counter_mode"/>
@@ -3392,10 +3392,10 @@ REGISTERS</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
-         <widget class="QComboBox" name="comboBox_min_intg_time"/>
+         <widget class="QSpinBox" name="spinBox_min_intg_time"/>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox_max_intg_time"/>
+         <widget class="QSpinBox" name="spinBox_max_intg_time"/>
         </item>
         <item>
          <widget class="QComboBox" name="comboBox_output_en"/>
@@ -3404,16 +3404,16 @@ REGISTERS</string>
          <widget class="QComboBox" name="comboBox_qtx2_en"/>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox_baseline_t"/>
+         <widget class="QSpinBox" name="spinBox_baseline_t"/>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox_vth_t1"/>
+         <widget class="QSpinBox" name="spinBox_vth_t1"/>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox_vth_t2"/>
+         <widget class="QSpinBox" name="spinBox_vth_t2"/>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox_vth_e"/>
+         <widget class="QSpinBox" name="spinBox_vth_e"/>
         </item>
         <item>
          <widget class="QComboBox" name="comboBox_baseline_e"/>

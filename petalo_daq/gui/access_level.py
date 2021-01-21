@@ -308,7 +308,7 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_dead_time' : {
+    'spinBox_dead_time' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
@@ -380,13 +380,13 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_min_intg_time' : {
+    'spinBox_min_intg_time' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
     },
 
-    'comboBox_max_intg_time' : {
+    'spinBox_max_intg_time' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
@@ -404,25 +404,25 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_baseline_t' : {
+    'spinBox_baseline_t' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
     },
 
-    'comboBox_vth_t1' : {
+    'spinBox_vth_t1' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
     },
 
-    'comboBox_vth_t2' : {
+    'spinBox_vth_t2' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
     },
 
-    'comboBox_vth_e' : {
+    'spinBox_vth_e' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,

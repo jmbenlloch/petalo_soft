@@ -79,8 +79,16 @@ def Config_update_ch(window):
         # ASIC channel parameters to be update
         channel_config = read_parameters(window, channel_data, channel_config_tuple)
         for field, positions in channel_config_fields.items():
-            print(field)
             value = getattr(channel_config, field)
+            #  print(field, value, positions)
+
+            # convert int values to bitarrays
+            if not isinstance(value, bitarray):
+                nbits        = len(positions)
+                fmt_string   = '{{:0{}b}}'.format(nbits)
+                value_binary = fmt_string.format(value)
+                value        = bitarray(value_binary.encode())
+
             insert_bitarray_slice(channel_bitarray, positions, value)
 
         #fill unused bits

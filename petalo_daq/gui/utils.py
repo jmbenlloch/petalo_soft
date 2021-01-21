@@ -16,8 +16,8 @@ def populate_fields(window, gui_data):
         widget = getattr(window, field)
         # Add all items in the case of QComboBox
         if isinstance(widget, QtWidgets.QComboBox):
-                for index, item in entries['values'].items():
-                    widget.addItem(item['text'], item['value'])
+            for index, item in entries['values'].items():
+                widget.addItem(item['text'], item['value'])
 
         # Set default value for different widget types
         if isinstance(widget, QtWidgets.QComboBox):

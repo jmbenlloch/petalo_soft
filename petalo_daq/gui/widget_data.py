@@ -458,12 +458,11 @@ channel_data = {
         },
     },
 
-    'comboBox_dead_time' : {
+    'spinBox_dead_time' : {
         'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('000000'),
-                 'text' : '0b000000'},
-        },
+        'min'  : 0,
+        'max'  : 63,
+        'step' : 1
     },
 
     'comboBox_counter_mode' : {
@@ -600,20 +599,18 @@ channel_data = {
         },
     },
 
-    'comboBox_min_intg_time' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('0100010'),
-                 'text' : '0b0100010'},
-        },
+    'spinBox_min_intg_time' : {
+        'default' : 34,
+        'min'  : 0,
+        'max'  : 127,
+        'step' : 1
     },
 
-    'comboBox_max_intg_time' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('0100010'),
-                 'text' : '0b0100010'},
-        },
+    'spinBox_max_intg_time' : {
+        'default' : 34,
+        'min'  : 0,
+        'max'  : 127,
+        'step' : 1
     },
 
     'comboBox_output_en' : {
@@ -632,36 +629,32 @@ channel_data = {
         },
     },
 
-    'comboBox_baseline_t' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('111101'),
-                 'text' : '0b111101'},
-        },
+    'spinBox_baseline_t' : {
+        'default' : 61,
+        'min'  : 0,
+        'max'  : 62,
+        'step' : 1
     },
 
-    'comboBox_vth_t1' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('111000'),
-                 'text' : '0b111000'},
-        },
+    'spinBox_vth_t1' : {
+        'default' : 56,
+        'min'  : 0,
+        'max'  : 62,
+        'step' : 1
     },
 
-    'comboBox_vth_t2' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('101111'),
-                 'text' : '0b101111'},
-        },
+    'spinBox_vth_t2' : {
+        'default' : 47,
+        'min'  : 0,
+        'max'  : 62,
+        'step' : 1
     },
 
-    'comboBox_vth_e' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('010011'),
-                 'text' : '0b010011'},
-        },
+    'spinBox_vth_e' : {
+        'default' : 19,
+        'min'  : 0,
+        'max'  : 62,
+        'step' : 1
     },
 
     'comboBox_baseline_e' : {

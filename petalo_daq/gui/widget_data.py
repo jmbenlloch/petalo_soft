@@ -135,12 +135,11 @@ global_data = {
         },
     },
 
-    'comboBox_disc_lsb_e' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('101000'),
-                 'text' : '0b101000'},
-        },
+    'spinBox_disc_lsb_e' : {
+        'default' : 40,
+        'min'  : 0,
+        'max'  : 63,
+        'step' : 1,
     },
 
     'comboBox_tdc_i_ref' : {
@@ -160,10 +159,12 @@ global_data = {
     },
 
     'comboBox_fe_ib2_x2' : {
-        'default' : 0,
+        'default' : 1,
         'values' : {
             0 : {'value': bitarray('1'),
-                 'text' : '0b1'},
+                 'text' : '0'},
+            1 : {'value': bitarray('1'),
+                 'text' : '1'},
         },
     },
 
@@ -191,12 +192,11 @@ global_data = {
         },
     },
 
-    'comboBox_disc_lsb_t2' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('110000'),
-                 'text' : '0b110000'},
-        },
+    'spinBox_disc_lsb_t2' : {
+        'default' : 48,
+        'min'  : 0,
+        'max'  : 63,
+        'step' : 1
     },
 
     'comboBox_tdc_tac_vcas_p' : {
@@ -308,10 +308,24 @@ global_data = {
     },
 
     'comboBox_v_att_diff_bias_ig' : {
-        'default' : 0,
+        'default' : 1,
         'values' : {
             0 : {'value': bitarray('100011'),
-                 'text' : '0b100011'},
+                 'text' : '1.00 (Integrator gain (GQ1))'},
+            1 : {'value': bitarray('100011'),
+                 'text' : '0.32 (Integrator gain (GQ1))'},
+            2 : {'value': bitarray('111000'),
+                 'text' : '1.82 (Integrator gain (GQ1))'},
+            3 : {'value': bitarray('111000'),
+                 'text' : '0.60 (Integrator gain (GQ1))'},
+            4 : {'value': bitarray('100011'),
+                 'text' : '1.65 (Integrator gain (GQ1))'},
+            5 : {'value': bitarray('100011'),
+                 'text' : '0.47 (Integrator gain (GQ1))'},
+            6 : {'value': bitarray('111000'),
+                 'text' : '2.25 (Integrator gain (GQ1))'},
+            7 : {'value': bitarray('111000'),
+                 'text' : '0.65 (Integrator gain (GQ1))'},
         },
     },
 
@@ -347,20 +361,18 @@ global_data = {
         },
     },
 
-    'comboBox_disc_lsb_t1' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('111010'),
-                 'text' : '0b111010'},
-        },
+    'spinBox_disc_lsb_t1' : {
+        'default' : 58,
+        'min'  : 0,
+        'max'  : 63,
+        'step' : 1,
     },
 
-    'comboBox_fe_ib2' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('110000'),
-                 'text' : '0b110000'},
-        },
+    'spinBox_fe_ib2' : {
+        'default' : 48,
+        'min'  : 0,
+        'max'  : 63,
+        'step' : 1,
     },
 
     'comboBox_vdifffoldcas' : {

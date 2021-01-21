@@ -52,8 +52,15 @@ def Config_update_glob(window):
         global_config = read_parameters(window, global_data, global_config_tuple)
 
         for field, positions in global_config_fields.items():
-            print(field)
             value = getattr(global_config, field)
+
+            # convert int values to bitarrays
+            if not isinstance(value, bitarray):
+                nbits        = len(positions)
+                fmt_string   = '{{:0{}b}}'.format(nbits)
+                value_binary = fmt_string.format(value)
+                value        = bitarray(value_binary.encode())
+
             insert_bitarray_slice(global_bitarray, positions, value)
 
         #fill unused bits

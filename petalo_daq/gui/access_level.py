@@ -182,13 +182,13 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_disc_lsb_t1' : {
+    'spinBox_disc_lsb_t1' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
     },
 
-    'comboBox_fe_ib2' : {
+    'spinBox_fe_ib2' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
@@ -206,7 +206,7 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_disc_lsb_e' : {
+    'spinBox_disc_lsb_e' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
@@ -248,7 +248,7 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_disc_lsb_t2' : {
+    'spinBox_disc_lsb_t2' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,

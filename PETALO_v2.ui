@@ -10571,14 +10571,14 @@ REGISTERS</string>
           <widget class="QCheckBox" name="checkBox_PWR_STATUS_18DIS">
            <property name="geometry">
             <rect>
-             <x>30</x>
+             <x>10</x>
              <y>20</y>
-             <width>131</width>
+             <width>171</width>
              <height>21</height>
             </rect>
            </property>
            <property name="text">
-            <string>VCC 1.8V disable</string>
+            <string>VCC 1.8V Power Good</string>
            </property>
           </widget>
          </widget>

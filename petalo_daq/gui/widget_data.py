@@ -219,7 +219,9 @@ global_data = {
         'default' : 0,
         'values' : {
             0 : {'value': bitarray('11'),
-                 'text' : '0b11'},
+                 'text' : 'Disabled'},
+            1 : {'value': bitarray('01'),
+                 'text' : 'Enabled'},
         },
     },
 
@@ -235,7 +237,9 @@ global_data = {
         'default' : 0,
         'values' : {
             0 : {'value': bitarray('1'),
-                 'text' : '0b1'},
+                 'text' : 'Disabled'},
+            1 : {'value': bitarray('0'),
+                 'text' : 'Enabled'},
         },
     },
 
@@ -663,8 +667,20 @@ channel_data = {
     'comboBox_baseline_e' : {
         'default' : 0,
         'values' : {
-            0 : {'value': bitarray('110'),
-                 'text' : '0b110'},
+            0 : {'value': bitarray('000'),
+                 'text' : '0'},
+            1 : {'value': bitarray('001'),
+                 'text' : '1'},
+            2 : {'value': bitarray('010'),
+                 'text' : '2'},
+            3 : {'value': bitarray('011'),
+                 'text' : '3'},
+            4 : {'value': bitarray('100'),
+                 'text' : '4'},
+            5 : {'value': bitarray('101'),
+                 'text' : '5'},
+            6 : {'value': bitarray('110'),
+                 'text' : '6'},
         },
     },
 

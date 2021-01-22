@@ -1,16 +1,13 @@
-import sys
-import os
 import struct
 import socket as sk
 
 from bitarray    import bitarray
-from threading   import Thread, Event
+from threading   import Thread
 from collections import OrderedDict
 from time        import sleep
-from queue       import Queue, Empty
+from queue       import Empty
 
 from . commands      import code_to_command
-from . commands      import code_to_status
 from . commands      import sleep_cmd
 from . commands      import commands     as cmd
 from . commands      import status_codes as status

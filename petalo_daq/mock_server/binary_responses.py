@@ -1,5 +1,4 @@
 import socket
-import struct
 
 from .. network.petalo_network import MESSAGE
 from .. network.commands       import commands     as cmd

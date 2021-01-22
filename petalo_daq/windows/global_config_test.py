@@ -1,3 +1,4 @@
+from pytest import fixture
 
 #  @fixture(scope='session')
 #  def database_connection():

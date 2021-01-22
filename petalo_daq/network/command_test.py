@@ -1,10 +1,6 @@
-from queue     import Queue, Empty
-from threading import Thread, Event
+from queue     import Queue
+from threading import Event
 
-from time import sleep
-
-from pytest import raises
-from pytest import mark
 from pytest import fixture
 import numpy as np
 
@@ -13,8 +9,6 @@ from . client_commands import build_sw_register_write_command
 from . client_commands import build_hw_register_write_command
 from . client_commands import build_sw_register_read_command
 from . client_commands import build_hw_register_read_command
-from . command_utils   import encode_register_address
-from . command_utils   import encode_error_value
 
 from . commands        import status_codes   as status
 from . commands        import commands       as cmd

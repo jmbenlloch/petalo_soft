@@ -1,7 +1,5 @@
-import json
 from PyQt5    import QtWidgets
 from bitarray import bitarray
-
 
 
 def find_gui_value_from_bitarray(expected_value, values_dict):

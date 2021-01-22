@@ -1,5 +1,4 @@
 import threading
-import numpy as np
 import sys
 import socket
 import logging
@@ -7,7 +6,6 @@ from time import sleep
 
 # absolute imports to execute as standalone program
 from petalo_daq.network.petalo_network import MESSAGE
-from petalo_daq.network.commands       import status_codes as status
 from petalo_daq.network.commands       import commands     as cmd
 
 from petalo_daq.mock_server                  import server_data

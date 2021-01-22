@@ -5,17 +5,16 @@ from bitarray import bitarray
 
 from petalo_daq.gui.utils        import read_parameters
 from petalo_daq.io.utils         import insert_bitarray_slice
-from petalo_daq.database         import database as db
 from petalo_daq.io.configuration import load_configuration_file
-from petalo_daq.io.config_params import global_config_fields
-from petalo_daq.io.config_params import channel_config_fields
+#from petalo_daq.database         import database as db
+#from petalo_daq.io.config_params import global_config_fields
+#from petalo_daq.io.config_params import channel_config_fields
 
 from petalo_daq.gui.widget_data  import run_control_data
 from petalo_daq.gui.types        import run_control_tuple
 from petalo_daq.io.config_params import run_control_fields
 
 from petalo_daq.network.client_commands import build_hw_register_write_command
-from petalo_daq.network.client_commands import build_hw_register_read_command
 from petalo_daq.network.commands        import register_tuple
 
 

@@ -7,12 +7,10 @@ from petalo_daq.io.config_params import channel_config_fields
 from petalo_daq.io.utils         import insert_bitarray_slice
 
 from petalo_daq.network.client_commands import build_hw_register_write_command
-from petalo_daq.network.client_commands import build_hw_register_read_command
 from petalo_daq.network.commands        import register_tuple
 
 from petalo_daq.gui.types        import tofpet_config_tuple
-from petalo_daq.io.config_params import tofpet_config_fields
-from petalo_daq.network.commands        import sleep_cmd
+from petalo_daq.network.commands import sleep_cmd
 
 from petalo_daq.windows.utils     import build_tofpet_configuration_register_value
 from petalo_daq.windows.utils     import build_tofpet_ram_address_command

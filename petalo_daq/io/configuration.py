@@ -1,7 +1,5 @@
 import json
 
-from bitarray import bitarray
-
 from .  config_params    import channel_config_fields
 from .  config_params    import global_config_fields
 from .  utils            import load_gui_config

@@ -5,9 +5,12 @@ from petalo_daq.io.utils         import insert_bitarray_slice
 
 from petalo_daq.gui.types        import tofpet_config_tuple
 from petalo_daq.io.config_params import tofpet_config_fields
-from petalo_daq.network.commands        import sleep_cmd
+
+from petalo_daq.gui.types        import lmk_control_tuple
+from petalo_daq.io.config_params import lmk_control_fields
 
 from bitarray import bitarray
+
 
 def build_tofpet_configuration_register_value(tofpet_config):
     '''

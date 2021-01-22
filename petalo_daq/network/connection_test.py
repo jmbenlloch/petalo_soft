@@ -1,21 +1,8 @@
-import sys
-from pytest import fixture
-from pytest import raises
-from pytest import mark
-from PyQt5  import uic
-from PyQt5  import QtWidgets
 from PyQt5  import QtCore
 
 from   time import sleep
-import numpy as np
-import re
-import logging
-import threading
 
 from PETALO_v7                    import PetaloRunConfigurationGUI
-from .. mock_server.petalo_server import PetaloMockServer
-
-from .. testing.utils             import check_pattern_present_in_log
 from .. testing.utils             import close_connection
 
 

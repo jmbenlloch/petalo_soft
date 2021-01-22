@@ -1,14 +1,10 @@
-from queue     import Queue, Empty
-from threading import Thread, Event
-
-import threading
+from queue     import Queue
+from threading import Event
 
 from time   import sleep
 from pytest import raises
-from pytest import mark
 
 from . petalo_network import SCK_TXRX
-from . commands       import status_codes as status
 from . commands       import commands     as cmd
 
 

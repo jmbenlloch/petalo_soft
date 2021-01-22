@@ -14,44 +14,24 @@ from time     import sleep
 from bitarray import bitarray
 
 
-from .. gui.types         import LogError
-from .  commands          import commands
-from .  commands          import sleep_cmd
-from .  commands          import status_codes
-from .  commands          import register_tuple
-from .  command_test      import check_expected_response
-from .  command_utils     import encode_error_value
-from .  petalo_network    import MESSAGE
-from .  responses         import check_write_response
-from .  process_responses import temperature_conversion_1
-from .  process_responses import temperature_conversion_1_celsius
-from .  process_responses import temperature_conversion_2
-from .  process_responses import temperature_tofpet_to_ch
+from .. gui.types                 import LogError
+from .. network.commands          import commands
+from .. network.commands          import sleep_cmd
+from .. network.commands          import status_codes
+from .. network.commands          import register_tuple
+from .. network.command_test      import check_expected_response
+from .. network.command_utils     import encode_error_value
+from .. network.petalo_network    import MESSAGE
+from .. network.responses         import check_write_response
+from .. network.process_responses import temperature_conversion_1
+from .. network.process_responses import temperature_conversion_1_celsius
+from .. network.process_responses import temperature_conversion_2
+from .. network.process_responses import temperature_tofpet_to_ch
+
+from .. testing.utils             import check_pattern_present_in_log
+from .. testing.utils             import close_connection
 
 from PETALO_v7 import PetaloRunConfigurationGUI
-
-
-def close_connection(window):
-    end_connection_word = 0xfafafafa.to_bytes(length=4, byteorder='little')
-    window.tx_queue.put(end_connection_word)
-    window.tx_stopper.set()
-    window.rx_stopper.set()
-    window.thread_TXRX.join()
-    #  window.rx_consumer.join()
-
-
-def check_pattern_present_in_log(window, pattern, expected_matches, escape=True):
-    if escape:
-        pattern = re.escape(pattern)
-
-    text = window.textBrowser.toPlainText()
-    r = re.search(f'({pattern})', text, re.DOTALL)
-    try:
-        n_groups = len(r.groups())
-    except AttributeError:
-        n_groups = 0
-
-    assert n_groups == expected_matches
 
 
 def test_check_write_response(qtbot, petalo_test_server):

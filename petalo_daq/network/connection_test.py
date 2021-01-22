@@ -14,8 +14,10 @@ import threading
 
 from PETALO_v7                    import PetaloRunConfigurationGUI
 from .. mock_server.petalo_server import PetaloMockServer
-from .  window_test               import check_pattern_present_in_log
-from .  window_test               import close_connection
+
+from .. testing.utils             import check_pattern_present_in_log
+from .. testing.utils             import close_connection
+
 
 def test_connect_button(qtbot, petalo_test_server):
     window = PetaloRunConfigurationGUI(test_mode=True)

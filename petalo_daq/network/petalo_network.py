@@ -8,12 +8,12 @@ from time        import sleep
 import struct
 from queue import Queue, Empty
 
-from petalo_daq.daq.commands import code_to_command
-from petalo_daq.daq.commands import code_to_status
-from petalo_daq.daq.commands import commands     as cmd
-from petalo_daq.daq.commands import sleep_cmd
-from petalo_daq.daq.commands import status_codes as status
-from petalo_daq.daq.command_utils import parse_first_parameter_in_response
+from petalo_daq.network.commands import code_to_command
+from petalo_daq.network.commands import code_to_status
+from petalo_daq.network.commands import commands     as cmd
+from petalo_daq.network.commands import sleep_cmd
+from petalo_daq.network.commands import status_codes as status
+from petalo_daq.network.command_utils import parse_first_parameter_in_response
 
 
 class MESSAGE():

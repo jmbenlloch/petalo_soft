@@ -1,11 +1,11 @@
-from petalo_daq.daq.client_commands import build_hw_register_write_command
-from petalo_daq.daq.client_commands import build_hw_register_read_command
-from petalo_daq.daq.commands        import register_tuple
+from petalo_daq.network.client_commands import build_hw_register_write_command
+from petalo_daq.network.client_commands import build_hw_register_read_command
+from petalo_daq.network.commands        import register_tuple
 from petalo_daq.io.utils         import insert_bitarray_slice
 
 from petalo_daq.gui.types        import tofpet_config_tuple
 from petalo_daq.io.config_params import tofpet_config_fields
-from petalo_daq.daq.commands        import sleep_cmd
+from petalo_daq.network.commands        import sleep_cmd
 
 from bitarray import bitarray
 

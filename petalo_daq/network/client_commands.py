@@ -1,6 +1,6 @@
-from petalo_daq.daq.petalo_network    import MESSAGE
-from petalo_daq.daq.command_utils import encode_register_address
-from petalo_daq.daq.commands      import commands as cmd
+from petalo_daq.network.petalo_network    import MESSAGE
+from petalo_daq.network.command_utils import encode_register_address
+from petalo_daq.network.commands      import commands as cmd
 
 def build_sw_register_write_command(daq_id, register_group, register_id, value):
     """

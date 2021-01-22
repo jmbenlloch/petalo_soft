@@ -12,8 +12,8 @@ import re
 
 from PETALO_v7 import PetaloRunConfigurationGUI
 from petalo_daq.mock_server.petalo_server import PetaloMockServer
-from petalo_daq.daq.window_test import check_pattern_present_in_log
-from petalo_daq.daq.window_test import close_connection
+from petalo_daq.network.window_test import check_pattern_present_in_log
+from petalo_daq.network.window_test import close_connection
 import logging
 import threading
 

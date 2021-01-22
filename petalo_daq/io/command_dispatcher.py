@@ -1,5 +1,5 @@
 from petalo_daq.gui.types import cmd_response_log
-from petalo_daq.daq.commands import commands
+from petalo_daq.network.commands import commands
 
 from petalo_daq.gui.types import dispatch_type
 from petalo_daq.gui.types import CommandDispatcherException

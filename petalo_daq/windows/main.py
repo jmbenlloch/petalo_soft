@@ -14,9 +14,9 @@ from petalo_daq.gui.widget_data  import run_control_data
 from petalo_daq.gui.types        import run_control_tuple
 from petalo_daq.io.config_params import run_control_fields
 
-from petalo_daq.daq.client_commands import build_hw_register_write_command
-from petalo_daq.daq.client_commands import build_hw_register_read_command
-from petalo_daq.daq.commands        import register_tuple
+from petalo_daq.network.client_commands import build_hw_register_write_command
+from petalo_daq.network.client_commands import build_hw_register_read_command
+from petalo_daq.network.commands        import register_tuple
 
 
 def connect_buttons(window):

@@ -1,10 +1,10 @@
 import ctypes
 
-from petalo_daq.daq.command_utils import encode_register_address
-from petalo_daq.daq.command_utils import decode_register_address
-from petalo_daq.daq.command_utils import encode_error_value
-from petalo_daq.daq.command_utils import parse_first_parameter_in_response
-from petalo_daq.daq.commands      import status_codes
+from petalo_daq.network.command_utils import encode_register_address
+from petalo_daq.network.command_utils import decode_register_address
+from petalo_daq.network.command_utils import encode_error_value
+from petalo_daq.network.command_utils import parse_first_parameter_in_response
+from petalo_daq.network.commands      import status_codes
 
 def test_encode_and_decode_register_address():
     # The expected structure is:

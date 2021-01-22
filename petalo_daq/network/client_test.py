@@ -1,5 +1,5 @@
 #  from DAQ_control_Lib.py_comm_lib import SCK_TXRX
-from petalo_daq.daq.petalo_network import SCK_TXRX
+from petalo_daq.network.petalo_network import SCK_TXRX
 from queue import Queue, Empty
 from threading import Thread, Event
 
@@ -9,8 +9,8 @@ from time import sleep
 from pytest import raises
 from pytest import mark
 
-from petalo_daq.daq.commands import status_codes as status
-from petalo_daq.daq.commands import commands     as cmd
+from petalo_daq.network.commands import status_codes as status
+from petalo_daq.network.commands import commands     as cmd
 
 
 def test_connection_incorrect_address(petalo_test_server):

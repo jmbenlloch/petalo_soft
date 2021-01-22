@@ -33,8 +33,8 @@ from petalo_daq.io.configuration import load_configuration_file
 
 from petalo_daq.io.command_dispatcher import initialize_command_dispatcher
 
-from petalo_daq.daq.petalo_network import SCK_TXRX
-from petalo_daq.daq.responses      import read_network_responses
+from petalo_daq.network.petalo_network import SCK_TXRX
+from petalo_daq.network.responses      import read_network_responses
 from queue     import Queue, Empty
 from threading import Thread, Event
 

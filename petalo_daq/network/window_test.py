@@ -13,22 +13,22 @@ import re
 from bitarray import bitarray
 
 
-from petalo_daq.daq.commands import commands
-from petalo_daq.daq.commands import status_codes
-from petalo_daq.daq.commands import register_tuple
+from petalo_daq.network.commands import commands
+from petalo_daq.network.commands import status_codes
+from petalo_daq.network.commands import register_tuple
 from petalo_daq.gui.types    import LogError
-from petalo_daq.daq.petalo_network    import MESSAGE
+from petalo_daq.network.petalo_network    import MESSAGE
 
-from petalo_daq.daq.command_test import check_expected_response
+from petalo_daq.network.command_test import check_expected_response
 
-from petalo_daq.daq.command_utils import encode_error_value
+from petalo_daq.network.command_utils import encode_error_value
 
-from petalo_daq.daq.responses import check_write_response
-from petalo_daq.daq.process_responses import temperature_conversion_1
-from petalo_daq.daq.process_responses import temperature_conversion_1_celsius
-from petalo_daq.daq.process_responses import temperature_conversion_2
-from petalo_daq.daq.process_responses import temperature_tofpet_to_ch
-from petalo_daq.daq.commands import sleep_cmd
+from petalo_daq.network.responses import check_write_response
+from petalo_daq.network.process_responses import temperature_conversion_1
+from petalo_daq.network.process_responses import temperature_conversion_1_celsius
+from petalo_daq.network.process_responses import temperature_conversion_2
+from petalo_daq.network.process_responses import temperature_tofpet_to_ch
+from petalo_daq.network.commands import sleep_cmd
 
 from PETALO_v7 import PetaloRunConfigurationGUI
 # from Libraries import database as db

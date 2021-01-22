@@ -53,15 +53,15 @@ from petalo_daq.io.config_params import activate_fields
 from petalo_daq.io.utils         import insert_bitarray_slice
 from petalo_daq.io.config_params import range_inclusive
 
-from petalo_daq.daq.client_commands import build_hw_register_write_command
-from petalo_daq.daq.client_commands import build_sw_register_write_command
-from petalo_daq.daq.client_commands import build_sw_register_read_command
-from petalo_daq.daq.client_commands import build_hw_register_read_command
-from petalo_daq.daq.commands        import register_tuple
-from petalo_daq.daq.commands        import sleep_cmd
-from petalo_daq.daq.process_responses import temperature_tofpet_to_ch
+from petalo_daq.network.client_commands import build_hw_register_write_command
+from petalo_daq.network.client_commands import build_sw_register_write_command
+from petalo_daq.network.client_commands import build_sw_register_read_command
+from petalo_daq.network.client_commands import build_hw_register_read_command
+from petalo_daq.network.commands        import register_tuple
+from petalo_daq.network.commands        import sleep_cmd
+from petalo_daq.network.process_responses import temperature_tofpet_to_ch
 from petalo_daq.windows.utils       import tofpet_status
-from petalo_daq.daq.process_responses import convert_int32_to_bitarray
+from petalo_daq.network.process_responses import convert_int32_to_bitarray
 
 
 # dispatch

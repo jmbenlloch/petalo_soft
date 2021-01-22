@@ -1,7 +1,7 @@
 import struct
 import ctypes
-from petalo_daq.daq.commands import code_to_status
-from petalo_daq.daq.commands import register_tuple
+from petalo_daq.network.commands import code_to_status
+from petalo_daq.network.commands import register_tuple
 
 def encode_register_address(register_group, register_id):
     """

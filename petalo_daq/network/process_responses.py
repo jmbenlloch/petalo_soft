@@ -15,7 +15,7 @@ from petalo_daq.io.config_params import run_status_fields
 from petalo_daq.io.config_params import tofpet_status_fields
 from petalo_daq.gui.widget_data  import tofpet_status_data
 
-from petalo_daq.daq.commands     import status_codes
+from petalo_daq.network.commands     import status_codes
 
 from bitarray import bitarray
 import numpy as np

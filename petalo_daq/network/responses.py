@@ -1,16 +1,16 @@
-from petalo_daq.daq.commands import commands as cmd
-from petalo_daq.daq.commands import status_codes   as status
-from petalo_daq.daq.commands import register_tuple
+from petalo_daq.network.commands import commands as cmd
+from petalo_daq.network.commands import status_codes   as status
+from petalo_daq.network.commands import register_tuple
 from petalo_daq.gui.types    import LogError
 
-from petalo_daq.daq.process_responses import read_temperature
-from petalo_daq.daq.process_responses import power_regulator_status
-from petalo_daq.daq.process_responses import clock_status
-from petalo_daq.daq.process_responses import link_status
-from petalo_daq.daq.process_responses import run_status
-from petalo_daq.daq.process_responses import tofpet_status
-from petalo_daq.daq.process_responses import leds_status
-from petalo_daq.daq.process_responses import check_connection
+from petalo_daq.network.process_responses import read_temperature
+from petalo_daq.network.process_responses import power_regulator_status
+from petalo_daq.network.process_responses import clock_status
+from petalo_daq.network.process_responses import link_status
+from petalo_daq.network.process_responses import run_status
+from petalo_daq.network.process_responses import tofpet_status
+from petalo_daq.network.process_responses import leds_status
+from petalo_daq.network.process_responses import check_connection
 
 from petalo_daq.io.command_dispatcher import add_response_to_dispatcher_log
 from petalo_daq.io.command_dispatcher import check_command_dispatcher

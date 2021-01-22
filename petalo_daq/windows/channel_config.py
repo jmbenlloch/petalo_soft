@@ -1,21 +1,21 @@
 from bitarray import bitarray
 
-from petalo_daq.gui.utils        import read_parameters
-from petalo_daq.gui.widget_data  import channel_data
-from petalo_daq.gui.types        import channel_config_tuple
-from petalo_daq.io.config_params import channel_config_fields
-from petalo_daq.io.utils         import insert_bitarray_slice
+from .. gui.utils        import read_parameters
+from .. gui.widget_data  import channel_data
+from .. gui.types        import channel_config_tuple
+from .. io.config_params import channel_config_fields
+from .. io.utils         import insert_bitarray_slice
 
-from petalo_daq.network.client_commands import build_hw_register_write_command
-from petalo_daq.network.commands        import register_tuple
+from .. network.client_commands import build_hw_register_write_command
+from .. network.commands        import register_tuple
 
-from petalo_daq.gui.types        import tofpet_config_tuple
-from petalo_daq.network.commands import sleep_cmd
+from .. gui.types        import tofpet_config_tuple
+from .. network.commands import sleep_cmd
 
-from petalo_daq.windows.utils     import build_tofpet_configuration_register_value
-from petalo_daq.windows.utils     import build_tofpet_ram_address_command
-from petalo_daq.windows.utils     import tofpet_status
-from petalo_daq.windows.utils     import set_run_mode
+from .  utils     import build_tofpet_configuration_register_value
+from .  utils     import build_tofpet_ram_address_command
+from .  utils     import tofpet_status
+from .  utils     import set_run_mode
 
 
 def connect_buttons(window):

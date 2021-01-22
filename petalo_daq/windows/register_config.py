@@ -3,41 +3,41 @@ import numpy as np
 
 from . utils import write_to_lmk_ram
 
-from petalo_daq.gui.utils        import read_parameters
+from .. gui.utils         import read_parameters
 
-from petalo_daq.gui.widget_data  import power_control_data
-from petalo_daq.gui.types        import power_control_tuple
-from petalo_daq.io.config_params import power_control_fields
+from .. gui.widget_data   import power_control_data
+from .. gui.types         import power_control_tuple
+from .. io .config_params import power_control_fields
 
-from petalo_daq.gui.widget_data  import clock_control_data
-from petalo_daq.gui.types        import clock_control_tuple
-from petalo_daq.io.config_params import clock_control_fields
+from .. gui.widget_data   import clock_control_data
+from .. gui.types         import clock_control_tuple
+from .. io .config_params import clock_control_fields
 
-from petalo_daq.gui.widget_data  import temperature_data
-from petalo_daq.gui.types        import temperature_config_tuple
-from petalo_daq.io.config_params import temperature_config_fields
+from .. gui.widget_data   import temperature_data
+from .. gui.types         import temperature_config_tuple
+from .. io .config_params import temperature_config_fields
 
-from petalo_daq.gui.widget_data  import lmk_control_data
-from petalo_daq.gui.types        import lmk_control_tuple
+from .. gui.widget_data  import lmk_control_data
+from .. gui.types        import lmk_control_tuple
 
-from petalo_daq.gui.widget_data  import link_control_data
-from petalo_daq.gui.types        import link_control_tuple
-from petalo_daq.io.config_params import link_control_fields
+from .. gui.widget_data   import link_control_data
+from .. gui.types         import link_control_tuple
+from .. io .config_params import link_control_fields
 
-from petalo_daq.gui.widget_data  import tofpet_config_value_data
-from petalo_daq.gui.types        import tofpet_config_value_tuple
-from petalo_daq.io.config_params import tofpet_config_value_fields
+from .. gui.widget_data   import tofpet_config_value_data
+from .. gui.types         import tofpet_config_value_tuple
+from .. io .config_params import tofpet_config_value_fields
 
-from petalo_daq.gui.widget_data  import tofpet_config_data
-from petalo_daq.gui.types        import tofpet_config_tuple
-from petalo_daq.io.config_params import tofpet_config_fields
+from .. gui.widget_data  import tofpet_config_data
+from .. gui.types        import tofpet_config_tuple
+from .. io.config_params import tofpet_config_fields
 
-from petalo_daq.io.utils         import insert_bitarray_slice
+from .. io.utils         import insert_bitarray_slice
 
-from petalo_daq.network.client_commands import build_hw_register_write_command
-from petalo_daq.network.client_commands import build_hw_register_read_command
-from petalo_daq.network.commands        import register_tuple
-from petalo_daq.windows.utils       import tofpet_status
+from .. network.client_commands import build_hw_register_write_command
+from .. network.client_commands import build_hw_register_read_command
+from .. network.commands        import register_tuple
+from .  utils                   import tofpet_status
 
 
 def connect_buttons(window):

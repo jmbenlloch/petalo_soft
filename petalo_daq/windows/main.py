@@ -1,21 +1,21 @@
-import petalo_daq.gui.utils as gui
-
 import numpy as np
 from bitarray import bitarray
 
-from petalo_daq.gui.utils        import read_parameters
-from petalo_daq.io.utils         import insert_bitarray_slice
-from petalo_daq.io.configuration import load_configuration_file
-#from petalo_daq.database         import database as db
-#from petalo_daq.io.config_params import global_config_fields
-#from petalo_daq.io.config_params import channel_config_fields
+from .. gui.utils        import read_parameters
+from .. gui.utils        import enable_fields
+from .. gui.utils        import path_browser_config
+from .. io.utils         import insert_bitarray_slice
+from .. io.configuration import load_configuration_file
+#from .. database         import database as db
+#from .. io.config_params import global_config_fields
+#from .. io.config_params import channel_config_fields
 
-from petalo_daq.gui.widget_data  import run_control_data
-from petalo_daq.gui.types        import run_control_tuple
-from petalo_daq.io.config_params import run_control_fields
+from .. gui.widget_data  import run_control_data
+from .. gui.types        import run_control_tuple
+from .. io.config_params import run_control_fields
 
-from petalo_daq.network.client_commands import build_hw_register_write_command
-from petalo_daq.network.commands        import register_tuple
+from .. network.client_commands import build_hw_register_write_command
+from .. network.commands        import register_tuple
 
 
 def connect_buttons(window):
@@ -26,7 +26,7 @@ def connect_buttons(window):
     Parameters
     window (PetaloRunConfigurationGUI): Main application
     """
-    json_file_select = gui.path_browser_config(window,
+    json_file_select = path_browser_config(window,
                                            'Register data (*.json)',
                                            'lineEdit_config_file_path')
     window.toolButton_config.clicked.connect(json_file_select)
@@ -188,16 +188,16 @@ def validate_pass(window):
         if password == "Petalo":
             window.update_log_info('Superuser access', 'Access as superuser')
             user = 'admin'
-            gui.enable_fields(window, user)
+            enable_fields(window, user)
 
         elif password == "Shifter":
             window.update_log_info('Shifter access', 'Access as shifter')
             user = 'shifter'
-            gui.enable_fields(window, user)
+            enable_fields(window, user)
 
         else:
             window.update_log_info('Wrong password', 'Wrong password')
             user = 'none'
-            gui.enable_fields(window, user)
+            enable_fields(window, user)
 
     return on_click

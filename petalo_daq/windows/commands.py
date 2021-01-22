@@ -1,8 +1,8 @@
-from petalo_daq.network.petalo_network  import MESSAGE
-from petalo_daq.network.client_commands import build_sw_register_read_command
-from petalo_daq.network.client_commands import build_hw_register_read_command
-from petalo_daq.network.client_commands import build_sw_register_write_command
-from petalo_daq.network.client_commands import build_hw_register_write_command
+from .. network.petalo_network  import MESSAGE
+from .. network.client_commands import build_sw_register_read_command
+from .. network.client_commands import build_hw_register_read_command
+from .. network.client_commands import build_sw_register_write_command
+from .. network.client_commands import build_hw_register_write_command
 
 def connect_buttons(window):
     """

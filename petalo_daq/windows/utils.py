@@ -1,13 +1,13 @@
-from petalo_daq.network.client_commands import build_hw_register_write_command
-from petalo_daq.network.client_commands import build_hw_register_read_command
-from petalo_daq.network.commands        import register_tuple
-from petalo_daq.io.utils         import insert_bitarray_slice
+from .. network.client_commands import build_hw_register_write_command
+from .. network.client_commands import build_hw_register_read_command
+from .. network.commands        import register_tuple
+from .. io     .utils           import insert_bitarray_slice
 
-from petalo_daq.gui.types        import tofpet_config_tuple
-from petalo_daq.io.config_params import tofpet_config_fields
+from .. gui.types        import tofpet_config_tuple
+from .. io.config_params import tofpet_config_fields
 
-from petalo_daq.gui.types        import lmk_control_tuple
-from petalo_daq.io.config_params import lmk_control_fields
+from .. gui.types        import lmk_control_tuple
+from .. io.config_params import lmk_control_fields
 
 from bitarray import bitarray
 

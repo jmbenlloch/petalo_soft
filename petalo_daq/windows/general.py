@@ -2,44 +2,44 @@ from bitarray  import bitarray
 
 from . utils import write_to_lmk_ram
 
-from petalo_daq.gui.utils        import read_parameters
-from petalo_daq.io.config_params import reverse_range_inclusive
+from .. gui.utils        import read_parameters
+from .. io.config_params import reverse_range_inclusive
 
 from . register_config           import power_status
 from . register_config           import clock_status
 from . register_config           import link_status
 
-from petalo_daq.io.config_params import link_status_fields
-from petalo_daq.gui.types        import link_status_tuple
+from .. io.config_params import link_status_fields
+from .. gui.types        import link_status_tuple
 
-from petalo_daq.gui.widget_data  import activate_data
-from petalo_daq.gui.types        import activate_tuple
+from .. gui.widget_data  import activate_data
+from .. gui.types        import activate_tuple
 
-from petalo_daq.gui.types        import power_status_tuple
-from petalo_daq.io.config_params import power_status_fields
+from .. gui.types        import power_status_tuple
+from .. io.config_params import power_status_fields
 
-from petalo_daq.gui.types        import clock_status_tuple
-from petalo_daq.io.config_params import clock_status_fields
+from .. gui.types        import clock_status_tuple
+from .. io.config_params import clock_status_fields
 
-from petalo_daq.io.utils         import insert_bitarray_slice
+from .. io.utils         import insert_bitarray_slice
 
-from petalo_daq.network.client_commands import build_hw_register_write_command
-from petalo_daq.network.client_commands import build_sw_register_write_command
-from petalo_daq.network.client_commands import build_sw_register_read_command
-from petalo_daq.network.commands        import register_tuple
-from petalo_daq.network.commands        import sleep_cmd
-from petalo_daq.network.process_responses import temperature_tofpet_to_ch
-from petalo_daq.network.process_responses import convert_int32_to_bitarray
+from .. network.client_commands import build_hw_register_write_command
+from .. network.client_commands import build_sw_register_write_command
+from .. network.client_commands import build_sw_register_read_command
+from .. network.commands        import register_tuple
+from .. network.commands        import sleep_cmd
+from .. network.process_responses import temperature_tofpet_to_ch
+from .. network.process_responses import convert_int32_to_bitarray
 
 
 # dispatch
-from petalo_daq.io.utils              import read_bitarray_into_namedtuple
-from petalo_daq.io.command_dispatcher import add_function_to_dispatcher
-from petalo_daq.io.command_dispatcher import check_command_dispatcher
-from petalo_daq.io.command_dispatcher import read_hw_response_from_log
-from petalo_daq.gui.types import dispatchable_fn
-from petalo_daq.gui.types import dispatch_type
-from petalo_daq.gui.types import CommandDispatcherException
+from .. io.utils              import read_bitarray_into_namedtuple
+from .. io.command_dispatcher import add_function_to_dispatcher
+from .. io.command_dispatcher import check_command_dispatcher
+from .. io.command_dispatcher import read_hw_response_from_log
+from .. gui.types import dispatchable_fn
+from .. gui.types import dispatch_type
+from .. gui.types import CommandDispatcherException
 from datetime import datetime
 
 

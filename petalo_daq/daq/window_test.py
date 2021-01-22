@@ -474,8 +474,11 @@ def test_start_run_register_send_command_boolean_fields(qtbot, bit_position, fie
     window.textBrowser.clear()
 
     # set the rest of fields to zero (their defaults are not zero)
-    window.spinBox_RUN_Throughput.setValue(0)
-    window.spinBox_RUN_Event.setValue(0)
+    window.comboBox_RUN_MODE.setCurrentIndex(0)
+    window.spinBox_RUN_Throughput.setValue(1)
+    window.spinBox_RUN_Event     .setValue(1)
+    throughtput_mask = 0x00100000
+    time_mask        = 0x00000002
 
     for status in [True, False]:
         widget = getattr(window, f'checkBox_{field}')
@@ -490,7 +493,7 @@ def test_start_run_register_send_command_boolean_fields(qtbot, bit_position, fie
         message    = MESSAGE()
         cmd        = message(cmd_binary)
 
-        expected_value    = 1 << 31 | (int(status) << bit_position)
+        expected_value    = 1 << 31 | (int(status) << bit_position) | throughtput_mask | time_mask
         expected_response = {
             'command'  : commands.HARD_REG_W,
             'L1_id'    : 0,
@@ -507,8 +510,10 @@ def test_start_run_register_send_command_mode(qtbot):
     window.textBrowser.clear()
 
     # set the rest of fields to zero (their defaults are not zero)
-    window.spinBox_RUN_Throughput.setValue(0)
-    window.spinBox_RUN_Event     .setValue(0)
+    window.spinBox_RUN_Throughput.setValue(1)
+    window.spinBox_RUN_Event     .setValue(1)
+    throughtput_mask = 0x00100000
+    time_mask        = 0x00000002
 
     widget = window.comboBox_RUN_MODE
 
@@ -549,7 +554,7 @@ def test_start_run_register_send_command_mode(qtbot):
         message    = MESSAGE()
         cmd        = message(cmd_binary)
 
-        expected_value    =  (1 << 31) | (modes[mode]['code'] << 28)
+        expected_value    =  (1 << 31) | (modes[mode]['code'] << 28) | throughtput_mask | time_mask
         expected_response = {
             'command'  : commands.HARD_REG_W,
             'L1_id'    : 0,
@@ -565,8 +570,10 @@ def test_start_run_register_send_command_throughput(qtbot):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
-    # set the rest of fields to zero (their defaults are not zero)
-    window.spinBox_RUN_Event.setValue(0)
+    # set the rest of fields to a default value
+    window.comboBox_RUN_MODE.setCurrentIndex(0)
+    window.spinBox_RUN_Event.setValue(1)
+    time_mask = 0x00000002
 
     for throughput in range(1, 81):
         window.spinBox_RUN_Throughput.setValue(throughput)
@@ -584,7 +591,7 @@ def test_start_run_register_send_command_throughput(qtbot):
         if discretized_value > 0x0FFF:
             discretized_value = 0x0FFF
 
-        expected_value    = 1 << 31 | (discretized_value << 16)
+        expected_value    = 1 << 31 | (discretized_value << 16) | time_mask
         expected_response = {
             'command'  : commands.HARD_REG_W,
             'L1_id'    : 0,
@@ -599,14 +606,16 @@ def test_start_run_register_send_command_evt_time(qtbot):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
-    # set the rest of fields to zero (their defaults are not zero)
-    window.spinBox_RUN_Throughput.setValue(0)
+    # set the rest of fields to a default value
+    window.comboBox_RUN_MODE     .setCurrentIndex(0)
+    window.spinBox_RUN_Throughput.setValue(1)
+    throughtput_mask = 0x00100000
 
 
     # Range from 1 to 34360. Too many values. This test checks the
     # lower and upper part of the interval and some random values
     # in the middle.
-    values_to_check_beginning = np.arange(0, 10)
+    values_to_check_beginning = np.arange(1, 10)
     values_to_check_middle    = np.random.randint(10, 34350, 300)
     values_to_check_ending    = np.arange(34350, 34361)
     values_to_check = np.concatenate((values_to_check_beginning,
@@ -628,7 +637,7 @@ def test_start_run_register_send_command_evt_time(qtbot):
         if discretized_value > 0x0FFFF:
             discretized_value = 0x0FFFF
 
-        expected_value    = 1 << 31 | discretized_value
+        expected_value    = 1 << 31 | throughtput_mask | discretized_value
         expected_response = {
             'command'  : commands.HARD_REG_W,
             'L1_id'    : 0,

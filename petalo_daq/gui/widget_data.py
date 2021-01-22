@@ -1517,13 +1517,13 @@ run_control_data = {
     },
     'spinBox_RUN_Throughput' : {
         'default' : 30,
-        'min' : 0,
+        'min' : 1,
         'max' : 80,
         'step' : 1,
     },
     'spinBox_RUN_Event' : {
         'default' : 1,
-        'min' : 0,
+        'min' : 1,
         'max' : 34360,
         'step' : 1,
     },

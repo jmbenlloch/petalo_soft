@@ -95,3 +95,35 @@ def set_run_mode(window):
             window.comboBox_RUN_MODE.setCurrentIndex(2)
 
     return on_click
+
+
+def write_to_lmk_ram(window, wr_enable, address, value):
+    lmk_bitarray = bitarray('0'*32)
+
+    # Convert address and value to bitarray
+    address_binary   = '{:07b}'.format(address)
+    address_bitarray = bitarray(address_binary.encode())
+
+    value_binary   = '{:08b}'.format(value)
+    value_bitarray = bitarray(value_binary.encode())
+
+    lmk_control = lmk_control_tuple(LMK_WREN      = wr_enable,
+                                    LMK_REG_ADD   = address_bitarray,
+                                    LMK_REG_VALUE = value_bitarray )
+
+
+    for field, positions in lmk_control_fields.items():
+        value = getattr(lmk_control, field)
+        insert_bitarray_slice(lmk_bitarray, positions, value)
+
+    #fill bit 31
+    insert_bitarray_slice(lmk_bitarray, [31], bitarray('1'))
+
+    #Build command
+    daq_id = 0x0000
+    register = register_tuple(group=2, id=1)
+    value = int(lmk_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
+
+    command = build_hw_register_write_command(daq_id, register.group, register.id, value)
+    print(command)
+    window.tx_queue.put(command)

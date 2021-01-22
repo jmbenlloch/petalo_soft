@@ -303,7 +303,7 @@ def test_temperature_control_register_time_selection(qtbot):
     window.textBrowser.clear()
 
     widget = window.spinBox_Temp_Time
-    min_value_ms = 0
+    min_value_ms = 1
     max_value_ms = 42
     step_ms      = 1
 

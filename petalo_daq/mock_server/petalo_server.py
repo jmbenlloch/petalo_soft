@@ -9,13 +9,13 @@ from petalo_daq.daq.petalo_network import MESSAGE
 from petalo_daq.daq.commands   import status_codes as status
 from petalo_daq.daq.commands   import commands     as cmd
 
-from petalo_daq.daq.mock_server                  import server_data
-from petalo_daq.daq.mock_server.binary_responses import build_connection_success_response
-from petalo_daq.daq.mock_server.binary_responses import build_connection_failure_response
-from petalo_daq.daq.mock_server.server_commands  import read_sw_register
-from petalo_daq.daq.mock_server.server_commands  import read_hw_register
-from petalo_daq.daq.mock_server.server_commands  import write_sw_register
-from petalo_daq.daq.mock_server.server_commands  import write_hw_register
+from petalo_daq.mock_server                  import server_data
+from petalo_daq.mock_server.binary_responses import build_connection_success_response
+from petalo_daq.mock_server.binary_responses import build_connection_failure_response
+from petalo_daq.mock_server.server_commands  import read_sw_register
+from petalo_daq.mock_server.server_commands  import read_hw_register
+from petalo_daq.mock_server.server_commands  import write_sw_register
+from petalo_daq.mock_server.server_commands  import write_hw_register
 
 
 class PetaloMockServer():

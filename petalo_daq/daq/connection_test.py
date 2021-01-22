@@ -11,7 +11,7 @@ import numpy as np
 import re
 
 from PETALO_v7 import PetaloRunConfigurationGUI
-from petalo_daq.daq.mock_server.petalo_server import PetaloMockServer
+from petalo_daq.mock_server.petalo_server import PetaloMockServer
 from petalo_daq.daq.window_test import check_pattern_present_in_log
 from petalo_daq.daq.window_test import close_connection
 import logging

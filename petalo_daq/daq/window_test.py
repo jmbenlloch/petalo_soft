@@ -1050,7 +1050,7 @@ def test_leds_status_register_command(qtbot):
             #TODO test register content somehow... and test GUI update
 
 
-import petalo_daq.daq.mock_server.binary_responses as srv_cmd
+import petalo_daq.mock_server.binary_responses as srv_cmd
 
 @mark.parametrize(('value', 'activated_field'),
                  ((1 << 16, 'LINK_STATUS_IDL_ready'),

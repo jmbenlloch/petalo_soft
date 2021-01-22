@@ -2,10 +2,10 @@ import struct
 
 from petalo_daq.daq.commands import status_codes as status
 
-from petalo_daq.daq.mock_server.binary_responses import build_sw_register_read_response
-from petalo_daq.daq.mock_server.binary_responses import build_hw_register_read_response
-from petalo_daq.daq.mock_server.binary_responses import build_sw_register_write_response
-from petalo_daq.daq.mock_server.binary_responses import build_hw_register_write_response
+from petalo_daq.mock_server.binary_responses import build_sw_register_read_response
+from petalo_daq.mock_server.binary_responses import build_hw_register_read_response
+from petalo_daq.mock_server.binary_responses import build_sw_register_write_response
+from petalo_daq.mock_server.binary_responses import build_hw_register_write_response
 from petalo_daq.daq.command_utils import decode_register_address
 
 from petalo_daq.daq.commands import register_tuple

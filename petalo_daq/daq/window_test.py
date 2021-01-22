@@ -227,7 +227,9 @@ def test_temperature_control_register_boolean_fields(qtbot, bit_position, field)
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
-    window.spinBox_Temp_Time.setValue(0)
+    # set default time (1 ms)
+    window.spinBox_Temp_Time.setValue(1)
+    temp_mask = 0x061A8000
 
     for status in [True, False]:
         widget = getattr(window, f'checkBox_{field}')
@@ -242,7 +244,7 @@ def test_temperature_control_register_boolean_fields(qtbot, bit_position, field)
         message    = MESSAGE()
         cmd        = message(cmd_binary)
 
-        expected_value    = int(status) << bit_position
+        expected_value    = int(status) << bit_position | temp_mask
         expected_response = {
             'command'  : commands.HARD_REG_W,
             'L1_id'    : 0,
@@ -258,7 +260,9 @@ def test_temperature_control_register_channel_selection(qtbot):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
-    window.spinBox_Temp_Time.setValue(0)
+    # set default time (1 ms)
+    window.spinBox_Temp_Time.setValue(1)
+    temp_mask = 0x061A8000
 
     widget = window.comboBox_Temp_CH_Sel
 
@@ -282,7 +286,7 @@ def test_temperature_control_register_channel_selection(qtbot):
         message    = MESSAGE()
         cmd        = message(cmd_binary)
 
-        expected_value    = channel << 8
+        expected_value    = channel << 8 | temp_mask
         expected_response = {
             'command'  : commands.HARD_REG_W,
             'L1_id'    : 0,
@@ -652,9 +656,12 @@ def test_stop_run_register_send_command(qtbot):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
-    # set the rest of fields to zero (their defaults are not zero)
-    window.spinBox_RUN_Throughput.setValue(0)
-    window.spinBox_RUN_Event.setValue(0)
+    # set the rest of fields to a default value
+    window.comboBox_RUN_MODE.setCurrentIndex(0)
+    window.spinBox_RUN_Throughput.setValue(1)
+    window.spinBox_RUN_Event     .setValue(1)
+    throughtput_mask = 0x00100000
+    time_mask        = 0x00000002
 
     qtbot.mouseClick(window.STOP, QtCore.Qt.LeftButton)
     pattern = 'The run is stopped'
@@ -665,7 +672,7 @@ def test_stop_run_register_send_command(qtbot):
     message    = MESSAGE()
     cmd        = message(cmd_binary)
 
-    expected_value    = 1 << 30
+    expected_value    = 1 << 30 | throughtput_mask | time_mask
     expected_response = {
         'command'  : commands.HARD_REG_W,
         'L1_id'    : 0,

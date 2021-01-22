@@ -5,9 +5,10 @@ import socket
 import logging
 from time import sleep
 
+# absolute imports to execute as standalone program
 from petalo_daq.network.petalo_network import MESSAGE
-from petalo_daq.network.commands   import status_codes as status
-from petalo_daq.network.commands   import commands     as cmd
+from petalo_daq.network.commands       import status_codes as status
+from petalo_daq.network.commands       import commands     as cmd
 
 from petalo_daq.mock_server                  import server_data
 from petalo_daq.mock_server.binary_responses import build_connection_success_response

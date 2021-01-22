@@ -1,19 +1,20 @@
 import sys
 import os
+import struct
 import socket as sk
-from bitarray import bitarray
-from threading import Thread, Event
+
+from bitarray    import bitarray
+from threading   import Thread, Event
 from collections import OrderedDict
 from time        import sleep
-import struct
-from queue import Queue, Empty
+from queue       import Queue, Empty
 
-from petalo_daq.network.commands import code_to_command
-from petalo_daq.network.commands import code_to_status
-from petalo_daq.network.commands import commands     as cmd
-from petalo_daq.network.commands import sleep_cmd
-from petalo_daq.network.commands import status_codes as status
-from petalo_daq.network.command_utils import parse_first_parameter_in_response
+from . commands      import code_to_command
+from . commands      import code_to_status
+from . commands      import sleep_cmd
+from . commands      import commands     as cmd
+from . commands      import status_codes as status
+from . command_utils import parse_first_parameter_in_response
 
 
 class MESSAGE():

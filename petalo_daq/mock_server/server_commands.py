@@ -1,12 +1,11 @@
 import struct
 
-from petalo_daq.network.commands import status_codes as status
-
-from petalo_daq.mock_server.binary_responses import build_sw_register_read_response
-from petalo_daq.mock_server.binary_responses import build_hw_register_read_response
-from petalo_daq.mock_server.binary_responses import build_sw_register_write_response
-from petalo_daq.mock_server.binary_responses import build_hw_register_write_response
-from petalo_daq.network.command_utils import decode_register_address
+from .  binary_responses      import build_sw_register_read_response
+from .  binary_responses      import build_hw_register_read_response
+from .  binary_responses      import build_sw_register_write_response
+from .  binary_responses      import build_hw_register_write_response
+from .. network.commands      import status_codes as status
+from .. network.command_utils import decode_register_address
 
 from petalo_daq.network.commands import register_tuple
 

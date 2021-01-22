@@ -2,8 +2,9 @@ from pytest import fixture
 import threading
 import logging
 
-from petalo_daq.mock_server.petalo_server import PetaloMockServer
 from PETALO_v7 import PetaloRunConfigurationGUI
+
+from petalo_daq.mock_server.petalo_server import PetaloMockServer
 
 @fixture(scope='session')
 def petalo_test_server():

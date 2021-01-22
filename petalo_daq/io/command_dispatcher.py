@@ -1,8 +1,8 @@
-from petalo_daq.gui.types import cmd_response_log
-from petalo_daq.network.commands import commands
+from .. gui.types import cmd_response_log
+from .. network.commands import commands
 
-from petalo_daq.gui.types import dispatch_type
-from petalo_daq.gui.types import CommandDispatcherException
+from .. gui.types import dispatch_type
+from .. gui.types import CommandDispatcherException
 from datetime import datetime
 
 

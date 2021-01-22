@@ -1,5 +1,5 @@
 from collections import namedtuple
-from petalo_daq.io import config_params
+from .. io import config_params
 from enum import auto
 from enum import Enum
 

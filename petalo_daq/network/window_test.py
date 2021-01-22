@@ -1,37 +1,35 @@
 import sys
-from pytest import fixture
-from pytest import raises
-from pytest import mark
-from PyQt5 import uic
-from PyQt5 import QtWidgets
-from PyQt5 import QtCore
-
-from time import sleep
 import numpy as np
 import re
 
+from pytest import fixture
+from pytest import raises
+from pytest import mark
+
+from PyQt5  import uic
+from PyQt5  import QtWidgets
+from PyQt5  import QtCore
+
+from time     import sleep
 from bitarray import bitarray
 
 
-from petalo_daq.network.commands import commands
-from petalo_daq.network.commands import status_codes
-from petalo_daq.network.commands import register_tuple
-from petalo_daq.gui.types    import LogError
-from petalo_daq.network.petalo_network    import MESSAGE
-
-from petalo_daq.network.command_test import check_expected_response
-
-from petalo_daq.network.command_utils import encode_error_value
-
-from petalo_daq.network.responses import check_write_response
-from petalo_daq.network.process_responses import temperature_conversion_1
-from petalo_daq.network.process_responses import temperature_conversion_1_celsius
-from petalo_daq.network.process_responses import temperature_conversion_2
-from petalo_daq.network.process_responses import temperature_tofpet_to_ch
-from petalo_daq.network.commands import sleep_cmd
+from .. gui.types         import LogError
+from .  commands          import commands
+from .  commands          import sleep_cmd
+from .  commands          import status_codes
+from .  commands          import register_tuple
+from .  command_test      import check_expected_response
+from .  command_utils     import encode_error_value
+from .  petalo_network    import MESSAGE
+from .  responses         import check_write_response
+from .  process_responses import temperature_conversion_1
+from .  process_responses import temperature_conversion_1_celsius
+from .  process_responses import temperature_conversion_2
+from .  process_responses import temperature_tofpet_to_ch
 
 from PETALO_v7 import PetaloRunConfigurationGUI
-# from Libraries import database as db
+
 
 def close_connection(window):
     end_connection_word = 0xfafafafa.to_bytes(length=4, byteorder='little')

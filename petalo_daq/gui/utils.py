@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets
 
-from petalo_daq.gui.access_level import user_access
+from . access_level import user_access
 
 
 def populate_fields(window, gui_data):

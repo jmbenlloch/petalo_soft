@@ -1,5 +1,3 @@
-#  from DAQ_control_Lib.py_comm_lib import SCK_TXRX
-from petalo_daq.network.petalo_network import SCK_TXRX
 from queue     import Queue, Empty
 from threading import Thread, Event
 
@@ -10,16 +8,17 @@ from pytest import mark
 from pytest import fixture
 import numpy as np
 
-from petalo_daq.network.client_commands import build_sw_register_write_command
-from petalo_daq.network.client_commands import build_hw_register_write_command
-from petalo_daq.network.client_commands import build_sw_register_read_command
-from petalo_daq.network.client_commands import build_hw_register_read_command
-from petalo_daq.network.command_utils   import encode_register_address
-from petalo_daq.network.command_utils   import encode_error_value
+from . petalo_network  import SCK_TXRX
+from . client_commands import build_sw_register_write_command
+from . client_commands import build_hw_register_write_command
+from . client_commands import build_sw_register_read_command
+from . client_commands import build_hw_register_read_command
+from . command_utils   import encode_register_address
+from . command_utils   import encode_error_value
 
-from petalo_daq.network.commands        import status_codes   as status
-from petalo_daq.network.commands        import commands       as cmd
-from petalo_daq.network.commands        import register_tuple
+from . commands        import status_codes   as status
+from . commands        import commands       as cmd
+from . commands        import register_tuple
 
 
 

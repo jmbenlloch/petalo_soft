@@ -2,20 +2,20 @@ import sys
 from pytest import fixture
 from pytest import raises
 from pytest import mark
-from PyQt5 import uic
-from PyQt5 import QtWidgets
-from PyQt5 import QtCore
+from PyQt5  import uic
+from PyQt5  import QtWidgets
+from PyQt5  import QtCore
 
-from time import sleep
+from   time import sleep
 import numpy as np
 import re
-
-from PETALO_v7 import PetaloRunConfigurationGUI
-from petalo_daq.mock_server.petalo_server import PetaloMockServer
-from petalo_daq.network.window_test import check_pattern_present_in_log
-from petalo_daq.network.window_test import close_connection
 import logging
 import threading
+
+from PETALO_v7                    import PetaloRunConfigurationGUI
+from .. mock_server.petalo_server import PetaloMockServer
+from .  window_test               import check_pattern_present_in_log
+from .  window_test               import close_connection
 
 def test_connect_button(qtbot, petalo_test_server):
     window = PetaloRunConfigurationGUI(test_mode=True)

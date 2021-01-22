@@ -1,24 +1,25 @@
-from petalo_daq.gui.types import LogError
-from petalo_daq.io.config_params import power_status_fields
-from petalo_daq.gui.widget_data  import power_status_data
-from petalo_daq.io.config_params import clock_status_fields
-from petalo_daq.gui.widget_data  import clock_status_data
-from petalo_daq.io.config_params import link_status_fields
-from petalo_daq.gui.widget_data  import link_status_data
-from petalo_daq.io.utils         import load_bitarray_config
-from petalo_daq.io.utils         import read_bitarray_slice
-
-from petalo_daq.io.config_params import leds_status_fields
-from petalo_daq.gui.widget_data  import leds_status_data
-
-from petalo_daq.io.config_params import run_status_fields
-from petalo_daq.io.config_params import tofpet_status_fields
-from petalo_daq.gui.widget_data  import tofpet_status_data
-
-from petalo_daq.network.commands     import status_codes
-
-from bitarray import bitarray
 import numpy as np
+from   bitarray import bitarray
+
+from .. gui.types        import LogError
+from .. io.utils         import read_bitarray_slice
+from .. io.utils         import load_bitarray_config
+
+from .. gui.widget_data  import power_status_data
+from .. gui.widget_data  import clock_status_data
+from .. gui.widget_data  import link_status_data
+from .. gui.widget_data  import leds_status_data
+from .. gui.widget_data  import tofpet_status_data
+
+from .. io.config_params import power_status_fields
+from .. io.config_params import link_status_fields
+from .. io.config_params import clock_status_fields
+from .. io.config_params import leds_status_fields
+from .. io.config_params import run_status_fields
+from .. io.config_params import tofpet_status_fields
+
+from .  commands     import status_codes
+
 
 temperature_ch_to_tofpet = {0 : 1,
                             1 : 3,

@@ -1,12 +1,11 @@
 import socket
 import struct
 
-from petalo_daq.network.petalo_network import MESSAGE
-
-from petalo_daq.network.commands import commands     as cmd
-from petalo_daq.network.commands import status_codes as status
-from petalo_daq.network.command_utils import encode_register_address
-from petalo_daq.network.command_utils import encode_error_value
+from .. network.petalo_network import MESSAGE
+from .. network.commands       import commands     as cmd
+from .. network.commands       import status_codes as status
+from .. network.command_utils  import encode_register_address
+from .. network.command_utils  import encode_error_value
 
 def build_connection_success_response():
     """

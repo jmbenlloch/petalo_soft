@@ -2,12 +2,12 @@ import json
 
 from bitarray import bitarray
 
-from petalo_daq.io.config_params import channel_config_fields
-from petalo_daq.io.config_params import global_config_fields
-from petalo_daq.io.utils         import load_gui_config
-from petalo_daq.io.utils         import load_bitarray_config
-from petalo_daq.gui.widget_data  import channel_data
-from petalo_daq.gui.widget_data  import global_data
+from .  config_params    import channel_config_fields
+from .  config_params    import global_config_fields
+from .  utils            import load_gui_config
+from .  utils            import load_bitarray_config
+from .. gui.widget_data  import channel_data
+from .. gui.widget_data  import global_data
 
 
 def load_configuration_file(window, fname):

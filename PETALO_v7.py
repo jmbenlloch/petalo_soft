@@ -13,6 +13,7 @@ import petalo_daq.windows.global_config  as window_global
 import petalo_daq.windows.channel_config as window_channel
 import petalo_daq.windows.register_config as window_register
 import petalo_daq.windows.commands       as window_commands
+import petalo_daq.windows.calibration    as window_calibration
 
 
 from petalo_daq.gui.widget_data  import global_data
@@ -109,6 +110,7 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         window_global .connect_buttons(self)
         window_channel.connect_buttons(self)
         window_commands.connect_buttons(self)
+        window_calibration.connect_buttons(self)
 
         window_register.connect_buttons(self)
 

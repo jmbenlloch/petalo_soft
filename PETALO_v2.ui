@@ -11422,6 +11422,76 @@ REGISTERS</string>
        <zorder>frame_141</zorder>
       </widget>
      </widget>
+     <widget class="QWidget" name="Calibration">
+      <attribute name="title">
+       <string>Calibration</string>
+      </attribute>
+      <widget class="QPlainTextEdit" name="plainTextEdit_calibration">
+       <property name="geometry">
+        <rect>
+         <x>51</x>
+         <y>66</y>
+         <width>821</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <property name="plainText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_24">
+       <property name="geometry">
+        <rect>
+         <x>51</x>
+         <y>41</y>
+         <width>869</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Procedure to run:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_calibrate">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>790</y>
+         <width>131</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Send</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_167">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>410</y>
+         <width>869</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Procedure to run:</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit_calibrationLog">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>435</y>
+         <width>821</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <property name="plainText">
+        <string/>
+       </property>
+      </widget>
+     </widget>
     </widget>
     <widget class="QFrame" name="frame_2">
      <property name="geometry">

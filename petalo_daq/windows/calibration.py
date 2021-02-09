@@ -5,37 +5,9 @@ from subprocess import check_output
 from . worker import Worker
 from . worker import WorkerSignals
 
-from . utils import write_to_lmk_ram
-
-from .. gui.utils        import read_parameters
-from .. io.config_params import reverse_range_inclusive
-
-from . register_config           import power_status
-from . register_config           import clock_status
-from . register_config           import link_status
-
-from .. io.config_params import link_status_fields
-from .. gui.types        import link_status_tuple
-
-from .. gui.widget_data  import activate_data
-from .. gui.types        import activate_tuple
-
-from .. gui.types        import power_status_tuple
-from .. io.config_params import power_status_fields
-
-from .. gui.types        import clock_status_tuple
-from .. io.config_params import clock_status_fields
-
-from .. io.utils         import insert_bitarray_slice
-
-from .. network.client_commands import build_hw_register_write_command
-from .. network.client_commands import build_sw_register_write_command
-from .. network.client_commands import build_sw_register_read_command
-from .. network.commands        import register_tuple
-from .. network.commands        import sleep_cmd
-from .. network.process_responses import temperature_tofpet_to_ch
-from .. network.process_responses import convert_int32_to_bitarray
-
+from . channel_config import Config_update_ch
+from . main           import start_run
+from . main           import stop_run
 
 # dispatch
 from .. io.utils              import read_bitarray_into_namedtuple
@@ -76,10 +48,11 @@ def execute_procedure(window):
                                "Running calibration procedure")
 
 
-        def fn_procedure():
-            take_run = take_runs_automatically(window)
+        def fn_procedure(signals):
+            take_run = take_runs_automatically(window, signals)
             procedure = window.plainTextEdit_calibration.toPlainText()
             print("executing procedure")
+            print(locals())
             print(procedure)
             try:
                 exec(procedure)
@@ -87,22 +60,32 @@ def execute_procedure(window):
                 window.plainTextEdit_calibrationLog.insertPlainText(repr(e))
 
         worker = Worker(fn_procedure)
-        #  worker.signals.result.connect(fn_procedure)
+        worker.signals.progress .connect(print_progress(window))
+        worker.signals.ch_config.connect(config_channels_and_send_cmd(window))
+        worker.signals.start_run.connect(start_run(window))
+        worker.signals.stop_run .connect(stop_run (window))
         window.threadpool.start(worker)
 
     return on_click
 
+
+def print_progress(window):
+    def fn(status):
+        window.plainTextEdit_calibrationLog.insertPlainText(status)
+    return fn
+
+
 def get_run_number():
-    cmd = 'sshpass -pdate.123 ssh dateuser@ldc1petalo.ific.uv.es cat /tmp/date_runnumber.txt'
+    cmd = 'ssh dateuser@ldc1petalo.ific.uv.es cat /tmp/date_runnumber.txt'
     cmd_out = check_output(cmd, shell=True, executable='/bin/bash')
     run_number = cmd_out.decode()
     return run_number
 
-def update_ch_number(window):
-    def fn(channel):
-        window.spinBox_ch_number.setValue(channel)
-    window.plainTextEdit_calibrationLog.insertPlainText(status)
-    return fn
+def stop_DATE():
+    cmd = 'ssh dateuser@ldc1petalo.ific.uv.es /home/dateuser/scripts/stopDate.sh'
+    cmd_out = check_output(cmd, shell=True, executable='/bin/bash')
+    run_number = cmd_out.decode()
+
 
 # for channel in range(0, 5):
 #    take_run(locals())
@@ -118,55 +101,57 @@ def update_ch_number(window):
 #            take_run(locals())
 
 
-def config_run(window, params):
-    def to_dispatch():
-        run_number = get_run_number()
-        run_config = f"{run_number}"
+def config_run(window, params, signals):
+    run_number = get_run_number()
+    run_config = f"{run_number}"
 
-        for key, value in params.items():
-            if key in ['procedure', 'take_run', 'window']:
-                continue
+    config = {} # dict {GUI setter fn -> value}
 
-            run_config += f", {value}"
-            if key == 'channel':
-                #  window.spinBox_ch_number.setValue(value)
-                continue
+    for key, value in params.items():
+        if key in ['procedure', 'take_run', 'window', 'signals']:
+            continue
 
-            # Find widget
+        run_config += f", {value}"
+        if key == 'channel':
+            widget = window.spinBox_ch_number
+            config[widget.setValue] = value
+            continue
+
+        # Find widget
+        try:
+            field_name = f'comboBox_{key}'
+            widget = getattr(window, field_name)
+            config[widget.setCurrentIndex] = value
+        except:
             try:
-                field_name = f'comboBox_{key}'
-                print(field_name)
+                field_name = f'spinBox_{key}'
                 widget = getattr(window, field_name)
-                #  widget.setCurrentIndex(value)
+                config[widget.setValue] = value
             except:
-                try:
-                    field_name = f'spinBox_{key}'
-                    print(field_name)
-                    widget = getattr(window, field_name)
-                    #  widget.setValue(value)
-                except:
-                    raise ValueError(f"Variable {key} not found")
+                raise ValueError(f"Variable {key} not found")
 
-        #window.plainTextEdit_calibrationLog.insertPlainText(run_config + "\n")
-        print(run_config + "\n")
-        #  WorkerSignals.progress.emit(run_config)
-        print("emitted")
-
-    return to_dispatch
+    signals.progress.emit(run_config + '\n')
+    signals.ch_config.emit(config)
 
 
-def take_runs_automatically(window):
+def config_channels_and_send_cmd(window):
+    def fn(config):
+        print(config)
+        for key, value in config.items():
+            key(value)
+        # Send ch config
+        Config_update_ch(window)()
+    return fn
+
+
+def take_runs_automatically(window, signals):
     def on_click(params):
-        window.plainTextEdit_calibrationLog.insertPlainText("Start config\n")
-
-        config_run(window, params)()
-
-        #  fn = dispatchable_fn(type = dispatch_type.function,
-        #                       condition_fn = None,
-        #                       fn = fn)
-        #  add_function_to_dispatcher(window, fn)
-
-        #  check_command_dispatcher(window)
+        config_run(window, params, signals)
+        signals.start_run.emit()
+        sleep(10)
+        signals.stop_run.emit()
+        sleep(2)
+        stop_DATE()
+        sleep(10)
 
     return on_click
-

@@ -11475,7 +11475,7 @@ REGISTERS</string>
         </rect>
        </property>
        <property name="text">
-        <string>Procedure to run:</string>
+        <string>Output log:</string>
        </property>
       </widget>
       <widget class="QPlainTextEdit" name="plainTextEdit_calibrationLog">

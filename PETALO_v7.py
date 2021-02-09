@@ -4,6 +4,7 @@ import threading
 from datetime import datetime
 from PyQt5    import QtWidgets
 from PyQt5    import uic
+from PyQt5.QtCore    import QThreadPool
 
 
 import petalo_daq.gui.utils              as gui
@@ -96,6 +97,10 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # Data store
         self.data_store = DataStore()
+
+        # QT thread pool
+        self.threadpool = QThreadPool()
+        self.threadpool.setMaxThreadCount(1)
 
         # Initialize command dispatcher
         initialize_command_dispatcher(self)

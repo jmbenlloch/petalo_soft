@@ -1,4 +1,9 @@
 from bitarray  import bitarray
+from time import sleep
+from subprocess import check_output
+
+from . worker import Worker
+from . worker import WorkerSignals
 
 from . utils import write_to_lmk_ram
 
@@ -52,14 +57,12 @@ def connect_buttons(window):
     window (PetaloRunConfigurationGUI): Main application
     """
 
-    window.pushButton_calibrate.clicked.connect(read_temperature(window))
+    window.pushButton_calibrate.clicked.connect(execute_procedure(window))
 
 
-def read_temperature(window):
+def execute_procedure(window):
     """
-    Function to read temperature sensors.
-    It reads the values from the GUI fields and updates the bitarray in
-    data_store
+    Function to execute the specified procedure taking different runs
 
     Parameters
     window (PetaloRunConfigurationGUI): Main application
@@ -69,17 +72,101 @@ def read_temperature(window):
     """
 
     def on_click():
-        # Read temperature values
-        daq_id = 0
-        for tofpet_id in range(9):
-            print("tofpet_id: ", tofpet_id)
-            channel = temperature_tofpet_to_ch[tofpet_id]
-            command = build_sw_register_read_command(daq_id, register_group=2, register_id=channel)
-            window.tx_queue.put(command)
-            window.tx_queue.put(sleep_cmd(500))
+        window.update_log_info("Calibration",
+                               "Running calibration procedure")
 
-        window.update_log_info("Temperature config",
-                               "Temperature configuration sent")
+
+        def fn_procedure():
+            take_run = take_runs_automatically(window)
+            procedure = window.plainTextEdit_calibration.toPlainText()
+            print("executing procedure")
+            print(procedure)
+            try:
+                exec(procedure)
+            except Exception as e:
+                window.plainTextEdit_calibrationLog.insertPlainText(repr(e))
+
+        worker = Worker(fn_procedure)
+        #  worker.signals.result.connect(fn_procedure)
+        window.threadpool.start(worker)
+
+    return on_click
+
+def get_run_number():
+    cmd = 'sshpass -pdate.123 ssh dateuser@ldc1petalo.ific.uv.es cat /tmp/date_runnumber.txt'
+    cmd_out = check_output(cmd, shell=True, executable='/bin/bash')
+    run_number = cmd_out.decode()
+    return run_number
+
+def update_ch_number(window):
+    def fn(channel):
+        window.spinBox_ch_number.setValue(channel)
+    window.plainTextEdit_calibrationLog.insertPlainText(status)
+    return fn
+
+# for channel in range(0, 5):
+#    take_run(locals())
+
+#  for channel in range(0, 5):
+#     for vth_t1 in range(0, 4):
+#         take_run(locals())
+
+
+#  for channel in range(0, 5):
+#     for vth_t1 in range(0, 4):
+#        for vth_t2 in range(0, 3):
+#            take_run(locals())
+
+
+def config_run(window, params):
+    def to_dispatch():
+        run_number = get_run_number()
+        run_config = f"{run_number}"
+
+        for key, value in params.items():
+            if key in ['procedure', 'take_run', 'window']:
+                continue
+
+            run_config += f", {value}"
+            if key == 'channel':
+                #  window.spinBox_ch_number.setValue(value)
+                continue
+
+            # Find widget
+            try:
+                field_name = f'comboBox_{key}'
+                print(field_name)
+                widget = getattr(window, field_name)
+                #  widget.setCurrentIndex(value)
+            except:
+                try:
+                    field_name = f'spinBox_{key}'
+                    print(field_name)
+                    widget = getattr(window, field_name)
+                    #  widget.setValue(value)
+                except:
+                    raise ValueError(f"Variable {key} not found")
+
+        #window.plainTextEdit_calibrationLog.insertPlainText(run_config + "\n")
+        print(run_config + "\n")
+        #  WorkerSignals.progress.emit(run_config)
+        print("emitted")
+
+    return to_dispatch
+
+
+def take_runs_automatically(window):
+    def on_click(params):
+        window.plainTextEdit_calibrationLog.insertPlainText("Start config\n")
+
+        config_run(window, params)()
+
+        #  fn = dispatchable_fn(type = dispatch_type.function,
+        #                       condition_fn = None,
+        #                       fn = fn)
+        #  add_function_to_dispatcher(window, fn)
+
+        #  check_command_dispatcher(window)
 
     return on_click
 

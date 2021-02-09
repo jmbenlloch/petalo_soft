@@ -459,13 +459,13 @@ user_access = {
     },
 
     'comboBox_intg_en' : {
-        'admin'   : False,
+        'admin'   : True,
         'shifter' : False,
         'none'    : False,
     },
 
     'comboBox_intg_signal_en' : {
-        'admin'   : False,
+        'admin'   : True,
         'shifter' : False,
         'none'    : False,
     },
@@ -958,7 +958,7 @@ user_access = {
 
 
     'comboBox_RUN_MODE' : {
-        'admin'   : False,
+        'admin'   : True,
         'shifter' : False,
         'none'    : False,
     },

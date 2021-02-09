@@ -597,9 +597,9 @@ channel_data = {
         'default' : 1,
         'values' : {
             0 : {'value': bitarray('1'),
-                 'text' : 'Time and charge (QDC) mode.'},
+                 'text' : '1- Time and charge (QDC) mode.'},
             1 : {'value': bitarray('0'),
-                 'text' : 'Dual time (ToT) mode.'},
+                 'text' : '0- Dual time (ToT) mode.'},
         },
     },
 
@@ -742,20 +742,20 @@ channel_data = {
     'comboBox_intg_en' : {
         'default' : 0,
         'values' : {
-            0 : {'value': bitarray('0'),
-                 'text' : 'Time and charge (QDC) mode.'},
-            1 : {'value': bitarray('1'),
-                 'text' : 'Dual time (ToT) mode.'},
+            0 : {'value': bitarray('1'),
+                 'text' : '1- Time and charge (QDC) mode.'},
+            1 : {'value': bitarray('0'),
+                 'text' : '0- Dual time (ToT) mode.'},
         },
     },
 
     'comboBox_intg_signal_en' : {
         'default' : 0,
         'values' : {
-            0 : {'value': bitarray('0'),
-                 'text' : 'Time and charge (QDC) mode.'},
-            1 : {'value': bitarray('1'),
-                 'text' : 'Dual time (ToT) mode.'},
+            0 : {'value': bitarray('1'),
+                 'text' : '1- Time and charge (QDC) mode.'},
+            1 : {'value': bitarray('0'),
+                 'text' : '0- Dual time (ToT) mode.'},
         },
     },
 

@@ -30,7 +30,7 @@ def connect_buttons(window):
     window.checkBox_all_ch  .clicked.connect(set_channels    (window))
 
     # Run mode
-    window.comboBox_qdc_mode      .currentIndexChanged.connect(set_run_mode(window))
+    #window.comboBox_qdc_mode      .currentIndexChanged.connect(set_run_mode(window))
     #  window.comboBox_intg_en       .currentIndexChanged.connect(set_run_mode(window))
     #  window.comboBox_intg_signal_en.currentIndexChanged.connect(set_run_mode(window))
 

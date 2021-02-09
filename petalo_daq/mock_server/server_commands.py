@@ -98,6 +98,8 @@ def write_hw_register(petalo_server, daq_id, params):
         register_tuple(1, 0): power_regulator_control,
         register_tuple(2, 0): lmk_control,
         register_tuple(3, 0): link_control,
+        register_tuple(3, 2): write_ram_addr,
+        register_tuple(3, 3): select_ram_value,
     }
 
     error_code = write_register(petalo_server.hw_registers, register.group, register.id, value)
@@ -107,6 +109,18 @@ def write_hw_register(petalo_server, daq_id, params):
 
     response   = build_hw_register_write_response(daq_id, register.group, register.id, error_code)
     return response
+
+def write_ram_addr(petalo_server, value):
+    conf_rw = value & 0x00100000
+    if conf_rw:
+        addr = (value & 0x00001FF00) >> 8
+        petalo_server.ram[addr] = petalo_server.selected_ram_value
+        print("ram addr: {}\t value: {}".format(addr, petalo_server.selected_ram_value))
+        print("\n\n\nRam:", petalo_server.ram, "\n\n\n")
+
+def select_ram_value(petalo_server, value):
+    petalo_server.selected_ram_value = value
+    print("selected value: ", value)
 
 
 def power_regulator_control(petalo_server, value):

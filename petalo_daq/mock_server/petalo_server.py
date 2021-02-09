@@ -29,6 +29,8 @@ class PetaloMockServer():
         self.clients = {} # Initialize client list as an empty list
         self.sw_registers = server_data.sw_registers # DAQ SW registers
         self.hw_registers = server_data.hw_registers # DAQ HW registers
+        self.selected_ram_value = -1
+        self.ram = {}
 
         # Configure logger to stdout
         self.logger = logging.getLogger('daq_server')

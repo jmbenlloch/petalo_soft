@@ -1,4 +1,6 @@
 import json
+import os
+import yaml
 
 from bitarray import bitarray
 
@@ -8,6 +10,7 @@ from .  utils            import load_gui_config
 from .  utils            import load_bitarray_config
 from .. gui.widget_data  import channel_data
 from .. gui.widget_data  import global_data
+from .. gui.types        import channel_config_tuple
 
 
 def load_configuration_file(window, fname):
@@ -74,3 +77,38 @@ def load_channel_config_parameters(window, data):
     #print(channel_config)
     load_bitarray_config(window, channel_config[default_channel]['value'], channel_config_fields, channel_data)
 
+
+
+
+ch_config_yml = '{}/channels_config.yml'.format(os.environ['PETALO_DAQ_DIR'])
+
+class NoAliasDumper(yaml.SafeDumper):
+   def ignore_aliases(self, data):
+       return True
+
+def bitarray_representer(dumper, data):
+    return dumper.represent_scalar(u'!bitarray', data.to01())
+yaml.add_representer(bitarray, bitarray_representer, NoAliasDumper)
+
+def bitarray_parser(loader,node):
+    value = loader.construct_scalar(node)
+    return bitarray(value)
+
+
+def save_config_to_yml(window):
+    configs = window.data_store.retrieve('channel_config')
+
+    configs_dicts = {k : v._asdict() for k,v in configs.items()}
+
+    with open(ch_config_yml, 'w') as outfile:
+        yaml.dump(configs_dicts, outfile, default_flow_style=False, Dumper=NoAliasDumper)
+
+
+def load_channel_config_from_yml(window):
+    yaml.add_constructor(u'!bitarray', bitarray_parser)
+
+    with open(ch_config_yml, 'r') as outfile:
+        channel_configs_tmp = yaml.load(outfile)
+
+    channel_configs = {k : channel_config_tuple(**v) for k, v in channel_configs_tmp.items()}
+    window.data_store.insert('channel_config', channel_configs)

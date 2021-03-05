@@ -70,31 +70,36 @@ def load_bitarray_config(window, config, config_fields, config_data):
         #print(field, bit_slice)
         value = read_bitarray_slice(config, bit_slice)
         #  print(field, value)
+        update_gui_fields(window, field, value, config_data)
 
-        gui_field = field
-        for key in config_data.keys():
-            if(key.endswith(gui_field)):
-                gui_field = key
 
-        widget = getattr(window, gui_field)
+def update_gui_fields(window, field, value, config_data):
+    gui_field = field
+    for key in config_data.keys():
+        if(key.endswith(gui_field)):
+            gui_field = key
 
-        if isinstance(widget, QtWidgets.QLineEdit):
-            value_int = convert_bitarray_to_int32(value)
-            widget.setText('0x{:02X}'.format(value_int))
-        elif isinstance(widget, QtWidgets.QSpinBox):
-            value_int = convert_bitarray_to_int32(value)
-            widget.setValue(value_int)
-        else:
-            index = find_gui_value_from_bitarray(value, config_data[gui_field]['values'])
-            if index == -1:
-                raise ValueError(f'Value {value} for {field} not found!')
+    widget = getattr(window, gui_field)
 
-            if isinstance(widget, QtWidgets.QComboBox):
-                widget.setCurrentIndex(index)
-            if isinstance(widget, QtWidgets.QCheckBox):
-                widget.setChecked(index)
-            if isinstance(widget, QtWidgets.QLCDNumber):
-                widget.display(index)
+    value_int = value
+    if isinstance(value, bitarray):
+        value_int = convert_bitarray_to_int32(value)
+
+    if isinstance(widget, QtWidgets.QLineEdit):
+        widget.setText('0x{:02X}'.format(value_int))
+    elif isinstance(widget, QtWidgets.QSpinBox):
+        widget.setValue(value_int)
+    else:
+        index = find_gui_value_from_bitarray(value, config_data[gui_field]['values'])
+        if index == -1:
+            raise ValueError(f'Value {value} for {field} not found!')
+
+        if isinstance(widget, QtWidgets.QComboBox):
+            widget.setCurrentIndex(index)
+        if isinstance(widget, QtWidgets.QCheckBox):
+            widget.setChecked(index)
+        if isinstance(widget, QtWidgets.QLCDNumber):
+            widget.display(index)
 
 
 def insert_bitarray_slice(config, indices, bits):

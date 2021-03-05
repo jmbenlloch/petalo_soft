@@ -5,6 +5,8 @@ from .. gui.widget_data  import channel_data
 from .. gui.types        import channel_config_tuple
 from .. io.config_params import channel_config_fields
 from .. io.utils         import insert_bitarray_slice
+from .. io.utils         import update_gui_fields
+from .. io.configuration import save_config_to_yml
 
 from .. network.client_commands import build_hw_register_write_command
 from .. network.commands        import register_tuple
@@ -29,10 +31,22 @@ def connect_buttons(window):
     window.pushButton_reg_ch.clicked.connect(Config_update_ch(window))
     window.checkBox_all_ch  .clicked.connect(set_channels    (window))
 
+    window.spinBox_ch_number.valueChanged.connect(update_channel_config(window))
     # Run mode
     #window.comboBox_qdc_mode      .currentIndexChanged.connect(set_run_mode(window))
     #  window.comboBox_intg_en       .currentIndexChanged.connect(set_run_mode(window))
     #  window.comboBox_intg_signal_en.currentIndexChanged.connect(set_run_mode(window))
+
+
+def update_channel_config(window):
+    def on_click():
+        ch = window.spinBox_ch_number.value()
+        channel_configs = window.data_store.retrieve('channel_config')
+        config = channel_configs[ch]
+        for field, value in config._asdict().items():
+            update_gui_fields(window, field, value, channel_data)
+
+    return on_click
 
 
 def set_channels(window):
@@ -55,6 +69,8 @@ def set_channels(window):
             window.spinBox_ch_number.setEnabled (True)
 
     return on_click
+
+
 
 
 def Config_update_ch(window):
@@ -99,7 +115,7 @@ def Config_update_ch(window):
             n_channels = 64 # TODO put somewhere the number of channels
             channel_configs = {}
             for ch in range(n_channels):
-                channel_configs[ch] = channel_bitarray
+                channel_configs[ch] = channel_config
                 send_channel_configuration_to_ram(window, ch, channel_bitarray)
 
             send_start_all_channels_configuration_to_card(window)
@@ -108,7 +124,7 @@ def Config_update_ch(window):
         else:
             channel_configs = window.data_store.retrieve('channel_config')
             channel = window.spinBox_ch_number.value()
-            channel_configs[channel] = channel_bitarray
+            channel_configs[channel] = channel_config
 
             send_channel_configuration_to_ram(window, channel, channel_bitarray)
             send_start_channel_configuration_to_card(window, channel)
@@ -116,6 +132,7 @@ def Config_update_ch(window):
             window.data_store.insert('channel_config', channel_configs)
 
         print(channel_bitarray[0:125])
+        save_config_to_yml(window)
 
         window.update_log_info("Channel registers configured",
                                "Channel ASIC registers configured")

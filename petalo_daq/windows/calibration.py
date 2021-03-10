@@ -102,9 +102,7 @@ def stop_DATE():
 
 
 def config_run(window, params, signals):
-    run_number = get_run_number()
-    run_config = f"{run_number}"
-
+    run_config = ""
     config = {} # dict {GUI setter fn -> value}
 
     for key, value in params.items():
@@ -145,9 +143,16 @@ def config_channels_and_send_cmd(window):
     return fn
 
 
+def print_run_number(window, signals):
+    run_number = get_run_number()
+    run_config = f"{run_number}"
+    signals.progress.emit(run_config + '\n')
+
+
 def take_runs_automatically(window, signals):
     def on_click(params):
         print("take_run: ", params)
+        print_run_number(window, signals)
         if 'channels' in params:
             for channel in params['channels']:
                 print("channel: ", channel)

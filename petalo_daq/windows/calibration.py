@@ -108,8 +108,9 @@ def config_run(window, params, signals):
     config = {} # dict {GUI setter fn -> value}
 
     for key, value in params.items():
-        if key in ['procedure', 'take_run', 'window', 'signals']:
+        if key in ['procedure', 'take_run', 'window', 'signals', 'channels']:
             continue
+        print(key, value)
 
         run_config += f", {value}"
         if key == 'channel':
@@ -146,7 +147,14 @@ def config_channels_and_send_cmd(window):
 
 def take_runs_automatically(window, signals):
     def on_click(params):
-        config_run(window, params, signals)
+        print("take_run: ", params)
+        if 'channels' in params:
+            for channel in params['channels']:
+                print("channel: ", channel)
+                params['channel'] = channel
+                config_run(window, params, signals)
+        else:
+            config_run(window, params, signals)
         signals.start_run.emit()
         sleep(10)
         signals.stop_run.emit()

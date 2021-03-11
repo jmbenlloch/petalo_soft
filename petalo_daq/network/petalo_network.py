@@ -56,7 +56,6 @@ class MESSAGE():
     def encode(self,dict_in):
         """ Creates Dict, Json and Bitstream from {command,L1_id,args} dict
         """
-        print("encode")
         if type(dict_in)==type([]):
             command = dict_in[0]
             L1_id   = dict_in[1]
@@ -76,7 +75,6 @@ class MESSAGE():
 
         # TODO: Deal with errors
         #  command = getattr(cmd, cmd_str)
-        print(command.value.n_params, args)
 
         #  if (command.value.n_params != len(args)):
         #      print("Parameter Error")
@@ -95,8 +93,6 @@ class MESSAGE():
 
 
     def decode(self,bit_stream):
-        print("decode")
-        print(bit_stream)
         """ Decodes Bitstream into Dict and JSON
         """
         v = memoryview(bit_stream)
@@ -106,7 +102,6 @@ class MESSAGE():
         command  = struct.unpack('<H',v[0:2])[0]
         L1_id    = struct.unpack('<H',v[2:4])[0]
         n_params = struct.unpack('<I',v[4:8])[0]
-        print("n_params: ", n_params)
         #format = '<'+str(n_params-2)+'I'
         format = '<'+str(n_params)+'I'
         params   = struct.unpack(format,v[8:])
@@ -122,10 +117,8 @@ class MESSAGE():
         self.dict['command']  = command
         self.dict['L1_id']    = L1_id
         self.dict['n_params'] = n_params
-        print(params)
         #self.dict['params']   = [hex(x) for x in params]
         self.dict['params']   = params
-        print(self.dict['params'])
 
         return self.dict
 
@@ -187,7 +180,6 @@ class SCK_TXRX(Thread):
 
         self.out_queue.put(data_r)
 
-        print(data_r)
         if (data_r['command'] != cmd.CON_STATUS):
             raise sk.error('Communication Error (1)')
         elif ((data_r['command'] == cmd.CON_STATUS) and

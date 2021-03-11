@@ -21,9 +21,9 @@ def initialize_command_dispatcher(window):
 
 def read_sw_response_from_log(window, register):
     responses = window.data_store.retrieve('command_sw_responses')
-    print("read_sw_response_from_log: ")
-    print(register)
-    print(responses)
+    #  print("read_sw_response_from_log: ")
+    #  print(register)
+    #  print(responses)
     result = responses.get(register, None)
     return result
 
@@ -35,7 +35,7 @@ def read_hw_response_from_log(window, register):
 
 
 def add_response_to_dispatcher_log(window, register, cmd_response):
-    print(cmd_response)
+    #  print(cmd_response)
     cmd       = cmd_response['command']
 
     field_name = ''
@@ -56,7 +56,7 @@ def add_response_to_dispatcher_log(window, register, cmd_response):
 
 
 def add_function_to_dispatcher(window, dispatch_fn):
-    print("add fn to dispatcher")
+    #  print("add fn to dispatcher")
     dispatcher   = window.data_store.retrieve('command_dispatcher')
     fn_list      = dispatcher['fn_list']
     fn_list.append(dispatch_fn)
@@ -65,7 +65,7 @@ def add_function_to_dispatcher(window, dispatch_fn):
 
 
 def check_command_dispatcher(window):
-    print("execute dispatcher")
+    #  print("execute dispatcher")
     dispatcher   = window.data_store.retrieve('command_dispatcher')
     fn_list      = dispatcher['fn_list']
     loop_counter = dispatcher['loop_counter']
@@ -73,11 +73,10 @@ def check_command_dispatcher(window):
     try:
         current_fn = fn_list[0]
 
-        print(current_fn.type == dispatch_type.function)
-        print(current_fn.type == dispatch_type.function)
+        #  print(current_fn.type == dispatch_type.function)
         if current_fn.type == dispatch_type.function:
             # Execute the function and remove from list
-            print("dispatch function")
+            #  print("dispatch function")
             current_fn.fn()
             fn_list.pop(0)
 
@@ -105,9 +104,10 @@ def check_command_dispatcher(window):
         fn_list      = []
         loop_counter = 0
     except Exception as e:
-        print(e)
+        #  print(e)
+        pass
 
     dispatcher['fn_list']      = fn_list
     dispatcher['loop_counter'] = loop_counter
     window.data_store.insert('command_dispatcher', dispatcher)
-    print(dispatcher)
+    #  print(dispatcher)

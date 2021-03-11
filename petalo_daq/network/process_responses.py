@@ -70,7 +70,6 @@ def temperature_conversion_1(value):
 
 def temperature_conversion_1_celsius(value):
     degrees = (10.888 - np.sqrt((-10.888)**2 + 4*0.00347*(1777.3-value*1000))) / (2*-0.00347) + 30
-    print("Conversion1 to degrees: {} V, {} ºC".format(value, degrees))
     return degrees
 
 def temperature_conversion_2(value):
@@ -119,7 +118,7 @@ def tofpet_status(window, cmd, params):
 
     for field, bit_slice in tofpet_status_fields.items():
         value = read_bitarray_slice(value_bitarray, bit_slice)
-        window.update_log_info('', f'{field}: {value}')
+        #  window.update_log_info('', f'{field}: {value}')
     load_bitarray_config(window, value_bitarray, tofpet_status_fields, tofpet_status_data)
 
 
@@ -131,7 +130,6 @@ def leds_status(window, cmd, params):
 
 
 def check_connection(window, cmd, params):
-    print("read connection status response")
     status = params[0]
 
     if status == status_codes.STA_CONNECTION_ACCEPT.value:

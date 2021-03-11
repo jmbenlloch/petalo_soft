@@ -62,9 +62,8 @@ def read_network_responses(window):
                 cmd      = message['command']
                 register = message['params' ][0]
                 fn = response_functions[cmd]
-                print(cmd, register, fn)
+                #  print(cmd, register, fn)
                 if isinstance(fn, dict):
-                    print("shouldnt be here")
                     fn = fn[register]
                 # add response to Command dispatcher log
                 add_response_to_dispatcher_log(window, register, message)

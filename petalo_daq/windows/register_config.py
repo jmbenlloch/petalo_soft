@@ -100,12 +100,12 @@ def config_temperature(window):
         #Build command
         daq_id = 0x0000
         register = register_tuple(group=0, id=0)
-        print(temperature_bitarray)
+        #  print(temperature_bitarray)
         value = int(temperature_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
-        print(value)
+        #  print(value)
 
         command = build_hw_register_write_command(daq_id, register.group, register.id, value)
-        print(command)
+        #  print(command)
         # Send command
         window.tx_queue.put(command)
         #window.tx_queue.put(sleep_cmd(700))
@@ -135,9 +135,9 @@ def power_control(window):
         power_config = read_parameters(window, power_control_data, power_control_tuple)
 
         for field, positions in power_control_fields.items():
-            print(field)
+            #  print(field)
             value = getattr(power_config, field)
-            print(field, positions, value)
+            #  print(field, positions, value)
             insert_bitarray_slice(power_control_bitarray, positions, value)
 
         window.data_store.insert('power_control', power_control_bitarray)
@@ -145,12 +145,12 @@ def power_control(window):
         #Build command
         daq_id = 0x0000
         register = register_tuple(group=1, id=0)
-        print(power_control_bitarray)
+        #  print(power_control_bitarray)
         value = int(power_control_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
-        print(value, hex(value))
+        #  print(value, hex(value))
 
         command = build_hw_register_write_command(daq_id, register.group, register.id, value)
-        print(command)
+        #  print(command)
         # Send command
         window.tx_queue.put(command)
 
@@ -271,12 +271,12 @@ def clock_control(window):
         #Build command
         daq_id = 0x0000
         register = register_tuple(group=2, id=0)
-        print(clock_bitarray)
+        #  print(clock_bitarray)
         value = int(clock_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
-        print(value)
+        #  print(value)
 
         command = build_hw_register_write_command(daq_id, register.group, register.id, value)
-        print(command)
+        #  print(command)
         # Send command
         window.tx_queue.put(command)
         window.update_log_info("Clock control sent",
@@ -301,7 +301,7 @@ def lmk_control(window):
     def on_click():
         # ASIC parameters to be update
         lmk_control = read_parameters(window, lmk_control_data, lmk_control_tuple)
-        print(lmk_control)
+        #  print(lmk_control)
 
         write_to_lmk_ram(window,
                          lmk_control.LMK_WREN,

@@ -131,7 +131,7 @@ def Config_update_ch(window):
 
             window.data_store.insert('channel_config', channel_configs)
 
-        print(channel_bitarray[0:125])
+        #  print(channel_bitarray[0:125])
         save_config_to_yml(window)
 
         window.update_log_info("Channel registers configured",
@@ -141,17 +141,17 @@ def Config_update_ch(window):
 
 
 def send_channel_configuration_to_ram(window, channel_id, channel_bitarray):
-    print(channel_bitarray)
+    #  print(channel_bitarray)
     channel_bitarray_split = [channel_bitarray[93:125],
                               channel_bitarray[61:93],
                               channel_bitarray[29:61],
                               bitarray('0'*3) + channel_bitarray[0:28]]
 
     for offset, value in enumerate(channel_bitarray_split):
-        print(offset, value)
+        #  print(offset, value)
         address   = channel_id*4 + offset+6
         value_int = int(value.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
-        print(value_int)
+        #  print(value_int)
 
         address_binary   = '{:09b}'.format(address)
         address_bitarray = bitarray(address_binary.encode())
@@ -161,16 +161,16 @@ def send_channel_configuration_to_ram(window, channel_id, channel_bitarray):
         register = register_tuple(group=3, id=3)
         command = build_hw_register_write_command(daq_id, register.group, register.id, value_int)
 
-        print(command)
+        #  print(command)
         # Send command
         window.tx_queue.put(command)
-        window.update_log_info("", "Channel config word {} sent".format(address))
+        #  window.update_log_info("", "Channel config word {} sent".format(address))
 
         command  = build_tofpet_ram_address_command(daq_id, address_bitarray)
-        print(command)
+        #  print(command)
         # Send command
         window.tx_queue.put(command)
-        window.update_log_info("", "Channel config register {} sent".format(address))
+        #  window.update_log_info("", "Channel config register {} sent".format(address))
 
 
 def send_start_channel_configuration_to_card(window, channel):
@@ -181,13 +181,13 @@ def send_start_channel_configuration_to_card(window, channel):
     daq_id    = 0
     register  = register_tuple(group=3, id=0)
     command = build_hw_register_write_command(daq_id, register.group, register.id, tofpet_id)
-    print(command)
+    #  print(command)
     # Send command
     window.tx_queue.put(command)
 
     # Start configuration
     command  = build_start_channel_configuration_command(daq_id, channel)
-    print(command)
+    #  print(command)
     window.tx_queue.put(command)
     window.update_log_info("", "Channel {} config start sent".format(channel))
 
@@ -204,13 +204,13 @@ def send_start_all_channels_configuration_to_card(window):
     daq_id    = 0
     register  = register_tuple(group=3, id=0)
     command = build_hw_register_write_command(daq_id, register.group, register.id, tofpet_id)
-    print(command)
+    #  print(command)
     # Send command
     window.tx_queue.put(command)
 
     # Start configuration
     command  = build_start_all_channels_configuration_command(daq_id)
-    print(command)
+    #  print(command)
     window.tx_queue.put(command)
     window.update_log_info("", "Channels config start sent")
 

@@ -58,7 +58,7 @@ class Worker(QRunnable):
         self.kwargs = kwargs
         self.signals = WorkerSignals()
 
-        self.signals.config_done.connect(take_run_wrapper_for_signal(self))
+        #  self.signals.config_done.connect(take_run_wrapper_for_signal(self))
 
         # Add the callback to our kwargs
         #  self.kwargs['progress_callback'] = self.signals.progress
@@ -78,7 +78,12 @@ class Worker(QRunnable):
             result = self.fn(self, *self.args, **self.kwargs)
             print(self.generator)
             print(self.window)
-            self.take_runs_automatically_with_signals()
+            self.conf_done = True
+            while True:
+                print("test fn")
+                if self.conf_done:
+                    self.take_runs_automatically_with_signals()
+                sleep(2)
         except:
             traceback.print_exc()
             exctype, value = sys.exc_info()[:2]
@@ -98,6 +103,7 @@ class Worker(QRunnable):
 
     def take_runs_automatically_with_signals(self):
         print("Executing take runs")
+        self.conf_done = False
         if not self.started:
             self.started = True
             self.initialize_run()

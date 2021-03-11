@@ -1,8 +1,8 @@
 from bitarray  import bitarray
-from time import sleep
 
 from . worker import Worker
 from . worker import WorkerSignals
+from . worker import take_run_wrapper_for_signal
 
 from . channel_config import Config_update_ch
 from . main           import start_run
@@ -53,9 +53,19 @@ def execute_procedure(window):
         worker.signals.ch_config.connect(config_channels_and_send_cmd(window, worker.signals))
         worker.signals.start_run.connect(start_run(window))
         worker.signals.stop_run .connect(stop_run (window))
+
+        #  worker.signals.config_done.connect(take_run_wrapper_for_signal(worker))
+        worker.signals.config_done.connect(conf_done_signal_ack(worker))
         window.threadpool.start(worker)
 
     return on_click
+
+
+def conf_done_signal_ack(worker):
+    def ack():
+        print("ack signal")
+        worker.conf_done = True
+    return ack
 
 
 def print_progress(window):

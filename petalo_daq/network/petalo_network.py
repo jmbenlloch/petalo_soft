@@ -1,6 +1,8 @@
 import struct
 import socket as sk
 
+from PyQt5.QtCore import pyqtBoundSignal
+
 from bitarray    import bitarray
 from threading   import Thread
 from collections import OrderedDict
@@ -209,6 +211,9 @@ class SCK_TXRX(Thread):
                     print(self.item)
                     if isinstance(self.item, sleep_cmd):
                         sleep(self.item.time / 1000.)
+                        self.queue.task_done()
+                    elif isinstance(self.item, pyqtBoundSignal):
+                        self.item.emit()
                         self.queue.task_done()
                     else:
                         self.s.send(self.item)

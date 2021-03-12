@@ -143,8 +143,13 @@ def print_run_number(window, signals):
 
 
 def config_run(window, params, signals):
-    run_config = ""
     config = {} # dict {GUI setter fn -> value}
+
+    # Channel must be the first parameter
+    channel = params.pop('channel')
+    widget  = window.spinBox_ch_number
+    config[widget.setValue] = channel
+    run_config = f"{channel}"
 
     for key, value in params.items():
         if key in ['procedure', 'take_run', 'window', 'signals', 'channels']:
@@ -152,10 +157,6 @@ def config_run(window, params, signals):
         print(key, value)
 
         run_config += f", {value}"
-        if key == 'channel':
-            widget = window.spinBox_ch_number
-            config[widget.setValue] = value
-            continue
 
         # Find widget
         try:

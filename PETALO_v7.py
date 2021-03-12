@@ -100,6 +100,8 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         self.data_store = DataStore()
 
         # QT thread pool
+        self.threadpoolCalibration = QThreadPool()
+        self.threadpoolCalibration.setMaxThreadCount(1)
         self.threadpool = QThreadPool()
         self.threadpool.setMaxThreadCount(1)
 

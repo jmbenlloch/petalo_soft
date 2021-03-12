@@ -56,7 +56,7 @@ def execute_procedure(window):
 
         #  worker.signals.config_done.connect(take_run_wrapper_for_signal(worker))
         worker.signals.config_done.connect(conf_done_signal_ack(worker))
-        window.threadpool.start(worker)
+        window.threadpoolCalibration.start(worker)
 
     return on_click
 

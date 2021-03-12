@@ -8,6 +8,8 @@ import traceback, sys
 from time import sleep
 from subprocess import check_output
 
+from .. database.mongo_db import get_run_number
+
 # https://www.learnpyqt.com/tutorials/multithreading-pyqt-applications-qthreadpool/
 
 class WorkerSignals(QObject):
@@ -173,13 +175,6 @@ def config_run(window, params, signals):
 
     signals.progress.emit(run_config + '\n')
     signals.ch_config.emit(config)
-
-
-def get_run_number():
-    cmd = 'ssh dateuser@ldc1petalo.ific.uv.es cat /tmp/date_runnumber.txt'
-    cmd_out = check_output(cmd, shell=True, executable='/bin/bash')
-    run_number = cmd_out.decode()
-    return run_number
 
 
 def stop_DATE():

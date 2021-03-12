@@ -48,6 +48,7 @@ def Config_update_glob(window):
 
         # ASIC parameters to be update
         global_config = read_parameters(window, global_data, global_config_tuple)
+        window.data_store.insert('global_config_mongo', global_config)
 
         for field, positions in global_config_fields.items():
             value = getattr(global_config, field)

@@ -17,6 +17,9 @@ from .. io.config_params import run_control_fields
 from .. network.client_commands import build_hw_register_write_command
 from .. network.commands        import register_tuple
 
+from .. database.mongo_db import store_configuration_in_db
+
+
 
 def connect_buttons(window):
     """
@@ -52,6 +55,7 @@ def start_run(window):
     """
 
     def on_click():
+        store_configuration_in_db(window)
         #TODO: Store properly database connection info, daq_id, asic_id
         # connect to database
         #  db_connector, db_cursor = db.mysql_connect('localhost', 'root', 'root', 'petalo')

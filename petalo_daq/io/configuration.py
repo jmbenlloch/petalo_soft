@@ -11,6 +11,8 @@ from .  utils            import load_bitarray_config
 from .. gui.widget_data  import channel_data
 from .. gui.widget_data  import global_data
 from .. gui.types        import channel_config_tuple
+from .. gui.types        import global_config_tuple
+from .. gui.utils        import read_parameters
 
 
 def load_configuration_file(window, fname):
@@ -54,6 +56,9 @@ def load_global_config_parameters(window, data):
     global_config  = eval(data['global_config'] ['value'])
     window.data_store.insert('global_config' , global_config)
     load_bitarray_config(window, global_config, global_config_fields, global_data)
+    # add to data_store the tuple format
+    global_config = read_parameters(window, global_data, global_config_tuple)
+    window.data_store.insert('global_config_mongo', global_config)
 
 
 def load_channel_config_parameters(window, data):

@@ -7,6 +7,8 @@ from bitarray           import bitarray
 from . worker import Worker
 from subprocess import check_output
 
+from datetime import datetime
+
 
 class BitarrayCodec(TypeCodec):
     python_type = bitarray    # the Python type acted upon by this type codec
@@ -39,9 +41,12 @@ def store_configuration_in_db(window):
     def fn(signals):
         global_config  = window.data_store.retrieve('global_config_mongo')
         channel_config = window.data_store.retrieve('channel_config')
+        labels         = window.data_store.retrieve('labels')
         run_number     = get_run_number()
         data = {
             'run'            : int(run_number),
+            'labels'         : labels,
+            'start_time'     : datetime.now(),
             'global_config'  : global_config._asdict(),
             'channel_config' : {str(k) : v._asdict() for k, v in channel_config.items()},
         }

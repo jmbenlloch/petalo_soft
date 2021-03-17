@@ -103,6 +103,12 @@ def take_separator_run(window, signals):
         window.update_log_info("", "Disabling counter mode")
         window.checkBox_counter_en.setChecked(False)
         Config_update_glob(window)() # Send global config
+        # Add label for DB
+        labels = window.data_store.retrieve('labels')
+        labels['separator'] = True
+        window.data_store.insert('labels', labels)
+
+        # Take data
         start_run(window)()
         Config_update_ch(window)() # Send ch config to generate noise
         stop_run (window)()

@@ -85,6 +85,7 @@ class Worker(QRunnable):
             self.conf_done = True
             self.separator_run_taken = False
             self.finished = False
+            self.iteration = 0
             while not self.finished:
                 print("test fn")
                 if self.conf_done:
@@ -97,6 +98,7 @@ class Worker(QRunnable):
                     except StopIteration:
                         # If no more configurations, finish
                         self.finished = True
+                        window.data_store.insert('labels', {})
                 sleep(2)
         except:
             traceback.print_exc()
@@ -127,6 +129,13 @@ class Worker(QRunnable):
             self.params['channel'] = channel
             config_run(self.window, self.params, self.signals)
         except IndexError:
+            # Add label for DB
+            labels = self.window.data_store.retrieve('labels')
+            labels['separator'] = False
+            labels['iteration'] = self.iteration
+            self.window.data_store.insert('labels', labels)
+            self.iteration += 1
+
             self.signals.start_run.emit()
             sleep(2)
             self.signals.stop_run.emit()

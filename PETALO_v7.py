@@ -98,6 +98,7 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # Data store
         self.data_store = DataStore()
+        self.data_store.insert('labels', {}) # labels for the run in DB
 
         # QT thread pool
         self.threadpoolCalibration = QThreadPool()

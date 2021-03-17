@@ -87,7 +87,6 @@ class Worker(QRunnable):
             self.finished = False
             self.iteration = 0
             while not self.finished:
-                print("test fn")
                 if self.conf_done:
                     self.take_runs_automatically_with_signals()
                 if self.separator_run_taken:
@@ -99,7 +98,7 @@ class Worker(QRunnable):
                         # If no more configurations, finish
                         self.finished = True
                         window.data_store.insert('labels', {})
-                sleep(2)
+                sleep(1./100.)
         except:
             traceback.print_exc()
             exctype, value = sys.exc_info()[:2]

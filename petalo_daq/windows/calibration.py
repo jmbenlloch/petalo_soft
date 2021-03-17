@@ -102,6 +102,7 @@ def take_separator_run(window, signals):
     def fn():
         window.update_log_info("", "Disabling counter mode")
         window.checkBox_counter_en.setChecked(False)
+        window.comboBox_RUN_MODE.setCurrentIndex(1) # ToT
         Config_update_glob(window)() # Send global config
         # Add label for DB
         labels = window.data_store.retrieve('labels')
@@ -110,6 +111,7 @@ def take_separator_run(window, signals):
 
         # Take data
         start_run(window)()
+        window.tx_queue.put(sleep_cmd(500))
         Config_update_ch(window)() # Send ch config to generate noise
         stop_run (window)()
         #  window.tx_queue.put(sleep_cmd(5000))
@@ -123,6 +125,7 @@ def separator_run_signal_ack(window, worker):
         # Restore counter mode
         window.update_log_info("", "Enabling counter mode")
         window.checkBox_counter_en.setChecked(True)
+        window.comboBox_RUN_MODE.setCurrentIndex(2) # Counter
         Config_update_glob(window)() # Send global config
         worker.separator_run_taken = True
     return fn

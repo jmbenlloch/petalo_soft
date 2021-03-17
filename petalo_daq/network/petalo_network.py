@@ -200,7 +200,7 @@ class SCK_TXRX(Thread):
                 # Wait for another timeout
             else:
                 try:
-                    print(self.item)
+                    #  print("Send: ", self.item)
                     if isinstance(self.item, sleep_cmd):
                         sleep(self.item.time / 1000.)
                         self.queue.task_done()

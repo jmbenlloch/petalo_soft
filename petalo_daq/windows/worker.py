@@ -35,6 +35,8 @@ class WorkerSignals(QObject):
     start_run = pyqtSignal()
     stop_run  = pyqtSignal()
     config_done  = pyqtSignal()
+    separator_run = pyqtSignal()
+    separator_run_taken = pyqtSignal()
 
 
 class Worker(QRunnable):
@@ -81,10 +83,20 @@ class Worker(QRunnable):
             print(self.generator)
             print(self.window)
             self.conf_done = True
-            while True:
+            self.separator_run_taken = False
+            self.finished = False
+            while not self.finished:
                 print("test fn")
                 if self.conf_done:
                     self.take_runs_automatically_with_signals()
+                if self.separator_run_taken:
+                    try:
+                        self.initialize_run()
+                        self.separator_run_taken = False
+                        self.conf_done = True
+                    except StopIteration:
+                        # If no more configurations, finish
+                        self.finished = True
                 sleep(2)
         except:
             traceback.print_exc()
@@ -118,17 +130,7 @@ class Worker(QRunnable):
             self.signals.start_run.emit()
             sleep(2)
             self.signals.stop_run.emit()
-            sleep(2)
-            stop_DATE()
-            sleep(10)
-            # Prepare for next configuration
-            try:
-                # Get next config and make recursive call
-                self.initialize_run()
-                self.take_runs_automatically_with_signals()
-            except StopIteration:
-                # If no more configurations, finish
-                pass
+            self.signals.separator_run.emit()
 
 
 def take_run_wrapper_for_signal(worker):

@@ -77,7 +77,7 @@ def Config_update_glob(window):
 
 
 def send_global_configuration_to_card(window, global_bitarray):
-    print(global_bitarray)
+    #  print(global_bitarray)
     global_bitarray_split = [global_bitarray[152:184],
                              global_bitarray[120:152],
                              global_bitarray[ 88:120],
@@ -86,9 +86,9 @@ def send_global_configuration_to_card(window, global_bitarray):
                              bitarray('0'*8) + global_bitarray[0:24]]
 
     for addr, value in enumerate(global_bitarray_split):
-        print(addr, value)
+        #  print(addr, value)
         value_int = int(value.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
-        print(value_int)
+        #  print(value_int)
 
         address_binary   = '{:09b}'.format(addr)
         address_bitarray = bitarray(address_binary.encode())
@@ -98,30 +98,30 @@ def send_global_configuration_to_card(window, global_bitarray):
         register = register_tuple(group=3, id=3)
         command = build_hw_register_write_command(daq_id, register.group, register.id, value_int)
 
-        print(command)
+        #  print(command)
         # Send command
         window.tx_queue.put(command)
-        window.update_log_info("", "Global config word {} sent".format(addr))
+        #  window.update_log_info("", "Global config word {} sent".format(addr))
 
         command  = build_tofpet_ram_address_command(daq_id, address_bitarray)
-        print(command)
+        #  print(command)
         # Send command
         window.tx_queue.put(command)
-        window.update_log_info("", "Global config register {} sent".format(addr))
+        #  window.update_log_info("", "Global config register {} sent".format(addr))
 
     # TODO Select TOPFET id
     tofpet_id = 0
     tofpet_id = window.spinBox_ASIC_n.value()
-    print("tofpet_id: ", tofpet_id)
+    #  print("tofpet_id: ", tofpet_id)
     register  = register_tuple(group=3, id=0)
     command = build_hw_register_write_command(daq_id, register.group, register.id, tofpet_id)
-    print(command)
+    #  print(command)
     # Send command
     window.tx_queue.put(command)
 
     # Start configuration
     command  = build_start_global_configuration_command(daq_id)
-    print(command)
+    #  print(command)
     window.tx_queue.put(command)
     window.update_log_info("", "Global config start sent")
 

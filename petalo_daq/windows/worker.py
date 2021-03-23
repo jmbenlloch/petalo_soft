@@ -5,12 +5,18 @@ from PyQt5.QtCore import QRunnable
 
 import traceback, sys
 
-from time import sleep
+from time       import sleep
 from subprocess import check_output
+from enum       import Enum, auto
 
 from .. database.mongo_db import get_run_number
 
 # https://www.learnpyqt.com/tutorials/multithreading-pyqt-applications-qthreadpool/
+
+
+class Calibration(Enum):
+    config_done = auto()
+
 
 class WorkerSignals(QObject):
     '''
@@ -62,7 +68,6 @@ class Worker(QRunnable):
         self.kwargs = kwargs
         self.signals = WorkerSignals()
 
-        #  self.signals.config_done.connect(take_run_wrapper_for_signal(self))
 
         # Add the callback to our kwargs
         #  self.kwargs['progress_callback'] = self.signals.progress
@@ -83,21 +88,11 @@ class Worker(QRunnable):
             print(self.generator)
             print(self.window)
             self.conf_done = True
-            self.separator_run_taken = False
             self.finished = False
             self.iteration = 0
             while not self.finished:
                 if self.conf_done:
                     self.take_runs_automatically_with_signals()
-                if self.separator_run_taken:
-                    try:
-                        self.initialize_run()
-                        self.separator_run_taken = False
-                        self.conf_done = True
-                    except StopIteration:
-                        # If no more configurations, finish
-                        self.finished = True
-                        window.data_store.insert('labels', {})
                 sleep(1./100.)
         except:
             traceback.print_exc()
@@ -118,34 +113,28 @@ class Worker(QRunnable):
 
     def take_runs_automatically_with_signals(self):
         print("Executing take runs")
-        self.conf_done = False
-        if not self.started:
-            self.started = True
-            self.initialize_run()
-
         try:
-            channel = self.current_channels.pop(0)
-            self.params['channel'] = channel
-            config_run(self.window, self.params, self.signals)
-        except IndexError:
-            # Add label for DB
-            labels = self.window.data_store.retrieve('labels')
-            labels['separator'] = False
-            labels['iteration'] = self.iteration
-            self.window.data_store.insert('labels', labels)
-            self.iteration += 1
+            params = next(self.generator)
+            if params == Calibration.config_done:
+                # Add label for DB
+                labels = self.window.data_store.retrieve('labels')
+                labels['separator'] = False
+                labels['iteration'] = self.iteration
+                self.window.data_store.insert('labels', labels)
+                self.iteration += 1
 
-            self.signals.start_run.emit()
-            sleep(2)
-            self.signals.stop_run.emit()
-            self.signals.separator_run.emit()
-
-
-def take_run_wrapper_for_signal(worker):
-    def on_signal():
-        print("signal received")
-        worker.take_runs_automatically_with_signals()
-    return on_signal
+                self.signals.start_run.emit()
+                sleep(2)
+                self.signals.stop_run.emit()
+                self.signals.separator_run.emit()
+            else:
+                config_run(self.window, params, self.signals)
+                self.conf_done = False
+        except StopIteration:
+            # If there are no more configs in the generator -> Stop the run
+            stop_DATE()
+            self.finished = True
+            self.window.data_store.insert('labels', {})
 
 
 def print_run_number(window, signals):
@@ -164,10 +153,6 @@ def config_run(window, params, signals):
     run_config = f"{channel}"
 
     for key, value in params.items():
-        if key in ['procedure', 'take_run', 'window', 'signals', 'channels']:
-            continue
-        print(key, value)
-
         run_config += f", {value}"
 
         # Find widget

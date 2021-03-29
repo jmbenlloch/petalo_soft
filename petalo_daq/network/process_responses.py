@@ -116,8 +116,8 @@ def tofpet_status(window, cmd, params):
     register, value = params
     value_bitarray = convert_int32_to_bitarray(value)
 
-    window.plainTextEdit_calibrationLog.insertPlainText(f"Error status: {value:08x}")
-    window.update_log_info('', f"Error status: {value:08x}")
+    with open('~/error_log.txt', 'a') as fd:
+        fd.write(f"Error status: {value:08x}\n")
 
     #  for field, bit_slice in tofpet_status_fields.items():
     #      value = read_bitarray_slice(value_bitarray, bit_slice)

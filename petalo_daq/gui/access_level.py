@@ -1163,5 +1163,41 @@ user_access = {
         'shifter' : False,
         'none'    : False,
     },
+
+    'spinBox_TPULSE_Phase' : {
+        'admin'   : True,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'spinBox_TPULSE_Length' : {
+        'admin'   : True,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_TPULSE_Continous' : {
+        'admin'   : True,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'spinBox_TPULSE_Phase_status' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_TPULSE_Locked' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'spinBox_TPULSE_Length_status' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_TPULSE_Continous_status' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
 }
 

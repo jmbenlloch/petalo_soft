@@ -1805,3 +1805,32 @@ activate_data = {
         },
     },
 }
+
+tpulse_data = {
+    'checkBox_TPULSE_Locked' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TPULSE_Continous' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'spinBox_TPULSE_Phase' : {
+        'min'  : 0,
+        'max'  : 200,
+        'step' : 1,
+        'default' : 0,
+    },
+    'spinBox_TPULSE_Length' : {
+        'min'  : 0,
+        'max'  : 127,
+        'step' : 1,
+        'default' : 0,
+    },
+}

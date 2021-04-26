@@ -15,6 +15,7 @@ import petalo_daq.windows.channel_config as window_channel
 import petalo_daq.windows.register_config as window_register
 import petalo_daq.windows.commands       as window_commands
 import petalo_daq.windows.calibration    as window_calibration
+import petalo_daq.windows.tpulse_config  as window_tpulse
 
 
 from petalo_daq.gui.widget_data  import global_data
@@ -28,6 +29,7 @@ from petalo_daq.gui.widget_data  import link_control_data
 from petalo_daq.gui.widget_data  import clock_control_data
 from petalo_daq.gui.widget_data  import tofpet_config_data
 from petalo_daq.gui.widget_data  import tofpet_config_value_data
+from petalo_daq.gui.widget_data  import tpulse_data
 from petalo_daq.gui.access_level import user_access
 from petalo_daq.io.data_store    import DataStore
 from petalo_daq.io.configuration import load_configuration_file
@@ -95,6 +97,7 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         gui.populate_fields(self, link_control_data)
         gui.populate_fields(self, tofpet_config_data)
         gui.populate_fields(self, tofpet_config_value_data)
+        gui.populate_fields(self, tpulse_data)
 
         # Data store
         self.data_store = DataStore()
@@ -124,6 +127,7 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         window_channel.connect_buttons(self)
         window_commands.connect_buttons(self)
         window_calibration.connect_buttons(self)
+        window_tpulse.connect_buttons(self)
 
         window_register.connect_buttons(self)
 

@@ -126,6 +126,43 @@ sw_registers = {
             'value' : 0x20487132, # ~30 degrees celsius
            },
        },
+    3: { #TPULSE
+        0: {
+            'permissions' : {
+                'read'  : True,
+                'write' : True,
+            },
+            'value' : 1,
+           },
+        1: {
+            'permissions' : {
+                'read'  : True,
+                'write' : True,
+            },
+            'value' : 121,
+           },
+        2: {
+            'permissions' : {
+                'read'  : True,
+                'write' : True,
+            },
+            'value' : 123,
+           },
+        3: {
+            'permissions' : {
+                'read'  : True,
+                'write' : True,
+            },
+            'value' : 1,
+           },
+        4: {
+            'permissions' : {
+                'read'  : False,
+                'write' : True,
+            },
+            'value' : 0,
+           },
+       },
 }
 
 hw_registers = {

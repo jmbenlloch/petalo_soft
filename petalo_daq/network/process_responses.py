@@ -139,3 +139,20 @@ def check_connection(window, cmd, params):
         window.checkBox_Connected.setChecked(True)
     else:
         window.checkBox_Connected.setChecked(False)
+
+
+def tpulse_status(window, cmd, params):
+    register, value = params
+
+    if register.id == 0:
+        widget = getattr(window, 'checkBox_TPULSE_Locked')
+        widget.setChecked(value > 0)
+    if register.id == 1:
+        widget = getattr(window, 'spinBox_TPULSE_Phase_status')
+        widget.setText(str(value))
+    if register.id == 2:
+        widget = getattr(window, 'spinBox_TPULSE_Length_status')
+        widget.setText(str(value))
+    if register.id == 3:
+        widget = getattr(window, 'checkBox_TPULSE_Continous_status')
+        widget.setChecked(value > 0)

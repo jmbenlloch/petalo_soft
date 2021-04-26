@@ -10,6 +10,7 @@ from . process_responses import run_status
 from . process_responses import tofpet_status
 from . process_responses import leds_status
 from . process_responses import check_connection
+from . process_responses import tpulse_status
 
 from .. gui.types             import LogError
 from .. io.command_dispatcher import add_response_to_dispatcher_log
@@ -37,6 +38,10 @@ response_functions = {
         register_tuple(2, 6): read_temperature,
         register_tuple(2, 7): read_temperature,
         register_tuple(2, 8): read_temperature,
+        register_tuple(3, 0): tpulse_status,
+        register_tuple(3, 1): tpulse_status,
+        register_tuple(3, 2): tpulse_status,
+        register_tuple(3, 3): tpulse_status,
     },
     cmd.HARD_REG_R_r : {
         register_tuple(1, 1): power_regulator_status,

@@ -192,7 +192,7 @@ def send_start_channel_configuration_to_card(window, channel):
     window.update_log_info("", "Channel {} config start sent".format(channel))
 
     # Check TOFPET configuration status register
-    window.tx_queue.put(sleep_cmd(700))
+    #window.tx_queue.put(sleep_cmd(700))
     tofpet_status(window)()
 
 

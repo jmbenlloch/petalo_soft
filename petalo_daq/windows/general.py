@@ -306,7 +306,7 @@ def check_power_supplies_conf_done(window, active_tofpets):
                 result = power_status.PWR_STATUS_CONF_DONE == bitarray('1')
 
                 # check everything is enabled
-                status_check = (power_status.PWR_STATUS_18DIS  == bitarray('0')) & \
+                status_check = (power_status.PWR_STATUS_18DIS  == bitarray('1')) & \
                                (power_status.PWR_STATUS_25EN_1 == bitarray('1')) & \
                                (power_status.PWR_STATUS_25EN_2 == bitarray('1'))
                 print("status_check: ", status_check)
@@ -320,7 +320,8 @@ def check_power_supplies_conf_done(window, active_tofpets):
                     vccen   = getattr(power_status, f'PWR_STATUS_TOFPET_VCCEN_{i}')
                     vcc25en = getattr(power_status, f'PWR_STATUS_TOFPET_VCC25EN_{i}')
                     tofpet_checks &= (    vccen  .all() == active_tofpet)
-                    tofpet_checks &= (not vcc25en.all() == active_tofpet)
+                    #  tofpet_checks &= (not vcc25en.all() == active_tofpet)
+                    tofpet_checks &= vcc25en.all()
                     print(tofpet_checks)
                 print("tofpet_checks: ", tofpet_checks)
 
@@ -332,7 +333,7 @@ def check_power_supplies_conf_done(window, active_tofpets):
 
                 # Break look if it takes too long
                 tdelta = cmd_response_log.timestamp - now
-                if (not result) and (tdelta.total_seconds() > 10):
+                if (not result) and (tdelta.total_seconds() > 40):
                     raise CommandDispatcherException('Error in Power regulators configuration')
 
         return result

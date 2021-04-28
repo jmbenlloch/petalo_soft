@@ -11491,6 +11491,19 @@ REGISTERS</string>
         <string/>
        </property>
       </widget>
+      <widget class="QPushButton" name="pushButton_calibrate_tpulse">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>790</y>
+         <width>191</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>TPULSE calibration</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tab">
       <attribute name="title">

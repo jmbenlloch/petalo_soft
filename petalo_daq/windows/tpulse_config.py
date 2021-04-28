@@ -15,11 +15,11 @@ def connect_buttons(window):
     Parameters
     window (PetaloRunConfigurationGUI): Main application
     """
-    window.pushButton_TPULSE_Reset    .clicked.connect(tpulse_reset(window))
-    window.pushButton_TPULSE_Config   .clicked.connect(tpulse_config(window))
-    window.pushButton_TPULSE_Continous.clicked.connect(tpulse_continous_mode(window))
-    window.pushButton_TPULSE_SendPulse.clicked.connect(tpulse_send_pulse(window))
-    window.pushButton_TPULSE_status   .clicked.connect(tpulse_status(window))
+    window.pushButton_TPULSE_Reset    .clicked.connect(tpulse_reset         (window, verbose=True))
+    window.pushButton_TPULSE_Config   .clicked.connect(tpulse_config        (window, verbose=True))
+    window.pushButton_TPULSE_Continous.clicked.connect(tpulse_continous_mode(window, verbose=True))
+    window.pushButton_TPULSE_SendPulse.clicked.connect(tpulse_send_pulse    (window, verbose=True))
+    window.pushButton_TPULSE_status   .clicked.connect(tpulse_status        (window, verbose=True))
 
 
 
@@ -42,7 +42,6 @@ def tpulse_status(window, verbose=True):
     """
 
     def on_click():
-        print("tpulse status")
         read_sw_status_register(window, register_group=3, register_id=0)
         read_sw_status_register(window, register_group=3, register_id=1)
         read_sw_status_register(window, register_group=3, register_id=2)
@@ -55,7 +54,7 @@ def tpulse_status(window, verbose=True):
     return on_click
 
 
-def tpulse_reset(window):
+def tpulse_reset(window, verbose=False):
     """
     Function to reset the TPULSE PLL
 
@@ -75,13 +74,14 @@ def tpulse_reset(window):
         command = build_sw_register_write_command(daq_id, register.group, register.id, value)
         # Send command
         window.tx_queue.put(command)
-        window.update_log_info("Reset TPULSE sent",
-                               "Reset TPULSE sent")
+        if verbose:
+            window.update_log_info("Reset TPULSE sent",
+                                   "Reset TPULSE sent")
 
     return on_click
 
 
-def tpulse_send_pulse(window):
+def tpulse_send_pulse(window, verbose=False):
     """
     Function to send the TPULSE signal
 
@@ -101,13 +101,14 @@ def tpulse_send_pulse(window):
         command = build_sw_register_write_command(daq_id, register.group, register.id, value)
         # Send command
         window.tx_queue.put(command)
-        window.update_log_info("Send TPULSE",
-                               "TPULSE signal sent")
+        if verbose:
+            window.update_log_info("Send TPULSE",
+                                   "TPULSE signal sent")
 
     return on_click
 
 
-def tpulse_continous_mode(window):
+def tpulse_continous_mode(window, verbose=False):
     """
     Function to set/unset continous mode
 
@@ -127,13 +128,15 @@ def tpulse_continous_mode(window):
         command = build_sw_register_write_command(daq_id, register.group, register.id, value)
         # Send command
         window.tx_queue.put(command)
-        window.update_log_info("TPLUSE mode",
-                               "TPULSE continous mode updated")
+
+        if verbose:
+            window.update_log_info("TPLUSE mode",
+                                   "TPULSE continous mode updated")
 
     return on_click
 
 
-def tpulse_config(window):
+def tpulse_config(window, verbose=False):
     """
     Function to set TPULSE phase/length configuration
 
@@ -158,9 +161,9 @@ def tpulse_config(window):
         command = build_sw_register_write_command(daq_id, register.group, register.id, value)
         window.tx_queue.put(command)
 
-
-        window.update_log_info("TPLUSE mode",
-                               "TPULSE config sent")
+        if verbose:
+           window.update_log_info("TPLUSE mode",
+                                   "TPULSE config sent")
 
     return on_click
 

@@ -4,10 +4,15 @@ from . worker import Worker
 from . worker import WorkerSignals
 from . worker import Calibration
 
+from . worker_tpulse import Worker        as tpulse_worker
+from . worker_tpulse import WorkerSignals as tpulse_signals
+
 from . global_config  import Config_update_glob
 from . channel_config import Config_update_ch
 from . main           import start_run
 from . main           import stop_run
+from . tpulse_config  import tpulse_config
+from . tpulse_config  import tpulse_send_pulse
 
 from .. network.commands import sleep_cmd
 
@@ -23,7 +28,8 @@ def connect_buttons(window):
     window (PetaloRunConfigurationGUI): Main application
     """
 
-    window.pushButton_calibrate.clicked.connect(execute_procedure(window))
+    window.pushButton_calibrate       .clicked.connect(execute_procedure(window))
+    window.pushButton_calibrate_tpulse.clicked.connect(execute_tpulse_procedure(window))
 
 
 def execute_procedure(window):
@@ -78,20 +84,6 @@ def print_progress(window):
     return fn
 
 
-# for channel in range(0, 5):
-#    take_run(locals())
-
-#  for channel in range(0, 5):
-#     for vth_t1 in range(0, 4):
-#         take_run(locals())
-
-
-#  for channel in range(0, 5):
-#     for vth_t1 in range(0, 4):
-#        for vth_t2 in range(0, 3):
-#            take_run(locals())
-
-
 def config_channels_and_send_cmd(window, signals):
     # actually set the values in the GUI (config: {setter -> value})
     def fn(config):
@@ -105,3 +97,65 @@ def config_channels_and_send_cmd(window, signals):
         window.tx_queue.put(signals.config_done)
 
     return fn
+
+###############
+### TPULSE  ###
+###############
+
+def execute_tpulse_procedure(window):
+    def on_click():
+        window.update_log_info("TPULSE Calibration",
+                               "Running TPULSE calibration procedure")
+
+        def fn_procedure(self, signals):
+            procedure = window.plainTextEdit_calibration.toPlainText()
+            self.window = window
+            self.started = False
+            try:
+                exec(procedure)
+            except Exception as e:
+                window.plainTextEdit_calibrationLog.insertPlainText(repr(e))
+
+        worker = tpulse_worker(fn_procedure)
+        worker.signals.progress     .connect(print_progress(window))
+        worker.signals.tpulse_config.connect(config_tpulse_send_cmd(window, worker.signals))
+        worker.signals.start_run    .connect(start_tpulse_run(window, worker.signals))
+        worker.signals.stop_run     .connect(stop_run (window))
+
+        worker.signals.config_done        .connect(conf_done_signal_ack(worker))
+        worker.signals.data_taken        .connect(data_taken_signal_ack(worker))
+        window.threadpoolCalibration.start(worker)
+
+    return on_click
+
+
+def config_tpulse_send_cmd(window, signals):
+    # actually set the values in the GUI (config: {setter -> value})
+    def fn(config):
+        for key, value in config.items():
+            key(value)
+        tpulse_config(window)()
+
+        # Put conf_done signal in the queue
+        window.tx_queue.put(signals.config_done)
+
+    return fn
+
+def start_tpulse_run(window, signals):
+    def fn():
+        window.comboBox_RUN_MODE.setCurrentIndex(2)
+        start_run(window)()
+        for _ in range(10):
+            # send 10 pulses
+            tpulse_send_pulse(window)()
+
+        # Put data_taken_signal_ack signal in the queue
+        window.tx_queue.put(signals.data_taken)
+
+    return fn
+
+def data_taken_signal_ack(worker):
+    def ack():
+        worker.data_taken = True
+    return ack
+

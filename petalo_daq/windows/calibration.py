@@ -13,6 +13,7 @@ from . main           import start_run
 from . main           import stop_run
 from . tpulse_config  import tpulse_config
 from . tpulse_config  import tpulse_send_pulse
+from . tpulse_config  import tpulse_continous_mode
 
 from .. network.commands import sleep_cmd
 
@@ -145,9 +146,14 @@ def start_tpulse_run(window, signals):
     def fn():
         window.comboBox_RUN_MODE.setCurrentIndex(2)
         start_run(window)()
-        for _ in range(10):
-            # send 10 pulses
-            tpulse_send_pulse(window)()
+        #  for _ in range(10):
+        #      # send 10 pulses
+        #      tpulse_send_pulse(window)()
+        window.checkBox_TPULSE_Continous.setChecked(True)
+        tpulse_continous_mode(window)()
+        sleep(1/10)
+        window.checkBox_TPULSE_Continous.setChecked(False)
+        tpulse_continous_mode(window)()
 
         # Put data_taken_signal_ack signal in the queue
         window.tx_queue.put(signals.data_taken)

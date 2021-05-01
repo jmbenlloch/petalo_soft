@@ -130,6 +130,31 @@ def test_tpulse_reset_send_command(qtbot):
     check_expected_response(cmd, expected_response)
 
 
+def test_tpulse_limited_time_command(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.pushButton_TPULSE_LimitedTime, QtCore.Qt.LeftButton)
+    pattern = 'TPULSE continous mode for 1ms'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    assert window.tx_queue.qsize() == 1
+
+    cmd_binary = window.tx_queue.get(0)
+    message    = MESSAGE()
+    cmd        = message(cmd_binary)
+
+    expected_value = 0
+    expected_response = {
+        'command'  : commands.SOFT_REG_W,
+        'L1_id'    : 0,
+        'n_params' : 2,
+        'params'   : [register_tuple(group=3, id=5), expected_value]
+    }
+
+    check_expected_response(cmd, expected_response)
+
+
 def test_tpulse_sendpulse_send_command(qtbot):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()

@@ -11515,7 +11515,7 @@ REGISTERS</string>
          <x>10</x>
          <y>30</y>
          <width>391</width>
-         <height>361</height>
+         <height>421</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -11530,7 +11530,7 @@ REGISTERS</string>
           <x>10</x>
           <y>50</y>
           <width>371</width>
-          <height>301</height>
+          <height>361</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -11725,6 +11725,25 @@ REGISTERS</string>
          </property>
          <property name="text">
           <string>Send pulse</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_TPULSE_LimitedTime">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>290</y>
+           <width>251</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Continous mode for 1ms</string>
          </property>
         </widget>
        </widget>

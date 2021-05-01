@@ -20,6 +20,7 @@ def connect_buttons(window):
     window.pushButton_TPULSE_Continous.clicked.connect(tpulse_continous_mode(window, verbose=True))
     window.pushButton_TPULSE_SendPulse.clicked.connect(tpulse_send_pulse    (window, verbose=True))
     window.pushButton_TPULSE_status   .clicked.connect(tpulse_status        (window, verbose=True))
+    window.pushButton_TPULSE_LimitedTime.clicked.connect(tpulse_limited_time(window, verbose=True))
 
 
 
@@ -130,8 +131,36 @@ def tpulse_continous_mode(window, verbose=False):
         window.tx_queue.put(command)
 
         if verbose:
-            window.update_log_info("TPLUSE mode",
+            window.update_log_info("TPULSE mode",
                                    "TPULSE continous mode updated")
+
+    return on_click
+
+
+def tpulse_limited_time(window, verbose=False):
+    """
+    Function to set/unset continous mode
+
+    Parameters
+    window (PetaloRunConfigurationGUI): Main application
+
+    Returns
+    function: To be triggered on click
+    """
+
+    def on_click():
+        #Build command
+        daq_id = 0x0000
+        register = register_tuple(group=3, id=5)
+        value = 0 # not relevant
+
+        command = build_sw_register_write_command(daq_id, register.group, register.id, value)
+        # Send command
+        window.tx_queue.put(command)
+
+        if verbose:
+            window.update_log_info("TPULSE mode",
+                                   "TPULSE continous mode for 1ms")
 
     return on_click
 

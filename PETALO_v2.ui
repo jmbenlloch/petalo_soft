@@ -3854,7 +3854,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
         <property name="geometry">
          <rect>
           <x>460</x>
-          <y>20</y>
+          <y>10</y>
           <width>471</width>
           <height>31</height>
          </rect>
@@ -3877,7 +3877,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>60</y>
+          <y>50</y>
           <width>151</width>
           <height>431</height>
          </rect>
@@ -4784,7 +4784,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
         <property name="geometry">
          <rect>
           <x>780</x>
-          <y>60</y>
+          <y>50</y>
           <width>531</width>
           <height>431</height>
          </rect>
@@ -6065,9 +6065,9 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>500</y>
+          <y>490</y>
           <width>1461</width>
-          <height>401</height>
+          <height>411</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -6080,9 +6080,9 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>40</y>
+           <y>10</y>
            <width>201</width>
-           <height>351</height>
+           <height>391</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -6095,7 +6095,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>250</y>
+            <y>230</y>
             <width>181</width>
             <height>41</height>
            </rect>
@@ -6144,7 +6144,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>50</y>
+            <y>30</y>
             <width>181</width>
             <height>41</height>
            </rect>
@@ -6196,7 +6196,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>100</y>
+            <y>80</y>
             <width>181</width>
             <height>41</height>
            </rect>
@@ -6248,7 +6248,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>200</y>
+            <y>180</y>
             <width>181</width>
             <height>41</height>
            </rect>
@@ -6302,7 +6302,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
             <x>20</x>
             <y>0</y>
             <width>181</width>
-            <height>51</height>
+            <height>31</height>
            </rect>
           </property>
           <property name="palette">
@@ -6728,8 +6728,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            </font>
           </property>
           <property name="text">
-           <string>LINK CONTROL
-REGISTERS</string>
+           <string>LINK CONTROL</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -6739,7 +6738,7 @@ REGISTERS</string>
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>300</y>
+            <y>340</y>
             <width>181</width>
             <height>41</height>
            </rect>
@@ -6758,7 +6757,7 @@ REGISTERS</string>
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>150</y>
+            <y>130</y>
             <width>181</width>
             <height>41</height>
            </rect>
@@ -6816,6 +6815,56 @@ REGISTERS</string>
            </property>
            <property name="text">
             <string>RST</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QFrame" name="frame_139">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>280</y>
+            <width>181</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_260">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>0</y>
+             <width>71</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>RST 
+ cycles</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spinBox_RST_CYCLES">
+           <property name="geometry">
+            <rect>
+             <x>90</x>
+             <y>10</y>
+             <width>71</width>
+             <height>26</height>
+            </rect>
            </property>
           </widget>
          </widget>
@@ -9745,7 +9794,7 @@ REGISTERS</string>
         <property name="geometry">
          <rect>
           <x>170</x>
-          <y>60</y>
+          <y>50</y>
           <width>601</width>
           <height>401</height>
          </rect>

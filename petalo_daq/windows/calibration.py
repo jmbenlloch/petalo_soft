@@ -157,7 +157,7 @@ def start_tpulse_run(window, signals):
         #  window.checkBox_TPULSE_Continous.setChecked(False)
 
         tpulse_limited_time(window)()
-        tpulse_continous_mode(window)()
+        #  tpulse_continous_mode(window)()
 
         # Put data_taken_signal_ack signal in the queue
         window.tx_queue.put(signals.data_taken)

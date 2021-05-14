@@ -1823,7 +1823,7 @@ tpulse_data = {
     },
     'spinBox_TPULSE_Phase' : {
         'min'  : 0,
-        'max'  : 200,
+        'max'  : 20000,
         'step' : 1,
         'default' : 0,
     },

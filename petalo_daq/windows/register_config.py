@@ -333,6 +333,11 @@ def link_control(window):
         # ASIC parameters to be update
         link_control = read_parameters(window, link_control_data, link_control_tuple)
 
+        # encode RST cycles into a bitarray
+        binary_value = '{:06b}'.format(link_control.RST_CYCLES)
+        rst_bitarray = bitarray(binary_value.encode())
+        link_control = link_control._replace(RST_CYCLES = rst_bitarray)
+
         for field, positions in link_control_fields.items():
             value = getattr(link_control, field)
             insert_bitarray_slice(link_bitarray, positions, value)

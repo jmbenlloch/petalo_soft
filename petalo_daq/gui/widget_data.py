@@ -1343,6 +1343,12 @@ link_control_data = {
             True  : {'value' : bitarray('1') },
         },
     },
+    'spinBox_RST_CYCLES' : {
+        'min'  : 0,
+        'max'  : 63,
+        'step' : 1,
+        'default' : 0,
+    },
     'checkBox_TOFPET_LINK_BC' : {
         'default' : False,
         'values' : {

@@ -271,6 +271,7 @@ link_control_fields = {
     'TOFPET_LINK_RST'          : reverse_range_inclusive(30, 30),
     'TOFPET_LINK_CONF_IODELAY' : reverse_range_inclusive(29, 29),
     'TOFPET_LINK_RST_IODELAY'  : reverse_range_inclusive(28, 28),
+    'SYNC_RST'                 : reverse_range_inclusive(10, 10),
     'RST_CYCLES'               : reverse_range_inclusive( 9,  4),
     'TOFPET_LINK_BC'           : reverse_range_inclusive( 3,  3),
     'TOFPET_LINK_SEL_MUX'      : reverse_range_inclusive( 2,  0),

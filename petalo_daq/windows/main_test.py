@@ -34,8 +34,9 @@ def test_start_run_register_send_command_boolean_fields(qtbot, bit_position, fie
         pattern = 'Run has started'
         check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
-        assert window.tx_queue.qsize() == 1
+        assert window.tx_queue.qsize() == 2
         cmd_binary = window.tx_queue.get(0)
+        cmd_binary = window.tx_queue.get(1)
         message    = MESSAGE()
         cmd        = message(cmd_binary)
 
@@ -95,8 +96,9 @@ def test_start_run_register_send_command_mode(qtbot):
         pattern = 'Run has started'
         check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
-        assert window.tx_queue.qsize() == 1
+        assert window.tx_queue.qsize() == 2
         cmd_binary = window.tx_queue.get(0)
+        cmd_binary = window.tx_queue.get(1)
         message    = MESSAGE()
         cmd        = message(cmd_binary)
 
@@ -128,8 +130,9 @@ def test_start_run_register_send_command_throughput(qtbot):
         pattern = 'Run has started'
         check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
-        assert window.tx_queue.qsize() == 1
+        assert window.tx_queue.qsize() == 2
         cmd_binary = window.tx_queue.get(0)
+        cmd_binary = window.tx_queue.get(1)
         message    = MESSAGE()
         cmd        = message(cmd_binary)
 
@@ -174,8 +177,9 @@ def test_start_run_register_send_command_evt_time(qtbot):
         pattern = 'Run has started'
         check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
-        assert window.tx_queue.qsize() == 1
+        assert window.tx_queue.qsize() == 2
         cmd_binary = window.tx_queue.get(0)
+        cmd_binary = window.tx_queue.get(1)
         message    = MESSAGE()
         cmd        = message(cmd_binary)
 
@@ -192,6 +196,32 @@ def test_start_run_register_send_command_evt_time(qtbot):
                           expected_value]
         }
         check_expected_response(cmd, expected_response)
+
+
+def test_start_run_send_sync_reset_command(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    qtbot.mouseClick(window.START, QtCore.Qt.LeftButton)
+    pattern = 'Run has started'
+    check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+    assert window.tx_queue.qsize() == 2
+    cmd_binary = window.tx_queue.get(0)
+    message    = MESSAGE()
+    cmd        = message(cmd_binary)
+
+    rst_cycles = 20
+    expected_value    = (1 << 10) | (rst_cycles << 4)
+    expected_response = {
+        'command'  : commands.HARD_REG_W,
+        'L1_id'    : 0,
+        'n_params' : 2,
+        'params'   : [register_tuple(group=3, id=0),
+                      expected_value]
+    }
+    check_expected_response(cmd, expected_response)
+
 
 
 def test_stop_run_register_send_command(qtbot):

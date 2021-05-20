@@ -6,6 +6,7 @@ from .. gui.utils        import enable_fields
 from .. gui.utils        import path_browser_config
 from .. io.utils         import insert_bitarray_slice
 from .. io.configuration import load_configuration_file
+from .. io.config_params import link_control_fields
 #from .. database         import database as db
 #from .. io.config_params import global_config_fields
 #from .. io.config_params import channel_config_fields
@@ -80,6 +81,9 @@ def start_run(window):
         #  db.insert_channel_config(db_connector, db_cursor, run_number,
         #                          daq_id, asic_id, channel_id,
         #                          channel_config[0], channel_config_fields)
+
+        # Synchronize TOFPETs before starting the run
+        send_sync_rst(window)
 
         run_control_bitarray = bitarray('0'*32) # initialize to zero all 32 bits
         run_control_config = read_parameters(window, run_control_data, run_control_tuple)
@@ -205,3 +209,18 @@ def validate_pass(window):
             enable_fields(window, user)
 
     return on_click
+
+
+def send_sync_rst(window):
+    # Activate SYNC RST
+    register_value = 1 << link_control_fields['SYNC_RST'][-1]
+
+    # Configure number of cycles
+    rst_cycles = 20
+    register_value = register_value | (rst_cycles << link_control_fields['RST_CYCLES'][-1])
+
+    # Send command
+    daq_id   = 0x0000
+    register = register_tuple(group=3, id=0)
+    command  = build_hw_register_write_command(daq_id, register.group, register.id, register_value)
+    window.tx_queue.put(command)

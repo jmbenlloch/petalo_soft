@@ -340,6 +340,7 @@ def check_lmk_control_cmd(qtbot, window, enable, address, value):
                    (30, 'TOFPET_LINK_RST'),
                    (29, 'TOFPET_LINK_CONF_IODELAY'),
                    (28, 'TOFPET_LINK_RST_IODELAY'),
+                   (10, 'SYNC_RST'),
                    ( 3, 'TOFPET_LINK_BC')))
 def test_link_control_register_send_command_boolean_fields(qtbot, bit_position, field):
     window = PetaloRunConfigurationGUI(test_mode=True)
@@ -397,6 +398,37 @@ def test_link_control_register_send_command_sel_mux(qtbot):
         cmd        = message(cmd_binary)
 
         expected_value    = channel
+        expected_response = {
+            'command'  : commands.HARD_REG_W,
+            'L1_id'    : 0,
+            'n_params' : 2,
+            'params'   : [register_tuple(group=3, id=0),
+                          expected_value]
+        }
+
+        check_expected_response(cmd, expected_response)
+
+
+def test_link_control_register_send_command_rst_cycles(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    widget = window.spinBox_RST_CYCLES
+
+    for cycles in range(0, 64):
+        widget.setValue(cycles)
+        assert widget.value() == cycles
+
+        qtbot.mouseClick(window.pushButton_TOFPET_LINK_CONTROL, QtCore.Qt.LeftButton)
+        pattern = 'Link control command sent'
+        check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
+
+        assert window.tx_queue.qsize() == 1
+        cmd_binary = window.tx_queue.get(0)
+        message    = MESSAGE()
+        cmd        = message(cmd_binary)
+
+        expected_value    = cycles << 4
         expected_response = {
             'command'  : commands.HARD_REG_W,
             'L1_id'    : 0,

@@ -109,9 +109,10 @@ def send_global_configuration_to_card(window, global_bitarray):
         window.tx_queue.put(command)
         #  window.update_log_info("", "Global config register {} sent".format(addr))
 
-    # TODO Select TOPFET id
-    tofpet_id = 0
+    # Select TOPFET id
     tofpet_id = window.spinBox_ASIC_n.value()
+    reset_cycles = 10
+    tofpet_id = tofpet_id | (reset_cycles << 4)
     #  print("tofpet_id: ", tofpet_id)
     register  = register_tuple(group=3, id=0)
     command = build_hw_register_write_command(daq_id, register.group, register.id, tofpet_id)

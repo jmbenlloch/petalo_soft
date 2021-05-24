@@ -11598,7 +11598,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <x>10</x>
          <y>30</y>
          <width>391</width>
-         <height>421</height>
+         <height>461</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -11613,7 +11613,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <x>10</x>
           <y>50</y>
           <width>371</width>
-          <height>361</height>
+          <height>401</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -11626,7 +11626,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>230</y>
+           <y>270</y>
            <width>131</width>
            <height>41</height>
           </rect>
@@ -11647,7 +11647,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <x>10</x>
            <y>20</y>
            <width>341</width>
-           <height>141</height>
+           <height>181</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -11706,13 +11706,13 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            </font>
           </property>
           <property name="text">
-           <string>Length (CLK cycles-1)</string>
+           <string>Length active (cycles-1)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
-         <widget class="QSpinBox" name="spinBox_TPULSE_Length">
+         <widget class="QSpinBox" name="spinBox_TPULSE_Length_Up">
           <property name="geometry">
            <rect>
             <x>220</x>
@@ -11726,7 +11726,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="geometry">
            <rect>
             <x>100</x>
-            <y>90</y>
+            <y>130</y>
             <width>161</width>
             <height>41</height>
            </rect>
@@ -11741,12 +11741,45 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <string>Send configuration</string>
           </property>
          </widget>
+         <widget class="QLabel" name="label_334">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>90</y>
+            <width>211</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>13</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Length active (cycles-1)</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QSpinBox" name="spinBox_TPULSE_Length_Down">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>90</y>
+            <width>101</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
         </widget>
         <widget class="QFrame" name="frame_20">
          <property name="geometry">
           <rect>
            <x>150</x>
-           <y>170</y>
+           <y>210</y>
            <width>211</width>
            <height>111</height>
           </rect>
@@ -11795,7 +11828,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>180</y>
+           <y>220</y>
            <width>131</width>
            <height>41</height>
           </rect>
@@ -11814,7 +11847,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <property name="geometry">
           <rect>
            <x>60</x>
-           <y>290</y>
+           <y>330</y>
            <width>251</width>
            <height>61</height>
           </rect>
@@ -12275,7 +12308,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <x>420</x>
          <y>30</y>
          <width>351</width>
-         <height>291</height>
+         <height>331</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -12728,7 +12761,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <x>10</x>
           <y>60</y>
           <width>331</width>
-          <height>211</height>
+          <height>261</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -12755,7 +12788,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <widget class="QLabel" name="label_329">
           <property name="geometry">
            <rect>
-            <x>0</x>
+            <x>-10</x>
             <y>10</y>
             <width>91</width>
             <height>21</height>
@@ -12822,7 +12855,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <property name="geometry">
           <rect>
            <x>90</x>
-           <y>160</y>
+           <y>210</y>
            <width>151</width>
            <height>41</height>
           </rect>
@@ -12869,18 +12902,18 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            </font>
           </property>
           <property name="text">
-           <string>Length</string>
+           <string>Length up</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
-         <widget class="QLineEdit" name="spinBox_TPULSE_Length_status">
+         <widget class="QLineEdit" name="spinBox_TPULSE_Length_Up_status">
           <property name="geometry">
            <rect>
-            <x>80</x>
+            <x>120</x>
             <y>10</y>
-            <width>131</width>
+            <width>91</width>
             <height>21</height>
            </rect>
           </property>
@@ -12915,6 +12948,58 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           </property>
           <property name="text">
            <string>Continous mode</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QFrame" name="frame_95">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>160</y>
+           <width>221</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_335">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>111</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>13</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Length down</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="spinBox_TPULSE_Length_Down_status">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>10</y>
+            <width>91</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </widget>

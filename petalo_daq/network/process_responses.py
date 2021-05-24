@@ -153,8 +153,11 @@ def tpulse_status(window, cmd, params):
         widget = getattr(window, 'spinBox_TPULSE_Phase_status')
         widget.setText(str(value))
     if register.id == 2:
-        widget = getattr(window, 'spinBox_TPULSE_Length_status')
+        widget = getattr(window, 'spinBox_TPULSE_Length_Up_status')
         widget.setText(str(value))
     if register.id == 3:
         widget = getattr(window, 'checkBox_TPULSE_Continous_status')
         widget.setChecked(value > 0)
+    if register.id == 6:
+        widget = getattr(window, 'spinBox_TPULSE_Length_Down_status')
+        widget.setText(str(value))

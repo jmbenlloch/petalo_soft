@@ -47,6 +47,7 @@ def tpulse_status(window, verbose=True):
         read_sw_status_register(window, register_group=3, register_id=1)
         read_sw_status_register(window, register_group=3, register_id=2)
         read_sw_status_register(window, register_group=3, register_id=3)
+        read_sw_status_register(window, register_group=3, register_id=6)
 
         if verbose:
             window.update_log_info("TPULSE status sent",
@@ -184,11 +185,17 @@ def tpulse_config(window, verbose=False):
         command = build_sw_register_write_command(daq_id, register.group, register.id, value)
         window.tx_queue.put(command)
 
-        # Send length config
+        # Send length up config
         register = register_tuple(group=3, id=2)
-        value = int(window.spinBox_TPULSE_Length.value())
+        value = int(window.spinBox_TPULSE_Length_Up.value())
         command = build_sw_register_write_command(daq_id, register.group, register.id, value)
         window.tx_queue.put(command)
+
+        # Send length down config
+        register = register_tuple(group=3, id=6)
+        value = int(window.spinBox_TPULSE_Length_Down.value())
+        command2 = build_sw_register_write_command(daq_id, register.group, register.id, value)
+        window.tx_queue.put(command2)
 
         if verbose:
            window.update_log_info("TPLUSE mode",

@@ -45,7 +45,7 @@ def test_tofpet_tpulse_status_continous_gui(qtbot):
         assert widget.isChecked() == (i > 0)
 
 
-def test_tofpet_tpulse_status_length_gui(qtbot):
+def test_tofpet_tpulse_status_length_up_gui(qtbot):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()
 
@@ -58,7 +58,24 @@ def test_tofpet_tpulse_status_length_gui(qtbot):
         window.rx_queue.put(cmd)
         sleep(0.1)
 
-        widget = getattr(window, 'spinBox_TPULSE_Length_status')
+        widget = getattr(window, 'spinBox_TPULSE_Length_Up_status')
+        assert widget.text() == str(i)
+
+
+def test_tofpet_tpulse_status_length_down_gui(qtbot):
+    window = PetaloRunConfigurationGUI(test_mode=True)
+    window.textBrowser.clear()
+
+    for i in range(0, 128):
+        cmd = srv_cmd.build_sw_register_read_response(daq_id=0, register_group=3, register_id=6, value=i, error_code=None)
+        message = MESSAGE()
+        cmd = message(cmd)
+        print(cmd)
+
+        window.rx_queue.put(cmd)
+        sleep(0.1)
+
+        widget = getattr(window, 'spinBox_TPULSE_Length_Down_status')
         assert widget.text() == str(i)
 
 
@@ -249,7 +266,7 @@ def test_tpulse_config_phase_send_command(qtbot):
         pattern = 'TPULSE config sent'
         check_pattern_present_in_log(window, pattern, expected_matches=1, escape=True)
 
-        assert window.tx_queue.qsize() == 2
+        assert window.tx_queue.qsize() == 3
 
         cmd_binary = window.tx_queue.get(0)
         _          = window.tx_queue.get(1)

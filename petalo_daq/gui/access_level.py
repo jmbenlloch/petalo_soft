@@ -1179,7 +1179,12 @@ user_access = {
         'shifter' : False,
         'none'    : False,
     },
-    'spinBox_TPULSE_Length' : {
+    'spinBox_TPULSE_Length_Up' : {
+        'admin'   : True,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'spinBox_TPULSE_Length_Down' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
@@ -1199,7 +1204,12 @@ user_access = {
         'shifter' : False,
         'none'    : False,
     },
-    'spinBox_TPULSE_Length_status' : {
+    'spinBox_TPULSE_Length_Up_status' : {
+        'admin'   : False,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'spinBox_TPULSE_Length_Down_status' : {
         'admin'   : False,
         'shifter' : False,
         'none'    : False,

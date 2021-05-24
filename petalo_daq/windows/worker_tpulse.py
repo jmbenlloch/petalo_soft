@@ -145,7 +145,7 @@ def config_run(window, params, signals):
     config[widget.setValue] = params['phase']
 
     # Set length
-    widget  = window.spinBox_TPULSE_Length
+    widget  = window.spinBox_TPULSE_Length_Up
     config[widget.setValue] = params['length']
 
     run_config = "{}, {}".format(params['phase'], params['length'])

@@ -1850,7 +1850,7 @@ tpulse_data = {
     },
     'spinBox_TPULSE_Phase' : {
         'min'  : 0,
-        'max'  : 20000,
+        'max'  : 360000,
         'step' : 1,
         'default' : 0,
     },
@@ -1862,7 +1862,7 @@ tpulse_data = {
     },
     'spinBox_TPULSE_Length_Down' : {
         'min'  : 0,
-        'max'  : 127,
+        'max'  : 1048576,
         'step' : 1,
         'default' : 0,
     },

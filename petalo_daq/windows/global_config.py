@@ -68,6 +68,8 @@ def Config_update_glob(window):
         global_bitarray[ 31: 32] = bitarray('0')
         global_bitarray[177:178] = bitarray('0')
 
+        # print("global config: ", global_bitarray[::-1])
+
         window.data_store.insert('global_config', global_bitarray)
         send_global_configuration_to_card(window, global_bitarray)
 

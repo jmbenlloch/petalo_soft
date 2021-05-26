@@ -173,6 +173,8 @@ global_data = {
         'values' : {
             0 : {'value': bitarray('10111'),
                  'text' : '0b10111'},
+            1 : {'value': bitarray('10001'),
+                 'text' : '0b10001 (PETSYS)'},
         },
     },
 
@@ -230,6 +232,8 @@ global_data = {
         'values' : {
             0 : {'value': bitarray('010011'),
                  'text' : '0b010011'},
+            1 : {'value': bitarray('110100'),
+                 'text' : '0b110100 (PETSYS)'},
         },
     },
 
@@ -248,6 +252,8 @@ global_data = {
         'values' : {
             0 : {'value': bitarray('100000'),
                  'text' : '0b100000'},
+            1 : {'value': bitarray('100011'),
+                 'text' : '0b100011 (PETSYS)'},
         },
     },
 
@@ -296,6 +302,8 @@ global_data = {
         'values' : {
             0 : {'value': bitarray('00001'),
                  'text' : '0b00001'},
+            1 : {'value': bitarray('11111'),
+                 'text' : '0b11111 (PETSYS)'},
         },
     },
 
@@ -304,6 +312,8 @@ global_data = {
         'values' : {
             0 : {'value': bitarray('00000'),
                  'text' : '0b00000'},
+            1 : {'value': bitarray('11111'),
+                 'text' : '0b11111 (PETSYS)'},
         },
     },
 
@@ -350,6 +360,8 @@ global_data = {
         'values' : {
             0 : {'value': bitarray('00100'),
                  'text' : '0b00100'},
+            1 : {'value': bitarray('11011'),
+                 'text' : '0b11011 (PETSYS)'},
         },
     },
 

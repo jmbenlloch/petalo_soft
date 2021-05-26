@@ -1343,6 +1343,13 @@ link_control_data = {
             True  : {'value' : bitarray('1') },
         },
     },
+    'checkBox_DDR' : {
+        'default' : True,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
     'checkBox_SYNC_RST' : {
         'default' : False,
         'values' : {
@@ -1828,6 +1835,13 @@ tpulse_data = {
         },
     },
     'checkBox_TPULSE_Continous' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TPULSE_EvenOdd' : {
         'default' : False,
         'values' : {
             False : {'value' : bitarray('0') },

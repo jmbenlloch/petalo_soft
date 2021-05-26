@@ -7,6 +7,7 @@ from .. io.config_params import channel_config_fields
 from .. io.utils         import insert_bitarray_slice
 from .. io.utils         import update_gui_fields
 from .. io.configuration import save_config_to_yml
+from .. io.config_params import link_control_fields
 
 from .. network.client_commands import build_hw_register_write_command
 from .. network.commands        import register_tuple
@@ -176,9 +177,16 @@ def send_channel_configuration_to_ram(window, channel_id, channel_bitarray):
 def send_start_channel_configuration_to_card(window, channel):
     # Select TOPFET id
     tofpet_id = window.spinBox_ASIC_n_2.value()
+
+    # set reset cycles
     reset_cycles = 10
     tofpet_id = tofpet_id | (reset_cycles << 4)
     print("tofpet_id: ", tofpet_id)
+
+    # set ddr mode
+    ddr_mode = 1 if window.checkBox_DDR.isChecked() else 0
+    tofpet_id = tofpet_id | (ddr_mode << link_control_fields['DDR'][-1])
+
     daq_id    = 0
     register  = register_tuple(group=3, id=0)
     command = build_hw_register_write_command(daq_id, register.group, register.id, tofpet_id)
@@ -200,9 +208,15 @@ def send_start_channel_configuration_to_card(window, channel):
 def send_start_all_channels_configuration_to_card(window):
     # Select TOPFET id
     tofpet_id = window.spinBox_ASIC_n_2.value()
+
+    # set reset cyles
     reset_cycles = 10
     tofpet_id = tofpet_id | (reset_cycles << 4)
-    print("tofpet_id: ", tofpet_id)
+
+    # set ddr mode
+    ddr_mode = 1 if window.checkBox_DDR.isChecked() else 0
+    tofpet_id = tofpet_id | (ddr_mode << link_control_fields['DDR'][-1])
+
     daq_id    = 0
     register  = register_tuple(group=3, id=0)
     command = build_hw_register_write_command(daq_id, register.group, register.id, tofpet_id)

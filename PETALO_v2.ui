@@ -6094,9 +6094,9 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <widget class="QFrame" name="frame_124">
           <property name="geometry">
            <rect>
-            <x>90</x>
+            <x>170</x>
             <y>200</y>
-            <width>181</width>
+            <width>171</width>
             <height>41</height>
            </rect>
           </property>
@@ -6132,9 +6132,9 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <widget class="QComboBox" name="comboBox_TOFPET_LINK_SEL_MUX">
            <property name="geometry">
             <rect>
-             <x>90</x>
+             <x>100</x>
              <y>10</y>
-             <width>81</width>
+             <width>51</width>
              <height>26</height>
             </rect>
            </property>
@@ -6899,6 +6899,40 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            </property>
            <property name="text">
             <string>SYNC RST</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QFrame" name="frame_146">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>200</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QCheckBox" name="checkBox_DDR">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>0</y>
+             <width>111</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>DDR mode</string>
            </property>
           </widget>
          </widget>
@@ -11598,7 +11632,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <x>10</x>
          <y>30</y>
          <width>391</width>
-         <height>461</height>
+         <height>511</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -11613,7 +11647,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <x>10</x>
           <y>50</y>
           <width>371</width>
-          <height>401</height>
+          <height>451</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -11626,7 +11660,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>270</y>
+           <y>320</y>
            <width>131</width>
            <height>41</height>
           </rect>
@@ -11647,7 +11681,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            <x>10</x>
            <y>20</y>
            <width>341</width>
-           <height>181</height>
+           <height>231</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -11726,7 +11760,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
           <property name="geometry">
            <rect>
             <x>100</x>
-            <y>130</y>
+            <y>180</y>
             <width>161</width>
             <height>41</height>
            </rect>
@@ -11744,9 +11778,9 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <widget class="QLabel" name="label_334">
           <property name="geometry">
            <rect>
-            <x>10</x>
+            <x>0</x>
             <y>90</y>
-            <width>211</width>
+            <width>221</width>
             <height>31</height>
            </rect>
           </property>
@@ -11758,7 +11792,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            </font>
           </property>
           <property name="text">
-           <string>Length active (cycles-1)</string>
+           <string>Length inactive (cycles-2)</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -11774,12 +11808,46 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
            </rect>
           </property>
          </widget>
+         <widget class="QFrame" name="frame_147">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>130</y>
+            <width>171</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QCheckBox" name="checkBox_TPULSE_EvenOdd">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>0</y>
+             <width>161</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Even/odd cycles</string>
+           </property>
+          </widget>
+         </widget>
         </widget>
         <widget class="QFrame" name="frame_20">
          <property name="geometry">
           <rect>
            <x>150</x>
-           <y>210</y>
+           <y>260</y>
            <width>211</width>
            <height>111</height>
           </rect>
@@ -11828,7 +11896,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>220</y>
+           <y>270</y>
            <width>131</width>
            <height>41</height>
           </rect>
@@ -11847,7 +11915,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
          <property name="geometry">
           <rect>
            <x>60</x>
-           <y>330</y>
+           <y>380</y>
            <width>251</width>
            <height>61</height>
           </rect>

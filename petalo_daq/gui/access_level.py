@@ -1076,6 +1076,11 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
+    'checkBox_DDR' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
     'checkBox_SYNC_RST' : {
         'admin'   : True,
         'shifter' : True,
@@ -1175,6 +1180,11 @@ user_access = {
     },
 
     'spinBox_TPULSE_Phase' : {
+        'admin'   : True,
+        'shifter' : False,
+        'none'    : False,
+    },
+    'checkBox_TPULSE_EvenOdd' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,

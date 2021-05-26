@@ -215,6 +215,10 @@ def send_sync_rst(window):
     # Activate SYNC RST
     register_value = 1 << link_control_fields['SYNC_RST'][-1]
 
+    # configure DDR mode
+    ddr_mode = 1 if window.checkBox_DDR.isChecked() else 0
+    register_value = register_value | (ddr_mode << link_control_fields['DDR'][-1])
+
     # Configure number of cycles
     rst_cycles = 20
     register_value = register_value | (rst_cycles << link_control_fields['RST_CYCLES'][-1])

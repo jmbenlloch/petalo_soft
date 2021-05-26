@@ -5,6 +5,7 @@ from .. gui.widget_data  import global_data
 from .. gui.types        import global_config_tuple
 from .. io.config_params import global_config_fields
 from .. io.utils         import insert_bitarray_slice
+from .. io.config_params import link_control_fields
 
 from .. network.client_commands import build_hw_register_write_command
 from .. network.commands        import register_tuple
@@ -111,8 +112,15 @@ def send_global_configuration_to_card(window, global_bitarray):
 
     # Select TOPFET id
     tofpet_id = window.spinBox_ASIC_n.value()
+
+    # set rst cycles
     reset_cycles = 10
     tofpet_id = tofpet_id | (reset_cycles << 4)
+
+    # set ddr mode
+    ddr_mode = 1 if window.checkBox_DDR.isChecked() else 0
+    tofpet_id = tofpet_id | (ddr_mode << link_control_fields['DDR'][-1])
+
     #  print("tofpet_id: ", tofpet_id)
     register  = register_tuple(group=3, id=0)
     command = build_hw_register_write_command(daq_id, register.group, register.id, tofpet_id)

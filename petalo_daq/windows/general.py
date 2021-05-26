@@ -459,6 +459,8 @@ def reset_link_alignment(window, tofpet_id):
 
     #Build command
     daq_id = 0x0000
+
+    # TODO set reset cylces and DDR mode
     register = register_tuple(group=3, id=0)
     value = int(cmd_bitarray.to01()[::-1], 2) #reverse bitarray and convert to int in base 2
 

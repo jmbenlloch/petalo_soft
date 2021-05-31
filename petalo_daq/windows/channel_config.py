@@ -1,4 +1,5 @@
 from bitarray import bitarray
+from datetime import datetime
 
 from .. gui.utils        import read_parameters
 from .. gui.widget_data  import channel_data
@@ -117,6 +118,11 @@ def Config_update_ch(window):
             channel_configs = {}
             for ch in range(n_channels):
                 channel_configs[ch] = channel_config
+
+                with open('channel_config_log.txt', 'a') as fd:
+                    date = datetime.now()
+                    fd.write(f"{date}: ch {ch} - {channel_bitarray}\n")
+
                 send_channel_configuration_to_ram(window, ch, channel_bitarray)
 
             send_start_all_channels_configuration_to_card(window)
@@ -126,6 +132,10 @@ def Config_update_ch(window):
             channel_configs = window.data_store.retrieve('channel_config')
             channel = window.spinBox_ch_number.value()
             channel_configs[channel] = channel_config
+
+            with open('channel_config_log.txt', 'a') as fd:
+                date = datetime.now()
+                fd.write(f"{date}: ch {channel} - {channel_bitarray}\n")
 
             send_channel_configuration_to_ram(window, channel, channel_bitarray)
             send_start_channel_configuration_to_card(window, channel)

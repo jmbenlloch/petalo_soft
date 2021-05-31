@@ -85,7 +85,8 @@ def load_channel_config_parameters(window, data):
 
 
 
-ch_config_yml = '{}/channels_config.yml'.format(os.environ['PETALO_DAQ_DIR'])
+ch_config_yml     = '{}/channels_config.yml'.format(os.environ['PETALO_DAQ_DIR'])
+global_config_yml = '{}/global_config.yml'  .format(os.environ['PETALO_DAQ_DIR'])
 
 class NoAliasDumper(yaml.SafeDumper):
    def ignore_aliases(self, data):
@@ -107,6 +108,13 @@ def save_config_to_yml(window):
 
     with open(ch_config_yml, 'w') as outfile:
         yaml.dump(configs_dicts, outfile, default_flow_style=False, Dumper=NoAliasDumper)
+
+
+def save_global_config_to_yml(config):
+    #configs = window.data_store.retrieve('global_config')
+
+    with open(global_config_yml, 'w') as outfile:
+        yaml.dump(config._asdict(), outfile, default_flow_style=False, Dumper=NoAliasDumper)
 
 
 def load_channel_config_from_yml(window):

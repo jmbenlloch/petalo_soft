@@ -1,4 +1,5 @@
 from bitarray  import bitarray
+from datetime  import datetime
 
 from .. gui.utils        import read_parameters
 from .. gui.widget_data  import global_data
@@ -6,6 +7,7 @@ from .. gui.types        import global_config_tuple
 from .. io.config_params import global_config_fields
 from .. io.utils         import insert_bitarray_slice
 from .. io.config_params import link_control_fields
+from .. io.configuration import save_global_config_to_yml
 
 from .. network.client_commands import build_hw_register_write_command
 from .. network.commands        import register_tuple
@@ -70,7 +72,12 @@ def Config_update_glob(window):
 
         # print("global config: ", global_bitarray[::-1])
 
+        with open('global_config_log.txt', 'a') as fd:
+            date = datetime.now()
+            fd.write(f"{date}: {global_bitarray}\n")
+
         window.data_store.insert('global_config', global_bitarray)
+        save_global_config_to_yml(global_config)
         send_global_configuration_to_card(window, global_bitarray)
 
         window.update_log_info("Global register configured",

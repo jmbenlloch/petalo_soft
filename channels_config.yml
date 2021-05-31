@@ -1,5 +1,5 @@
 0:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -8,7 +8,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -20,26 +20,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '01'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 1:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -48,7 +48,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -60,26 +60,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 2:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -88,7 +88,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -100,26 +100,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 3:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -128,7 +128,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -140,26 +140,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 4:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -168,7 +168,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -180,26 +180,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 5:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -208,7 +208,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -220,26 +220,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 6:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -248,7 +248,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -260,26 +260,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 7:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -288,7 +288,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -300,26 +300,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 8:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -328,7 +328,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -340,26 +340,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 9:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -368,7 +368,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -380,26 +380,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 10:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -408,7 +408,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -420,26 +420,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 11:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -448,7 +448,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -460,26 +460,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 12:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -488,7 +488,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -500,26 +500,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 13:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -528,7 +528,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -540,26 +540,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 14:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -568,7 +568,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -580,26 +580,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 15:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -608,7 +608,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -620,26 +620,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 16:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -648,7 +648,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -660,26 +660,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 17:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -688,7 +688,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -700,26 +700,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 18:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -728,7 +728,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -740,26 +740,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 19:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -768,7 +768,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -780,26 +780,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 20:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -808,7 +808,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -820,26 +820,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 21:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -848,7 +848,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -860,26 +860,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 22:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -888,7 +888,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -900,26 +900,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 23:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -928,7 +928,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -940,26 +940,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 24:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -968,7 +968,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -980,26 +980,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 25:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1008,7 +1008,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1020,26 +1020,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 26:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1048,7 +1048,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1060,26 +1060,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 27:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1088,7 +1088,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1100,26 +1100,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 28:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1128,7 +1128,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1140,26 +1140,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 29:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1168,7 +1168,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1180,26 +1180,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 30:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1208,7 +1208,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1220,26 +1220,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 31:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1248,7 +1248,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1260,26 +1260,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 32:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1288,7 +1288,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1300,26 +1300,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 33:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1328,7 +1328,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1340,26 +1340,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 34:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1368,7 +1368,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1380,26 +1380,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 35:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1408,7 +1408,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1420,26 +1420,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 36:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1448,7 +1448,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1460,26 +1460,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 37:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1488,7 +1488,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1500,26 +1500,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 38:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1528,7 +1528,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1540,26 +1540,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 39:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1568,7 +1568,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1580,26 +1580,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 40:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1608,7 +1608,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1620,26 +1620,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 41:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1648,7 +1648,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1660,26 +1660,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 42:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1688,7 +1688,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1700,26 +1700,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 43:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1728,7 +1728,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1740,26 +1740,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 44:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1768,7 +1768,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1780,26 +1780,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 45:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1808,7 +1808,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1820,26 +1820,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 46:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1848,7 +1848,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1860,26 +1860,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 47:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1888,7 +1888,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1900,26 +1900,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 48:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1928,7 +1928,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1940,26 +1940,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 49:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -1968,7 +1968,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -1980,26 +1980,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 50:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2008,7 +2008,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2020,26 +2020,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 51:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2048,7 +2048,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2060,26 +2060,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 52:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2088,7 +2088,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2100,26 +2100,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 53:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2128,7 +2128,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2140,26 +2140,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 54:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2168,7 +2168,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2180,26 +2180,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 55:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2208,7 +2208,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2220,26 +2220,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 56:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2248,7 +2248,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2260,26 +2260,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 57:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2288,7 +2288,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2300,26 +2300,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 58:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2328,7 +2328,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2340,26 +2340,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 59:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2368,7 +2368,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2380,26 +2380,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 60:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2408,7 +2408,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2420,26 +2420,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 61:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2448,7 +2448,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2460,26 +2460,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 62:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2488,7 +2488,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2500,26 +2500,26 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47
 63:
-  att: !bitarray '001'
+  att: !bitarray '000'
   baseline_e: !bitarray '110'
   baseline_t: 61
   branch_en_eq: !bitarray '1'
@@ -2528,7 +2528,7 @@
   dead_time: 0
   debug_mode: !bitarray '00'
   e_hysteresis: !bitarray '010'
-  fe_delay: !bitarray '01110'
+  fe_delay: !bitarray '10000'
   fe_tp_en: !bitarray '00'
   hysteresis_en_n: !bitarray '1'
   integ_source_sw: !bitarray '00'
@@ -2540,21 +2540,21 @@
   postamp_gain_e: !bitarray '00'
   postamp_gain_t: !bitarray '00'
   postamp_sh_e: !bitarray '00'
-  qdc_mode: !bitarray '1'
+  qdc_mode: !bitarray '0'
   qtx2_en: !bitarray '0'
   sync_chain_length: !bitarray '00'
   t1_hysteresis: !bitarray '010'
   t2_hysteresis: !bitarray '010'
   tac_max_age: !bitarray '11110'
   tac_min_age: !bitarray '01010'
-  tdc_current_e: !bitarray '0000'
-  tdc_current_t: !bitarray '0000'
+  tdc_current_e: 0
+  tdc_current_t: 0
   trigger_b_latched: !bitarray '0'
-  trigger_mode_1: !bitarray '00'
-  trigger_mode_2_b: !bitarray '101'
-  trigger_mode_2_e: !bitarray '010'
-  trigger_mode_2_q: !bitarray '01'
-  trigger_mode_2_t: !bitarray '01'
+  trigger_mode_1: !bitarray '11'
+  trigger_mode_2_b: !bitarray '000'
+  trigger_mode_2_e: !bitarray '000'
+  trigger_mode_2_q: !bitarray '00'
+  trigger_mode_2_t: !bitarray '00'
   vth_e: 19
-  vth_t1: 56
+  vth_t1: 58
   vth_t2: 47

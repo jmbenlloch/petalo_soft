@@ -122,7 +122,7 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_v_cal_ref_ig' : {
+    'spinBox_v_cal_ref_ig' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
@@ -176,7 +176,7 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_tdc_i_lsb' : {
+    'spinBox_tdc_i_lsb' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
@@ -212,7 +212,7 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_tdc_i_ref' : {
+    'spinBox_tdc_i_ref' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
@@ -230,7 +230,7 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_main_global_dac' : {
+    'spinBox_main_global_dac' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
@@ -272,7 +272,7 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_tdc_global_dac' : {
+    'spinBox_tdc_global_dac' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
@@ -476,13 +476,13 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_tdc_current_t' : {
+    'spinBox_tdc_current_t' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,
     },
 
-    'comboBox_tdc_current_e' : {
+    'spinBox_tdc_current_e' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,

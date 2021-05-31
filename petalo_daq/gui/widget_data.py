@@ -142,12 +142,11 @@ global_data = {
         'step' : 1,
     },
 
-    'comboBox_tdc_i_ref' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('10010'),
-                 'text' : '0b10010'},
-        },
+    'spinBox_tdc_i_ref' : {
+        'default' : 18,
+        'min'  : 0,
+        'max'  : 63,
+        'step' : 1,
     },
 
     'comboBox_tdc_comp_vcas' : {
@@ -168,14 +167,11 @@ global_data = {
         },
     },
 
-    'comboBox_main_global_dac' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('10111'),
-                 'text' : '0b10111'},
-            1 : {'value': bitarray('10001'),
-                 'text' : '0b10001 (PETSYS)'},
-        },
+    'spinBox_main_global_dac' : {
+        'default' : 23,
+        'min'  : 0,
+        'max'  : 63,
+        'step' : 1,
     },
 
     'comboBox_fe_ib1' : {
@@ -227,14 +223,11 @@ global_data = {
         },
     },
 
-    'comboBox_tdc_global_dac' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('010011'),
-                 'text' : '0b010011'},
-            1 : {'value': bitarray('110100'),
-                 'text' : '0b110100 (PETSYS)'},
-        },
+    'spinBox_tdc_global_dac' : {
+        'default' : 19,
+        'min'  : 0,
+        'max'  : 63,
+        'step' : 1
     },
 
     'comboBox_adebug_buffer' : {
@@ -254,6 +247,8 @@ global_data = {
                  'text' : '0b100000'},
             1 : {'value': bitarray('100011'),
                  'text' : '0b100011 (PETSYS)'},
+            2 : {'value': bitarray('000000'),
+                 'text' : '0b000000 (PETSYS updated)'},
         },
     },
 
@@ -273,12 +268,11 @@ global_data = {
         },
     },
 
-    'comboBox_v_cal_ref_ig' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('11111'),
-                 'text' : '0b11111'},
-        },
+    'spinBox_v_cal_ref_ig' : {
+        'min'  : 0,
+        'max'  : 31,
+        'step' : 1,
+        'default' : 31,
     },
 
     'comboBox_fe_postamp_t' : {
@@ -365,12 +359,11 @@ global_data = {
         },
     },
 
-    'comboBox_tdc_i_lsb' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('10011'),
-                 'text' : '0b10011'},
-        },
+    'spinBox_tdc_i_lsb' : {
+        'default' : 19,
+        'min'  : 0,
+        'max'  : 31,
+        'step' : 1,
     },
 
     'spinBox_disc_lsb_t1' : {
@@ -712,6 +705,8 @@ channel_data = {
                  'text' : '8 ns'},
             3 : {'value': bitarray('10000'),
                  'text' : 'Delay line bypassed'},
+            4 : {'value': bitarray('01011'),
+                 'text' : 'Max delay (PETSYS)'},
         },
     },
 
@@ -793,20 +788,18 @@ channel_data = {
         },
     },
 
-    'comboBox_tdc_current_t' : {
+    'spinBox_tdc_current_t' : {
         'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('0000'),
-                 'text' : '0b0000'},
-        },
+        'min'  : 0,
+        'max'  : 15,
+        'step' : 1
     },
 
-    'comboBox_tdc_current_e' : {
+    'spinBox_tdc_current_e' : {
         'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('0000'),
-                 'text' : '0b0000'},
-        },
+        'min'  : 0,
+        'max'  : 15,
+        'step' : 1
     },
 
     'comboBox_fe_tp_en' : {
@@ -814,6 +807,8 @@ channel_data = {
         'values' : {
             0 : {'value': bitarray('00'),
                  'text' : '0b00'},
+            1 : {'value': bitarray('01'),
+                 'text' : '0b01 (PETSYS)'},
         },
     },
 

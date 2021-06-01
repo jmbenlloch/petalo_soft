@@ -68,7 +68,7 @@ def Config_update_glob(window):
         #fill unused bits
         global_bitarray[ 16: 18] = bitarray('00')
         global_bitarray[ 31: 32] = bitarray('0')
-        global_bitarray[177:178] = bitarray('0')
+        global_bitarray[177:178] = bitarray('1')
 
         # print("global config: ", global_bitarray[::-1])
 

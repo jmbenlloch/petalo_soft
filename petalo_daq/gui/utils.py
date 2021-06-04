@@ -23,7 +23,7 @@ def populate_fields(window, gui_data):
         if isinstance(widget, QtWidgets.QComboBox):
             widget.setCurrentIndex(entries['default'])
         if isinstance(widget, QtWidgets.QCheckBox):
-            widget.setEnabled(entries['default'])
+            widget.setChecked(entries['default'])
         if isinstance(widget, QtWidgets.QSpinBox):
             widget.setValue     (entries['default'])
             if 'min' in entries:

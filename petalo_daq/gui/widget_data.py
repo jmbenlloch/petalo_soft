@@ -405,7 +405,7 @@ global_data = {
     },
 
     'checkBox_stop_ramp_en' : {
-        'default' : True,
+        'default' : False,
         'values' : {
             False : {'value' : bitarray('00') },
             True  : {'value' : bitarray('01') },

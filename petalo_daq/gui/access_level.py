@@ -164,7 +164,7 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_imirror_bias_top' : {
+    'spinBox_imirror_bias_top' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,

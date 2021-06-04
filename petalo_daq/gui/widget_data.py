@@ -341,12 +341,11 @@ global_data = {
         },
     },
 
-    'comboBox_imirror_bias_top' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('10111'),
-                 'text' : '0b10111'},
-        },
+    'spinBox_imirror_bias_top' : {
+        'default' : 23,
+        'min'  : 0,
+        'max'  : 31,
+        'step' : 1,
     },
 
     'comboBox_tdc_comp_bias' : {

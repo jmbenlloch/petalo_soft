@@ -2508,7 +2508,7 @@ global parameters</string>
          <widget class="QComboBox" name="comboBox_v_integ_ref_ig"/>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox_imirror_bias_top"/>
+         <widget class="QSpinBox" name="spinBox_imirror_bias_top"/>
         </item>
         <item>
          <widget class="QComboBox" name="comboBox_tdc_comp_bias"/>

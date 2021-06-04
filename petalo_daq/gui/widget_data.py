@@ -1862,13 +1862,13 @@ tpulse_data = {
     },
     'spinBox_TPULSE_Length_Up' : {
         'min'  : 0,
-        'max'  : 127,
+        'max'  : 2047,
         'step' : 1,
         'default' : 0,
     },
     'spinBox_TPULSE_Length_Down' : {
         'min'  : 0,
-        'max'  : 1048576,
+        'max'  : 262144,
         'step' : 1,
         'default' : 0,
     },

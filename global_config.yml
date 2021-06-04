@@ -1,7 +1,7 @@
 adebug_buffer: !bitarray '1'
 adebug_out_mode: !bitarray '11'
 attenuator_ls: !bitarray '101111'
-counter_en: !bitarray '1'
+counter_en: !bitarray '0'
 counter_period: !bitarray '110'
 data_clk_div: !bitarray '00'
 debug_mode: !bitarray '0'
@@ -17,7 +17,7 @@ fe_ib2_x2: !bitarray '1'
 fe_postamp_e: !bitarray '10100'
 fe_postamp_t: !bitarray '10111'
 fetp_enable: !bitarray '0'
-imirror_bias_top: !bitarray '10111'
+imirror_bias_top: 19
 input_polarity: !bitarray '1'
 main_global_dac: 27
 r_clk_en: !bitarray '110'

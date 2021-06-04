@@ -15,6 +15,10 @@ from .. database.mongo_db import get_run_number
 
 # https://www.learnpyqt.com/tutorials/multithreading-pyqt-applications-qthreadpool/
 
+from collections import namedtuple
+
+channel_calib_tuple  = namedtuple('channel_calib_tuple' , ['channel', 'asic', 'mode'])
+
 
 class WorkerSignals(QObject):
     '''
@@ -31,15 +35,16 @@ class WorkerSignals(QObject):
     result
         object data returned from processing, anything
     '''
-    finished = pyqtSignal()
-    error    = pyqtSignal(tuple)
-    result   = pyqtSignal(object)
-    progress = pyqtSignal(object)
-    start_run = pyqtSignal()
-    stop_run  = pyqtSignal()
-    config_done  = pyqtSignal()
-    tpulse_config = pyqtSignal(object)
-    data_taken  = pyqtSignal()
+    finished       = pyqtSignal()
+    error          = pyqtSignal(tuple)
+    result         = pyqtSignal(object)
+    progress       = pyqtSignal(object)
+    start_run      = pyqtSignal()
+    stop_run       = pyqtSignal()
+    config_done    = pyqtSignal()
+    tpulse_config  = pyqtSignal(object)
+    channel_config = pyqtSignal(object)
+    data_taken     = pyqtSignal()
 
 
 class Worker(QRunnable):
@@ -89,8 +94,7 @@ class Worker(QRunnable):
             self.iteration = 0
             while not self.finished:
                 if not self.conf_sent:
-                    self.send_next_configuration()
-                    self.conf_sent = True
+                    self.conf_sent = self.send_next_configuration()
                 if self.conf_done:
                     self.take_runs_automatically_with_signals()
                     self.conf_done = False
@@ -111,14 +115,29 @@ class Worker(QRunnable):
 
 
     def send_next_configuration(self):
+        ready_for_data = False # only True when channel and TPULSE are setup
         try:
             params = next(self.generator)
-            config_run(self.window, params, self.signals)
+            if isinstance(params, channel_calib_tuple):
+                print("Configuring channnel")
+                # configure channels
+                # channel_calib_tuple :
+                #    channel : int
+                #    asic    : int
+                #    mode    : 'qdc' or 'tot'
+                config_channels(self.window, params, self.signals)
+                ready_for_data = False
+            else:
+                print("Configuring tpulse")
+                config_tpulse(self.window, params, self.signals)
+                ready_for_data = True
         except StopIteration:
             # If there are no more configs in the generator -> Stop the run
             stop_DATE()
             self.finished = True
             self.window.data_store.insert('labels', {})
+
+        return ready_for_data
 
 
     def take_runs_automatically_with_signals(self):
@@ -137,21 +156,31 @@ def print_run_number(window, signals):
     signals.progress.emit(run_config + '\n')
 
 
-def config_run(window, params, signals):
+def config_tpulse(window, params, signals):
     config = {} # dict {GUI setter fn -> value}
 
     # Set phase
     widget  = window.spinBox_TPULSE_Phase
     config[widget.setValue] = params['phase']
 
-    # Set length
+    # Set length up
     widget  = window.spinBox_TPULSE_Length_Up
-    config[widget.setValue] = params['length']
+    config[widget.setValue] = params['length_up']
 
-    run_config = "{}, {}".format(params['phase'], params['length'])
+    # Set length down
+    widget  = window.spinBox_TPULSE_Length_Down
+    config[widget.setValue] = params['length_down']
+
+    run_config = "{}, {}".format(params['phase'], params['length_up'], params['length_down'])
 
     signals.progress.emit(run_config + '\n')
     signals.tpulse_config.emit(config)
+
+
+def config_channels(window, params, signals):
+    run_config = "Configuring channel {} of ASIC {} in {} mode".format(params.channel, params.asic, params.mode)
+    signals.progress.emit(run_config + '\n')
+    signals.channel_config.emit(params)
 
 
 def stop_DATE():

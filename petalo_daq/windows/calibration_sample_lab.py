@@ -171,3 +171,19 @@ def calibration_generator():
 self.generator = calibration_generator()
 
 
+
+def calibration_generator():
+    asic = 2
+    for channel in range(1,4):
+        yield channel_calib_tuple(channel, asic, 'qdc')
+        for phase in range(0, 40, 20):
+            for length in [0]:
+                params = {
+                    'phase'  : phase,
+                    'length_up' : length,
+                    'length_down' : length,
+                }
+                yield params
+
+self.generator = calibration_generator()
+

@@ -6,6 +6,7 @@ from . worker import Calibration
 
 from . worker_tpulse import Worker        as tpulse_worker
 from . worker_tpulse import WorkerSignals as tpulse_signals
+from . worker_tpulse import channel_calib_tuple
 
 from . global_config  import Config_update_glob
 from . channel_config import Config_update_ch
@@ -119,10 +120,11 @@ def execute_tpulse_procedure(window):
                 window.plainTextEdit_calibrationLog.insertPlainText(repr(e))
 
         worker = tpulse_worker(fn_procedure)
-        worker.signals.progress     .connect(print_progress(window))
-        worker.signals.tpulse_config.connect(config_tpulse_send_cmd(window, worker.signals))
-        worker.signals.start_run    .connect(start_tpulse_run(window, worker.signals))
-        worker.signals.stop_run     .connect(stop_run (window))
+        worker.signals.progress      .connect(print_progress(window))
+        worker.signals.tpulse_config .connect(config_tpulse_send_cmd(window, worker.signals))
+        worker.signals.channel_config.connect(config_tpulse_channels_and_send_cmd(window, worker.signals))
+        worker.signals.start_run     .connect(start_tpulse_run(window, worker.signals))
+        worker.signals.stop_run      .connect(stop_run (window))
 
         worker.signals.config_done        .connect(conf_done_signal_ack(worker))
         worker.signals.data_taken        .connect(data_taken_signal_ack(worker))
@@ -142,6 +144,52 @@ def config_tpulse_send_cmd(window, signals):
         window.tx_queue.put(signals.config_done)
 
     return fn
+
+
+def config_tpulse_channels_and_send_cmd(window, signals):
+    # Disable all channels but one, setting it to TPULSE trigger
+    # actually set the values in the GUI (config: {setter -> value})
+    def fn(config):
+        # Disable all channels
+        window.checkBox_all_ch.setChecked(True)
+        window.spinBox_ASIC_n_2.setValue(config.asic)
+        window.comboBox_trigger_mode_1.setCurrentIndex(3)
+        Config_update_ch(window)
+
+        sleep(0.5)
+
+        # Enable only the selected channel
+        window.checkBox_all_ch.setChecked(False)
+        window.spinBox_ch_number.setValue(config.channel)
+        window.spinBox_ASIC_n_2.setValue(config.asic)
+        window.comboBox_trigger_mode_1.setCurrentIndex(1) # tpulse
+
+        # Set the simplest trigger (T1)
+        window.comboBox_trigger_mode_2_b.setCurrentIndex(0)
+        window.comboBox_trigger_mode_2_e.setCurrentIndex(0)
+        window.comboBox_trigger_mode_2_q.setCurrentIndex(0)
+        window.comboBox_trigger_mode_2_t.setCurrentIndex(0)
+
+        if config.mode == 'qdc':
+            window.comboBox_qdc_mode      .setCurrentIndex(0)
+            window.comboBox_intg_en       .setCurrentIndex(0)
+            window.comboBox_intg_signal_en.setCurrentIndex(0)
+        if config.mode == 'tot':
+            window.comboBox_qdc_mode      .setCurrentIndex(1)
+            window.comboBox_intg_en       .setCurrentIndex(1)
+            window.comboBox_intg_signal_en.setCurrentIndex(1)
+
+        Config_update_ch(window)
+        sleep(0.1)
+
+        # Set calibration mode to activate TPULSE
+        window.comboBox_RUN_MODE.setCurrentIndex(2)
+
+        # Put conf_done signal in the queue
+        window.tx_queue.put(signals.config_done)
+
+    return fn
+
 
 def start_tpulse_run(window, signals):
     def fn():

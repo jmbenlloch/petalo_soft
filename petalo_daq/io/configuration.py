@@ -83,8 +83,6 @@ def load_channel_config_parameters(window, data):
     load_bitarray_config(window, channel_config[default_channel]['value'], channel_config_fields, channel_data)
 
 
-
-
 ch_config_yml     = '{}/channels_config.yml'.format(os.environ['PETALO_DAQ_DIR'])
 global_config_yml = '{}/global_config.yml'  .format(os.environ['PETALO_DAQ_DIR'])
 
@@ -125,3 +123,21 @@ def load_channel_config_from_yml(window):
 
     channel_configs = {k : channel_config_tuple(**v) for k, v in channel_configs_tmp.items()}
     window.data_store.insert('channel_config', channel_configs)
+
+
+def load_global_config_from_yml(window):
+    """
+    Function to load the parameters of the "Global config" tab.
+    TODO: Save one config per TOFPET
+
+    Parameters
+    window (PetaloRunConfigurationGUI): Main application
+    """
+    yaml.add_constructor(u'!bitarray', bitarray_parser)
+
+    with open(global_config_yml, 'r') as outfile:
+        global_config_tmp = yaml.load(outfile)
+
+    global_configs = global_config_tuple(**global_config_tmp)
+    window.data_store.insert('global_config', global_configs)
+

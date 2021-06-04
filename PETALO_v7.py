@@ -34,6 +34,7 @@ from petalo_daq.gui.access_level import user_access
 from petalo_daq.io.data_store    import DataStore
 from petalo_daq.io.configuration import load_configuration_file
 from petalo_daq.io.configuration import load_channel_config_from_yml
+from petalo_daq.io.configuration import load_global_config_from_yml
 
 
 from petalo_daq.io.command_dispatcher import initialize_command_dispatcher
@@ -119,6 +120,11 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         # Load channels config
         load_channel_config_from_yml(self)
         window_channel.update_channel_config(self)() # read gui config for default channel
+
+        # Load global config
+        load_global_config_from_yml(self)
+        window_global.update_global_config(self)() # read gui config for default asic
+
 
         #Button Calls
         window_main   .connect_buttons(self)

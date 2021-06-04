@@ -6,6 +6,7 @@ from .. gui.widget_data  import global_data
 from .. gui.types        import global_config_tuple
 from .. io.config_params import global_config_fields
 from .. io.utils         import insert_bitarray_slice
+from .. io.utils         import update_gui_fields
 from .. io.config_params import link_control_fields
 from .. io.configuration import save_global_config_to_yml
 
@@ -169,4 +170,12 @@ def build_start_global_configuration_command(daq_id):
     command  = build_hw_register_write_command(daq_id, register.group, register.id, value)
     return command
 
+
+def update_global_config(window):
+    def on_click():
+        global_config = window.data_store.retrieve('global_config')
+        for field, value in global_config._asdict().items():
+            update_gui_fields(window, field, value, global_data)
+
+    return on_click
 

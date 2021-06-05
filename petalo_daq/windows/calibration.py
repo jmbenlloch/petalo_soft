@@ -154,7 +154,7 @@ def config_tpulse_channels_and_send_cmd(window, signals):
         window.checkBox_all_ch.setChecked(True)
         window.spinBox_ASIC_n_2.setValue(config.asic)
         window.comboBox_trigger_mode_1.setCurrentIndex(3)
-        Config_update_ch(window)
+        Config_update_ch(window)()
 
         sleep(0.5)
 
@@ -179,7 +179,7 @@ def config_tpulse_channels_and_send_cmd(window, signals):
             window.comboBox_intg_en       .setCurrentIndex(1)
             window.comboBox_intg_signal_en.setCurrentIndex(1)
 
-        Config_update_ch(window)
+        Config_update_ch(window)()
         sleep(0.1)
 
         # Set calibration mode to activate TPULSE

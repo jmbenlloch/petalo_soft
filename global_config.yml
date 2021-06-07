@@ -17,7 +17,7 @@ fe_ib2_x2: !bitarray '1'
 fe_postamp_e: !bitarray '10100'
 fe_postamp_t: !bitarray '10111'
 fetp_enable: !bitarray '0'
-imirror_bias_top: 19
+imirror_bias_top: 16
 input_polarity: !bitarray '1'
 main_global_dac: 27
 r_clk_en: !bitarray '110'
@@ -39,7 +39,7 @@ v_att_diff_bias_ig: !bitarray '100011'
 v_cal_diff_bias_ig: !bitarray '00000'
 v_cal_ref_ig: 31
 v_cal_tp_top: !bitarray '00001'
-v_integ_ref_ig: !bitarray '111011'
+v_integ_ref_ig: 57
 v_ref_diff_bias_ig: !bitarray '111001'
 vdifffoldcas: !bitarray '110110'
 veto_mode: !bitarray '000000'

@@ -333,12 +333,11 @@ global_data = {
         },
     },
 
-    'comboBox_v_integ_ref_ig' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('111011'),
-                 'text' : '0b111011'},
-        },
+    'spinBox_v_integ_ref_ig' : {
+        'default' : 59,
+        'min'  : 0,
+        'max'  : 63,
+        'step' : 1,
     },
 
     'spinBox_imirror_bias_top' : {

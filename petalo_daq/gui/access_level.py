@@ -158,7 +158,7 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_v_integ_ref_ig' : {
+    'spinBox_v_integ_ref_ig' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,

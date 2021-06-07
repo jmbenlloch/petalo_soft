@@ -2505,7 +2505,7 @@ global parameters</string>
          <widget class="QComboBox" name="comboBox_v_att_diff_bias_ig"/>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox_v_integ_ref_ig"/>
+         <widget class="QSpinBox" name="spinBox_v_integ_ref_ig"/>
         </item>
         <item>
          <widget class="QSpinBox" name="spinBox_imirror_bias_top"/>

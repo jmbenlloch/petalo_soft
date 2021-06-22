@@ -36,6 +36,7 @@ from petalo_daq.io.configuration import load_configuration_file
 from petalo_daq.io.configuration import load_channel_config_from_yml
 from petalo_daq.io.configuration import load_global_config_from_yml
 
+from petalo_daq.database.temperatures import start_periodic_tasks
 
 from petalo_daq.io.command_dispatcher import initialize_command_dispatcher
 
@@ -109,6 +110,11 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         self.threadpoolCalibration.setMaxThreadCount(1)
         self.threadpool = QThreadPool()
         self.threadpool.setMaxThreadCount(1)
+
+        # Thread pool for periodic tasks
+        self.threadpool_tasks = QThreadPool()
+        self.threadpool_tasks.setMaxThreadCount(1)
+        start_periodic_tasks(self)
 
         # Initialize command dispatcher
         initialize_command_dispatcher(self)

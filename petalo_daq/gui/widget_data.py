@@ -20,6 +20,22 @@ general_data = {
     }
 }
 
+slow_control_data = {
+    'spinBox_TempMonitor_period' : {
+        'default' : 5,
+        'min'  : 0,
+        'max'  : 1000,
+        'step' : 1,
+    },
+    'spinBox_TempMonitor_alert' : {
+        'default' : 60,
+        'min'  : 0,
+        'max'  : 150,
+        'step' : 1,
+    }
+}
+
+
 global_data = {
     'comboBox_tx_nlinks' : {
         'default' : 2,

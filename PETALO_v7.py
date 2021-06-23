@@ -30,13 +30,15 @@ from petalo_daq.gui.widget_data  import clock_control_data
 from petalo_daq.gui.widget_data  import tofpet_config_data
 from petalo_daq.gui.widget_data  import tofpet_config_value_data
 from petalo_daq.gui.widget_data  import tpulse_data
+from petalo_daq.gui.widget_data  import slow_control_data
 from petalo_daq.gui.access_level import user_access
 from petalo_daq.io.data_store    import DataStore
 from petalo_daq.io.configuration import load_configuration_file
 from petalo_daq.io.configuration import load_channel_config_from_yml
 from petalo_daq.io.configuration import load_global_config_from_yml
 
-from petalo_daq.database.temperatures import start_periodic_tasks
+from petalo_daq.slow_control.temperatures import start_periodic_tasks
+from petalo_daq import slow_control
 
 from petalo_daq.io.command_dispatcher import initialize_command_dispatcher
 
@@ -100,6 +102,7 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         gui.populate_fields(self, tofpet_config_data)
         gui.populate_fields(self, tofpet_config_value_data)
         gui.populate_fields(self, tpulse_data)
+        gui.populate_fields(self, slow_control_data)
 
         # Data store
         self.data_store = DataStore()
@@ -114,7 +117,7 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         # Thread pool for periodic tasks
         self.threadpool_tasks = QThreadPool()
         self.threadpool_tasks.setMaxThreadCount(1)
-        start_periodic_tasks(self)
+        start_periodic_tasks(self)()
 
         # Initialize command dispatcher
         initialize_command_dispatcher(self)
@@ -142,6 +145,7 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         window_tpulse.connect_buttons(self)
 
         window_register.connect_buttons(self)
+        slow_control.temperatures.connect_buttons(self)
 
         # Disable everything before authentication
         self.pass_lineEdit.setText("Petalo")

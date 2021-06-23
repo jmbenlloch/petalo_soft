@@ -1229,5 +1229,16 @@ user_access = {
         'shifter' : False,
         'none'    : False,
     },
+
+   'spinBox_TempMonitor_period' : {
+       'admin'   : True,
+       'shifter' : False,
+       'none'    : False,
+   },
+   'spinBox_TempMonitor_alert' : {
+       'admin'   : True,
+       'shifter' : False,
+       'none'    : False,
+   },
 }
 

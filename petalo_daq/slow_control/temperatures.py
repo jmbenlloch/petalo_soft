@@ -5,8 +5,9 @@ def start_periodic_tasks(window):
     def fn():
         stop_periodic_tasks(window)()
         temp_period = window.spinBox_TempMonitor_period.value()
+        temp_limit  = window.spinBox_TempMonitor_alert.value()
         print(temp_period)
-        window.periodic_worker = Worker(period=temp_period, window=window)
+        window.periodic_worker = Worker(period=temp_period, threshold=temp_limit, window=window)
         window.threadpool_tasks.start(window.periodic_worker)
     return fn
 

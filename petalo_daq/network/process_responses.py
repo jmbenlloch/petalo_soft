@@ -3,6 +3,7 @@ from   bitarray import bitarray
 from   datetime import datetime
 
 from .. gui.types        import LogError
+from .. gui.types        import temperature_tuple
 from .. io.utils         import read_bitarray_slice
 from .. io.utils         import load_bitarray_config
 
@@ -58,6 +59,13 @@ def read_temperature(window, cmd, params):
         widget_raw.display(raw_value)
     else:
         temperature = temperature_conversion_2(value)
+
+#    try:
+    data = temperature_tuple(tofpet_id, temperature)
+    window.periodic_worker.signals.temperature.emit(data)
+    print(data)
+    #  except:
+    #      print("Error sending temperature data to monitoring thread")
 
     widget.display(temperature)
 

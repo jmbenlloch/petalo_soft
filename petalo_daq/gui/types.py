@@ -23,6 +23,8 @@ tofpet_config_value_tuple = namedtuple('tofpet_config_value', config_params.tofp
 leds_status_tuple        = namedtuple('leds_status'       , config_params.leds_status_fields)
 activate_tuple           = namedtuple('activate'          , config_params.activate_fields)
 
+temperature_tuple        = namedtuple('temperature', ['id', 'temperature'])
+
 
 class LogError(Exception):
     pass

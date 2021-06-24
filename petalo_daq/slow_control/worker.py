@@ -1,4 +1,14 @@
-from ..windows.general import read_temperature
+from .. windows.general           import read_temperature
+from .. network.process_responses import temperature_tofpet_to_ch
+from .. gui.widget_data   import power_control_data
+from .. gui.types         import power_control_tuple
+from .. io .config_params import power_control_fields
+from .. io.utils          import insert_bitarray_slice
+from .. network.commands  import register_tuple
+from .. network.client_commands import build_hw_register_write_command
+from .. network.client_commands import build_sw_register_read_command
+
+from bitarray import bitarray
 
 from PyQt5.QtCore import QObject
 from PyQt5.QtCore import pyqtSignal
@@ -65,7 +75,7 @@ class Worker(QRunnable):
         # Retrieve args/kwargs here; and fire processing using them
         try:
             print("Running")
-            schedule.every(self.period).seconds.do(read_temperature(self.window))
+            schedule.every(self.period).seconds.do(read_temperature(self.window, self.tofpets))
             while self.monitor:
                 schedule.run_pending()
                 time.sleep(1)
@@ -88,22 +98,16 @@ class Worker(QRunnable):
                 turn_off_power_regulators(self.window)
                 msg = "TOFPET {} temperature {} over maximum threshold".format(data.id, data.temperature)
                 self.signals.alert.emit(msg)
+                self.monitor = False
             if (data.temperature < self.min_temp):
                 turn_off_power_regulators(self.window)
                 msg = "TOFPET {} temperature {} below minimum threshold".format(data.id, data.temperature)
                 self.signals.alert.emit(msg)
+                self.monitor = False
         else:
             print("tofpet not being monitored")
 
 
-from .. gui.widget_data   import power_control_data
-from .. gui.types         import power_control_tuple
-from .. io .config_params import power_control_fields
-from .. io.utils          import insert_bitarray_slice
-from .. network.commands  import register_tuple
-from .. network.client_commands import build_hw_register_write_command
-
-from bitarray import bitarray
 
 def turn_off_power_regulators(window):
     power_control_bitarray = bitarray('0'*32)
@@ -146,3 +150,12 @@ def turn_off_power_regulators(window):
     window.tx_queue.put(command)
 
 
+def read_temperature(window, tofpets):
+    def fn():
+        daq_id = 0
+        for tofpet_id in tofpets:
+            print("tofpet_id: ", tofpet_id)
+            channel = temperature_tofpet_to_ch[tofpet_id]
+            command = build_sw_register_read_command(daq_id, register_group=2, register_id=channel)
+            window.tx_queue.put(command)
+    return fn

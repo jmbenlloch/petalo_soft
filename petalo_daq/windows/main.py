@@ -223,6 +223,9 @@ def send_sync_rst(window):
     rst_cycles = 20
     register_value = register_value | (rst_cycles << link_control_fields['RST_CYCLES'][-1])
 
+    # TODO: Set ASIC number somehow
+    # register_value = register_value | 6
+
     # Send command
     daq_id   = 0x0000
     register = register_tuple(group=3, id=0)

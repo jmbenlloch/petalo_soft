@@ -8,7 +8,11 @@ from .. network.commands  import register_tuple
 from .. network.client_commands import build_hw_register_write_command
 from .. network.client_commands import build_sw_register_read_command
 
+from .. database.mongo_db import mongodb_collection
+from .. database.mongo_db import store_temperature
+
 from bitarray import bitarray
+from datetime import datetime
 
 from PyQt5.QtCore import QObject
 from PyQt5.QtCore import pyqtSignal
@@ -67,6 +71,8 @@ class Worker(QRunnable):
         self.window    = kwargs['window']
         self.monitor   = True
 
+        self.collection = mongodb_collection('temperatures')
+
         self.signals.temperature.connect(self.temperature_threshold_alert)
 
 
@@ -90,9 +96,11 @@ class Worker(QRunnable):
 
 
     def temperature_threshold_alert(self, data):
-        print("Alert: ", data)
+        try:
+            store_temperature(self.collection, data.id, datetime.now(), data.temperature)
+        except:
+            print("Error storing temperature in databse: ", e)
 
-        print("tofpets: ", self.tofpets)
         if data.id in self.tofpets:
             if (data.temperature > self.max_temp):
                 turn_off_power_regulators(self.window)
@@ -153,7 +161,7 @@ def turn_off_power_regulators(window):
 def read_temperature(window, tofpets):
     def fn():
         daq_id = 0
-        for tofpet_id in tofpets:
+        for tofpet_id in list(tofpets) + [8]: # adds mezzanine
             print("tofpet_id: ", tofpet_id)
             channel = temperature_tofpet_to_ch[tofpet_id]
             command = build_sw_register_read_command(daq_id, register_group=2, register_id=channel)

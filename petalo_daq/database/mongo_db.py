@@ -62,3 +62,17 @@ def get_run_number():
     run_number = cmd_out.decode()
     return run_number
 
+
+
+def mongodb_collection(col_name):
+    client = MongoClient()
+    db     = client["petalo"]
+    col = db.get_collection(col_name)
+    return col
+
+
+def store_temperature(collection, tofpet_id, timestamp, temperature):
+    data = {'tofpet_id'   : tofpet_id,
+            'timestamp'   : timestamp,
+            'temperature' : temperature}
+    collection.insert_one(data)

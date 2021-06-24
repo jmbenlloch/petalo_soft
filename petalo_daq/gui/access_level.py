@@ -1235,7 +1235,53 @@ user_access = {
        'shifter' : False,
        'none'    : False,
    },
-   'spinBox_TempMonitor_alert' : {
+   'spinBox_TempMonitor_min' : {
+       'admin'   : True,
+       'shifter' : False,
+       'none'    : False,
+   },
+   'spinBox_TempMonitor_max' : {
+       'admin'   : True,
+       'shifter' : False,
+       'none'    : False,
+   },
+
+   'checkBox_TempMonitor_0' : {
+       'admin'   : True,
+       'shifter' : False,
+       'none'    : False,
+   },
+   'checkBox_TempMonitor_1' : {
+       'admin'   : True,
+       'shifter' : False,
+       'none'    : False,
+   },
+   'checkBox_TempMonitor_2' : {
+       'admin'   : True,
+       'shifter' : False,
+       'none'    : False,
+   },
+   'checkBox_TempMonitor_3' : {
+       'admin'   : True,
+       'shifter' : False,
+       'none'    : False,
+   },
+   'checkBox_TempMonitor_4' : {
+       'admin'   : True,
+       'shifter' : False,
+       'none'    : False,
+   },
+   'checkBox_TempMonitor_5' : {
+       'admin'   : True,
+       'shifter' : False,
+       'none'    : False,
+   },
+   'checkBox_TempMonitor_6' : {
+       'admin'   : True,
+       'shifter' : False,
+       'none'    : False,
+   },
+   'checkBox_TempMonitor_7' : {
        'admin'   : True,
        'shifter' : False,
        'none'    : False,

@@ -193,6 +193,7 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         scrollbar.setValue(scrollbar.maximum())
 
 
+
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     print (sys.argv)

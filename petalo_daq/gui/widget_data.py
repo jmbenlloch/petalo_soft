@@ -27,12 +27,75 @@ slow_control_data = {
         'max'  : 1000,
         'step' : 1,
     },
-    'spinBox_TempMonitor_alert' : {
+    'spinBox_TempMonitor_min' : {
+        'default' : 1,
+        'min'  : 0,
+        'max'  : 150,
+        'step' : 1,
+    },
+    'spinBox_TempMonitor_max' : {
         'default' : 60,
         'min'  : 0,
         'max'  : 150,
         'step' : 1,
-    }
+    },
+
+    'checkBox_TempMonitor_0' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TempMonitor_1' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TempMonitor_2' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TempMonitor_3' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TempMonitor_4' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TempMonitor_5' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TempMonitor_6' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_TempMonitor_7' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
 }
 
 

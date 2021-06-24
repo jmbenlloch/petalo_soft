@@ -30,6 +30,7 @@ class WorkerSignals(QObject):
     result   = pyqtSignal(object)
     progress = pyqtSignal(object)
     temperature = pyqtSignal(object)
+    alert       = pyqtSignal(object)
 
 
 class Worker(QRunnable):
@@ -50,7 +51,9 @@ class Worker(QRunnable):
         super(Worker, self).__init__()
         self.signals   = WorkerSignals()
         self.period    = kwargs['period']
-        self.threshold = kwargs['threshold']
+        self.min_temp  = kwargs['min']
+        self.max_temp  = kwargs['max']
+        self.tofpets   = kwargs['tofpets']
         self.window    = kwargs['window']
         self.monitor   = True
 
@@ -79,9 +82,18 @@ class Worker(QRunnable):
     def temperature_threshold_alert(self, data):
         print("Alert: ", data)
 
-        if (data.temperature > self.threshold):
-            print("Temperature {} over threshold".format(data.temperature))
-            turn_off_power_regulators(self.window)
+        print("tofpets: ", self.tofpets)
+        if data.id in self.tofpets:
+            if (data.temperature > self.max_temp):
+                turn_off_power_regulators(self.window)
+                msg = "TOFPET {} temperature {} over maximum threshold".format(data.id, data.temperature)
+                self.signals.alert.emit(msg)
+            if (data.temperature < self.min_temp):
+                turn_off_power_regulators(self.window)
+                msg = "TOFPET {} temperature {} below minimum threshold".format(data.id, data.temperature)
+                self.signals.alert.emit(msg)
+        else:
+            print("tofpet not being monitored")
 
 
 from .. gui.widget_data   import power_control_data

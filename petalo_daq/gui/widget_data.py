@@ -160,7 +160,7 @@ global_data = {
     'comboBox_fe_ib2_x2' : {
         'default' : 1,
         'values' : {
-            0 : {'value': bitarray('1'),
+            0 : {'value': bitarray('0'),
                  'text' : '0'},
             1 : {'value': bitarray('1'),
                  'text' : '1'},
@@ -347,14 +347,18 @@ global_data = {
         'step' : 1,
     },
 
-    'comboBox_tdc_comp_bias' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('00100'),
-                 'text' : '0b00100'},
-            1 : {'value': bitarray('11011'),
-                 'text' : '0b11011 (PETSYS)'},
-        },
+    'spinBox_tdc_comp_bias' : {
+#        'default' : 0,
+#        'values' : {
+#            0 : {'value': bitarray('00100'),
+#                 'text' : '0b00100'},
+#            1 : {'value': bitarray('11011'),
+#                 'text' : '0b11011 (PETSYS)'},
+#        },
+        'default' : 4,
+        'min'  : 0,
+        'max'  : 31,
+        'step' : 1,
     },
 
     'spinBox_tdc_i_lsb' : {

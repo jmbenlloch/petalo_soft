@@ -170,7 +170,7 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_tdc_comp_bias' : {
+    'spinBox_tdc_comp_bias' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,

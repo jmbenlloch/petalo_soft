@@ -2511,7 +2511,7 @@ global parameters</string>
          <widget class="QSpinBox" name="spinBox_imirror_bias_top"/>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox_tdc_comp_bias"/>
+         <widget class="QSpinBox" name="spinBox_tdc_comp_bias"/>
         </item>
         <item>
          <widget class="QSpinBox" name="spinBox_tdc_i_lsb"/>

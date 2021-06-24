@@ -82,7 +82,6 @@ def read_temperature(window):
             channel = temperature_tofpet_to_ch[tofpet_id]
             command = build_sw_register_read_command(daq_id, register_group=2, register_id=channel)
             window.tx_queue.put(command)
-            window.tx_queue.put(sleep_cmd(500))
 
         window.update_log_info("Temperature config",
                                "Temperature configuration sent")

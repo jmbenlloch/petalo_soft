@@ -751,8 +751,8 @@ TEMPERATURE DATA</string>
       <widget class="QFrame" name="frame_148">
        <property name="geometry">
         <rect>
-         <x>880</x>
-         <y>90</y>
+         <x>600</x>
+         <y>370</y>
          <width>241</width>
          <height>111</height>
         </rect>
@@ -1747,10 +1747,10 @@ p, li { white-space: pre-wrap; }
       <widget class="QFrame" name="frame_156">
        <property name="geometry">
         <rect>
-         <x>600</x>
-         <y>360</y>
-         <width>281</width>
-         <height>221</height>
+         <x>870</x>
+         <y>90</y>
+         <width>261</width>
+         <height>311</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -1818,7 +1818,7 @@ p, li { white-space: pre-wrap; }
          </font>
         </property>
         <property name="text">
-         <string>Alert threshold</string>
+         <string>Min temperature</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1827,8 +1827,8 @@ p, li { white-space: pre-wrap; }
        <widget class="QPushButton" name="pushButton_TempMonitor_start">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>150</y>
+          <x>20</x>
+          <y>240</y>
           <width>101</width>
           <height>51</height>
          </rect>
@@ -1840,8 +1840,8 @@ p, li { white-space: pre-wrap; }
        <widget class="QPushButton" name="pushButton_TempMonitor_stop">
         <property name="geometry">
          <rect>
-          <x>160</x>
-          <y>150</y>
+          <x>140</x>
+          <y>240</y>
           <width>101</width>
           <height>51</height>
          </rect>
@@ -1860,7 +1860,7 @@ p, li { white-space: pre-wrap; }
          </rect>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox_TempMonitor_alert">
+       <widget class="QSpinBox" name="spinBox_TempMonitor_min">
         <property name="geometry">
          <rect>
           <x>160</x>
@@ -1868,6 +1868,258 @@ p, li { white-space: pre-wrap; }
           <width>81</width>
           <height>31</height>
          </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_314">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>130</y>
+          <width>141</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Max temperature</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_TempMonitor_max">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>130</y>
+          <width>81</width>
+          <height>31</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_TempMonitor_7">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>200</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_TempMonitor_4">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>200</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_497">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>180</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_498">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>180</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_TempMonitor_5">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>200</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_499">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>180</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_500">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>180</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_TempMonitor_3">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>200</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_501">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>200</y>
+          <width>71</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TOFPET</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_502">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>180</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_TempMonitor_6">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>200</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_TempMonitor_2">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>200</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_504">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>180</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>7</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_TempMonitor_0">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>200</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_505">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>180</y>
+          <width>10</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_506">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>180</y>
+          <width>16</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_TempMonitor_1">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>200</y>
+          <width>20</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </widget>

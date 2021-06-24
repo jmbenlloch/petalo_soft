@@ -70,6 +70,7 @@ class Worker(QRunnable):
         self.tofpets   = kwargs['tofpets']
         self.window    = kwargs['window']
         self.monitor   = True
+        self.popup     = False
 
         self.collection = mongodb_collection('temperatures')
 
@@ -104,14 +105,16 @@ class Worker(QRunnable):
         if data.id in self.tofpets:
             if (data.temperature > self.max_temp):
                 turn_off_power_regulators(self.window)
-                msg = "TOFPET {} temperature {} over maximum threshold".format(data.id, data.temperature)
-                self.signals.alert.emit(msg)
-                self.monitor = False
+                if not self.popup:
+                    msg = "TOFPET {} temperature {} over maximum threshold".format(data.id, data.temperature)
+                    self.signals.alert.emit(msg)
+                    self.popup = True
             if (data.temperature < self.min_temp):
                 turn_off_power_regulators(self.window)
-                msg = "TOFPET {} temperature {} below minimum threshold".format(data.id, data.temperature)
-                self.signals.alert.emit(msg)
-                self.monitor = False
+                if not self.popup:
+                    msg = "TOFPET {} temperature {} below minimum threshold".format(data.id, data.temperature)
+                    self.signals.alert.emit(msg)
+                    self.popup = True
         else:
             print("tofpet not being monitored")
 

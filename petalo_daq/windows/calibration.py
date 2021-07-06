@@ -32,7 +32,19 @@ def connect_buttons(window):
     """
 
     window.pushButton_calibrate       .clicked.connect(execute_procedure(window))
+    #  window.pushButton_calibrate       .clicked.connect(test_logs(window))
     window.pushButton_calibrate_tpulse.clicked.connect(execute_tpulse_procedure(window))
+
+
+#  import numpy as np
+#  def test_logs(window):
+#      def fn():
+#          for i in np.arange(100000):
+#              window.update_log_info("TPULSE Calibration",
+#                                 "Running TPULSE calibration procedure")
+#              print_progress(window)("{} TPULSE Calibration\n".format(i))
+#
+#      return fn
 
 
 def execute_procedure(window):
@@ -83,6 +95,12 @@ def conf_done_signal_ack(worker):
 
 def print_progress(window):
     def fn(status):
+        # Limit size
+        text = window.plainTextEdit_calibrationLog.toPlainText()
+        nlines = len(text.split('\n'))
+        if nlines > 300:
+            window.plainTextEdit_calibrationLog.clear()
+
         window.plainTextEdit_calibrationLog.insertPlainText(status)
     return fn
 

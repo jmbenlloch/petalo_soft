@@ -185,6 +185,13 @@ class PetaloRunConfigurationGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         Returns:
         None: The is no return value
         """
+
+        # Limit size
+        text = self.textBrowser.toPlainText()
+        nlines = len(text.split('\n'))
+        if nlines > 200:
+            self.textBrowser.clear()
+
         self.textBrowser.append(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
         self.textBrowser.append(message + '\n')
         self.Log.setText(status)

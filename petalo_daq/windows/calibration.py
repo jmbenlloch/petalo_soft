@@ -20,6 +20,7 @@ from . tpulse_config  import tpulse_limited_time
 from .. network.commands import sleep_cmd
 
 from time import sleep
+import numpy as np
 
 
 def connect_buttons(window):

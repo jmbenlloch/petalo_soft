@@ -990,6 +990,16 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
+    'checkBox_CLK_locked' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_CLK_slave' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
 
 
     'checkBox_LMK_WREN' : {

@@ -266,7 +266,9 @@ def test_link_status_register_command(qtbot):
 
 @mark.parametrize(('bit_position', 'field'),
                   ((30, 'CLK_Start'),
-                   (29, 'CLK_RST')))
+                   (29, 'CLK_RST'),
+                   ( 1, 'CLK_locked'),
+                   ( 0, 'CLK_slave')))
 def test_clock_control_register_send_command(qtbot, bit_position, field):
     window = PetaloRunConfigurationGUI(test_mode=True)
     window.textBrowser.clear()

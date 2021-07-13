@@ -1654,6 +1654,20 @@ clock_control_data = {
             True  : {'value' : bitarray('1') },
         },
     },
+    'checkBox_CLK_locked' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_CLK_slave' : {
+        'default' : False,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
 }
 
 lmk_control_data = {

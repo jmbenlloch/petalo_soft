@@ -235,8 +235,10 @@ run_status_fields = {
 }
 
 clock_control_fields = {
-    "CLK_Start" : reverse_range_inclusive(30, 30),
-    "CLK_RST"   : reverse_range_inclusive(29, 29),
+    "CLK_Start"  : reverse_range_inclusive(30, 30),
+    "CLK_RST"    : reverse_range_inclusive(29, 29),
+    "CLK_locked" : reverse_range_inclusive( 1,  1),
+    "CLK_slave"  : reverse_range_inclusive( 0,  0),
 }
 
 lmk_control_fields = {

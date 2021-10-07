@@ -91,6 +91,10 @@ def convert_int32_to_bitarray(value):
     return value_bitarray
 
 
+def convert_bitarray_to_int(bitarray):
+    return int(bitarray.to01(), 2)
+
+
 def power_regulator_status(window, cmd, params):
     register, value = params
     value_bitarray = convert_int32_to_bitarray(value)

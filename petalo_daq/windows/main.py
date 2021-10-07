@@ -15,8 +15,9 @@ from .. gui.widget_data  import run_control_data
 from .. gui.types        import run_control_tuple
 from .. io.config_params import run_control_fields
 
-from .. network.client_commands import build_hw_register_write_command
-from .. network.commands        import register_tuple
+from .. network.client_commands   import build_hw_register_write_command
+from .. network.commands          import register_tuple
+from .. network.process_responses import convert_bitarray_to_int
 
 from .. database.mongo_db import store_configuration_in_db
 
@@ -223,8 +224,9 @@ def send_sync_rst(window):
     rst_cycles = 20
     register_value = register_value | (rst_cycles << link_control_fields['RST_CYCLES'][-1])
 
-    # TODO: Set ASIC number somehow
-    # register_value = register_value | 6
+    # Set ASIC number
+    sel_mux_value = convert_bitarray_to_int(window.comboBox_TOFPET_LINK_SEL_MUX.currentData())
+    register_value = register_value | sel_mux_value
 
     # Send command
     daq_id   = 0x0000

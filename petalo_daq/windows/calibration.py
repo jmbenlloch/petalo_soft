@@ -203,6 +203,7 @@ def config_tpulse_channels_and_send_cmd(window, signals):
 
         # Set calibration mode to activate TPULSE
         window.comboBox_RUN_MODE.setCurrentIndex(2)
+        window.comboBox_TOFPET_LINK_SEL_MUX.setCurrentIndex(config.asic)
 
         # Put conf_done signal in the queue
         window.tx_queue.put(signals.config_done)

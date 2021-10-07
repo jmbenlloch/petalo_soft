@@ -31,7 +31,28 @@ def connect_buttons(window):
     """
     window.pushButton_reg_glob.clicked.connect(Config_update_glob(window))
     window.checkBox_counter_en.clicked.connect(set_run_mode(window))
+    window.spinBox_ASIC_n.valueChanged.connect(update_global_config(window))
     #  window.checkBox_all_ASIC.clicked.connect()
+
+
+def update_global_config(window):
+    def on_click():
+        asic = window.spinBox_ASIC_n.value()
+        global_configs = window.data_store.retrieve('global_config_mongo')
+        config = global_configs[asic]
+        for field, value in config._asdict().items():
+            update_gui_fields(window, field, value, global_data)
+
+    return on_click
+
+
+#  def update_global_config(window):
+#      def on_click():
+#          global_config = window.data_store.retrieve('global_config')
+#          for field, value in global_config._asdict().items():
+#              update_gui_fields(window, field, value, global_data)
+#
+#      return on_click
 
 
 def Config_update_glob(window):
@@ -52,7 +73,13 @@ def Config_update_glob(window):
 
         # ASIC parameters to be update
         global_config = read_parameters(window, global_data, global_config_tuple)
-        window.data_store.insert('global_config_mongo', global_config)
+
+        # update data store
+        global_configs = window.data_store.retrieve('global_config_mongo')
+        asic = window.spinBox_ASIC_n.value()
+        global_configs[asic] = global_config
+
+        window.data_store.insert('global_config_mongo', global_configs)
 
         for field, positions in global_config_fields.items():
             value = getattr(global_config, field)
@@ -78,7 +105,7 @@ def Config_update_glob(window):
             fd.write(f"{date}: {global_bitarray}\n")
 
         window.data_store.insert('global_config', global_bitarray)
-        save_global_config_to_yml(global_config)
+        save_global_config_to_yml(window)
         send_global_configuration_to_card(window, global_bitarray)
 
         window.update_log_info("Global register configured",
@@ -170,12 +197,4 @@ def build_start_global_configuration_command(daq_id):
     command  = build_hw_register_write_command(daq_id, register.group, register.id, value)
     return command
 
-
-def update_global_config(window):
-    def on_click():
-        global_config = window.data_store.retrieve('global_config')
-        for field, value in global_config._asdict().items():
-            update_gui_fields(window, field, value, global_data)
-
-    return on_click
 

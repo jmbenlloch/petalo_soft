@@ -108,11 +108,13 @@ def save_config_to_yml(window):
         yaml.dump(configs_dicts, outfile, default_flow_style=False, Dumper=NoAliasDumper)
 
 
-def save_global_config_to_yml(config):
-    #configs = window.data_store.retrieve('global_config')
+def save_global_config_to_yml(window):
+    configs = window.data_store.retrieve('global_config_mongo')
+
+    configs_dicts = {k : v._asdict() for k,v in configs.items()}
 
     with open(global_config_yml, 'w') as outfile:
-        yaml.dump(config._asdict(), outfile, default_flow_style=False, Dumper=NoAliasDumper)
+        yaml.dump(configs_dicts, outfile, default_flow_style=False, Dumper=NoAliasDumper)
 
 
 def load_channel_config_from_yml(window):
@@ -136,8 +138,8 @@ def load_global_config_from_yml(window):
     yaml.add_constructor(u'!bitarray', bitarray_parser)
 
     with open(global_config_yml, 'r') as outfile:
-        global_config_tmp = yaml.load(outfile)
+        global_configs_tmp = yaml.load(outfile)
 
-    global_configs = global_config_tuple(**global_config_tmp)
-    window.data_store.insert('global_config', global_configs)
+    global_configs = {k : global_config_tuple(**v) for k, v in global_configs_tmp.items()}
+    window.data_store.insert('global_config_mongo', global_configs)
 

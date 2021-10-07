@@ -1,45 +1,368 @@
-adebug_buffer: !bitarray '1'
-adebug_out_mode: !bitarray '11'
-attenuator_ls: !bitarray '101111'
-counter_en: !bitarray '0'
-counter_period: !bitarray '110'
-data_clk_div: !bitarray '00'
-debug_mode: !bitarray '0'
-disc_ib: !bitarray '010011'
-disc_lsb_e: 40
-disc_lsb_t1: 58
-disc_lsb_t2: 58
-disc_sf_bias: !bitarray '100000'
-disc_vcas: !bitarray '1110'
-fe_ib1: !bitarray '111011'
-fe_ib2: 48
-fe_ib2_x2: !bitarray '1'
-fe_postamp_e: !bitarray '10100'
-fe_postamp_t: !bitarray '10111'
-fetp_enable: !bitarray '0'
-imirror_bias_top: 23
-input_polarity: !bitarray '1'
-main_global_dac: 23
-r_clk_en: !bitarray '110'
-stop_ramp_en: !bitarray '00'
-tac_refresh_en: !bitarray '1'
-tac_refresh_period: !bitarray '1001'
-tdc_clk_div: !bitarray '0'
-tdc_comp_bias: 4
-tdc_comp_vcas: !bitarray '0010'
-tdc_global_dac: 19
-tdc_i_lsb: 19
-tdc_i_ref: 18
-tdc_tac_vcas_n: !bitarray '0111'
-tdc_tac_vcas_p: !bitarray '01101'
-tx_ddr: !bitarray '1'
-tx_mode: !bitarray '10'
-tx_nlinks: !bitarray '10'
-v_att_diff_bias_ig: !bitarray '100011'
-v_cal_diff_bias_ig: !bitarray '00000'
-v_cal_ref_ig: 31
-v_cal_tp_top: !bitarray '00001'
-v_integ_ref_ig: 59
-v_ref_diff_bias_ig: !bitarray '111001'
-vdifffoldcas: !bitarray '110110'
-veto_mode: !bitarray '000000'
+0:
+  adebug_buffer: !bitarray '1'
+  adebug_out_mode: !bitarray '11'
+  attenuator_ls: !bitarray '101111'
+  counter_en: !bitarray '0'
+  counter_period: !bitarray '110'
+  data_clk_div: !bitarray '00'
+  debug_mode: !bitarray '0'
+  disc_ib: !bitarray '010011'
+  disc_lsb_e: 40
+  disc_lsb_t1: 58
+  disc_lsb_t2: 55
+  disc_sf_bias: !bitarray '100000'
+  disc_vcas: !bitarray '1110'
+  fe_ib1: 50
+  fe_ib2: 48
+  fe_ib2_x2: !bitarray '1'
+  fe_postamp_e: !bitarray '10100'
+  fe_postamp_t: !bitarray '10111'
+  fetp_enable: !bitarray '0'
+  imirror_bias_top: 14
+  input_polarity: !bitarray '1'
+  main_global_dac: 23
+  r_clk_en: !bitarray '110'
+  stop_ramp_en: !bitarray '00'
+  tac_refresh_en: !bitarray '0'
+  tac_refresh_period: !bitarray '1001'
+  tdc_clk_div: !bitarray '0'
+  tdc_comp_bias: 4
+  tdc_comp_vcas: !bitarray '0010'
+  tdc_global_dac: 19
+  tdc_i_lsb: 19
+  tdc_i_ref: 18
+  tdc_tac_vcas_n: !bitarray '0111'
+  tdc_tac_vcas_p: !bitarray '01101'
+  tx_ddr: !bitarray '1'
+  tx_mode: !bitarray '10'
+  tx_nlinks: !bitarray '10'
+  v_att_diff_bias_ig: !bitarray '100011'
+  v_cal_diff_bias_ig: !bitarray '00000'
+  v_cal_ref_ig: 31
+  v_cal_tp_top: !bitarray '00001'
+  v_integ_ref_ig: 59
+  v_ref_diff_bias_ig: !bitarray '111001'
+  vdifffoldcas: !bitarray '110110'
+  veto_mode: !bitarray '000000'
+1:
+  adebug_buffer: !bitarray '1'
+  adebug_out_mode: !bitarray '11'
+  attenuator_ls: !bitarray '101111'
+  counter_en: !bitarray '0'
+  counter_period: !bitarray '110'
+  data_clk_div: !bitarray '00'
+  debug_mode: !bitarray '0'
+  disc_ib: !bitarray '010011'
+  disc_lsb_e: 40
+  disc_lsb_t1: 58
+  disc_lsb_t2: 55
+  disc_sf_bias: !bitarray '100000'
+  disc_vcas: !bitarray '1110'
+  fe_ib1: 50
+  fe_ib2: 48
+  fe_ib2_x2: !bitarray '1'
+  fe_postamp_e: !bitarray '10100'
+  fe_postamp_t: !bitarray '10111'
+  fetp_enable: !bitarray '0'
+  imirror_bias_top: 14
+  input_polarity: !bitarray '1'
+  main_global_dac: 23
+  r_clk_en: !bitarray '110'
+  stop_ramp_en: !bitarray '00'
+  tac_refresh_en: !bitarray '0'
+  tac_refresh_period: !bitarray '1001'
+  tdc_clk_div: !bitarray '0'
+  tdc_comp_bias: 4
+  tdc_comp_vcas: !bitarray '0010'
+  tdc_global_dac: 19
+  tdc_i_lsb: 19
+  tdc_i_ref: 18
+  tdc_tac_vcas_n: !bitarray '0111'
+  tdc_tac_vcas_p: !bitarray '01101'
+  tx_ddr: !bitarray '1'
+  tx_mode: !bitarray '10'
+  tx_nlinks: !bitarray '10'
+  v_att_diff_bias_ig: !bitarray '100011'
+  v_cal_diff_bias_ig: !bitarray '00000'
+  v_cal_ref_ig: 31
+  v_cal_tp_top: !bitarray '00001'
+  v_integ_ref_ig: 59
+  v_ref_diff_bias_ig: !bitarray '111001'
+  vdifffoldcas: !bitarray '110110'
+  veto_mode: !bitarray '000000'
+2:
+  adebug_buffer: !bitarray '1'
+  adebug_out_mode: !bitarray '11'
+  attenuator_ls: !bitarray '101111'
+  counter_en: !bitarray '0'
+  counter_period: !bitarray '110'
+  data_clk_div: !bitarray '00'
+  debug_mode: !bitarray '0'
+  disc_ib: !bitarray '010011'
+  disc_lsb_e: 40
+  disc_lsb_t1: 58
+  disc_lsb_t2: 55
+  disc_sf_bias: !bitarray '100000'
+  disc_vcas: !bitarray '1110'
+  fe_ib1: 50
+  fe_ib2: 48
+  fe_ib2_x2: !bitarray '1'
+  fe_postamp_e: !bitarray '10100'
+  fe_postamp_t: !bitarray '10111'
+  fetp_enable: !bitarray '0'
+  imirror_bias_top: 14
+  input_polarity: !bitarray '1'
+  main_global_dac: 23
+  r_clk_en: !bitarray '110'
+  stop_ramp_en: !bitarray '00'
+  tac_refresh_en: !bitarray '0'
+  tac_refresh_period: !bitarray '1001'
+  tdc_clk_div: !bitarray '0'
+  tdc_comp_bias: 4
+  tdc_comp_vcas: !bitarray '0010'
+  tdc_global_dac: 19
+  tdc_i_lsb: 19
+  tdc_i_ref: 18
+  tdc_tac_vcas_n: !bitarray '0111'
+  tdc_tac_vcas_p: !bitarray '01101'
+  tx_ddr: !bitarray '1'
+  tx_mode: !bitarray '10'
+  tx_nlinks: !bitarray '10'
+  v_att_diff_bias_ig: !bitarray '100011'
+  v_cal_diff_bias_ig: !bitarray '00000'
+  v_cal_ref_ig: 31
+  v_cal_tp_top: !bitarray '00001'
+  v_integ_ref_ig: 59
+  v_ref_diff_bias_ig: !bitarray '111001'
+  vdifffoldcas: !bitarray '110110'
+  veto_mode: !bitarray '000000'
+3:
+  adebug_buffer: !bitarray '1'
+  adebug_out_mode: !bitarray '11'
+  attenuator_ls: !bitarray '101111'
+  counter_en: !bitarray '0'
+  counter_period: !bitarray '110'
+  data_clk_div: !bitarray '00'
+  debug_mode: !bitarray '0'
+  disc_ib: !bitarray '010011'
+  disc_lsb_e: 40
+  disc_lsb_t1: 58
+  disc_lsb_t2: 55
+  disc_sf_bias: !bitarray '100000'
+  disc_vcas: !bitarray '1110'
+  fe_ib1: 50
+  fe_ib2: 48
+  fe_ib2_x2: !bitarray '1'
+  fe_postamp_e: !bitarray '10100'
+  fe_postamp_t: !bitarray '10111'
+  fetp_enable: !bitarray '0'
+  imirror_bias_top: 14
+  input_polarity: !bitarray '1'
+  main_global_dac: 23
+  r_clk_en: !bitarray '110'
+  stop_ramp_en: !bitarray '00'
+  tac_refresh_en: !bitarray '0'
+  tac_refresh_period: !bitarray '1001'
+  tdc_clk_div: !bitarray '0'
+  tdc_comp_bias: 4
+  tdc_comp_vcas: !bitarray '0010'
+  tdc_global_dac: 19
+  tdc_i_lsb: 19
+  tdc_i_ref: 18
+  tdc_tac_vcas_n: !bitarray '0111'
+  tdc_tac_vcas_p: !bitarray '01101'
+  tx_ddr: !bitarray '1'
+  tx_mode: !bitarray '10'
+  tx_nlinks: !bitarray '10'
+  v_att_diff_bias_ig: !bitarray '100011'
+  v_cal_diff_bias_ig: !bitarray '00000'
+  v_cal_ref_ig: 31
+  v_cal_tp_top: !bitarray '00001'
+  v_integ_ref_ig: 59
+  v_ref_diff_bias_ig: !bitarray '111001'
+  vdifffoldcas: !bitarray '110110'
+  veto_mode: !bitarray '000000'
+4:
+  adebug_buffer: !bitarray '1'
+  adebug_out_mode: !bitarray '11'
+  attenuator_ls: !bitarray '101111'
+  counter_en: !bitarray '0'
+  counter_period: !bitarray '110'
+  data_clk_div: !bitarray '00'
+  debug_mode: !bitarray '0'
+  disc_ib: !bitarray '010011'
+  disc_lsb_e: 40
+  disc_lsb_t1: 58
+  disc_lsb_t2: 55
+  disc_sf_bias: !bitarray '100000'
+  disc_vcas: !bitarray '1110'
+  fe_ib1: 50
+  fe_ib2: 48
+  fe_ib2_x2: !bitarray '1'
+  fe_postamp_e: !bitarray '10100'
+  fe_postamp_t: !bitarray '10111'
+  fetp_enable: !bitarray '0'
+  imirror_bias_top: 14
+  input_polarity: !bitarray '1'
+  main_global_dac: 23
+  r_clk_en: !bitarray '110'
+  stop_ramp_en: !bitarray '00'
+  tac_refresh_en: !bitarray '0'
+  tac_refresh_period: !bitarray '1001'
+  tdc_clk_div: !bitarray '0'
+  tdc_comp_bias: 4
+  tdc_comp_vcas: !bitarray '0010'
+  tdc_global_dac: 19
+  tdc_i_lsb: 19
+  tdc_i_ref: 18
+  tdc_tac_vcas_n: !bitarray '0111'
+  tdc_tac_vcas_p: !bitarray '01101'
+  tx_ddr: !bitarray '1'
+  tx_mode: !bitarray '10'
+  tx_nlinks: !bitarray '10'
+  v_att_diff_bias_ig: !bitarray '100011'
+  v_cal_diff_bias_ig: !bitarray '00000'
+  v_cal_ref_ig: 31
+  v_cal_tp_top: !bitarray '00001'
+  v_integ_ref_ig: 59
+  v_ref_diff_bias_ig: !bitarray '111001'
+  vdifffoldcas: !bitarray '110110'
+  veto_mode: !bitarray '000000'
+5:
+  adebug_buffer: !bitarray '1'
+  adebug_out_mode: !bitarray '11'
+  attenuator_ls: !bitarray '101111'
+  counter_en: !bitarray '0'
+  counter_period: !bitarray '110'
+  data_clk_div: !bitarray '00'
+  debug_mode: !bitarray '0'
+  disc_ib: !bitarray '010011'
+  disc_lsb_e: 40
+  disc_lsb_t1: 58
+  disc_lsb_t2: 55
+  disc_sf_bias: !bitarray '100000'
+  disc_vcas: !bitarray '1110'
+  fe_ib1: 50
+  fe_ib2: 48
+  fe_ib2_x2: !bitarray '1'
+  fe_postamp_e: !bitarray '10100'
+  fe_postamp_t: !bitarray '10111'
+  fetp_enable: !bitarray '0'
+  imirror_bias_top: 14
+  input_polarity: !bitarray '1'
+  main_global_dac: 23
+  r_clk_en: !bitarray '110'
+  stop_ramp_en: !bitarray '00'
+  tac_refresh_en: !bitarray '0'
+  tac_refresh_period: !bitarray '1001'
+  tdc_clk_div: !bitarray '0'
+  tdc_comp_bias: 4
+  tdc_comp_vcas: !bitarray '0010'
+  tdc_global_dac: 19
+  tdc_i_lsb: 19
+  tdc_i_ref: 18
+  tdc_tac_vcas_n: !bitarray '0111'
+  tdc_tac_vcas_p: !bitarray '01101'
+  tx_ddr: !bitarray '1'
+  tx_mode: !bitarray '10'
+  tx_nlinks: !bitarray '10'
+  v_att_diff_bias_ig: !bitarray '100011'
+  v_cal_diff_bias_ig: !bitarray '00000'
+  v_cal_ref_ig: 31
+  v_cal_tp_top: !bitarray '00001'
+  v_integ_ref_ig: 59
+  v_ref_diff_bias_ig: !bitarray '111001'
+  vdifffoldcas: !bitarray '110110'
+  veto_mode: !bitarray '000000'
+6:
+  adebug_buffer: !bitarray '1'
+  adebug_out_mode: !bitarray '11'
+  attenuator_ls: !bitarray '101111'
+  counter_en: !bitarray '0'
+  counter_period: !bitarray '110'
+  data_clk_div: !bitarray '00'
+  debug_mode: !bitarray '0'
+  disc_ib: !bitarray '010011'
+  disc_lsb_e: 40
+  disc_lsb_t1: 58
+  disc_lsb_t2: 55
+  disc_sf_bias: !bitarray '100000'
+  disc_vcas: !bitarray '1110'
+  fe_ib1: 50
+  fe_ib2: 48
+  fe_ib2_x2: !bitarray '1'
+  fe_postamp_e: !bitarray '10100'
+  fe_postamp_t: !bitarray '10111'
+  fetp_enable: !bitarray '0'
+  imirror_bias_top: 14
+  input_polarity: !bitarray '1'
+  main_global_dac: 23
+  r_clk_en: !bitarray '110'
+  stop_ramp_en: !bitarray '00'
+  tac_refresh_en: !bitarray '0'
+  tac_refresh_period: !bitarray '1001'
+  tdc_clk_div: !bitarray '0'
+  tdc_comp_bias: 4
+  tdc_comp_vcas: !bitarray '0010'
+  tdc_global_dac: 19
+  tdc_i_lsb: 19
+  tdc_i_ref: 18
+  tdc_tac_vcas_n: !bitarray '0111'
+  tdc_tac_vcas_p: !bitarray '01101'
+  tx_ddr: !bitarray '1'
+  tx_mode: !bitarray '10'
+  tx_nlinks: !bitarray '10'
+  v_att_diff_bias_ig: !bitarray '100011'
+  v_cal_diff_bias_ig: !bitarray '00000'
+  v_cal_ref_ig: 31
+  v_cal_tp_top: !bitarray '00001'
+  v_integ_ref_ig: 59
+  v_ref_diff_bias_ig: !bitarray '111001'
+  vdifffoldcas: !bitarray '110110'
+  veto_mode: !bitarray '000000'
+7:
+  adebug_buffer: !bitarray '1'
+  adebug_out_mode: !bitarray '11'
+  attenuator_ls: !bitarray '101111'
+  counter_en: !bitarray '0'
+  counter_period: !bitarray '110'
+  data_clk_div: !bitarray '00'
+  debug_mode: !bitarray '0'
+  disc_ib: !bitarray '010011'
+  disc_lsb_e: 40
+  disc_lsb_t1: 58
+  disc_lsb_t2: 55
+  disc_sf_bias: !bitarray '100000'
+  disc_vcas: !bitarray '1110'
+  fe_ib1: 50
+  fe_ib2: 48
+  fe_ib2_x2: !bitarray '1'
+  fe_postamp_e: !bitarray '10100'
+  fe_postamp_t: !bitarray '10111'
+  fetp_enable: !bitarray '0'
+  imirror_bias_top: 14
+  input_polarity: !bitarray '1'
+  main_global_dac: 23
+  r_clk_en: !bitarray '110'
+  stop_ramp_en: !bitarray '00'
+  tac_refresh_en: !bitarray '0'
+  tac_refresh_period: !bitarray '1001'
+  tdc_clk_div: !bitarray '0'
+  tdc_comp_bias: 4
+  tdc_comp_vcas: !bitarray '0010'
+  tdc_global_dac: 19
+  tdc_i_lsb: 19
+  tdc_i_ref: 18
+  tdc_tac_vcas_n: !bitarray '0111'
+  tdc_tac_vcas_p: !bitarray '01101'
+  tx_ddr: !bitarray '1'
+  tx_mode: !bitarray '10'
+  tx_nlinks: !bitarray '10'
+  v_att_diff_bias_ig: !bitarray '100011'
+  v_cal_diff_bias_ig: !bitarray '00000'
+  v_cal_ref_ig: 31
+  v_cal_tp_top: !bitarray '00001'
+  v_integ_ref_ig: 59
+  v_ref_diff_bias_ig: !bitarray '111001'
+  vdifffoldcas: !bitarray '110110'
+  veto_mode: !bitarray '000000'

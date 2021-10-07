@@ -102,7 +102,8 @@ def bitarray_parser(loader,node):
 def save_config_to_yml(window):
     configs = window.data_store.retrieve('channel_config')
 
-    configs_dicts = {k : v._asdict() for k,v in configs.items()}
+    configs_dicts = {asic : {k : v._asdict() for k,v in config.items()} \
+                      for asic, config in configs.items()}
 
     with open(ch_config_yml, 'w') as outfile:
         yaml.dump(configs_dicts, outfile, default_flow_style=False, Dumper=NoAliasDumper)
@@ -123,7 +124,8 @@ def load_channel_config_from_yml(window):
     with open(ch_config_yml, 'r') as outfile:
         channel_configs_tmp = yaml.load(outfile)
 
-    channel_configs = {k : channel_config_tuple(**v) for k, v in channel_configs_tmp.items()}
+    channel_configs = { asic : {k : channel_config_tuple(**v) for k, v in config.items()} \
+                        for asic, config in channel_configs_tmp.items()}
     window.data_store.insert('channel_config', channel_configs)
 
 

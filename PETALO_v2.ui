@@ -13520,7 +13520,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../../Downloads/petalo_soft-master 2/PETALO_LOGO_2.jpg</pixmap>
+       <pixmap>PETALO_LOGO_2.jpg</pixmap>
       </property>
      </widget>
     </widget>

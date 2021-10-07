@@ -39,7 +39,13 @@ def update_global_config(window):
     def on_click():
         asic = window.spinBox_ASIC_n.value()
         global_configs = window.data_store.retrieve('global_config_mongo')
-        config = global_configs[asic]
+
+        # TRy to read the correct ASIC, if not, read 0
+        try:
+            config = global_configs[asic]
+        except KeyError:
+            config = global_configs[0]
+
         for field, value in config._asdict().items():
             update_gui_fields(window, field, value, global_data)
 

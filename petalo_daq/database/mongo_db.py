@@ -47,8 +47,9 @@ def store_configuration_in_db(window):
             'run'            : int(run_number),
             'labels'         : labels,
             'start_time'     : datetime.now(),
-            'global_config'  : global_config._asdict(),
-            'channel_config' : {str(k) : v._asdict() for k, v in channel_config.items()},
+            'global_config'  : {str(k) : v._asdict() for k, v in global_config.items()},
+            'channel_config' : {str(asic) : {str(k) : v._asdict() for k, v in config.items()} \
+                                for asic, config in channel_config.items()},
         }
         store_in_mongodb(data)
 

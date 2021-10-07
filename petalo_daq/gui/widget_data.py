@@ -253,12 +253,11 @@ global_data = {
         'step' : 1,
     },
 
-    'comboBox_fe_ib1' : {
-        'default' : 0,
-        'values' : {
-            0 : {'value': bitarray('111011'),
-                 'text' : '0b111011'},
-        },
+    'spinBox_fe_ib1' : {
+        'default' : 59,
+        'min'  : 0,
+        'max'  : 63,
+        'step' : 1,
     },
 
     'comboBox_disc_ib' : {

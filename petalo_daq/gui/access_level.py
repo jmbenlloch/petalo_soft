@@ -236,7 +236,7 @@ user_access = {
         'none'    : False,
     },
 
-    'comboBox_fe_ib1' : {
+    'spinBox_fe_ib1' : {
         'admin'   : True,
         'shifter' : False,
         'none'    : False,

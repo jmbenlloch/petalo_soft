@@ -2305,7 +2305,7 @@ global parameters</string>
          <widget class="QSpinBox" name="spinBox_main_global_dac"/>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox_fe_ib1"/>
+         <widget class="QSpinBox" name="spinBox_fe_ib1"/>
         </item>
         <item>
          <widget class="QComboBox" name="comboBox_disc_ib"/>

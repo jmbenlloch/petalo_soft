@@ -46,7 +46,13 @@ def update_channel_config(window):
         ch   = window.spinBox_ch_number.value()
         asic = window.spinBox_ASIC_n_2.value()
         channel_configs = window.data_store.retrieve('channel_config')
-        config = channel_configs[asic][ch]
+
+        # Try to read the correct ASIC, if not, read 0
+        try:
+            config = channel_configs[asic][ch]
+        except KeyError:
+            config = channel_configs[0][ch]
+
         for field, value in config._asdict().items():
             update_gui_fields(window, field, value, channel_data)
 

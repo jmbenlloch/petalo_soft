@@ -11989,7 +11989,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
       <widget class="QPushButton" name="pushButton_calibrate">
        <property name="geometry">
         <rect>
-         <x>290</x>
+         <x>160</x>
          <y>790</y>
          <width>131</width>
          <height>61</height>
@@ -12028,7 +12028,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
       <widget class="QPushButton" name="pushButton_calibrate_tpulse">
        <property name="geometry">
         <rect>
-         <x>480</x>
+         <x>370</x>
          <y>790</y>
          <width>191</width>
          <height>61</height>
@@ -12036,6 +12036,19 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
        </property>
        <property name="text">
         <string>TPULSE calibration</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_calibrate_qdc">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>790</y>
+         <width>191</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>QDC Calibration</string>
        </property>
       </widget>
      </widget>

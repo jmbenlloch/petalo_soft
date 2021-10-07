@@ -159,6 +159,8 @@ def print_run_number(window, signals):
 def config_tpulse(window, params, signals):
     config = {} # dict {GUI setter fn -> value}
 
+    print("config_tpulse: ", params)
+
     # Set phase
     widget  = window.spinBox_TPULSE_Phase
     config[widget.setValue] = params['phase']
@@ -187,3 +189,100 @@ def stop_DATE():
     cmd = 'ssh dateuser@ldc1petalo.ific.uv.es /home/dateuser/scripts/stopDate.sh'
     cmd_out = check_output(cmd, shell=True, executable='/bin/bash')
     run_number = cmd_out.decode()
+
+
+
+########################
+
+class QDC_Worker(QRunnable):
+    def __init__(self, fn, *args, **kwargs):
+        super(QDC_Worker, self).__init__()
+
+        # Store constructor arguments (re-used for processing)
+        self.fn = fn
+        self.args = args
+        self.kwargs = kwargs
+        self.signals = WorkerSignals()
+
+
+        # Add the callback to our kwargs
+        #  self.kwargs['progress_callback'] = self.signals.progress
+        #  self.kwargs['ch_config_callback'] = self.signals.ch_config
+        self.kwargs['signals'] = self.signals
+
+
+    @pyqtSlot()
+    def run(self):
+        '''
+        Initialise the runner function with passed args, kwargs.
+        '''
+
+        # Retrieve args/kwargs here; and fire processing using them
+        try:
+            result = self.fn(self, *self.args, **self.kwargs)
+
+            self.conf_sent  = False
+            self.conf_done  = False
+            self.data_taken = False
+            self.finished   = False
+            self.iteration = 0
+            while not self.finished:
+                print("qdc loop")
+                if not self.conf_sent:
+                    print("not conf_sent")
+                    self.conf_sent = self.send_next_configuration()
+                if self.conf_done:
+                    print("conf_done")
+                    self.take_tpulse_qdc_data()
+                    self.conf_done = False
+                if self.data_taken:
+                    print("data_taken")
+#                    sleep(2)
+                    self.data_taken = False
+                    self.conf_sent  = False
+                sleep(1)
+        except:
+            traceback.print_exc()
+            exctype, value = sys.exc_info()[:2]
+            self.signals.error.emit((exctype, value, traceback.format_exc()))
+        else:
+            self.signals.result.emit(result)  # Return the result of the processing
+        finally:
+            self.signals.finished.emit()  # Done
+
+
+    def send_next_configuration(self):
+        ready_for_data = False # only True when channel and TPULSE are setup
+        try:
+            params = next(self.generator)
+            if isinstance(params, channel_calib_tuple):
+                print("Configuring channnel")
+                # configure channels
+                # channel_calib_tuple :
+                #    channel : int
+                #    asic    : int
+                #    mode    : 'qdc' or 'tot'
+                config_channels(self.window, params, self.signals)
+                ready_for_data = False
+            else:
+                print("Configuring tpulse")
+                config_tpulse(self.window, params, self.signals)
+                ready_for_data = True
+        except StopIteration:
+            # If there are no more configs in the generator -> Stop the run
+            self.signals.stop_run.emit()
+            stop_DATE()
+            self.finished = True
+            self.window.data_store.insert('labels', {})
+
+        return ready_for_data
+
+
+    def take_runs_automatically_with_signals(self):
+        # Add label for DB
+        labels = self.window.data_store.retrieve('labels')
+        labels['iteration'] = self.iteration
+        self.window.data_store.insert('labels', labels)
+        self.iteration += 1
+
+        self.signals.start_run.emit()

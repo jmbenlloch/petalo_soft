@@ -8,6 +8,9 @@ from . worker_tpulse import Worker        as tpulse_worker
 from . worker_tpulse import WorkerSignals as tpulse_signals
 from . worker_tpulse import channel_calib_tuple
 
+from . calibration_qdc   import execute_tpulse_qdc_procedure
+from . calibration_utils import print_progress
+
 from . global_config  import Config_update_glob
 from . channel_config import Config_update_ch
 from . main           import start_run
@@ -35,6 +38,7 @@ def connect_buttons(window):
     window.pushButton_calibrate       .clicked.connect(execute_procedure(window))
     #  window.pushButton_calibrate       .clicked.connect(test_logs(window))
     window.pushButton_calibrate_tpulse.clicked.connect(execute_tpulse_procedure(window))
+    window.pushButton_calibrate_qdc   .clicked.connect(execute_tpulse_qdc_procedure(window))
 
 
 #  import numpy as np
@@ -92,18 +96,6 @@ def conf_done_signal_ack(worker):
         print("ack signal")
         worker.conf_done = True
     return ack
-
-
-def print_progress(window):
-    def fn(status):
-        # Limit size
-        text = window.plainTextEdit_calibrationLog.toPlainText()
-        nlines = len(text.split('\n'))
-        if nlines > 300:
-            window.plainTextEdit_calibrationLog.clear()
-
-        window.plainTextEdit_calibrationLog.insertPlainText(status)
-    return fn
 
 
 def config_channels_and_send_cmd(window, signals):
@@ -232,8 +224,8 @@ def start_tpulse_run(window, signals):
 
     return fn
 
+
 def data_taken_signal_ack(worker):
     def ack():
         worker.data_taken = True
     return ack
-

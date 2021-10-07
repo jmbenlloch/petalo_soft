@@ -162,6 +162,28 @@ sw_registers = {
             },
             'value' : 0,
            },
+        5: {
+            'permissions' : {
+                'read'  : False,
+                'write' : True,
+            },
+            'value' : 0,
+           },
+        6: {
+            'permissions' : {
+                'read'  : True,
+                'write' : True,
+            },
+            'value' : 0,
+           },
+        7: {
+            'permissions' : {
+                'read'  : True,
+                'write' : True,
+            },
+            'value' : 0,
+           },
+
        },
 }
 

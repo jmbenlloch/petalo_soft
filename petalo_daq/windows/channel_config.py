@@ -31,7 +31,7 @@ def connect_buttons(window):
     window (PetaloRunConfigurationGUI): Main application
     """
     window.pushButton_reg_ch.clicked.connect(Config_update_ch(window))
-    window.checkBox_all_ch  .clicked.connect(set_channels    (window))
+    window.checkBox_all_ch  .toggled.connect(set_channels    (window))
 
     window.spinBox_ch_number.valueChanged.connect(update_channel_config(window))
     window.spinBox_ASIC_n_2 .valueChanged.connect(update_channel_config(window))
@@ -72,10 +72,10 @@ def set_channels(window):
 
     def on_click():
         if (window.checkBox_all_ch.isChecked() == True):
-            window.data_store.insert( 'all_channels', True)
+            window.data_store.insert('all_channels', True)
             window.spinBox_ch_number.setEnabled (False)
         else:
-            window.data_store.insert( 'all_channels', False)
+            window.data_store.insert('all_channels', False)
             window.spinBox_ch_number.setEnabled (True)
 
     return on_click

@@ -66,6 +66,7 @@ class QDC_Worker(QRunnable):
             self.new_channel   = False
             self.channel_ready = False
             self.tpulse_ready  = False
+            self.first_channel = True
 
             self.channel_config_sent = False
 
@@ -93,11 +94,12 @@ class QDC_Worker(QRunnable):
 
                 if self.new_channel:
                     print("worker new channel")
-                    config_channels(self.window, self.next_config, self.signals)
-                    self.new_channel = False
-                    self.next_config = None
+                    config_channels(self.window, self.next_config, self.signals, self.first_channel)
+                    self.new_channel   = False
+                    self.next_config   = None
+                    self.first_channel = False
 
-                if self.channel_ready:
+                if self.channel_ready and self.next_config:
                     print("worker channel_ready")
                     print(self.next_config)
                     config_tpulse(self.window, self.next_config, self.signals)

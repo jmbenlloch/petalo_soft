@@ -92,9 +92,11 @@ def config_tpulse_and_take_data(window, signals):
 def config_tpulse_channels_and_send_cmd(window, signals):
     # Disable all channels but one, setting it to TPULSE trigger
     # actually set the values in the GUI (config: {setter -> value})
-    def fn(config):
+    def fn(params):
+        config = params['configuration']
         # Disable all channels
-        window.checkBox_all_ch.setChecked(True)
+        if params['disable_all_channels']:
+            window.checkBox_all_ch.setChecked(True)
         window.spinBox_ASIC_n_2.setValue(config.asic)
         window.comboBox_trigger_mode_1.setCurrentIndex(3)
         Config_update_ch(window)()
@@ -106,7 +108,8 @@ def config_tpulse_channels_and_send_cmd(window, signals):
         window.spinBox_max_intg_time.setValue(127)
 
         # Enable only the selected channel
-        window.checkBox_all_ch.setChecked(False)
+        if params['disable_all_channels']:
+            window.checkBox_all_ch.setChecked(False)
         window.spinBox_ch_number.setValue(config.channel)
         window.spinBox_ASIC_n_2.setValue(config.asic)
         window.comboBox_trigger_mode_1.setCurrentIndex(1) # tpulse

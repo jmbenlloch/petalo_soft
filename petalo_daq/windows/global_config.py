@@ -160,6 +160,10 @@ def send_global_configuration_to_card(window, global_bitarray):
     reset_cycles = 10
     tofpet_id = tofpet_id | (reset_cycles << 4)
 
+    # configure SYNC RST EDGE
+    edge_mode = 1 if window.checkBox_SYNC_RST_CONF.isChecked() else 0
+    register_value = register_value | (edge_mode << link_control_fields['SYNC_RST_CONF'][-1])
+
     # set ddr mode
     ddr_mode = 1 if window.checkBox_DDR.isChecked() else 0
     tofpet_id = tofpet_id | (ddr_mode << link_control_fields['DDR'][-1])

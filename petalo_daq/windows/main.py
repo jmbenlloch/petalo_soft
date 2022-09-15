@@ -216,6 +216,10 @@ def send_sync_rst(window):
     # Activate SYNC RST
     register_value = 1 << link_control_fields['SYNC_RST'][-1]
 
+    # configure SYNC RST EDGE
+    edge_mode = 1 if window.checkBox_SYNC_RST_RUN.isChecked() else 0
+    register_value = register_value | (edge_mode << link_control_fields['SYNC_RST_RUN'][-1])
+
     # configure DDR mode
     ddr_mode = 1 if window.checkBox_DDR.isChecked() else 0
     register_value = register_value | (ddr_mode << link_control_fields['DDR'][-1])

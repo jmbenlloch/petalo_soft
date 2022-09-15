@@ -11,6 +11,7 @@ from .. network.commands          import commands
 from .. network.commands          import register_tuple
 from .. testing.utils             import check_pattern_present_in_log
 from .. network.command_test      import check_expected_response
+from .. io.config_params import link_control_fields
 
 
 @mark.parametrize(('bit_position', 'field'),
@@ -342,6 +343,8 @@ def check_lmk_control_cmd(qtbot, window, enable, address, value):
                    (30, 'TOFPET_LINK_RST'),
                    (29, 'TOFPET_LINK_CONF_IODELAY'),
                    (28, 'TOFPET_LINK_RST_IODELAY'),
+                   (12, 'SYNC_RST_CONF'),
+                   (11, 'SYNC_RST_RUN'),
                    (10, 'SYNC_RST'),
                    ( 3, 'TOFPET_LINK_BC')))
 def test_link_control_register_send_command_boolean_fields(qtbot, bit_position, field):
@@ -361,7 +364,7 @@ def test_link_control_register_send_command_boolean_fields(qtbot, bit_position, 
         message    = MESSAGE()
         cmd        = message(cmd_binary)
 
-        expected_value    = int(status) << bit_position
+        expected_value    = (int(status) << bit_position) | (1 << link_control_fields['DDR'][-1])
         expected_response = {
             'command'  : commands.HARD_REG_W,
             'L1_id'    : 0,

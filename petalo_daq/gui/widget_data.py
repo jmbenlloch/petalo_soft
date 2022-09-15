@@ -1426,6 +1426,20 @@ link_control_data = {
             True  : {'value' : bitarray('1') },
         },
     },
+    'checkBox_SYNC_RST_CONF' : {
+        'default' : True,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
+    'checkBox_SYNC_RST_RUN' : {
+        'default' : True,
+        'values' : {
+            False : {'value' : bitarray('0') },
+            True  : {'value' : bitarray('1') },
+        },
+    },
     'spinBox_RST_CYCLES' : {
         'min'  : 0,
         'max'  : 63,

@@ -1096,6 +1096,16 @@ user_access = {
         'shifter' : True,
         'none'    : False,
     },
+    'checkBox_SYNC_RST_CONF' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
+    'checkBox_SYNC_RST_RUN' : {
+        'admin'   : True,
+        'shifter' : True,
+        'none'    : False,
+    },
     'spinBox_RST_CYCLES' : {
         'admin'   : True,
         'shifter' : True,

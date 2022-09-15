@@ -204,6 +204,10 @@ def send_start_channel_configuration_to_card(window, channel):
     tofpet_id = tofpet_id | (reset_cycles << 4)
     print("tofpet_id: ", tofpet_id)
 
+    # configure SYNC RST EDGE
+    edge_mode = 1 if window.checkBox_SYNC_RST_CONF.isChecked() else 0
+    register_value = register_value | (edge_mode << link_control_fields['SYNC_RST_CONF'][-1])
+
     # set ddr mode
     ddr_mode = 1 if window.checkBox_DDR.isChecked() else 0
     tofpet_id = tofpet_id | (ddr_mode << link_control_fields['DDR'][-1])

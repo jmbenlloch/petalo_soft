@@ -130,9 +130,9 @@ def Config_update_ch(window):
             for ch in range(n_channels):
                 channel_configs[ch] = channel_config
 
-                with open('channel_config_log.txt', 'a') as fd:
-                    date = datetime.now()
-                    fd.write(f"{date}: ch {ch} - {channel_bitarray}\n")
+#                with open('channel_config_log.txt', 'a') as fd:
+#                    date = datetime.now()
+#                    fd.write(f"{date}: ch {ch} - {channel_bitarray}\n")
 
                 send_channel_configuration_to_ram(window, ch, channel_bitarray)
 
@@ -144,9 +144,9 @@ def Config_update_ch(window):
             channel = window.spinBox_ch_number.value()
             all_channel_configs[asic][channel] = channel_config
 
-            with open('channel_config_log.txt', 'a') as fd:
-                date = datetime.now()
-                fd.write(f"{date}: ch {channel} - {channel_bitarray}\n")
+#            with open('channel_config_log.txt', 'a') as fd:
+#                date = datetime.now()
+#                fd.write(f"{date}: ch {channel} - {channel_bitarray}\n")
 
             send_channel_configuration_to_ram(window, channel, channel_bitarray)
             send_start_channel_configuration_to_card(window, channel)
@@ -154,7 +154,7 @@ def Config_update_ch(window):
             window.data_store.insert('channel_config', all_channel_configs)
 
         #  print(channel_bitarray[0:125])
-        save_config_to_yml(window)
+#        save_config_to_yml(window)
 
         window.update_log_info("Channel registers configured",
                                "Channel ASIC registers configured")

@@ -104,7 +104,7 @@ def write_to_lmk_ram(window, wr_enable, address, value):
     lmk_bitarray = bitarray('0'*32)
 
     # Convert address and value to bitarray
-    address_binary   = '{:07b}'.format(address)
+    address_binary   = '{:08b}'.format(address)
     address_bitarray = bitarray(address_binary.encode())
 
     value_binary   = '{:08b}'.format(value)

@@ -1676,7 +1676,7 @@ lmk_control_data = {
     'spinBox_LMK_REG_ADD' : {
         'default' : 0,
         'min' : 0,
-        'max' : 127,
+        'max' : 255,
         'step' : 1,
     },
     'spinBox_LMK_REG_VALUE' : {

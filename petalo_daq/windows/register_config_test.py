@@ -327,7 +327,7 @@ def check_lmk_control_cmd(qtbot, window, enable, address, value):
     message    = MESSAGE()
     cmd        = message(cmd_binary)
 
-    expected_value    = (1 << 31) | (int(enable) << 15) | (address << 8) | value
+    expected_value    = (1 << 31) | (int(enable) << 16) | (address << 8) | value
     expected_response = {
         'command'  : commands.HARD_REG_W,
         'L1_id'    : 0,

@@ -5349,7 +5349,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
             </rect>
            </property>
            <property name="text">
-            <string>PLL1 Locked</string>
+            <string>PLL2 Locked</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_179">
@@ -5609,7 +5609,7 @@ build_sw_register_read_command(daq_id=0, register_group=0, register_id=2)</strin
             </rect>
            </property>
            <property name="text">
-            <string>PLL2 Locked</string>
+            <string>PLL1 Locked</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_181">
